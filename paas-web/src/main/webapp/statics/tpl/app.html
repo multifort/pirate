@@ -1,0 +1,21 @@
+  <!-- navbar -->
+  <div data-ng-include=" '/statics/tpl/blocks/header.html' " class="app-header navbar">
+  </div>
+  <!-- / navbar -->
+
+  <!-- menu -->
+  <div data-ng-include=" '/statics/tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}"></div>
+  <!-- / menu -->
+
+  <!-- content -->
+  <div class="app-content">
+    <div ui-butterbar ng-class="{true: 'active', false: 'hide'}[isLoadingActive]"></div>
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+    <!-- <div class="title-current-page"><i class="fa fa-home"></i> 当前页：<span ng-bind-html="moduleTitle"></span></div> -->
+    <div class="app-content-body fade-in-up" ui-view></div>
+  </div>
+  <!-- /content -->
+
+   <!--layout setting -->
+  <!--<div data-ng-include=" '/statics/tpl/blocks/settings.html' " class="settings panel panel-default"></div>-->
+   <!--/layout setting-->

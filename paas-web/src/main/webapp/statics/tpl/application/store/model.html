@@ -1,0 +1,320 @@
+<div  style="padding-left: 25px;padding-top: 20px;border: 1px solid orange;" ng-if="StringData">
+    <div ng-repeat="item in StringData">
+        <div  ng-if="item.type=='warn'">
+            <div class="col-lg-12">
+                <p class="panel-title-size" style="    padding: 10px;    background-color: #e6ab52;    color: #fff;" ng-bind="item.value"></p>
+            </div>
+        </div>
+        <div class="col-lg-12"   ng-if="item.type=='String'"  >
+            <label class="control-label">{{item.displayName}}：</label>
+            <!-- //简单输入框 -->
+            <div class="control-input" >
+                <input type="text" name="key{{item.name}}" ng-if="item.event!='onblur'" class="form-control"  ng-model="item.select" validator="{{item.required}}" >
+                <input type="text" name="key{{item.name}}" ng-if="item.event=='onblur'" class="form-control" ng-blur="goApi(item)" ng-model="item.select" validator="{{item.required}}" >
+
+                <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+            </div>
+
+        </div>
+        <!-- Number -->
+        <div class="col-lg-12"    ng-if="item.type=='Number'&& item.display!='false'">
+
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <label class="control-label">{{item.displayName}}：</label>
+                    <div class="control-input">
+                        <div class="col-lg-9">
+                            <input type="number" name="Request" class="form-control" ng-model="item.select"  >
+
+                        </div>
+                        <div class="col-lg-3 nopadding">
+                            <select class="form-control" ng-model="item.defaultUnit">
+
+                                <option  ng-repeat="k in item.unit" ng-selected="k==item.defaultUnit" value="k" ng-bind="k"></option>
+
+                            </select>
+                        </div>
+                         <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <!-- Api -->
+        <div class="col-lg-12" style=" margin-top: 10px;"   ng-if="item.type=='Api'&& item.display!='false'">
+            <div>
+                <label class="control-label">{{item.displayName}}：</label>
+                <div class="control-input" >
+
+                    <select class="form-control" ng-model="item.obj"  name="selectobj"   ng-change="getParams(item.obj)" ng-if="item.event=='double_load'"  validator="required">
+                        <option  value="">--请选择--</option>
+                        <option ng-repeat="k in item.value"  value={{k}} ng-bind="k.name"></option>
+                    </select>
+
+                    <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-12" style=" margin: 10px 0 0 12px;"  ng-if="item.type=='Resource'&&item.display!='false'" >
+            <h5 style="    padding-left: 10px;">{{item.description}} </h5>
+            <!--<p style="  padding-left: 10px;  color: #da6464;  ">{{item.displayName}}</p>-->
+            <div class="padding-lf-20">
+                <p style="    padding-left: 10px;">资源请求</p>
+
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">CPU：</label>
+                        <div class="control-input">
+                            <div class="col-lg-9">
+                                <input type="number" name="cpuRequest" class="form-control" ng-model="addData.cpuRequest"  >
+
+                            </div>
+                            <div class="col-lg-3 nopadding">
+                                <select class="form-control" ng-model="$parent.cpuRequest">
+
+                                    <option  value="m">millicores</option>
+                                    <option  value=""> cores</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">内存：</label>
+                        <div class="control-input">
+                            <div class="col-lg-9">
+                                <input type="number" name="memoryRequest" class="form-control" ng-model="addData.memoryRequest"  >
+
+                            </div>
+                            <div class="col-lg-3 nopadding">
+                                <select class="form-control" ng-model="$parent.memoryRequest">
+                                    <option ng-repeat="(key,item) in appResource" value="{{item.value}}"    ng-selected="item.value==$parent.memoryRequest" ng-bind="item.name"></option>
+                                </select>
+                            </div>
+                            <p  class="col-lg-12" style="    color: #bab6b6;       padding: 10px 2px 2px 16px;">运行实例希望被分配到的，可完全保证的资源量</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="    padding-left: 10px;">资源限制</p>
+
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">CPU：</label>
+                        <div class="control-input">
+                            <div class="col-lg-9">
+                                <input type="number" name="cpuLimit" class="form-control"  ng-model="addData.cpuLimit" validator="required" >
+
+                            </div>
+                            <div class="col-lg-3 nopadding">
+                                <select class="form-control" ng-model="$parent.cpuLimit">
+                                    <option  value="m"> millicores</option>
+                                    <option  value=""> cores</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">内存：</label>
+                        <div class="control-input">
+                            <div class="col-lg-9">
+                                <input type="number" name="memoryLimit" class="form-control"  placeholder="参数必须大于4M,小数点不多于2位" ng-model="addData.memoryLimit" validator="required" >
+
+                            </div>
+                            <div class="col-lg-3 nopadding">
+                                <select class="form-control" ng-model="$parent.memoryLimit">
+                                    <option ng-repeat="(key,item) in appResource" value="{{item.value}}"    ng-selected="item.value==$parent.memoryLimit" ng-bind="item.name"></option>
+                                </select>
+                            </div>
+                            <p class="col-lg-12" style="    color: #bab6b6;       padding: 10px 2px 2px 16px;">运行实例最多能使用的资源量上限</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div class="col-lg-12" style=" margin-top: 10px;"  ng-if="item.type=='Volumes'&&item.display!='false'" >
+            <p style="    padding-left: 10px;">{{item.description}} </p>
+            <p style="  padding-left: 10px;  color: #da6464;  ">{{item.displayName}}</p>
+            <div class="padding-lf-20">
+            <div class="form-group" >
+                <div class="col-sm-12 text-left">
+                    <label class="control-label">存储卷：</label>
+                    <input class="radio1" type="radio" name="store"
+                           value="tv"  ng-model="store" ng-click="setStore('tv')"/>
+                    <label style="line-height: 34px;">临时</label>
+                    <input class="radio2" type="radio" name="store"
+                           value="pv"  ng-model="store" ng-click="setStore('pv')"/>
+                    <label style="line-height: 34px;">持久化</label>
+                </div>
+            </div>
+            <div class="form-group" ng-if="(store=='tv')">
+                <div class="col-sm-6">
+                    <label class="control-label">内部路径：</label>
+                    <div class="control-input">
+                        <input class="form-control" name="remark" ng-model="addData.tv_innerpath" validator="required"
+                               maxlength="64"
+                               maxlength-error-message="最多输入64个字符"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group" ng-if="(store=='pv')"   ng-repeat="(key,item) in storageList track by $index">
+                <div class="col-sm-12">
+                    <div class="col-sm-5 nopadding">
+                        <label class="control-label">持久化：</label>
+                        <div class="control-input ">
+                            <select class="form-control" ng-model="item.keys" ng-change="chackStore(item.keys,$index)"  validator="required" >
+                                <option  value="">--请选择--</option>
+                                <option ng-repeat="items in storageData"  ng-selected = "items.name == item.keys" value={{items.name}} ng-bind="items.name"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="control-label">内部路径：</label>
+                        <div class="control-input">
+                            <input class="form-control" name="remark{{key}}" ng-model="item.values" validator="required"
+                                   maxlength="64"
+                                   maxlength-error-message="最多输入64个字符"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 deployFa">
+                        <a class="storagelista" ng-click="addstorages(key)"><i
+                                class="fa  fa-plus"></i></a>
+                        <a class="storagelistb" ng-click="removestorages(key)"><i
+                                class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style=" margin-top: 10px;"  ng-if="item.type=='NodeSelector'&&item.display!='false'" >
+            <p style="    padding-left: 10px;">{{item.description}} </p>
+            <p style="  padding-left: 10px;  color: #da6464;  ">{{item.displayName}}</p>
+            <div class="padding-lf-20">
+                <div class="form-group" >
+                    <div class="col-sm-12 text-left">
+                        <label class="control-label">调度方式：</label>
+                        <input class="radio1" type="radio" name="schedule" value="labels"
+                               ng-model="scheduledType" ng-click="setSchedule('labels')"/>
+                        <label style="line-height: 34px;">标签</label>
+                        <input class="radio2" type="radio" name="schedule" value="host"
+                               ng-model="scheduledType" ng-click="setSchedule('host')"/>
+                        <label style="line-height: 34px;">主机</label>
+                    </div>
+                </div>
+                <div ng-if="(scheduledType =='labels')">
+                    <div class="form-group"
+                         ng-repeat="(key,item) in labelList track by $index">
+                        <div class="col-sm-12">
+                            <label class="control-label">标签：</label>
+                            <div class="control-input">
+                                <div class="col-sm-5 nopadding">
+                                    <input class="form-control" name="keys{{key}}"
+                                           placeholder="key" ng-model="item.keys"
+                                           type="text"/>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input class="form-control" name="values{{key}}"
+                                           placeholder="value" ng-model="item.values"
+                                           type="text"/>
+                                </div>
+                                <div class="col-sm-2 deployFa">
+                                    <a class="labellista" ng-click="addLabels(key)"><i
+                                            class="fa  fa-plus"></i></a>
+                                    <a class="labellistb" ng-click="removeLabel(key)"><i
+                                            class="fa fa-minus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="(scheduledType=='host')">
+                    <div class="col-sm-8">
+                        <label class="control-label">主机：</label>
+                        <div class="control-input special-select m-r-xxs" >
+                            <ui-select ng-model="vmListselect.selected"
+                                       style="margin-bottom:10px" theme="bootstrap">
+                                <ui-select-match placeholder="选择或者从列表中搜索一个主机">
+                                    {{$select.selected.name}}
+                                </ui-select-match>
+                                <ui-select-choices
+                                        repeat="item in vmList | filter: $select.search">
+                                    <div ng-bind-html="item.hostName | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-12" style=" margin: 10px 0 0 12px;"  ng-if="item.type=='Ports'&&item.display!='false'" >
+           
+            <p style="  padding-left: 10px;   ">{{item.displayName}}</p>
+                <div class="form-group">
+                    <div class="col-sm-12" style="line-height: 34px;text-align: center;">
+                        <div class="col-sm-2 ">
+                            目标端口
+                        </div>
+                        <div class="col-sm-2">
+                            协议类型
+                        </div>
+                        <div class="col-sm-2">
+                            服务端口
+                        </div>
+                        <div class="col-sm-2">
+                            是否映射
+                        </div>
+                        <div class="col-sm-2" >
+                            映射端口
+                        </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="form-group" ng-repeat="(key,item) in portList track by $index">
+                    <div class="col-sm-12">
+                        <!--<div class="control-input" style="padding-left: 50px;">-->
+                        <div class="col-sm-2">
+                            <select class="form-control" ng-model="item.targetPort" ng-change="targetPortChange(item)" >
+                                <option  value="">--请选择--</option>
+                                <option ng-repeat="row in porttargetPort" ng-selected="item.targetPort==row" value="{{row.key}}" ng-bind="row.key"></option>
+                            </select>
+
+                        </div>
+                        <div class="col-sm-2">
+                            <input class="form-control " disabled="true"
+                                   ng-model="item.protocol" type="text"/>
+                        </div>
+                        <div class="col-sm-2">
+                            <input class="form-control " ng-model="item.port"
+                                   type="text"/>
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <label class="i-checks m-b-none"><input type="checkbox" ng-model="item.optionsM" ng-change="checkport(item)"><i style="top: 7px;"></i></label>
+                        </div>
+                        <div class="col-sm-2" ng-class="{'portHidden':!item.optionsM}">
+                            <input class="form-control " ng-blur="checknum()" ng-model="item.nodePort "
+                                   type="text"/>
+                        </div>
+                        <div class="col-sm-2 deployFa">
+                            <a class="portlista" ng-click="addports(key)"><i
+                                    class="fa  fa-plus"></i></a>
+                            <a class="portlistb" ng-click="removeports(key)"><i
+                                    class="fa fa-minus"></i></a>
+                        </div>
+
+                        <!--</div>-->
+                    </div>
+
+            </div>
+        </div>
+        <div class="both"></div>
+
+    </div>
+</div>
+

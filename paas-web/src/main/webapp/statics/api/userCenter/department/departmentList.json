@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "message": "查询权限成功",
+  "data": [
+    {
+      "children": "[]",
+      "name": "数据纵览",
+      "id": 1,
+      "status":"ABNORMAL",
+      "remark":"基础设施",
+      "gmtModify":"2015-6-26 9:00",
+      "cpu":100,
+      "memory":110,
+      "disk":120
+    },
+    {
+      "name": "基础设施",
+      "checked": false,
+      "id": 2,
+      "status":"ABNORMAL",
+      "remark":"基础设施",
+      "gmtModify":"2015-6-26 9:00",
+      "cpu":null,
+      "memory":null,
+      "disk":null
+    },
+    {
+      "name": "配置管理",
+      "checked": false,
+      "id": 4,
+      "status":"ABNORMAL",
+      "remark":"基础设施",
+      "gmtModify":"2015-6-26 9:00",
+      "cpu":100,
+      "memory":110,
+      "disk":120
+    },
+    {
+      "name": "权限维护",
+      "checked": false,
+      "id": 5,
+      "status":"ABNORMAL",
+      "remark":"基础设施",
+      "gmtModify":"2015-6-26 9:00",
+      "cpu":100,
+      "memory":110,
+      "disk":120
+    }
+  ],
+  "solution": null
+}

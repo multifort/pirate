@@ -1,0 +1,288 @@
+{
+  "success": true,
+  "message": "用户登录成功",
+  "data": {
+    "apiKey": "1214546782",
+    "secKey": "1243538932",
+    "auths": [
+      {
+
+    "name": "数据纵览",
+    "actionUrl": "paas.dashboard.dashboard",
+    "icon": "fa fa-tachometer icon",
+    "id": 8,
+    "priority": 1
+  },
+    {
+        "children": [
+          {
+            "name": "环境管理",
+            "actionUrl": "paas.environment.environment",
+            "icon": null,
+            "id": 119,
+            "priority": 3,
+            "parentId": 9
+          },
+          {
+            "name": "主机管理",
+            "actionUrl": "paas.environment.host",
+            "icon": null,
+            "id": 13,
+            "priority": 2,
+            "parentId": 9
+          },
+          {
+            "name": "容器管理",
+            "actionUrl": "paas.environment.container",
+            "icon": null,
+            "id": 119,
+            "priority": 3,
+            "parentId": 9
+          },
+          {
+            "name": "存储卷",
+            "actionUrl": "paas.environment.storage",
+            "icon": null,
+            "id": 19,
+            "priority": 3,
+            "parentId": 9
+          }
+        ],
+        "name": "环境资源",
+        "actionUrl": "paas.environment",
+        "icon": "fa fa-sitemap icon",
+        "id": 9,
+        "priority": 2
+      },
+
+      {
+        "children": [
+          {
+            "name": "仓库管理",
+            "actionUrl": "paas.repository.repository",
+            "icon": null,
+            "id": 124,
+            "priority": 2,
+            "parentId": 122
+          },
+          {
+            "name": "镜像管理",
+            "actionUrl": "paas.repository.dockerimage",
+            "icon": null,
+            "id": 123,
+            "priority": 1,
+            "parentId": 122
+          }
+        ],
+        "name": "镜像仓库",
+        "actionUrl": "paas.repository",
+        "icon": "fa fa-clone icon",
+        "id": 122,
+        "priority": 4
+      },
+      {
+        "children": [
+          {
+            "name": "应用实例",
+            "actionUrl": "paas.application.instance",
+            "icon": null,
+            "id": 130,
+            "priority": 2,
+            "parentId": 125
+          },
+          {
+            "name": "应用商店",
+            "actionUrl": "paas.application.store",
+            "icon": null,
+            "id": 127,
+            "priority": 2,
+            "parentId": 125
+          },
+          {
+            "name": "应用编排",
+            "actionUrl": "paas.application.template",
+            "icon": null,
+            "id": 126,
+            "priority": 1,
+            "parentId": 125
+          },
+          {
+            "name": "配置管理",
+            "actionUrl": "paas.application.configManage",
+            "icon": null,
+            "id": 130,
+            "priority": 2,
+            "parentId": 125
+          }
+        ],
+        "name": "应用服务",
+        "actionUrl": "paas.application",
+        "icon": "fa fa-server icon",
+        "id": 125,
+        "priority": 5
+      },
+      {
+        "children": [
+          {
+            "name": "代码仓库",
+            "actionUrl": "paas.process.codeRepository",
+            "icon": null,
+            "id": 129,
+            "priority": 3,
+            "parentId": 125
+          },
+          {
+            "name": "流程编排",
+            "actionUrl": "paas.process.layout",
+            "icon": null,
+            "id": 127,
+            "priority": 2,
+            "parentId": 125
+          }
+        ],
+        "name": "流程管控",
+        "actionUrl": "paas.process",
+        "icon": "fa fa-sort-amount-asc",
+        "id": 125,
+        "priority": 5
+      },
+      {
+        "children": [
+          {
+            "name": "系统参数",
+            "actionUrl": "paas.system.parameter",
+            "icon": null,
+            "id": 126,
+            "priority": 1,
+            "parentId": 125
+          },
+
+          {
+            "name": "日志中心",
+            "actionUrl": "paas.system.log",
+            "icon": null,
+            "id": 127,
+            "priority": 2,
+            "parentId": 125
+          },
+          {
+            "name": "监测平台",
+            "actionUrl": "paas.system.monitor",
+            "icon": null,
+            "id": 127,
+            "priority": 2,
+            "parentId": 125
+          }
+        ],
+        "name": "系统运维",
+        "actionUrl": "paas.system",
+        "icon": "glyphicon glyphicon-dashboard icon",
+        "id": 125,
+        "priority": 5
+      },
+
+      {
+        "children": [
+          {
+            "name": "组织机构",
+            "actionUrl": "paas.userCenter.department",
+            "icon": null,
+            "id": 69,
+            "priority": 1,
+            "parentId": 40
+          },
+          {
+            "name": "用户管理",
+            "actionUrl": "paas.userCenter.user",
+            "icon": null,
+            "id": 42,
+            "priority": 2,
+            "parentId": 40
+          },
+          {
+            "name": "角色管理",
+            "actionUrl": "paas.userCenter.role",
+            "icon": null,
+            "id": 43,
+            "priority": 3,
+            "parentId": 40
+          },
+          {
+            "name": "权限管理",
+            "actionUrl": "paas.userCenter.permission",
+            "icon": null,
+            "id": 44,
+            "priority": 4,
+            "parentId": 40
+          }
+        ],
+        "name": "用户中心",
+        "actionUrl": "paas.userCenter",
+        "icon": "fa fa-desktop icon",
+        "id": 40,
+        "priority": 7
+      },
+      {
+        "children": [
+          {
+            "name": "服务目录",
+            "actionUrl": "paas.service_catalog.list",
+            "icon": "null",
+            "id": 128,
+            "priority": 5
+          }
+        ],
+        "name": "资产目录",
+        "actionUrl": "paas.service_catalog",
+        "icon": "fa fa-area-chart",
+        "id": 23,
+        "priority": 5
+      }
+    ],
+    "roles": [
+      {
+        "gmtModify": "2016-09-08 11:34:20",
+        "moreProp": null,
+        "remark": "超级管理员",
+        "gmtCreate": "2016-05-31 16:46:20",
+        "ownerId": null,
+        "menderId": 1,
+        "isDeleted": false,
+        "isLocked": false,
+        "name": "张海君",
+        "tenantId": null,
+        "createrId": 1,
+        "id": 1,
+        "status": null
+      }
+    ],
+    "user": {
+      "gmtModify": "2016-09-09 11:37:16",
+      "mobile": "18330033981",
+      "moreProp": null,
+      "remark": "超级管理员",
+      "sessionId": "D578CE33CE4C5D3ABED05672BE18CE93",
+      "gmtCreate": "2016-03-23 17:48:53",
+      "ownerId": null,
+      "loginStatus": true,
+      "menderId": 1,
+      "password": "-2cc3fe75eb672eeb60a6a80aa0565466506d9d1e",
+      "isDeleted": false,
+      "tenantName": null,
+      "phone": "010-1313131",
+      "isTenant": false,
+      "isLocked": false,
+      "name": "张海君",
+      "tenantId": null,
+      "company": null,
+      "createrId": 1,
+      "id": 1,
+      "roleNames": null,
+      "email": "admin@qq.com",
+      "status": "NORMAL",
+      "username": "admin"
+    }
+  },
+  "status": "200",
+  "solution": ""
+}

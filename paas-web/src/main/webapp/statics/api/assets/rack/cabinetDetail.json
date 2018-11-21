@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "data": {
+    "id":1,
+    "name": "机柜001",
+    "servers": 20,
+    "networks": 20,
+    "storages": 20,
+    "online": 18,
+    "warning": 10,
+    "resource":["40cpu/320核","1TB内存","100TB磁盘"],
+    "performance": ["23%平均CPU，单台最高100%","67%平均men，单台最高90%","200Mbps网下行"],
+    "dcId": 1,
+    "roomId": 2,
+    "status":"良好",
+    "remark":"qqq",
+    "specs":"1,3,3",
+    "vendor":"sdsdsd",
+    "productDate":"2016-03-12",
+    "productSn":"123",
+    "warranty":"12",
+    "type":"wan",
+    "axisX":"4",
+    "axisY":4,
+    "slotAmount":"12",
+    "material":"铁",
+    "engine":[{"name":"MySql","value":"MySql"}],
+    "version":[{"name":"5.5","value":"5.5"},{"name":"5.6","value":"5.6"}],
+    "netType":[{"name":"经典网络","value":"MySql"}],
+    "instanceClass":[{"name":"1核1GB","value":"rds.mysql.s2"},{"name":"2核8GB","value":"rds.mysql.s3"}]
+  }
+}

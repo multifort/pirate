@@ -1,0 +1,117 @@
+<div class="content-byc image-content" ng-controller="resourceDetailModalCtrl">
+  <div class="animated update-content" >
+      <div class="wrapper-md">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default" style="padding:0;">
+                      <div class="panel-heading font-bold">
+                          <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                          <span class="p-l-6">详情</span>
+                          <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                              <i class="fa fa-reply icon-font"></i> 返回
+                          </button>
+                      </div>
+                      <div class="panel-detail">
+                          <div class="image-box">
+                            <div class="image-box-h text-center">
+                              <div class=" col-md-1">
+                                <p class="small-box-p"><i class="fa fa-cube"></i></p>
+                              </div>
+                              <div class="text-left-p col-md-10">
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">主机名称：</span><span title="{{supplierDetail.name}}">{{supplierDetail.name}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">创建者名称：</span><span title="{{supplierDetail.creater}}">{{supplierDetail.creater}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">创建时间：</span><span title="{{supplierDetail.gmtCreate}}">{{supplierDetail.gmtCreate}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">状态：</span><span title="{{statusData[supplierDetail.status]}}">{{statusData[supplierDetail.status]}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">修改者名称：</span><span title="{{supplierDetail.mendor}}">{{supplierDetail.mendor}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">修改时间：</span><span title="{{supplierDetail.gmtModify}}">{{supplierDetail.gmtModify}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">地址：</span><span title="{{supplierDetail.ip}}">{{supplierDetail.ip}}</span></p>
+                                  <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">描述：</span><span title="{{supplierDetail.remark}}">{{supplierDetail.remark}}</span></p>
+                              </div>
+                              <div class="both">   </div>
+                            </div>
+                        </div>
+                      </div>
+                      <tabset class="tab-container">
+                       <!-- <tab >
+                          <tab-heading>
+                            基本信息
+                          </tab-heading>
+                          <div class="row panel pad-10"data-ng-include="'/statics/tpl/environment/host/basicmessage.html'">
+                          </div>
+                        </tab>-->
+                        <tab select="monitored()">
+                          <tab-heading>
+                            CPU监测
+                          </tab-heading>
+                            <span class="text-info">(每隔2分钟更新一次数据)</span>
+                            <div class="col-md-12 search-content m-t">
+                                <div class="form-group col-lg-6">
+                                    <label class="control-label">类型：</label>
+                                    <select class="form-control" ng-model="options.bucketDuration" ng-change="monitored()">
+                                        <option ng-repeat="(key,item) in timeTypeData" value="{{item.value}}"
+                                                ng-bind="item.name"></option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row panel pad-10" style="box-shadow: none;">
+                              <div class="" style="height: 300px;width: 100%;">
+                              <div  style="height: 300px;">
+                                  <div class="col-md-6" style="height: 500px;width:50%" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance.CPU" options="options.applyCpu"></div>
+                                  <div class="col-md-6" style="height: 500px;width:50%" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance.MEMORY" options="options.applyMemory"></div>
+                                  <div class="col-md-6" style="height: 500px;width:50%" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance.NETWORK" options="options.applyNet"></div>
+                                  <div class="col-md-12" style="height: 500px;width:800px" ng-if="performance"
+                                       ng-apply-pie-line-charts=""
+                                       data="performance.FILE" options="options.file"></div>
+                              </div>
+                              <div class="both"></div>
+                          </div>
+                          </div>
+                        </tab>
+                          <tab select="gpuMonitored()">
+                              <tab-heading>
+                                  GPU监测
+                              </tab-heading>
+                              <span class="text-info">(每隔2分钟更新一次数据)</span>
+                              <div class="col-md-12 search-content m-t">
+                                  <div class="form-group col-lg-6">
+                                      <label class="control-label">类型：</label>
+                                      <select class="form-control" ng-model="options.gpuBucketDuration" ng-change="gpuMonitored()">
+                                          <option ng-repeat="(key,item) in timeTypeData" value="{{item.value}}"
+                                                  ng-bind="item.name"></option>
+                                      </select>
+                                  </div>
+
+                              </div>
+                              <div class="row panel pad-10" style="box-shadow: none;">
+                                  <div class="" style="height: 300px;width: 100%;">
+                                      <div  style="height: 300px;">
+                                          <div class="col-md-6" style="height: 500px;width:50%" ng-if="gpuPerformance" ng-apply-pie-line-charts2=""
+                                               data="gpuPerformance.GpuUsage" options="options.applyGpu"></div>
+                                          <div class="col-md-6" style="height: 500px;width:50%" ng-if="gpuPerformance" ng-apply-pie-line-charts2=""
+                                               data="gpuPerformance.MemUsage" options="options.applyMemUsage"></div>
+                                          <div class="col-md-6" style="height: 500px;width:50%" ng-if="gpuPerformance" ng-apply-pie-line-charts2=""
+                                               data="gpuPerformance.Temp" options="options.applyTemp"></div>
+                                      </div>
+                                      <div class="both"></div>
+                                  </div>
+                              </div>
+                          </tab>
+                         <tab ng-controller="resourceVmListModalCtrl"  select="getData()" >
+                          <tab-heading>
+                            实例列表
+                          </tab-heading>
+                          <div class="row panel pad-10"style="box-shadow: none;" data-ng-include="'/statics/tpl/environment/host/openstackmessage.html'">
+                          </div>
+                        </tab>
+                      </tabset>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

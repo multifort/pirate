@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "data": {
+    "id":1,
+    "name":"Windows Server 2008 R2 数据中心版 64位 中文版SQL Server 2008 R2 企业版 SP3",
+    "status":"AVAILABLE",
+    "remark":"haha",
+    "moreProp":"运行中运行中运行中",
+    "osName":"Windows Server",
+    "vendorName":"dlfa;l;d",
+    "regionName":"ldskfja;d",
+    "osVersion":"2008 R2 数据中心版 64位",
+    "venderId":1,
+    "isDeleted":"",
+    "isLocked":0,
+    "gmtCreate":"2016-11-18 15:26:40",
+    "gmtModify":0,
+    "createrId":0,
+    "menderId":0,
+    "ownerId":0,
+    "adminStateup":false,
+    "shared":true,
+    "isRouterExternal":true
+  }
+}

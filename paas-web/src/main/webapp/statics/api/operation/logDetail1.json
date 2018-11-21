@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "message": "查询结果记录成功",
+  "data": {
+    "total": 2,
+    "pages": 1,
+    "page": 1,
+    "rows": [
+      {
+        "targetIp": "192.168.1.217",
+        "result": "{\"stdout\":\"root      58593  58591  0 11:31 pts/14   00:00:00 grep tomcat\\nroot      74755      1  1 09:32 pts/3    00:02:14 /usr/java/jdk1.8.0_65/jre/bin/java -Djava.util.logging.config.file=/opt/poc/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/opt/poc/endorsed -classpath /opt/poc/bin/bootstrap.jar:/opt/poc/bin/tomcat-juli.jar -Dcatalina.base=/opt/poc -Dcatalina.home=/opt/poc -Djava.io.tmpdir=/opt/poc/temp org.apache.catalina.startup.Bootstrap start\",\"start\":\"2016-09-19 11:31:55.485994\",\"end\":\"2016-09-19 11:31:55.526158\",\"changed\":true}",
+        "fullPath": null,
+        "jrId": 1852,
+        "cost": 3.0,
+        "filename": null,
+        "startTime": "2016-09-19 11:31:55",
+        "id": 3563,
+        "endTime": "2016-09-19 11:31:58",
+        "createrId": 22,
+        "gmtCreate": "2016-09-19 11:31:54",
+        "status": "SUCCESS"
+      },
+      {
+        "targetIp": "192.168.1.218",
+        "result": "{\"stdout\":\"root       8069   8067  0 11:31 pts/3    00:00:00 grep tomcat\",\"start\":\"2016-09-19 11:31:55.505470\",\"end\":\"2016-09-19 11:31:55.547095\",\"changed\":true}",
+        "fullPath": null,
+        "jrId": 1852,
+        "cost": 3.0,
+        "filename": null,
+        "startTime": "2016-09-19 11:31:55",
+        "id": 3564,
+        "endTime": "2016-09-19 11:31:58",
+        "createrId": 22,
+        "gmtCreate": "2016-09-19 11:31:54",
+        "status": "SUCCESS"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

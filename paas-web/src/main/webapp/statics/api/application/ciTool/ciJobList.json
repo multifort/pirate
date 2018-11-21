@@ -1,0 +1,82 @@
+{
+  "success" : true,
+  "data" :{
+    "rows":
+    [
+      {
+        "id":1,
+        "name":"角色名1",
+        "jobUrl":"NORMAL",
+        "remark":"hellohellohellohellohellohellohello",
+        "gmtCreate":"2016-08-24 14:20:36",
+        "gmtModify":"2016-08-24 14:20:36"
+      },{
+      "id":2,
+      "name":"角色名2",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":3,
+      "name":"角色名3",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":4,
+      "name":"角色名4",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":5,
+      "name":"角色名5",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":6,
+      "name":"角色名6",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":7,
+      "name":"角色名7",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":8,
+      "name":"角色名8",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":9,
+      "name":"角色名9",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    },{
+      "id":10,
+      "name":"角色名10",
+      "jobUrl":"NORMAL",
+      "remark":"hellohellohellohellohellohellohello",
+      "gmtCreate":"2016-08-24 14:20:36",
+      "gmtModify":"2016-08-24 14:20:36"
+    }],
+    "total":30
+  },
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

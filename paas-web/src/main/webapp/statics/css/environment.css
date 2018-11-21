@@ -1,0 +1,94 @@
+.search-content .form-group{
+    width: 30%;
+ display:inline-block;
+}
+.search-content .form-group-17{
+    width: 15%;
+    display:inline-block;
+    position: relative;
+    top: -2px;
+}
+.search-content .form-group-20{
+     width: 20%;
+     display:inline-block;
+ }
+.search-content .form-group-24{
+    width: 24%;
+    display:inline-block;
+}
+.search-content .form-group-27{
+    width: 27%;
+    display:inline-block;
+}
+.search-content .form-group-38{
+    width: 38%;
+    display:inline-block;
+}
+.search-box-r{
+    border: none;padding: 0px!important;
+}
+.search-content-r{
+    border: none;padding: 0px;
+}
+.history-div{
+    top: 0px!important;
+    width: 6% !important;
+    text-align: right;
+}
+.inner{
+    width: 100%;
+    height: 117px;
+    position: absolute;
+    cursor: pointer;
+    overflow:hidden;
+}
+.innerbox{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+/*滚动条样式*/
+.innerbox::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.innerbox::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.8);
+}
+.innerbox::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.3);
+}
+.history-div span{
+    border: 1px solid #ccc;
+    width: 34px;height: 34px;
+    display:inline-block;
+    text-align: center;
+    line-height: 34px;
+}
+.history-div span i{
+    font-size: 20px;
+    color: #1168b3;
+}
+
+/*应用编排*/
+.templateinstance .control-label{
+    float: left;
+    width: 100px;
+}
+.templateinstance .control-input{
+    width:calc(100% - 100px);
+    float: left;
+}
+/*创建环境*/
+.environmentadd .control-label{
+    float: left;
+    width: 130px;
+}
+.environmentadd .control-input{
+    width:calc(100% - 135px);
+    float: left;
+}

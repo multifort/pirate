@@ -1,0 +1,111 @@
+{
+  "success": true,
+  "message": "获取系统参数成功",
+  "data": {
+    "资源模块": [
+      {
+        "dictValue": "965",
+        "gmtModify": "2017-08-09 18:19:40",
+        "remark": null,
+        "pvalue": "资源模块",
+        "gmtCreate": null,
+        "ownerId": null,
+        "menderId": null,
+        "dictKey": "ng_port",
+        "props": null,
+        "deleted": false,
+        "name": "负载管理端口",
+        "createrId": null,
+        "id": 2,
+        "status": null
+      }
+    ],
+    "仓库模块": [
+      {
+        "dictValue": "826",
+        "gmtModify": "2017-08-09 18:19:40",
+        "remark": null,
+        "pvalue": "仓库模块",
+        "gmtCreate": null,
+        "ownerId": null,
+        "menderId": null,
+        "dictKey": "res_port",
+        "props": null,
+        "deleted": false,
+        "name": "仓库端口",
+        "createrId": null,
+        "id": 3,
+        "status": null
+      },
+      {
+        "dictValue": "826",
+        "gmtModify": "2017-08-09 18:19:40",
+        "remark": null,
+        "pvalue": "仓库模块",
+        "gmtCreate": null,
+        "ownerId": null,
+        "menderId": null,
+        "dictKey": "res_port",
+        "props": null,
+        "deleted": false,
+        "name": "仓库端口",
+        "createrId": null,
+        "id": 3,
+        "status": null
+      },
+      {
+        "dictValue": "826",
+        "gmtModify": "2017-08-09 18:19:40",
+        "remark": null,
+        "pvalue": "仓库模块",
+        "gmtCreate": null,
+        "ownerId": null,
+        "menderId": null,
+        "dictKey": "res_port",
+        "props": null,
+        "deleted": false,
+        "name": "仓库端口",
+        "createrId": null,
+        "id": 3,
+        "status": null
+      },
+      {
+        "dictValue": "826",
+        "gmtModify": "2017-08-09 18:19:40",
+        "remark": null,
+        "pvalue": "仓库模块",
+        "gmtCreate": null,
+        "ownerId": null,
+        "menderId": null,
+        "dictKey": "res_port",
+        "props": null,
+        "deleted": false,
+        "name": "仓库端口",
+        "createrId": null,
+        "id": 3,
+        "status": null
+      }
+    ],
+    "环境模块": [
+      {
+        "dictValue": "8000",
+        "gmtModify": null,
+        "remark": null,
+        "pvalue": "环境模块",
+        "gmtCreate": null,
+        "ownerId": null,
+        "menderId": null,
+        "dictKey": "res_proxy_port",
+        "props": null,
+        "deleted": false,
+        "name": "资源代理端口",
+        "createrId": null,
+        "id": 1,
+        "status": null
+      }
+    ]
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

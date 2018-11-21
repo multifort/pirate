@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "data": {
+      "id":112,
+      "name":"test",
+      "userId":"111111",
+      "username":"用户1用户1用户1用户1用户",
+      "password":"用户1",
+      "remark":"hello",
+      "email":"1@12.com",
+      "phone":"010-88888888",
+      "mobile":"13344313323",
+      "gmtCreate":"",
+      "gmtModify":"",
+      "createrId":"",
+      "menderId":"",
+      "ownerId":"",
+      "status":"ABNORMAL",
+      "isDeleted":"",
+      "isLocked":"true",
+      "sex":"true",
+      "props":"other",
+      "departName":"daiefnlafd",
+      "adminStateup":false,
+      "networkId":""
+  }
+}

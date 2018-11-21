@@ -1,0 +1,206 @@
+<style type="text/css">
+    #preview img ,#preview .img
+    {
+        width:200px;
+        height:200px;
+    }
+    #preview
+    {
+        border: 1px solid rgba(134, 122, 122, 0.71);
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin-top: 46px;
+        margin-left: 94px;
+        text-align: center;
+        font-size: 14px;
+        color: rgba(18, 19, 20, 0.69);
+    }
+</style>
+<div class="content-byc image-content" ng-controller="moduleUploadCtrl">
+    <div class="animated update-content" >
+        <div class="wrapper-md">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="padding:0;">
+                        <div class="panel-heading font-bold">
+                            <span class="p-l-6">组件上传</span>
+                            <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                                <i class="fa fa-reply icon-font"></i> 返回
+                            </button>
+                        </div>
+                        <div class="panel-detail">
+                            <div  class="content-byc" >
+                                <div class="wrapper-md">
+                                    <div class="row pad-10" style="padding: 10px;">
+
+                                        <div class="col-md-12">
+                                            <div  class="modal-body panel-body" >
+                                                <form class="form-horizontal form-validation" name="addvmForm">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label w100">服务名称：</label>
+                                                            <div class="control-input w_105">
+                                                                <input class="form-control w_105" name="serviceName" ng-model="addData.name" validator="required,createAppName"
+                                                                       ng-blur="checkName()"    maxlength="64" maxlength-error-message="最多输入64个字符"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <label class="control-label">选择类型：</label>
+                                                            <div class="control-input">
+                                                                <select class="form-control" name="registryId" ng-model="addData.type"  validator="required">
+                                                                    <option value="">--请选择--</option>
+                                                                    <option ng-repeat="item in warehoseData"  value="{{item}}" ng-bind="item"></option>
+                                                                </select>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <label class="control-label">部署方式：</label>
+                                                            <div class="control-input">
+                                                                <input class="radio1" type="radio" name="store"
+                                                                       value="单节点"  ng-model="deployType" />
+                                                                <label style="line-height: 34px;">单节点</label>
+                                                                <!--<input class="radio2" type="radio" name="store"-->
+                                                                       <!--value="集群"  ng-model="deployType" />-->
+                                                                <!--<label style="line-height: 34px;">集群</label>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" >
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label w100">镜像选择：</label>
+                                                            <div class="control-input w_105 text-left" style="line-height: 34px;">
+                                                                <div class="col-sm-3 ">
+                                                                    仓库
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    项目
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    镜像名称
+                                                                </div>
+                                                                <div class="col-sm-3" >
+                                                                    版本
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <div  style="padding-left: 79px;">
+                                                                <div class="col-sm-3 ">
+                                                                    <select class="form-control" name="registrya" ng-model="repository" ng-change="getRepository(repository)"  >
+                                                                        <option value="">--请选择--</option>
+                                                                        <option ng-repeat="item in dataTypeRepository"  value="{{item.id}}" ng-bind="item.name"></option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <select class="form-control" name="registryb" ng-model="space" ng-change="getSpaces(space)"  >
+                                                                        <option value="">--请选择--</option>
+                                                                        <option ng-repeat="item in dataTypeSpace"  value="{{item}}" ng-bind="item"></option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <select class="form-control" name="registryc" ng-model="image" ng-change="getImages(image)"  >
+                                                                        <option value="">--请选择--</option>
+                                                                        <option ng-repeat="item in dataTypeImage"  value="{{item}}" ng-bind="item"></option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-3" >
+                                                                    <select class="form-control" name="registryd" ng-model="vision" ng-change="getEnvDetail(vision)" validator="required">
+                                                                        <option value="">--请选择--</option>
+                                                                        <option ng-repeat="item in dataTypeVision"  value="{{item}}" ng-bind="item.tag"></option>
+                                                                    </select>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-10">
+                                                            <label class="control-label w100">高级选项：</label>
+
+                                                            <div class="control-input " >
+                                                                <label class="control-label w100" style="line-height: 34px;">存储卷 :</label>
+                                                                <switch name="VOLUME_TYPE" ng-model="array.VOLUME_TYPE"  style="float:left;margin-top: 7px;"
+                                                                          class="green"></switch>
+                                                                <label class="control-label w100" style="line-height: 34px;">资源配置 :</label>
+                                                                <switch  name="RESOURCE_TYPE" ng-model="array.RESOURCE_TYPE"  style="float:left;margin-top: 7px;"
+                                                                         class="green"></switch>
+                                                                <label class="control-label w100" style="line-height: 34px;">调度方式 :</label>
+                                                                <switch  name="NODE_TYPE" ng-model="array.NODE_TYPE"  style="float:left;margin-top: 7px;"
+                                                                         class="green"></switch>
+                                                                <button class="btn btn-success"style="margin-left: 34px;" ng-click="template()">生成脚本</button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <label class="control-label">脚本内容：</label>
+
+                                                            <div class="control-input"  ng-code-mirror="" code-mirror="codeMirror" >
+
+                                                                <textarea class="textarea both" ></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                        <div class="form-group" ng-picture-upload="">
+                                                        <div class="col-lg-12" >
+                                                            <label class="control-label">图片：</label>
+                                                            <div class="control-input" style="    width: calc(100% - 420px);">
+                                                                <input type="text" name="gridinPullName" readonly class="form-control"  ng-model="Pictionicon"  maxlength="64" >
+                                                                <div class="file-btn btn btn-info" style="top: 0;   right: -133px;">
+                                                                    <i class="fa fa-upload"></i> 组件图片上传
+                                                                    <span id="btnPictureUpload"><input type="file" ng-hide="updataBtn" ></span>
+                                                                </div>
+                                                                <div class="file-btn" style=" top: 0;   width: 164px; right: -311px;">
+                                                                    <button type="submit" class="btn btn-info" ng-disabled="updataBtn" ng-click="upload(item)">上传</button>
+                                                                    <button class="btn btn-cancel" ng-click="cancelFile()">删除</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="preview">
+                                                                <em style="line-height: 200px;">请上传png，JPG格式的图片</em>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12"  ng-if="progressbarShow">
+                                                            <label class="control-label">上传进度：</label>
+                                                            <div class="progress progress-sm m-b-none m-t-xs control-input" style="    margin-top: 11px;">
+                                                                <div class="progress-bar bg-success" role="progressbar" ng-style="{ 'width': item.progress + '%' }" animate="true"></div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <label class="control-label">描述信息：</label>
+                                                            <div class="control-input">
+                                                                <textarea class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" validator="required" name="remark" ng-model="addData.remark" maxlength="256" maxlength-error-message="最多输入256个字符"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||isLoadingCheck"  ng-click="ok()">确认</button>
+                                                <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

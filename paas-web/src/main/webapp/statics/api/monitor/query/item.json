@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "message": "查询成功",
+  "data": [
+    {
+      "value": "CPU使用率",
+      "key": "cpu"
+    },
+    {
+      "value": "内存使用情况",
+      "key": "memory"
+    },
+    {
+      "value": "磁盘使用情况",
+      "key": "df"
+    },
+    {
+      "value": "网络流量情况",
+      "key": "interface"
+    },
+    {
+      "value": "系统负载",
+      "key": "load"
+    },
+    {
+      "value": "不同状态的系统进程数量",
+      "key": "processes"
+    },
+    {
+      "value": "交换区使用情况（虚拟内存使用情况）",
+      "key": "swap"
+    }
+  ],
+  "status": null,
+  "solution": null
+}

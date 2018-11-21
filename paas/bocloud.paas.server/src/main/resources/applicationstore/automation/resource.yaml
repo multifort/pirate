@@ -1,0 +1,15 @@
+resources:
+              limits:
+                <% if (LIMITS_CPU != null) { %>
+                cpu: ${LIMITS_CPU}
+                <% } %>
+                <% if (LIMITS_MEMORY != null) { %>
+                memory: ${LIMITS_MEMORY}
+                <% } %>
+              requests:
+                <% if (REQUESTS_CPU != null) { %>
+                cpu: ${REQUESTS_CPU}
+                <% } %>
+                <% if (REQUESTS_MEMORY != null) { %>
+                memory: ${REQUESTS_MEMORY}
+                <% } %>

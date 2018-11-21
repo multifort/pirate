@@ -1,0 +1,189 @@
+<div class="content-byc image-content" ng-controller="AppCreateInTabCtrl">
+  <div class="animated update-content" >
+      <div class="wrapper-md">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default" style="padding:0;">
+                      <div class="panel-heading font-bold">
+                          <span class="p-l-6">构建详情</span>
+                          <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack(2)" tabindex="0">
+                              <i class="fa fa-reply icon-font"></i> 返回
+                          </button>
+                      </div>
+                      <div class="panel-detail">
+                        <div  class="content-byc" >
+                            <div class="wrapper-md">
+                                <div class="row pad-10" style="padding: 10px;">
+                                    <!--<div class="col-md-12 app-first-top">-->
+                                        <!--<div class="panel-body modal-body" style="border: 0px;">-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label class="control-label">类型：</label>-->
+                                                <!--<div class="control-input">-->
+                                                    <!--<select class="form-control" ng-change="change(x)" ng-model="x">-->
+                                                        <!--<option value="">&#45;&#45;请选择&#45;&#45;</option>-->
+                                                        <!--<option value="0">仓库源码</option>-->
+                                                        <!--&lt;!&ndash; <option value="1">War包</option>-->
+                                                        <!--<option value="2">镜像</option> &ndash;&gt;-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="col-md-12">
+                                        <div  class="modal-body panel-body" >
+                                            <form class="form-horizontal form-validation" name="addvmForm">
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">基础镜像：</label>
+                                                        <div class="control-input" >
+                                                            <ui-select ng-model="scriptItem.selected"
+                                                                       theme="bootstrap">
+                                                                <ui-select-match placeholder="选择或者从列表中搜索一个镜像">
+                                                                    {{$select.selected.name}}
+                                                                </ui-select-match>
+                                                                <ui-select-choices
+                                                                        repeat="item in dataType | filter: $select.search">
+                                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                </ui-select-choices>
+                                                            </ui-select>
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请选择s2i的基础镜像</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">源码地址：</label>
+                                                        <div class="control-input">
+                                                            <input type="text" name="repositoryUrl"   class="form-control" ng-blur="getBeach()" ng-model="addData.repositoryUrl" validator="required,url" >
+                                                            <p style="color: #bab6b6; padding-top: 2px;">目前仅支持git管理的源码</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">用户名：</label>
+                                                        <div class="control-input">
+                                                            <input type="text" name="repositoryUsername"  ng-blur="getBeach()"  class="form-control" ng-model="addData.repositoryUsername"  >
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请填写正确的源码访问用户名</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">密码：</label>
+                                                        <div class="control-input">
+                                                            <input type="password" name="repositoryPassword" ng-blur="getBeach()"  class="form-control" ng-model="addData.repositoryPassword"  >
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请填写正确的源码访问密码</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">源码分支：</label>
+                                                        <div class="control-input">
+                                                         <input type="text" name="registId"  class="form-control" ng-model="addData.repositoryBranch"  validator="required">
+                                                            
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请填写正确的源码分支</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                          <!--       <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">源码分支：</label>
+                                                        <div class="control-input">
+                                                            <select class="form-control" name="registId" ng-model="addData.repositoryBranch"  validator="required">
+                                                                <option value="">--请选择--</option>
+                                                                <option ng-repeat="item in repositoryBranch"  value="{{item.value}}" ng-bind="item.name"></option>
+                                                            </select>
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请填写正确的源码分支</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">源码包名：</label>
+                                                        <div class="control-input">
+                                                            <input type="text" name="warName"   class="form-control" ng-model="addData.warName" validator="required" maxlength="64" maxlength-error-message="最多输入64个字符">
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请填写正确的源码打包的包名</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="form-group">-->
+                                                    <!--<div class="col-lg-12">-->
+                                                        <!--<label class="control-label">pom位置：</label>-->
+                                                        <!--<div class="control-input">-->
+                                                            <!--<input type="text" name="pomPath"   class="form-control" ng-model="addData.pomPath" validator="required" maxlength="64" maxlength-error-message="最多输入64个字符">-->
+                                                            <!--<p style="color: #bab6b6; padding-top: 2px;">请填写正确的源码pom文件位置，如果在根目录则填写[/]</p>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">镜像仓库：</label>
+                                                        <div class="control-input">
+                                                            <select class="form-control" name="registryId" ng-model="addData.registryId" ng-change="getImage(addData.registryId)" validator="required">
+                                                                <option value="">--请选择--</option>
+                                                                <option ng-repeat="item in warehoseData"  value="{{item.id}}" ng-bind="item.name"></option>
+                                                            </select>
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请选择需要推送的镜像仓库</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-if="imageshow">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">项目名称：</label>
+                                                        <div class="control-input">
+                                                            <div class="special-select m-r-xxs">
+                                                                <ui-select ng-model="scriptItemSpace.selected"
+                                                                           theme="bootstrap">
+                                                                    <ui-select-match placeholder="搜索一个项目名称">
+                                                                        {{$select.selected.name}}
+                                                                    </ui-select-match>
+                                                                    <ui-select-choices
+                                                                            repeat="item in imageData | filter: $select.search">
+                                                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                                    </ui-select-choices>
+                                                                </ui-select>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label">新镜像名：</label>
+                                                        <div class="control-input">
+                                                            <input type="text" name="newImageName"   class="form-control" ng-model="addData.newImageName" validator="required" >
+                                                            <p style="color: #bab6b6; padding-top: 2px;">请填写新镜像的名称，格式为[项目/镜像名称:镜像版本]</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||isLoadingCheck"  ng-click="ok()">确认</button>
+                                            <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>

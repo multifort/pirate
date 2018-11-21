@@ -1,0 +1,109 @@
+<div ng-repeat="item in StringData">
+    <div  ng-if="item.type=='warn'">
+        <div class="col-lg-12">
+            <p class="panel-title-size" style="    padding: 10px;    background-color: #e6ab52;    color: #fff;" ng-bind="item.value"></p>
+        </div>
+    </div>
+      <div class="col-lg-12" style=" margin-top: 10px;"  ng-if="item.type=='String'&&item.display!='false'"  >
+          <label class="control-labels">{{item.displayName}}：</label>
+          <!-- //简单输入框 -->
+          <div class="control-inputs" >
+                <input type="text" name="key{{item.name}}" ng-if="item.event!='onblur'" class="form-control"  ng-model="item.select" validator="{{item.required}}" >
+              <input type="text" name="key{{item.name}}" ng-if="item.event=='onblur'" class="form-control" ng-blur="goApi()" ng-model="item.select" validator="{{item.required}}" >
+
+              <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+          </div>
+
+      </div>
+    <div class="col-lg-12" style=" margin-top: 10px;"  ng-if="item.type=='Password'&&item.display!='false'"  >
+        <label class="control-labels">{{item.displayName}}：</label>
+        <!-- //简单输入框 -->
+        <div class="control-inputs" >
+            <input type="password" name="key{{item.name}}" ng-if="item.event!='onblur'" class="form-control"  ng-model="item.select" validator="{{item.required}}" >
+            <input type="password" name="key{{item.name}}" ng-if="item.event=='onblur'" class="form-control" ng-blur="goApi()" ng-model="item.select" validator="{{item.required}}" >
+            <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+        </div>
+
+    </div>
+    <!-- select -->
+    <div class="col-lg-12" style=" margin-top: 10px;"   ng-if="item.type=='Query'&&item.display!='false'">
+        <label class="control-labels">{{item.displayName}}：</label>
+        <div class=" col-lg-4" >
+            <input type="text" name="key{{item.name1}}" placeholder="{{item.name1}}" class="form-control"  ng-model="item.value1" validator="{{item.required}}" >
+
+        </div>
+        <div class="  col-lg-4" >
+            <input type="password" name="key{{item.name2}}" placeholder="{{item.name2}}" ng-if="item.name2=='password'" class="form-control"  ng-model="item.value2" validator="{{item.required}}" >
+            <input type="text" name="key{{item.name2}}" placeholder="{{item.name2}}"  ng-if="item.name2 !='password'" class="form-control"  ng-model="item.value2" validator="{{item.required}}" >
+        </div>
+        <div class="  col-lg-12" >
+            <p style="    color: #bab6b6;       padding: 2px 2px 2px 85px;">{{item.description}}</p>
+        </div>
+
+
+    </div>
+      <!-- select -->
+      <div class="col-lg-12" style=" margin-top: 10px;"   ng-if="item.type=='T_select'&&item.display!='false'">
+          <label class="control-labels">{{item.displayName}}：</label>
+          <div class=" col-lg-4 " >
+            <select class="form-control" ng-model="item.select" ng-change="getSelect(item.select)" validator="{{item.required}}" >
+                <option  value="">--请选择--</option>
+              <option ng-repeat="(key,items) in diagram"   ng-selected = "key == item.select"  value={{key}} ng-bind="name_Data[items]"></option>
+            </select>
+          </div>
+          <div class="  col-lg-4" >
+            <select class="form-control" ng-model="item.value" validator="{{item.required}}" >
+                <option  value="">--请选择--</option>
+              <option ng-repeat="items in diagramDataB"   ng-selected = "items == item.value" value={{items}} ng-bind="items"></option>
+            </select>
+          </div>
+          <div class="  col-lg-12" >
+           <p style="    color: #bab6b6;       padding: 2px 2px 2px 160px;">{{item.description}}</p>
+          </div>
+
+
+      </div>
+      <!-- Api -->
+      <div class="col-lg-12" style=" margin-top: 10px;"   ng-if="item.type=='Api'&& item.display!='false'">
+	      <div>
+	      	<label class="control-labels">{{item.displayName}}：</label>
+           <div class="control-inputs" >
+             <select class="form-control" ng-model="item.select"  validator="{{item.required}}" >
+                 <option  value="">--请选择--</option>
+               <option ng-repeat="(a,b) in item.value"  ng-selected = "b.value == item.select" value={{b.value}} ng-bind="b.name"></option>
+             </select>
+               <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+          </div>
+	      </div>
+
+
+      </div>
+      <div class="col-lg-12" style=" margin-top: 10px;"   ng-if="item.type=='file'&& item.display !='false'" >
+        <div ng-file-upload-only="">
+          <div  >
+              <label class="control-labels">{{item.displayName}}：</label>
+              <div class="control-inputs">
+                  <input type="text" name="key{{item.name}}" validator="{{item.required}}"  readonly class="form-control"  ng-model="gridinPullName" placeholder="{{item.description}}" maxlength="64" >
+                  <div class="file-btn btn btn-info" style="top:0px">
+                  <i class="fa fa-upload"></i> 添加本地文件
+                  <span id="btnFileUpload"><input type="file" ng-hide="updataBtn" ></span>
+                </div>
+                  <p style="    color: #bab6b6;   padding: 2px;">{{item.description}}</p>
+              </div>
+          </div>
+          <div >
+            <label class="control-labels">添加进度：</label>
+            <div class="progress progress-sm m-b-none m-t-xs control-inputs" style="  margin-top: 11px;">
+                    <div class="progress-bar bg-success" role="progressbar" ng-style="{ 'width': item.progress + '%' }" animate="true"></div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <button type="submit" class="btn btn-info" ng-disabled="updataBtn"  ng-click="upload(item)">确认导入</button>
+          <button class="btn btn-cancel" ng-click="cancelFile()">取消上传</button>
+        </div>
+      </div>
+
+      <div class="both"></div>
+
+</div>

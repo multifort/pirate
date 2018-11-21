@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "data": {
+    "name":"申请",
+    "content":"sfsdfsdfsd",
+    "approvers":[{
+      "id":1,
+      "name":"1212",
+      "status":"UNAPPLY"
+    },{
+      "id":2,
+      "name":"1212",
+      "status":"APPROVED"
+    },{
+      "id":3,
+      "name":"1212",
+      "status":"APPROVING"
+    }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{"success":true,
+  "message":"查询成功",
+  "data":{
+    "total":1,
+    "pages":1,
+    "page":1,
+    "rows":[
+      {
+        "creator":"宋松",
+        "gmtModify":"2017-06-29 18:40:00",
+        "name":"nginx",
+        "remark":null,
+        "gmtCreate":"2017-06-29 18:40:01",
+        "ownerId":2,
+        "menderId":2,
+        "managerIp":"1.1.1.1",
+        "port":8080,
+        "deleted":false,
+        "type":1,
+        "tenantId":null,
+        "mender":"宋松",
+        "createrId":2,
+        "id":59,
+        "status":0,
+        "envId":2,
+        "envName":"qqqq",
+        "appCount":2
+      },
+      {
+        "creator":"宋松",
+        "gmtModify":"2017-06-29 18:40:00",
+        "name":"nginx",
+        "remark":null,
+        "gmtCreate":"2017-06-29 18:40:01",
+        "ownerId":2,
+        "menderId":2,
+        "managerIp":"1.1.1.1",
+        "port":8080,
+        "deleted":false,
+        "type":2,
+        "tenantId":null,
+        "mender":"宋松",
+        "createrId":2,
+        "id":59,
+        "status":1,
+        "envId":33,
+        "envName":"aaaa",
+        "appCount":26
+      }
+    ]
+  },
+  "status":null,
+  "solution":null,
+  "failed":false
+}

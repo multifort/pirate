@@ -1,0 +1,30 @@
+{
+    "success" : true,                    
+    "data" : {
+		"id":2,
+		"name":"数据中心2",
+		"gmtCreate":0,
+		"gmtModify":0,
+		"createrId":0,
+		"menderId":0,
+		"ownerId":0,
+		"status":"运行中",
+		"city":"北京",
+		"province":"北京市",
+		"isLocked":0,
+		"additionalProperties":0,
+		"remark":0,
+		"address":"dfsgfg",
+		"contactPhone":"85654",
+		"contacter":"dga",
+		"contactEmail":"1@123.com",
+		"emergencyPhone":"7453",
+		"vendor":"dd",
+		"commissionDate":"20160310",
+		"totalArea":"100",
+		"isDeleted":""
+    },
+    "message" : "信息",
+    "code" : 1111,         
+    "solution" : " "        
+}

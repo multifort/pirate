@@ -1,0 +1,96 @@
+{
+  "success": true,
+  "message": "获取设备类型数据成功",
+  "data": [{
+    "children": [{
+      "children": [],
+      "name": "Windows"
+    }, {
+      "children": [{
+        "ip": "192.168.1.162",
+        "name": "核心数据库服务器",
+        "type": "Linux",
+        "category": "host"
+      }, {
+        "ip": "192.168.1.164",
+        "name": "server-lkx",
+        "type": "Linux",
+        "category": "host"
+      }],
+      "name": "Linux"
+    }],
+    "name": "主机设备"
+  }, {
+    "children": [{
+      "children": [{
+        "ip": "192.168.1.162",
+        "name": "Tomcat(192.168.1.162)",
+        "type": "Tomcat",
+        "category": "middleware"
+      }],
+      "name": "Tomcat"
+    }, {
+      "children": [{
+        "ip": "192.168.1.167",
+        "name": "Weblogic(192.168.1.167)",
+        "type": "Weblogic",
+        "category": "middleware"
+      }],
+      "name": "Weblogic"
+    }],
+    "name": "中间件"
+  }, {
+    "children": [{
+      "children": [{
+        "ip": "192.168.1.163",
+        "name": "test-zhanghaijun12(192.168.1.14)",
+        "type": "Oracle",
+        "category": "database"
+      }],
+      "name": "Oracle"
+    }, {
+      "children": [{
+        "ip": "192.168.1.152",
+        "name": "Mysql(192.168.1.152)",
+        "type": "Mysql",
+        "category": "database"
+      }],
+      "name": "Mysql"
+    }, {
+      "children": [{
+        "ip": "192.168.1.166",
+        "name": "Redis(192.168.1.166)",
+        "type": "Redis",
+        "category": "database"
+      }],
+      "name": "Redis"
+    }],
+    "name": "数据库"
+  }, {
+    "children": [{
+      "children": [{
+        "ip": "192.168.1.1",
+        "name": "H3C(192.168.1.1)",
+        "type": "Router",
+        "category": "networkDevice"
+      }, {
+        "ip": "58.210.98.198",
+        "name": "H3C(58.210.98.198)",
+        "type": "Router",
+        "category": "networkDevice"
+      }],
+      "name": "Router"
+    }, {
+      "children": [{
+        "ip": "192.168.1.5",
+        "name": "Quidway(192.168.1.5)",
+        "type": "Switch",
+        "category": "networkDevice"
+      }],
+      "name": "Switch"
+    }],
+    "name": "网络设备"
+  }],
+  "status": null,
+  "solution": null
+}

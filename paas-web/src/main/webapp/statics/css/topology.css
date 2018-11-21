@@ -1,0 +1,73 @@
+/**
+ * Created by Zhang Haijun on 2016/10/8.
+ */
+#contextmenu {
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    background: #eee;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+#contextmenu li a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+}
+
+#contextmenu li a:hover {
+    background: #fff;
+}
+
+#linkmenu {
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    background: #eee;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+#linkmenu li a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+}
+
+#linkmenu li a:hover {
+    background: #fff;
+}
+
+.node-right {
+    position: fixed;
+    right: 0;
+    top: 126px;
+    width: 320px;
+    background: #fff;
+    padding: 20px;
+     border: 1px solid #777;
+    box-shadow: 0 5px 5px #888;
+}
+
+h4, .h4 {
+    font-size: 18px;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}

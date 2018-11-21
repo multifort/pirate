@@ -1,0 +1,567 @@
+<style>
+	.search-content .control-label {
+		width: 80px!important;
+		text-align: right;
+	}
+	.hostSearch-form-control {
+		width: calc(100% - 85px) !important;
+	}
+</style>
+<div class="clearfix">
+	<div class="wrapper-md">
+		<tabset class="tab-container">
+			<tab ng-controller="PersonalVmApplyListCtrl" select="getData(1)">
+				<tab-heading>
+					我的申请
+				</tab-heading>
+				<div class="row panel" style="box-shadow:none;">
+					<!--<div class="search-box m-b-md">
+						<div class="legend">查询条件</div>
+						<div class="search-content">
+							<div class="form-group">
+								<label class="control-label">名称：</label>
+								<input type="name" ng-model="name" class="form-control input-sm" >
+							</div>
+						</div>
+						<div class="search-btn">
+							<button class="btn btn-primary w-xs m-r" ng-click="search()"><i class="fa fa-search"></i> 查询</button>
+							<button class="btn btn-info w-xs m-r" ng-click="add()" ><i
+									class="fa fa-plus-circle"></i> 新增
+							</button>
+						</div>
+					</div>-->
+					<div class="col-md-12 search-box search-box-r">
+						<div class=" col-sm-5" style="padding: 0px;">
+							<button class="btn btn-info w-xs" ng-click="add()" ><i
+									class="fa fa-plus-circle"></i> 新增
+							</button>
+						</div>
+						<div class="search-content search-content-r col-sm-7 text-right">
+							<div class=" form-group-38">
+								<label class="control-label">名称：</label>
+								<input type="name" ng-model="name" class="form-control hostSearch-form-control input-sm" >
+							</div>
+							<div class="form-group-17" style="width: 16%;">
+								<button class="btn btn-primary w-xs" ng-click="search()"><i class="fa fa-search"></i> 查询</button>
+							</div>
+						</div>
+					</div>
+					<div class="dataTables_wrapper form-inline">
+						<div class="row">
+							<div class="col-sm-12 table-responsive" style="margin-top: -10px;">
+								<table class="table b-light m-b-xxs">
+									<thead class="table-header" >
+									<tr>
+										<th width="20%" class="text-center font-15">名称</th>
+										<th width="20%" class="text-center font-15">状态</th>
+										<th width="20%" class="text-center font-15">类别</th>
+										<th width="20%" class="text-center font-15">创建时间</th>
+										<th width="20%" class="text-center font-15">操作</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="table-content" ng-repeat="row in vmList" ng-if="!isImageData">
+										<td width="20%" class="detail-href text-center font-15 text-overflow" style="max-width:211px;"
+										    title="{{row.name}}" ng-bind="row.name" ng-click="detail($event,row)"></td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:209px;">
+											<div class="text-left" style="padding-left:38%;">
+												<i class="status-dot-style" ng-class="{'APPROVED':'btn-success','REFUSED':'btn-danger','APPROVING':'btn-info','UNAPPLY':'btn-primary'}[row.status]"></i>
+												<span class="status-span-style" title="{{row.status|cn:'applyStatus'}}" ng-bind="row.status|cn:'applyStatus'"></span>
+											</div>
+										</td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:208px;" ng-bind="row.catalog"></td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:208px;" ng-bind="row.gmtCreate"></td>
+										<td width="20%" class="text-center font-15">
+											<div class="btn-group dropdown table-operation" dropdown="">
+												<a class="btn btn-info btn-addon" dropdown-toggle=""><i class="fa fa-reorder" ></i>操作</a>
+												<ul class="dropdown-menu">
+													<li ng-click="apply(row.id)" ng-disabled="row.status == 'APPROVING'||row.status == 'APPROVED'"><a href="">申请</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr ng-if="isImageData">
+										<td class="td-nodata" colspan="5"></td>
+									</tr>
+									</tbody>
+								</table>
+								<div class="clearfix">
+									<div class="col-sm-6" style="padding: 7px 15px;">
+										<div class="paginationTables_info">总共<span ng-bind="totalCount"></span>条, 每页<span ng-bind="param.rows"></span>条
+										</div>
+									</div>
+									<div class="col-sm-6 text-right">
+										<pagination style="" boundary-links="true" total-items="totalCount" items-per-page="param.rows" max-size="10" ng-model="param.page" ng-change="getData(param.page)" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-if="showDetail&&detailData.type=='VMWARE'" ng-hide-detail="" class="animated tab-detail" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+						<div class="col-md-12">
+							<div class="panel panel-default" style="padding:0;">
+								<div class="panel-heading font-bold">
+									<span class="p-l-6">虚机详情</span>
+								</div>
+								<div class="panel-body pmb-block" style="border:none;">
+									<div class="form-horizontal">
+										<div class="">
+											<div class="pmbb-header">
+												<h5 class="console-title">基本信息</h5>
+											</div>
+											<div class="pmbb-body p-l-30">
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>虚机名称：</dt>
+															<dd ng-bind="detailData.name"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>虚机模板：</dt>
+															<dd ng-bind="detailData.template"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>目标主机：</dt>
+															<dd ng-bind="detailData.hostname"></dd>
+														</dl>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>数据存储：</dt>
+															<dd ng-bind="detailData.datastore"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>cpu大小：</dt>
+															<dd>{{detailData.cpu}} 核</dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>内存大小：</dt>
+															<dd>{{detailData.memory}} MB</dd>
+														</dl>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>磁盘大小：</dt>
+															<dd>{{detailData.disk}} G</dd>
+														</dl>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-if="showDetail&&detailData.type=='OPENSTACK'" ng-hide-detail="" class="animated tab-detail" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+						<div class="col-md-12">
+							<div class="panel panel-default" style="padding:0;">
+								<div class="panel-heading font-bold">
+									<span class="p-l-6">虚机详情</span>
+								</div>
+								<div class="panel-body pmb-block" style="border:none;">
+									<div class="form-horizontal">
+										<form class="form-horizontal form-validation" name="addvmOpenstackForm">
+											<div class="form-group">
+												<div class="col-lg-12 margin-10" style="padding-right: 15px;padding-left: 10px;">
+													<label class="col-lg-3 control-label">可用区域：</label>
+													<div class="col-lg-9 control-input" style="width:calc(100% - 85px);padding:0;">
+														<div class="region region-box" style="width:118px;" ng-class="{true:'region-active'}[row.isRegionActive]" ng-repeat="row in regionData">
+															<span class="region-txt" ng-bind="row.name"></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 search-box m-b-md" style="float:none;">
+												<div class="legend">平台选择</div>
+												<div class="search-content1">
+													<div class="form-group">
+														<div class="col-lg-4">
+															<label class="control-label">主机名称：</label>
+															<div class="control-input width-74">
+																<input type="text" name="name" class="form-control input-sm" placeholder="主机名称" ng-model="updateData.name" disabled>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 search-box m-b-md" style="float:none;">
+												<div class="legend">基本信息</div>
+												<div class="search-content1">
+													<div class="form-group">
+														<div class="col-lg-4">
+															<label class="control-label">管理账号：</label>
+															<div class="control-input width-74">
+																<input type="text" name="account" class="form-control input-sm" placeholder="账号" ng-model="account" maxlength="64" maxlength-error-message="最多输入64个字符" readonly/>
+															</div>
+														</div>
+														<div class="col-lg-4">
+															<label class="control-label">管理密码：</label>
+															<div class="control-input width-74">
+																<input class="form-control input-sm" name="password" placeholder="密码" maxlength="18" ng-model="updateData.password" type="{{showPass_os?'text':'password'}}" readonly/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 search-box m-b-md" style="float:none;">
+												<div class="legend">配置信息</div>
+												<div class="search-content1">
+													<div class="form-group">
+														<div class="col-lg-4 input-style">
+															<label class="control-label">镜像：</label>
+															<div class="control-input width-74">
+																<select class="form-control input-sm" ng-model="updateData.imageId" ng-disabled="true">
+																	<option value="">--请选择--</option>
+																	<option ng-repeat="row in imageList" ng-selected="row.id==updateData.imageId" value="{{row.id}}" ng-bind="row.name"></option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="col-lg-12 margin-10" style="padding-right:15px;padding-left:10px;">
+															<label class="col-lg-3 control-label">网络：</label>
+															<div class="col-lg-9 control-input" style="width:calc(100% - 85px);padding:0;">
+																<div class="region region-box" style="width:110px;" ng-class="{true:'region-active'}[row.isNetworkActive]" ng-repeat="row in networkList">
+																	<span class="region-txt" ng-bind="row.name"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 search-box" style="float:none;margin-bottom: 80px">
+												<div class="legend">安全配置</div>
+												<div class="search-content1">
+													<div class="form-group">
+														<div class="col-lg-12 input-style">
+															<label class="control-label">配置实例：</label>
+															<div class="control-input width-74">
+																<select class="form-control input-sm" ng-model="updateData.flavorId" disabled>
+																	<option value="">--请选择--</option>
+																	<option ng-repeat="row in sizeList" ng-selected="row.id==updateData.flavorId" value="{{row.id}}" ng-bind="row.name"></option>
+																</select>
+															</div>
+														</div>
+														<div class="col-lg-6 input-style">
+															<label class="col-lg-3 control-label line-height-54">CPU核数：</label>
+															<div class="col-lg-9 control-input">
+																<rzslider rz-slider-model="slider.value" ng-if="sliderDone"
+																          rz-slider-options="slider.options"></rzslider>
+															</div>
+														</div>
+														<div class="col-lg-6 input-style">
+															<label class="col-lg-3 control-label line-height-54">内存大小：</label>
+															<div class="col-lg-9 control-input">
+																<rzslider rz-slider-model="slider1.value" ng-if="sliderDone"
+																          rz-slider-options="slider1.options"></rzslider>
+															</div>
+														</div>
+														<div class="col-lg-6 input-style">
+															<label class="control-label">磁盘大小：</label>
+															<div class="control-input width-74">
+																<input type="text" name="disk" class="form-control disk-input input-sm" placeholder="磁盘大小" ng-model="detailData.disk" readonly/>
+																<span class="sup" style="">G</span>
+															</div>
+														</div>
+														<div class="col-lg-12 input-style">
+															<label class="control-label">主机描述：</label>
+															<div class="control-input width-74">
+																<textarea class="form-control input-sm" name="remark" placeholder="主机描述" ng-model="updateData.remark" maxlength="256" disabled></textarea>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</tab>
+			<tab ng-controller="PersonalVmListCtrl" select="getData(1)">
+				<tab-heading>
+					已申请虚机
+				</tab-heading>
+				<div class="row panel" style="box-shadow:none;">
+					<!--<div class="search-box m-b-md">
+						<div class="legend">查询条件</div>
+						<div class="search-content">
+							<div class="form-group">
+								<label class="control-label">主机名称：</label>
+								<input type="name" ng-model="searchByName" class="form-control input-sm" placeholder=""
+								       aria-controls="DataTables_Table_3">
+							</div>
+							<div class="form-group">
+								<label class="control-label">主机状态：</label>
+								<select class="form-control" ng-model="searchByStatus">
+									<option value="">&#45;&#45;请选择&#45;&#45;</option>
+									<option ng-repeat="row in statusData" ng-selected="row.value==searchByStatus" value="{{row.value}}"
+									        ng-bind="row.name"></option>
+								</select>
+							</div>
+						</div>
+						<div class="search-btn">
+							<button class="btn btn-primary w-xs m-r" ng-click="getData(1)"><i class="fa fa-search"></i> 查询</button>
+							<button class="btn btn-info w-xs m-r" ng-click="add()" ng-show="isAddBtn"><i
+									class="fa fa-plus-circle"></i> 新增
+							</button>
+						</div>
+					</div>-->
+					<div class="col-md-12 search-box search-box-r">
+						<div class=" col-sm-5" style="padding: 0px;">
+							<button class="btn btn-info w-xs" ng-click="add()" ng-show="isAddBtn"><i
+									class="fa fa-plus-circle"></i> 新增
+							</button>
+						</div>
+						<div class="search-content search-content-r col-sm-7 text-right">
+							<div class="form-group-38 ">
+								<label class="control-label">主机状态：</label>
+								<select class="form-control hostSearch-form-control" ng-model="searchByStatus"
+								ng-change="getData(1)">
+									<option value="">--请选择--</option>
+									<option ng-repeat="row in statusData" ng-selected="row.value==searchByStatus" value="{{row.value}}"
+											ng-bind="row.name"></option>
+								</select>
+							</div>
+							<div class=" form-group-38">
+								<label class="control-label">主机名称：</label>
+								<input type="name" ng-model="searchByName" class="form-control input-sm hostSearch-form-control" placeholder=""
+									   aria-controls="DataTables_Table_3">
+							</div>
+							<div class="form-group-17">
+								<button class="btn btn-primary w-xs" ng-click="getData(1)"><i class="fa fa-search"></i> 查询</button>
+							</div>
+						</div>
+					</div>
+					<div class="dataTables_wrapper form-inline">
+						<div class="row">
+							<div class="col-sm-12 table-responsive" style="margin-top: -10px;">
+								<table class="table b-light m-b-xxs">
+									<thead class="table-header" >
+									<tr>
+										<th width="20%" class="text-center font-15">虚机名称</th>
+										<th width="20%" class="text-center font-15">虚机状态</th>
+										<th width="20%" class="text-center font-15">平台名称</th>
+										<th width="20%" class="text-center font-15">创建时间</th>
+										<th width="20%" class="text-center font-15">修改时间</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr class="table-content" ng-repeat="row in vmList" ng-if="!isImageData">
+										<td width="20%" class="detail-href text-center text-overflow font-15" style="max-width:210px;"
+										    title="{{row.name}}" ng-bind="row.name" ng-click="detail($event,row.id)"></td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:210px;">
+											<div class="text-left" style="padding-left:35%;">
+												<i class="status-dot-style" ng-class="{'success':'btn-success','danger':'btn-danger','warning':'btn-warning','primary':'btn-primary','default':'btn-default','info':'btn-info'}[row.statusColor]"></i>
+												<span class="status-span-style" title="{{row.status|cn:'vmStatus'}}" ng-bind="row.status|cn:'vmStatus'"></span>
+											</div>
+										</td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:210px;" ng-bind="row.vendorName"></td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:210px;" ng-bind="row.gmtCreate"></td>
+										<td width="20%" class="text-center font-15 text-overflow" style="max-width:210px;" ng-bind="row.gmtModify"></td>
+									</tr>
+									<tr ng-if="isImageData">
+										<td class="td-nodata" colspan="5"></td>
+									</tr>
+									</tbody>
+								</table>
+								<div class="clearfix">
+									<div class="col-sm-6" style="padding: 7px 15px;">
+										<div class="paginationTables_info">总共<span ng-bind="totalCount"></span>条, 每页<span ng-bind="param.rows"></span>条
+										</div>
+									</div>
+									<div class="col-sm-6 text-right">
+										<pagination style="" boundary-links="true" total-items="totalCount" items-per-page="param.rows" max-size="10" ng-model="param.page" ng-change="getData(param.page)" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-if="showDetail" ng-hide-detail="" class="animated tab-detail" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+						<div class="col-md-12">
+							<div class="panel panel-default" style="padding:0;">
+								<div class="panel-heading font-bold">
+									<span class="p-l-6">虚机详情</span>
+								</div>
+								<div class="panel-body pmb-block" style="border:none;">
+									<div class="form-horizontal">
+										<div class="">
+											<div class="pmbb-header">
+												<h5 class="console-title">基本信息</h5>
+											</div>
+											<div class="pmbb-body p-l-30">
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>主机名称：</dt>
+															<dd ng-bind="vmDetail.hostName"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>主机状态：</dt>
+															<dd>
+																<i class="status-dot-style" ng-class="{'success':'btn-success','danger':'btn-danger','warning':'btn-warning','primary':'btn-primary','default':'btn-default','info':'btn-info'}[vmDetail.statusColor]"></i>
+																<span class="status-span-style" title="{{vmDetail.status|cn:'vmStatus'}}" ng-bind="vmDetail.status|cn:'vmStatus'"></span>
+															</dd>
+														</dl>
+													</div>
+													<!--<div class="col-lg-4">-->
+													<!--<dl class="dl-horizontal">-->
+													<!--<dt>主机标签：</dt>-->
+													<!--<dd ng-bind="vmDetail.tags"></dd>-->
+													<!--</dl>-->
+													<!--</div>-->
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>管理账号：</dt>
+															<dd ng-bind="vmDetail.account"></dd>
+														</dl>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>管理密码：</dt>
+															<dd ng-bind="vmDetail.password"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>管理IP：</dt>
+															<dd ng-bind="vmDetail.managerIp"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>管理端口：</dt>
+															<dd ng-bind="vmDetail.managerPort"></dd>
+														</dl>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="">
+											<div class="pmbb-header">
+												<h5 class="console-title">详细信息</h5>
+											</div>
+											<div class="pmbb-body p-l-30">
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>CPU核数：</dt>
+															<dd>{{vmDetail.cpu}}核</dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>内存大小：</dt>
+															<dd>{{vmDetail.memory}}MB</dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>磁盘大小：</dt>
+															<dd>{{vmDetail.disk}}G</dd>
+														</dl>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>数据存储区：</dt>
+															<dd ng-bind="vmDetail.dataStore"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>快照数量：</dt>
+															<dd ng-bind="vmDetail.snapshotCount"></dd>
+														</dl>
+													</div>
+													<div class="col-lg-4">
+														<dl class="dl-horizontal">
+															<dt>主机描述：</dt>
+															<dd ng-bind="vmDetail.remark"></dd>
+														</dl>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="">
+											<div class="pmbb-header">
+												<h5 class="console-title">操作记录</h5>
+											</div>
+											<div class="pmbb-body p-l-30">
+												<div class="form-group">
+													<div class="col-md-12" style="padding:0;margin-bottom: 20px;">
+														<table class="table table-hover b-light m-b-xxs">
+																	<thead class="table-header">
+																	<tr>
+																		<th width="20%" class="font-15 text-center">操作内容</th>
+																		<th width="25%" class="font-15 text-center">操作结果</th>
+																		<th width="25%" class="font-15 text-center">操作人</th>
+																		<th width="30%" class="font-15 text-center">操作时间</th>
+																	</tr>
+																	</thead>
+																	<tbody>
+																	<tr class="table-content" ng-repeat="row in eventList" ng-if="!isImageData">
+																		<td width="20%" class="font-15 text-center text-overflow" style="max-width:209px;"
+																		    title="{{row.content}}" ng-bind="row.content"></td>
+																		<td width="25%" class="font-15 text-center text-overflow" style="max-width:314px;"
+																		    title="{{row.result}}" ng-bind="row.result"></td>
+																		<td width="25%" class="font-15 text-center text-overflow" style="max-width:209px;"
+																		    title="{{row.operator}}" ng-bind="row.operator"></td>
+																		<td width="30%" class="font-15 text-center text-overflow" style="max-width:314px;"
+																		    title="{{row.gmtOperate}}" ng-bind="row.gmtOperate"></td>
+																	</tr>
+																	<tr ng-if="isImageDatad">
+																		<td class="td-nodata" colspan="4">暂无数据</td>
+																	</tr>
+																	</tbody>
+																</table>
+														<div class="clearfix">
+																	<div class="col-sm-6" style="padding:7px 15px;">
+																		<div class="paginationTables_info">总共<span ng-bind="totalCountd"></span>条, 每页<span
+																				ng-bind="paramd.rows"></span>条
+																		</div>
+																	</div>
+																	<div class="col-sm-6 text-right">
+																		<pagination style="" boundary-links="true" total-items="totalCount"
+																		            items-per-page="paramd.rows" max-size="10" ng-model="paramd.page"
+																		            ng-change="getOperateData(paramd.page)" previous-text="&lsaquo;"
+																		            next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+																	</div>
+																</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</tab>
+		</tabset>
+	</div>
+</div>

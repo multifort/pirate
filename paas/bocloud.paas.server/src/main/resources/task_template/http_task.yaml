@@ -1,0 +1,29 @@
+{
+  "name": "${name}",
+  "taskReferenceName": "${taskReferenceName}",
+  "inputParameters": {
+    "http_request": ${http_request}
+  },
+  "type": "HTTP",
+  "startDelay": 0
+}
+{"parameters":
+  [
+    {
+      "description": "选择插件",
+      "displayName": "选择插件",
+      "name": "name",
+      "value": "${tasks}",
+      "select": "",
+      "type": "Map_select"
+    },
+    {
+      "description": "填写请求路径、请求方式等信息，uri填写http://+路径",
+      "displayName": "http请求",
+      "name": "inputParameters",
+      "value": [{"key":"","value":""}],
+      "select": "",
+      "type": "Http"
+    }
+  ]
+}

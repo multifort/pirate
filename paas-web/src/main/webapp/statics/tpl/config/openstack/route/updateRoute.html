@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size">编辑路由</p>
+</div>
+<div class="modal-body panel-body user-form">
+    <form class="form-horizontal form-validation" name="updatesizeForm">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label" style="width: 106px;"><span>*</span>路由名称：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <input type="text" name="name" class="form-control" ng-model="updateData.name" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label" style="width: 106px;"><span>*</span>管理状态：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <select class="form-control" name="adminStateup" ng-model="updateData.adminStateup" validator="required">
+                        <option ng-repeat="row in statusData1" ng-selected="row.value==updateData.adminStateup" value="{{row.value}}" ng-bind="row.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"  style="width: 106px;">外部网络：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <select class="form-control" name="networkId" ng-model="updateData.networkId">
+                        <option value="">--请选择--</option>
+                        <option ng-repeat="row in networkList" ng-selected="row.value==updateData.networkId" value="{{row.value}}" ng-bind="row.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="updatesizeForm" ng-disabled="updatesizeForm.$invalid||isLoadingActive" ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

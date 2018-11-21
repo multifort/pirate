@@ -1,0 +1,40 @@
+<style>
+	.m-t-n {
+		margin-top: -15px!important;
+	}
+	.m-t-n-md {
+		margin-top: -20px!important;
+	}
+	.service-li{
+		text-align: center;
+		min-height: 95px !important;
+	}
+	.service-li .iconfont{
+		font-size: 40px;
+		color: #428bca;
+	}
+	.primary-bottom-special{
+		text-align: center;
+	}
+	.w-6{
+		width: 16.65%!important;
+	}
+</style>
+<div class="wrapper-md content-bycs" ng-controller="ServiceCatalogListCtrl">
+	<div class="panel">
+		<div class="list-byc m-t-n-md" ng-repeat="(key,row) in listData">
+			<h5 class="console-title">{{row.name}}</h5>
+			<ul class="list-ul">
+				<li class="list-li w-6" ng-repeat="(key,item) in row.data">
+					<a style="color: inherit"  ng-click="goTo(item,row.name)">
+						<div class="list-li-divmodul list-li-div1 service-li">
+							<i class="iconfont {{item.icon}}"></i>
+							<div class="both clear"></div>
+							<div class="primary-bottom-special">{{item.name}}</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

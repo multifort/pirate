@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "type":"REMIND",
+    "property":"fdfdfdf",
+    "config":[
+      {
+        "key":11,
+        "value":44,
+        "desp":123
+      },{
+        "key":22,
+        "value":55,
+        "desp":4555,
+        "require":true
+      }
+
+    ],
+    "type":"input",
+    "gmtConfirm":"2016-02-16",
+    "remark": null,
+    "name": "插件1",
+    "id": 6
+  },
+  "status": null,
+  "solution": null
+}

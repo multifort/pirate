@@ -1,0 +1,81 @@
+{
+  "success": true,
+    "data": [{
+      "id": 1,
+      "name": "服务器1",
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "status": "良好",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    },{
+      "id": 2,
+      "name": "服务器2",
+      "status": "良好",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    },{
+      "id": 23,
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "name": "服务器23",
+      "status": "良好",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    },{
+      "id": 45,
+      "name": "服务器45",
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "status": "良好",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    },{
+      "id": 55,
+      "name": "服务器55",
+      "status": "良好",
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    },{
+      "id": 65,
+      "name": "服务器65",
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "status": "良好",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    }, {
+      "id": 75,
+      "name": "服务器75",
+      "managerIp": "192.168.1.1",
+      "ip": "192.168.1.1",
+      "status": "良好",
+      "processorMode": "AMD",
+      "memory_mode": "100G",
+      "tags": "百度糯米",
+      "dockerVersion": "v4.0",
+      "remark": "我最强，一个打十个"
+    }]
+}

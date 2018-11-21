@@ -1,0 +1,56 @@
+<div class="clearfix script-content" ng-controller="departmentResourceCtrl" >
+	<div class="wrapper-md">
+		<div class="row panel panel-default">
+			<div class="col-md-12">
+				<button class="btn  btn-info m-b pull-left" ng-click="selectServer()"><i class="fa fa-plus"></i> 分配资源</button>
+				<button class="btn btn-default m-b pull-right" ng-click="goBack()"><i class="fa fa-reply"></i> 返回</button>
+			</div>
+			<table st-table="displayListData" st-safe-src="serverListData" class="table table-hover">
+				<thead>
+				<tr>
+					<th colspan="7">
+						<input st-search placeholder="通过名称、IP地址进行过滤" class="input-sm form-control" type="search"/>
+					</th>
+				</tr>
+				<tr>
+					<th class="font-15 text-center">名称</th>
+					<th class="font-15 text-center">状态</th>
+					<th class="font-15 text-center">IP地址</th>
+					<th class="font-15 text-center">类型</th>
+					<th class="font-15 text-center">型号</th>
+					<!--<th >是否共享</th>-->
+					<th class="font-15 text-center">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="row in displayListData">
+					<td class="font-15 text-center" ng-bind="row.name"></td>
+					<td class="font-15 text-center" ng-bind="row.status1"></td>
+					<td class="font-15 text-center" ng-bind="row.ip"></td>
+					<td class="font-15 text-center" ng-bind="row.category|cn:'category'"></td>
+					<td class="font-15 text-center" ng-bind="row.catalog|cn:'catalog'"></td>
+					<!--<td >-->
+						<!--<label class="i-switch bg-success">-->
+							<!--<input type="checkbox" ng-model="row.shared" disabled>-->
+							<!--<i></i>-->
+						<!--</label>-->
+					<!--</td>-->
+					<td class="font-15 text-center">
+						<button class="btn btn-sm w-xxs btn-danger" ng-click="remove(row.id)"><i class="fa fa-trash-o"></i> 删除</button>
+					</td>
+				</tr>
+				</tbody>
+				<tfoot>
+				<tr>
+					<td colspan="1" class="text-left">
+						<div style="padding: 10px;">每页{{itemsByPage}}条，共{{total}}条</div>
+					</td>
+					<td colspan="5" class="text-right">
+						<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="6" class="no-margin"></div>
+					</td>
+				</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div>

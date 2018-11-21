@@ -1,0 +1,77 @@
+{
+  "success" : true,
+  "data" : [{
+      "id":1,
+      "name":"用户1",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":2,
+      "name":"用户2",
+      "type":"VMWARE",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":3,
+      "name":"用户3",
+      "type":"ALIYUN",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":4,
+      "name":"用户4",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":5,
+      "name":"用户5",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":6,
+      "name":"用户6",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":7,
+      "name":"用户7",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":8,
+      "name":"用户8",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":9,
+      "name":"用户9",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    },{
+      "id":10,
+      "name":"用户10",
+      "type":"OPENSTACK",
+      "instance":5,
+      "online":1,
+      "offline":4
+    }],
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

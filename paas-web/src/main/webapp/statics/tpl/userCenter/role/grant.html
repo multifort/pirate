@@ -1,0 +1,38 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+	<p class="modal-title panel-title-size">授权</p>
+</div>
+<div class="modal-body panel-body">
+	<tabset class="tab-container">
+		<tab ng-click="getRoleData()">
+			<tab-heading class="">权限授权</tab-heading>
+			<div easy-tree id="myTree1" tree-data="permissiondata" id-data="idData" identification="identification" class="easy-tree"></div>
+		</tab>
+		<!--<tab ng-click="getCommandData()">-->
+			<!--<tab-heading class="">命令授权</tab-heading>-->
+			<!--<div style="margin-top:-15px;">-->
+				 <!--<table easy-grid1 id="dg" tree-data="treeData" id-data="idData" get-data="getCommandData()" class="easyui-treegrid1"></table>-->
+				 <!--&lt;!&ndash;<div easy-tree id="myTree2" tree-data="permissiondata" id-data="idData" identification="identification" class="easy-tree"></div>&ndash;&gt;-->
+			<!--</div>-->
+		<!--</tab>-->
+	</tabset>
+	<div style="float:right;">
+		<button type="submit" class="btn btn-info" ng-click="ok()">确认</button>
+		<button class="btn btn-cancel" ng-click="cancel()">取消</button>
+	</div>
+</div>
+
+
+
+<!--
+<div class="modal-header">
+	<h3 class="modal-title">授权角色</h3>
+</div>
+<div class="modal-body">
+	<div easy-tree id="myTree" tree-data="permissiondata" id-data="idData" class="easy-tree"></div>
+	&lt;!&ndash; <div class="ztree zTree" z-tree="" permissionList={{permissionList}} permissiondata={{permissiondata}} id="_grant_table" ></div> &ndash;&gt;
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">取消</button>
+	<button class="btn btn-success" ng-click="ok()">确认</button>
+</div>-->

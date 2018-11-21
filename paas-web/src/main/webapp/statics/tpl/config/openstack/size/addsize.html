@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size">新增规格</p>
+</div>
+<div class="modal-body panel-body">
+    <form class="form-horizontal form-validation user-form" name="addsizeForm">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label" style="width: 106px;"><span>*</span>规格名称：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <input type="text" name="name" class="form-control" ng-model="addData.name" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label" style="width: 106px;"><span>*</span>虚拟内核：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <input type="text" name="cpu" class="form-control" ng-model="addData.cpu" validator="required,positiveNumber">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label" style="width: 106px;"><span>*</span>内存(MB)：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <input type="text" name="memory" class="form-control" ng-model="addData.memory" validator="required,positiveNumber">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label" style="width: 106px;"><span>*</span>磁盘(GB)：</label>
+                <div class="control-input" style="width: calc(100% - 140px);">
+                    <input type="text" name="disk" class="form-control" ng-model="addData.disk" validator="required,positiveNumber">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="addsizeForm" ng-disabled="addsizeForm.$invalid||isLoadingActive" ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

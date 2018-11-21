@@ -1,0 +1,66 @@
+{
+  "name": "TEST",
+  "type": "REAL",
+  "steps": [
+    {
+      "name": "脚本执行",
+      "type": "SCRIPT",
+      "priority": 1,
+      "jobs": [
+        {
+          "name": "脚本执行",
+          "type": "SCRIPT",
+          "params": "",
+          "suspendable": 0,
+          "scriptId": 1,
+
+          "description":"",
+          "username": "root",
+          "password": "123456",
+          "targets": [
+            {
+              "username": "root",
+              "password": "123456",
+              "ip": "192.168.1.217"
+            },
+            {
+              "username": "root",
+              "password": "123456",
+              "ip": "192.168.1.218"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "文件分发",
+      "type": "FILE",
+      "priority": 1,
+      "jobs": [
+        {
+          "name": "文件分发",
+          "type": "FILE",
+          "params": "",
+          "suspendable": 0,
+          "files":[{
+            "fileId":1,
+            "account":"admin",
+            "passwood":"112"
+          }],
+          "targets": [
+            {
+              "username": "root",
+              "password": "123456",
+              "ip": "192.168.1.217"
+            },
+            {
+              "username": "root",
+              "password": "123456",
+              "ip": "192.168.1.218"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

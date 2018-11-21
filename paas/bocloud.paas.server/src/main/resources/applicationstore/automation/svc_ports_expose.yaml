@@ -1,0 +1,27 @@
+    <% if(NODE_TYPE != null){ %>
+    type: NodePort
+    <% } %>
+    ports:
+    <% if(ports != null){ %> 
+      <% for(port in ports){ %>
+      - port: ${port.port}
+        nodePort: ${port.nodePort}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+      <% } %>
+      <% } %>
+      <% if(nodePorts != null){ %>   
+      <% for(port in nodePorts){ %>
+      - port: ${port.port}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+      <% } %>
+      <% } %>
+    <% for(var i = 0; i < containerPorts.~size; i++){ %>
+      - port: ${containerPorts[i].key}
+        targetPort: ${containerPorts[i].key}
+        protocol: ${containerPorts[i].value}
+        name: http-${i}
+     <% } %>

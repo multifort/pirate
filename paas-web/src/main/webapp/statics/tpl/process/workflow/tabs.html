@@ -1,0 +1,49 @@
+<!-- <div class="form-group">
+  <button class="btn btn-danger w-xs m-r" ng-click="deteleAll()" ng-disabled="operation.isBatch1"><i class="fa fa-trash-o fa-lg"></i> 批量删除</button>
+</div> -->
+<table st-table="displayListData" st-safe-src="listData" class="table" style="margin-bottom:60px">
+  <thead class="table-header">
+    <tr>
+      <th  class="text-center font-15" width="5%">
+        <label class="i-checks m-b-none"><input type="checkbox" ng-model="operation.isALl" ng-click="selectALl()"><i></i></label>
+    </th>
+      <th  width="10%" class="text-center font-15">名称</th>
+      <th width="10%" class="text-center font-15">ID</th>
+       <th  width="15%"class="text-center font-15">状态</th>
+      <th width="15%" class="text-center font-15">开始时间</th>
+      <th  width="15%"class="text-center font-15">更新时间</th>
+      <th  width="10%"class="text-center font-15">结束时间</th>
+      <th  width="10%"class="text-center font-15">操作人</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="row in displayListData"       ng-if="!isImageData" width="5%">
+      <th  class="text-center font-15">
+        <label class="i-checks m-b-none"><input type="checkbox" ng-model="row.select" ng-click="choose()"><i></i></label>
+    </th>
+      <td  width="10%"class="text-center detail-href  font-15 text-overflow"   ng-click="detail(row)"  title="{{row.workflowType}}"  ng-bind="row.workflowType"></td>
+      <td width="10%" class="text-center font-15 text-overflow"        title="{{row.workflowId}}" ng-bind="row.workflowId"></td>
+       <td  width="15%"class="text-center font-15 text-overflow"          title="{{row.status}}" ng-bind="row.status"></td>
+        <td  width="15%"class="text-center font-15 text-overflow"          title="{{row.startTime}}" ng-bind="row.startTime"></td>
+         <td  width="15%"class="text-center font-15 text-overflow"          title="{{row.updateTime}}" ng-bind="row.updateTime"></td>
+      <td width="10%" class="text-center font-15 text-overflow"        title="{{row.endTime}}" ng-bind="row.endTime"></td>
+      <td width="10%" class="text-center font-15 text-overflow"        title="{{row.userName}}" ng-bind="row.userName"></td>
+
+    </tr>
+    <tr ng-if="isImageData">
+      <td class="td-nodata" colspan="4"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="4" class="text-left">
+        <div>共{{total}}条，每页{{itemsByPage}}条</div>
+      </td>
+      <td colspan="4" class="text-right">
+        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"
+             class="no-margin"></div>
+      </td>
+    </tr>
+    </tfoot>
+</table>

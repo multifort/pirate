@@ -1,0 +1,168 @@
+<div class="content-byc image-content" ng-controller="openstackDetailModalCtrl">
+    <div class="animated update-content" >
+        <div class="wrapper-md">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="padding:0;">
+                        <div class="panel-heading font-bold">
+                            <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                            <span class="p-l-6">详情</span>
+                            <button class="btn btn-info pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                                <i class="fa fa-reply icon-font"></i> 返回
+                            </button>
+                        </div>
+                        <tabset class="tab-container">
+                          <tab ng-controller="basicOpenstackModalCtrl">
+                            <tab-heading>
+                              详情
+                            </tab-heading>
+                            <div class="panel-body pmb-block" style="border:none;" >
+                                <div class="form-horizontal">
+                                    <div class="">
+                                        <div class="pmbb-header">
+                                            <h5 class="console-title">基本信息</h5>
+                                        </div>
+                                        <div class="pmbb-body p-l-30">
+                                            <div class="form-group">
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>仓库名称：</dt>
+                                                        <dd ng-bind="supplierDetail.name"></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                      <dt>仓库类型：</dt>
+                                                      <dd ng-bind="supplierDetail.type|image:'count'"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>仓库属性：</dt>
+                                                        <dd ng-bind="supplierDetail.props"></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                      <dt>仓库地址：</dt>
+                                                      <dd ng-bind="supplierDetail.address"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>仓库状态：</dt>
+                                                        <dd ng-bind="supplierDetail.status"></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>仓库端口：</dt>
+                                                        <dd ng-bind="supplierDetail.port"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>仓库描述：</dt>
+                                                        <dd ng-bind="supplierDetail.remark"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="">
+                                        <div class="pmbb-header">
+                                            <h5 class="console-title">详细信息</h5>
+                                        </div>
+                                        <div class="pmbb-body p-l-30">
+                                            <div class="form-group">
+                                                <!--<div class="col-lg-6">-->
+                                                    <!--<dl class="dl-horizontal">-->
+                                                        <!--<dt>服务类型：</dt>-->
+                                                        <!--<dd ng-bind="supplierDetail.category|cn:'category2'"></dd>-->
+                                                    <!--</dl>-->
+                                                <!--</div>-->
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>创建时间：</dt>
+                                                        <dd ng-bind="supplierDetail.gmtCreate"></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>修改时间：</dt>
+                                                        <dd ng-bind="supplierDetail.gmtModify"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <div class="col-lg-6">
+                                                  <dl class="dl-horizontal">
+                                                      <dt>创建者名称：</dt>
+                                                      <dd ng-bind="supplierDetail.creatorName"></dd>
+                                                  </dl>
+                                              </div>
+                                                <div class="col-lg-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>修改者名称：</dt>
+                                                        <dd ng-bind="supplierDetail.menderName"></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </tab>
+                          <tab ng-controller="openstackModalCtrl"  select="selectTab()">
+                            <tab-heading>
+                              配置
+                            </tab-heading>
+                            <div class="row panel pad-10"data-ng-include="'/statics/tpl/repository/repository/openstackmessage.html'">
+                            </div>
+                          </tab>
+                          <tab  ng-controller="historyOpenstackModalCtrl" select="selectTab()">
+                            <tab-heading>
+                              日志
+                            </tab-heading>
+                            <div class="row panel pad-10"data-ng-include="'/statics/tpl/repository/repository/historymessage.html'">
+                            </div>
+                          </tab>
+                          <tab  ng-controller="historyOpenstackModalCtrl" select="selectTab()">
+                            <tab-heading>
+                              监测
+                            </tab-heading>
+                            <div class="row panel pad-10"data-ng-include="'/statics/tpl/repository/repository/historymessage.html'">
+                            </div>
+                          </tab>
+                          <tab  ng-controller="historyOpenstackModalCtrl" select="selectTab()">
+                            <tab-heading>
+                              事件
+                            </tab-heading>
+                            <div class="row panel pad-10"data-ng-include="'/statics/tpl/repository/repository/historymessage.html'">
+                            </div>
+                          </tab>
+                          <tab  ng-controller="historyOpenstackModalCtrl" select="selectTab()">
+                            <tab-heading>
+                              操作终端
+                            </tab-heading>
+                            <div class="row panel pad-10"data-ng-include="'/statics/tpl/repository/repository/historymessage.html'">
+                            </div>
+                          </tab>
+
+                        </tabset>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

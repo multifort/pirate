@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "data":{
+    "rows":  [
+      {
+        "id": 1,
+        "name":"server1",
+        "platform":"腾讯云",
+        "ip":"192.168.1.217",
+        "status":"NORMAL"
+      }
+    ,
+      {
+        "id": 2,
+        "name":"server2",
+        "platform":"腾讯云",
+        "ip":"192.168.1.218",
+        "status":"NORMAL"
+      }
+    ,
+      {
+        "id": 3,
+        "name":"server3",
+        "platform":"腾讯云",
+        "ip":"192.168.1.219",
+        "status":"NORMAL"
+      },
+      {
+        "id": 4,
+        "name":"server4",
+        "platform":"腾讯云",
+        "ip":"",
+        "status":"NORMAL"
+      }
+    ],
+    "total":20
+  },
+  "msg": "hello"
+}

@@ -1,0 +1,28 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancle()">&times;</button>
+	<p class="modal-title panel-title-size">创建快照</p>
+</div>
+<div class="modal-body panel-body">
+	<form class="form-horizontal form-validation" name="addCabinetForm">
+		<div class="form-group">
+			<div class="col-lg-6">
+				<label class="control-label">名 称：</label>
+				<div class="control-input">
+					<input class="form-control" name="name" placeholder="快照名称" ng-model="name" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符" type="text" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-lg-12">
+				<label class="control-label">描 述：</label>
+				<div class="control-input">
+					<textarea class="form-control" name="remark" placeholder="快照描述" ng-model="remark" maxlength="256" maxlength-error-message="最多输入256个字符"></textarea>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="submit" class="btn btn-info" validation-submit="addCabinetForm" ng-disabled="(addCabinetForm.$invalid ||isLoadingActive)" ng-click="ok()">确认</button>
+	<button class="btn btn-cancel" ng-click="cancle()">取消</button>
+</div>

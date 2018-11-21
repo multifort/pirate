@@ -1,0 +1,389 @@
+<style>
+    .envGreen{
+        color: #009933;
+    }
+    .envWarning{
+        color: #d4041f;
+    }
+</style>
+<div ng-controller="instrumentCtrl" class="clearfix script-content">
+    <div class="wrapper-md">
+        <div class="panel panel1 panel-default" ng-show="!showDetail" style="padding:12px 15px; ">
+            <div class="">
+                <div ng-if="isnone" class="row">
+                    <div class="col-sm-4" style="padding: 0px 8px;">
+                        <div class="panel panel-default" style="margin-bottom: 12px;">
+                            <div class="panel-heading">应用</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12">
+									<div class="chart" ng-if="isDataLoad" style="height: 187px" ng-dashboard-pie-loop-chart=""  data="app" options="options.oHost"></div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6" style="text-align: center">
+                                        <h6>运行中应用</h6>
+                                        <p class="app-font">{{dashboardData.appRunNum}}个</p>
+                                    </div>
+                                    <div class="col-sm-6" style="text-align: center">
+                                        <h6>应用总数</h6>
+                                        <p class="app-font">{{dashboardData.appTotal}}个</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" style="margin-bottom: 12px;min-height: 395px;">
+                            <div class="panel-heading">实例</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-dp">
+                                    <div class="col-sm-6">
+																			<div class="chart" ng-if="isDataLoad" style="height: 187px" ng-dashboard-pie-loop-chart=""  data="instance" options="options.oHost"></div>
+
+                                    </div>
+                                    <div class="col-sm-6 instrument-dp" style="padding-left: 14px;margin-top: 20px;">
+                                        <div class="col-sm-12 instrument-dp instrument-dm">
+                                           <p class="instrument-font" style="display: inline-block;">总数</p><span>{{dashboardData.podTotal}}</span>个
+                                        </div>
+                                        <div class="col-sm-12 instrument-dp instrument-dm">
+                                               <i class="fa fa-circle fa-lg" style="color: #25E2BE;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">运行中</p>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{dashboardData.podRunTotal}}</span><span>个</span>
+                                        </div>
+                                        <div class="col-sm-12 instrument-dp instrument-dm">
+                                            <i class="fa fa-circle fa-lg" style="color: #FF6C8C;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">其他</p>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{dashboardData.podUnrunTotal}}</span><span>个</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="min-height: 160px;">
+                                    <div class="col-sm-6" style="text-align: left">
+                                        <h6 class="console-bottom">系统服务实例</h6>
+                                        <div class="col-sm-12 instrument-dp" style="padding-top: 10px;">
+                                          <p style="display: inline-block; font-size: 16px;">{{dashboardData.servicePodNum}}个</p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="instrument-font">服务实例</span>
+                                        </div>
+                                        <div class="col-sm-12 instrument-dp">
+                                            <p style="display: inline-block;">{{dashboardData.serviceRunPodNum}}个</p><span class="instrument-font">运行中</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" style="text-align: left">
+                                        <h6 class="console-bottom">应用服务实例</h6>
+                                        <div class="col-sm-12 instrument-dp" style="padding-top: 10px;">
+                                            <p style="display: inline-block; font-size: 16px;">{{dashboardData.appPodNum}}个</p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="instrument-font">服务实例</span>
+                                        </div>
+                                        <div class="col-sm-12 instrument-dp">
+                                            <p style="display: inline-block;">{{dashboardData.appRunPodNum}}个</p><span class="instrument-font">运行中</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 instrument-dp" style="padding-right: 4px;">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">镜像</div>
+                            <div class="panel-detail">
+                                    <div class="col-sm-12 instrument-dp" style="min-height: 90px;">
+                                            <div class="col-sm-12 text-center instrument-dp" style="line-height: 90px;">
+                                                <p class="instrument-in">{{dashboardData.imageTotal}}个</p><span class="instrument-font">镜像</span>
+                                            </div>
+                                    </div>
+                                    <div class="col-sm-6 text-center instrument-dp" style="min-height: 90px;">
+                                            <div class="col-sm-12 instrument-dp">
+                                                <p class="instrument-font" style="font-size: 14px;">{{dashboardData.publicImageNum}}个</p><p class="instrument-font">公有</p>
+                                            </div>
+                                    </div>
+                                    <div class="col-sm-6 text-center instrument-dp" style="min-height:90px;">
+                                            <div class="col-sm-12 instrument-dp">
+                                                <p class="instrument-font" style="font-size: 14px;">{{dashboardData.privateImageNum}}个</p><p class="instrument-font">私有</p>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-sm-6 instrument-dp" style="padding-left: 4px;">
+                            <div class="panel panel-default" style="margin-bottom: 20px;" ng-if="false">
+                                <div class="panel-heading">网络</div>
+                                <div class="panel-detail">
+                                    <div class="col-sm-12 instrument-dp" style="min-height: 53px;">
+                                        <div class="col-sm-12 text-center instrument-dp" style="line-height: 53px;">
+                                            <p class="instrument-in">{{}}个</p><span class="instrument-font">网络</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">存储卷</div>
+                                <div class="panel-detail">
+                                    <div class="col-sm-12 instrument-dp" style="min-height:90px;">
+                                        <div class="col-sm-12 text-center instrument-dp" style="line-height: 90px;">
+                                            <p class="instrument-in">{{dashboardData.pvTotal}}个</p><span class="instrument-font">存储卷</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-center instrument-dp" style="min-height: 90px;">
+                                        <div class="col-sm-12 instrument-dp">
+                                            <p class="instrument-font" style="font-size: 14px;">{{dashboardData.pvUsedNum}}个</p><p class="instrument-font">使用中</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-center instrument-dp" style="min-height:90px;">
+                                        <div class="col-sm-12 instrument-dp">
+                                            <p class="instrument-font" style="font-size: 14px;">{{dashboardData.pvTotal-dashboardData.pvUsedNum}}个</p><p class="instrument-font">其他</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4" style="padding: 0  8px 0 0;">
+                        <div class="panel panel-default" style="margin-bottom: 12px;">
+                            <div class="panel-heading">应用的CPU使用量排序</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-dp text-center instrument-font" style="min-height: 183px;">
+
+                                    <div class="inner" style="height: 183px">
+                                        <div  class="innerbox">
+                                            <div class="instrument-bs" ng-repeat="row in cpuLists">
+                                                <div class="col-sm-2">
+                                                    <!--<img src="/statics/img/swarmimg.png">-->
+                                                    <i class="fa fa-server icon"  style="font-size: 16px;"
+                                                       ng-class="{'1':'envGreen','2':'envGreen','3':'envGreen','4':'envWarning','5':'envGreen','6':'envWarning'}[row.status]"></i>
+                                                </div>
+                                                <div class="col-sm-7 text-left">
+                                                    <p class="textOverflow" >{{row.name}}</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <p>{{row.currentCpu}}</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" style="margin-bottom: 12px;">
+                            <div class="panel-heading">应用的内存使用量排序</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-dp text-center instrument-font" style="min-height: 183px;">
+                                    <div class="inner" style="height: 183px">
+                                        <div  class="innerbox">
+                                            <div class="instrument-bs" ng-repeat="row in memoryLists">
+                                                <div class="col-sm-2">
+                                                    <!--<img src="/statics/img/swarmimg.png">-->
+                                                    <i class="fa fa-server icon"  style="font-size: 16px;"
+                                                       ng-class="{'1':'envGreen','2':'envGreen','3':'envGreen','4':'envWarning','5':'envGreen','6':'envWarning'}[row.status]"></i>
+                                                </div>
+                                                <div class="col-sm-7 text-left">
+                                                    <p class="textOverflow" >{{row.name}}</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <p>{{row.currentMemory}}</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" style="margin-bottom: 12px;min-height: 232px;">
+                            <div class="panel-heading">应用更新时间排名</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-dp text-center instrument-font" style="min-height: 175px;padding-top: 10px;">
+                                   <!-- <div class="col-sm-12">
+                                        <div class="input-group instrument-lp">
+                                            <input type="text" class="form-control">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">
+                                                        Go!
+                                                    </button>
+                                                </span>
+                                        </div>
+                                    </div>-->
+                                    <div class="col-sm-12" ng-repeat="row in timeList">
+                                        <div class="col-sm-7 instrument-dp text-left">
+                                            <p style="padding-bottom: 3px;">{{row.name}}</p>
+                                        </div>
+                                        <div class="col-sm-5 instrument-dp">
+                                            <p style="padding-bottom: 3px;">{{row.gmtModify}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" style="min-height: 230px;">
+                            <div class="panel-heading">应用使用镜像数量排名</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-dp text-center instrument-font" style="min-height: 175px;padding-top: 10px;">
+                                    <!--<div class="col-sm-12">
+                                        <div class="input-group instrument-lp">
+                                            <input type="text" class="form-control">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">
+                                                        Go!
+                                                    </button>
+                                                </span>
+                                        </div>
+                                    </div>-->
+                                    <div class="col-sm-12" ng-repeat="row in imageList">
+                                        <div class="col-sm-10 instrument-dp text-left">
+                                            <p style="padding-bottom: 3px;">{{row.name}}</p>
+                                        </div>
+                                        <div class="col-sm-2 instrument-dp">
+                                            <!--<p style="padding-bottom: 3px;">1</p>-->
+                                            <p style="padding-bottom: 3px;">{{row.imageNum}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4" style="padding:0  8px 0 0;">
+                        <div class="panel panel-default" style="margin-bottom: 12px;min-height: 223px;">
+                            <div class="panel-heading">系统状态</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-dp text-center instrument-font" style="min-height: 183px;">
+                                    <div class="text-center" style="min-height: 56px;">
+                                        <p ng-if="(dashboardData.status=='健康')"  class="instrument-h envGreen">{{dashboardData.status}}</p>
+                                        <p ng-if="(dashboardData.status=='不健康')" class="instrument-h envWarning">{{dashboardData.status}}</p>
+                                        <p ng-if="(dashboardData.status=='健康')"  class="dfont-back">您当前的系统运行正常</p>
+                                        <p ng-if="(dashboardData.status=='不健康')"  class="dfont-back">您当前的系统运行不正常</p>
+                                    </div>
+                                    <div class="inner">
+                                        <div  class="innerbox">
+                                            <div class="instrument-bs" ng-repeat="row in dashboardData.environments">
+                                                <div class="col-sm-2">
+                                                    <!--<img src="/statics/img/swarmimg.png">-->
+                                                    <i class="fa fa-sitemap icon"  style="font-size: 16px;"
+                                                       ng-class="{'1':'envGreen','2':'envGreen','3':'envGreen','4':'envWarning','5':'envGreen','6':'envWarning'}[row.status]"></i>
+                                                </div>
+                                                <div class="col-sm-7 text-left">
+                                                    <p class="textOverflow" >{{row.name}}</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <p>{{envStatusData[row.status]}}</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 58%;float: left">
+                            <div class="panel panel-default" style="margin-bottom: 12px;min-height: 223px;">
+                                <div class="panel-heading">主机</div>
+                                <div class="panel-detail">
+                                    <div class="col-sm-12">
+                                        <div class="chart" ng-if="isDataLoad" style="min-height: 96px" ng-dashboard-pie-loop-chart=""  data="hosts" options="options.vVm"></div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <p class="instrument-font" style="display: inline-block;">总数</p>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{dashboardData.nodeTotal}}</span>台
+                                    </div>
+                                    <div class="col-sm-6" style="padding: 0px;">
+                                        <i class="fa fa-circle fa-lg" style="color: #088fe0;font-size: 12px;padding-left: 5px;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">正常</p>&nbsp;&nbsp;<span>{{dashboardData.normalHostNum}}</span><span></span>
+                                    </div>
+                                    <div class="col-sm-6" style="padding: 0px;">
+                                            <i class="fa fa-circle fa-lg" style="color: #7BE299;font-size: 12px;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">可调度</p>&nbsp;&nbsp;<span>{{dashboardData.scheduNodeNum}}</span><span></span>
+                                    </div>
+                                    <div class="col-sm-6" style="padding: 0px;">
+                                        <i class="fa fa-circle fa-lg" style="color:#FFB07D;font-size: 12px;padding-left: 5px;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">异常</p>&nbsp;&nbsp;<span>{{dashboardData.abnormalHostNum}}</span><span></span>
+                                    </div>
+                                    <div class="col-sm-6" style="padding: 0px;">
+                                        <i class="fa fa-circle fa-lg" style="color: #FF837E;font-size: 12px;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">不可调度</p>&nbsp;&nbsp;<span>{{dashboardData.unscheduNodeNum}}</span><span></span>
+                                    </div>
+                                    <div class="col-sm-6" style="padding: 0px;">
+                                        <i class="fa fa-circle fa-lg" style="color:#7266ba;font-size: 12px;padding-left: 5px;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">添加中</p>&nbsp;&nbsp;<span>{{dashboardData.addingHostNum}}</span><span></span>
+                                    </div>
+                                    <div class="col-sm-6" style="padding: 0px;">
+                                        <i class="fa fa-circle fa-lg" style="color: #655209;font-size: 12px;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">移出中</p>&nbsp;&nbsp;<span>{{dashboardData.outingHostNum}}</span><span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 40%;float: right">
+                            <div class="panel panel-default" style="margin-bottom: 12px;min-height: 223px;">
+                                <div class="panel-heading">存储</div>
+                                <div class="panel-detail">
+                                    <div class="col-sm-12">
+                                        <div class=" chart" ng-if="isDataLoad" style="min-height: 96px" ng-dashboard-pie-loop-chart=""  data="store" options="options.vHost"></div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <p class="instrument-font" style="display: inline-block;">总容量</p>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{dashboardData.pvCapacityTotal}}</span>G
+                                    </div>
+                                    <div class="col-sm-12" style="line-height: 38px;">
+                                        <i class="fa fa-circle fa-lg" style="color: #00D7AF;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">使用中</p>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{dashboardData.pvUsedTotal}}</span><span>G</span>
+                                    </div>
+                                    <div class="col-sm-12" style="line-height: 23px;">
+                                        <i class="fa fa-circle fa-lg" style="color: #5296EB;"></i>&nbsp;&nbsp;<p class="instrument-font" style="display: inline-block;">未使用</p>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{dashboardData.pvUnusedTotal}}</span><span>G</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 instrument-dp panel panel-default">
+                            <div class="panel-heading">系统日志</div>
+                            <div class="panel-detail">
+                                <div class="col-sm-12 instrument-font" style="min-height: 413px;">
+                                    <ul class="timeline instrument-tp">
+                                        <li class="tl-item" ng-repeat="row in logInfo">
+                                            <div class="tl-wrap b-info" style="margin-left: 9em;padding-top: 11px;">
+                                                <span class="tl-date" style="width: 11.5em;margin-left: -14.5em;">{{row.gmtCreate}}</span>
+                                                <div class="tl-content">
+                                                   {{row.username}}:&nbsp;&nbsp;{{row.action}}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isshow" class="modal-body panel-body">
+                    <div class="col-sm-12">
+                        <h5 style="border-left: 2px solid #000;    padding-left: 12px;">完整的应用服务使用流程包含以下4个步骤：</h5>
+                        <div class="col-sm-3 nopadding tb-relative" >
+                            <p class="tb-line"><span class="bg-click1">1</span></p>
+                            <span class="bg-click"></span>
+                            <h5>创建环境</h5>
+                            <div class="col-sm-12 sp-div">创建环境，选择环境的类型和可用节点。</div>
+
+
+                        </div>
+                        <div class="col-sm-3 nopadding tb-relative">
+                            <p class="tb-line"><span class="bg-click2">2</span></p>
+                            <h5>创建应用</h5>
+                            <div class="col-sm-12 sp-div">在应用服务下的应用实例里创建应用，选择应用的环境。</div>
+
+                        </div>
+                        <div class="col-sm-3 nopadding tb-relative">
+                            <p class="tb-line"><span class="bg-click2">3</span></p>
+                            <h5>添加服务</h5>
+                            <div class="col-sm-12 sp-div">在创建好的应用实例下添加服务。</div>
+
+                        </div>
+                        <div class="col-sm-3 nopadding tb-relative">
+                            <p class="tb-line"><span class="bg-click3">4</span></p>
+                            <span class="bg-click" style="    width: calc(61% - 28px);right: 0;"></span>
+                            <h5>应用生命周期管理</h5>
+                            <div class="col-sm-12 sp-div">查看部署好实例的详情，点击运行实例数可看到更详细的内容。</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h5 style="border-left: 2px solid #000;    padding-left: 12px;">完整的工作流使用流程包含以下4个步骤：</h5>
+                        <div class="col-sm-3 nopadding tb-relative" >
+                            <p class="tb-line"><span class="bg-click1">1</span></p>
+                            <span class="bg-click"></span>
+                            <h5>创建工作流</h5>
+                            <div class="col-sm-12 sp-div" >流程管理中的流程编排，创建流程，选择简单任务，任务之间连线关联，任务中选择插件，保存。</div>
+                        </div>
+                        <div class="col-sm-3 nopadding tb-relative" >
+                            <p class="tb-line"><span class="bg-click3">2</span></p>
+                            <span class="bg-click" style="    width: calc(61% - 28px);right: 0;"></span>
+                            <h5>查看详情</h5>
+                            <div class="col-sm-12 sp-div" >在流程管理中的流程编排中点击刚创建的工作流可以查看工作流的执行过程，以及插件的执行状态。</div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <p style="padding-top: 10px">开始创建吧！</p>
+                        <p ng-click="goOpen()" > <span class="btn btn-info btn-sm" style="color: #2975ea;cursor:pointer">创建环境</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

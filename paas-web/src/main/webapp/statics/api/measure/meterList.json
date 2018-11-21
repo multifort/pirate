@@ -1,0 +1,65 @@
+{
+	  "success": true,
+	  "data": {
+	  				"total": 100,
+						"pages": 5,
+						"page": 6,
+      			"rows":[
+      			{
+                      "diskPer": 0,
+											"targetId": 1,
+											"instanceNum": 2,
+											"instanceName": null,
+											"cpuPer": 0,
+											"fee": 580,
+											"diskDrp": 40,
+											"memoryDrp": 4,
+											"type": 1,
+											"vendorName": null,
+											"cpuNum": 2,
+											"isDeleted": false,
+											"memoryPer": 0,
+											"name": "dk@1.com",
+											"meterDate": "2016-10-28 19:16:36",
+											"id": 1
+                    }, {
+                    	"diskPer": 0,
+											"targetId": 2,
+											"instanceNum": 2,
+											"instanceName": null,
+											"cpuPer": 0,
+											"fee": 580,
+											"diskDrp": 40,
+											"memoryDrp": 4,
+											"type": 1,
+											"vendorName": null,
+											"cpuNum": 2,
+											"isDeleted": false,
+											"memoryPer": 0,
+											"name": "zyj@1.com",
+											"meterDate": "2016-10-29 19:16:36",
+											"id": 2
+                    },
+                    {
+                        "diskPer": 0,
+												"targetId": 3,
+												"instanceNum": 2,
+												"instanceName": null,
+												"cpuPer": 0,
+												"fee": 580,
+												"diskDrp": 40,
+												"memoryDrp": 4,
+												"type": 1,
+												"vendorName": null,
+												"cpuNum": 2,
+												"isDeleted": false,
+												"memoryPer": 0,
+												"name": "lwd@1.com",
+												"meterDate": "2016-10-30 19:16:36",
+												"id": 3
+                    }]
+  },
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

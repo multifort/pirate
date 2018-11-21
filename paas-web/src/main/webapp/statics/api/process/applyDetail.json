@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "level":"REMIND",
+    "status":"APPLYING",
+    "host":"192.168.1.175",
+    "handlerName":"张海君",
+    "solveUser":"张海君",
+    "remark": null,
+    "name": "申请1",
+    "gmtCreate":"2016-02-16",
+    "commandName":"CPU",
+    "content":"服务器异常",
+    "id": 6
+  },
+  "status": null,
+  "solution": null
+}

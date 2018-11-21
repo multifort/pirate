@@ -1,0 +1,95 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "type": "REMIND",
+    "config": {
+      "input": [
+        {
+          "key": "插件1",
+          "beans": [
+            {
+              "key": 11,
+              "value": 44,
+              "desp": 222,
+              "require":true
+            },
+            {
+              "key": 22,
+              "value": 55,
+              "desp": 66,
+              "require":false
+            }
+          ]
+        },
+        {
+          "key": "插件1",
+          "beans": [
+            {
+              "key": 11,
+              "value": 44,
+              "desp": 222,
+              "require":true
+            },
+            {
+              "key": 22,
+              "value": 55,
+              "desp": 66,
+              "require":false
+            }
+          ]
+        }
+      ],
+      "filter": {
+        "configs": [
+          {
+            "key": "插件1",
+            "beans": [
+              {
+                "key": 11,
+                "value": 44,
+                "desp": 222,
+                "require":true
+              },
+              {
+                "key": 22,
+                "value": 55,
+                "desp": 66,
+                "require":false
+              }
+            ]
+          },
+          {
+            "key": "插件1",
+            "beans": [
+              {
+                "key": 11,
+                "value": 44,
+                "desp": 222,
+                "require":true
+              },
+              {
+                "key": 22,
+                "value": 55,
+                "desp": 66,
+                "require":false
+              }
+            ]
+          }
+        ],
+        "value": "222"
+      }
+    },
+    "record": {
+      "id": 1,
+      "successes": 1
+    },
+    "gmtConfirm": "2016-02-16",
+    "remark": "dfdf",
+    "lpName": "test",
+    "name": "插件1",
+    "id": 6
+  },
+  "status": null,
+  "solution": null
+}

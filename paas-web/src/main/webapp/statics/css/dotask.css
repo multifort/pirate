@@ -1,0 +1,164 @@
+.wrapper-sm>.panel{
+  margin: 0;
+  padding: 20px 15px;
+}
+.form-group{
+  min-height: 34px;
+  font-size: 13px;
+}
+.control-label{
+  float: left;
+  width: 180px;
+  height: 34px;
+  line-height: 34px;
+  text-align: right;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 12px;
+}
+.control-input{
+  float: left;
+  width: calc(80% - 200px);
+}
+.pagination{
+  margin: 0;
+}
+.source-script .i-checks{
+  height: 34px;
+  line-height: 34px;
+  margin-right: 15px;
+}
+.server-list{
+  margin-left: 180px;
+  width: calc(80% - 200px);
+  border-top: 2px solid #4A9BFF;
+}
+.servers-list{
+  margin-left: 80px;
+  width: calc(100% - 80px);
+  border-top: 2px solid #4A9BFF;
+}
+.source-list{
+  padding: 15px;
+  background: #F3F3F4 ;
+  margin-left: 180px;
+  margin-bottom: 15px;
+  width: calc(80% - 200px);
+}
+.select-script-width{
+  width: calc(100% - 150px);
+}
+.code-type{
+  height: 35px;
+  padding-left: 15px;
+  background: #F6F8F8;
+  line-height: 35px;
+  border: 1px solid #ddd;
+}
+.code-type label{
+  margin-right: 8px;
+}
+.file-list{
+  width: 100%;
+  margin-top: 0;
+  border-top: 2px solid #4A9BFF;
+}
+.file-btn{
+  overflow: hidden;
+  position: relative;
+}
+.file-btn input[type=file]{
+  width: 150%;
+  height: 100%;
+  font-size: 300px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+  left: -40px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+/*详情表格*/
+.detail-table{
+  width: 100%;
+}
+.detail-table td, .detail-table th{
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+}
+.detail-table td.title{
+  width: 85px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.title-line{
+  padding: 20px 10px;
+ margin-top: 25px;
+  border-top: 1px solid #ddd;
+}
+.log-detail{
+  padding: 15px;
+  border: 1px solid #eee;
+  background: #1C2026;
+  color: #fff;
+  height: 300px;
+  overflow: auto;
+}
+.select{
+  background: #eee !important;
+}
+.clear-padding{
+  padding: 0;
+}
+.table-body tr{
+  cursor: pointer;
+}
+.see-result{
+  position: fixed;
+  top: 200px;
+  right: 21px;
+  z-index: 100;
+  width: 30px;
+  height: 104px;
+  cursor: pointer;
+  background: url("/statics/img/show_result.png") no-repeat;
+}
+
+.operation-box{
+  width: calc(90% - 230px);
+  border: 1px solid #DDDDDD;
+  min-height: 80px;
+  margin-bottom: 20px;
+  margin-left: 104px;
+  padding: 0 15px 15px 15px;
+}
+.operation-title{
+  height: 55px;
+  line-height: 55px;
+  border-bottom: 1px solid #ddd;
+}
+.operation-box .control-label{
+  width: inherit;
+}
+.operation-box .control-input{
+  width: calc(100% - 87px);
+}
+.file-list{
+  margin-top: 10px;
+  border-top: 2px solid #4A9BFF;
+}
+/*popover样式*/
+.popover-content{
+  color: #f05050;
+}
+.select-interval-width{
+  width: 49%;
+}
+.w-interval{
+  width: 72%;
+}

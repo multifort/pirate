@@ -1,0 +1,113 @@
+<project>
+	<actions />
+	<description />
+	<keepDependencies>false</keepDependencies>
+	<properties>
+		<hudson.model.ParametersDefinitionProperty>
+			<parameterDefinitions>
+				<hudson.model.StringParameterDefinition>
+					<name>output</name>
+					<description />
+					<defaultValue />
+				</hudson.model.StringParameterDefinition>
+			</parameterDefinitions>
+		</hudson.model.ParametersDefinitionProperty>
+	</properties>
+	<scm class="hudson.scm.NullSCM" />
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers />
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.43">
+			<dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.TagImageCommand">
+				<image>${output}</image>
+				<repository>${strutil.subString(registryUrl, strutil.index(registryUrl, "//")+2)}/${strutil.subStringTo(output, 0, strutil.index(output, ":"))}</repository>
+				<tag>${strutil.subString(output, strutil.index(output, ":")+1)}</tag>
+				<ignoreIfNotFound>false</ignoreIfNotFound>
+				<withForce>true</withForce>
+			</dockerCmd>
+		</org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+		<org.jenkinsci.plugins.dockerbuildstep.DockerBuilder
+			plugin="docker-build-step@1.43">
+			<dockerCmd
+				class="org.jenkinsci.plugins.dockerbuildstep.cmd.PushImageCommand">
+				<dockerRegistryEndpoint plugin="docker-commons@1.7">
+					<url>${registryUrl}</url>
+					${has(credentialId)?"<credentialsId>"+credentialId+"</credentialsId>":""}
+				</dockerRegistryEndpoint>
+				<image>${strutil.subString(registryUrl, strutil.index(registryUrl, "//")+2)}/${output}</image>
+				<tag />
+				<registry />
+			</dockerCmd>
+		</org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+	</builders>
+	<publishers />
+	<buildWrappers />
+</project>
+{"parameters":
+  [
+  	{
+	  "value": "镜像推送组件，需要依赖[构建镜像]的组件",
+	  "type": "warn"
+	},
+    {
+      "description": "镜像仓库的地址，格式为：http://xxx.xxx.xxx.xxx",
+      "displayName": "镜像仓库地址",
+      "name": "registryUrl",
+      "value": "",
+      "select": "",
+      "type": "Api",
+      "interface":"registry/list",
+      "method": "GET",
+      "event":"load",
+      "required": "true"
+    },
+    {
+      "description": "访问镜像仓库用户名",
+      "displayName": "仓库用户名",
+      "name": "username",
+      "value": "",
+      "select": "",
+      "type": "String",
+      "required": "false",
+      "event":"onblur"
+    },
+    {
+      "description": "访问镜像仓库密码",
+      "displayName": "仓库密码",
+      "name": "password",
+      "value": "",
+      "select": "",
+      "type": "Password",
+      "required": "false",
+      "event":"onblur"
+    },
+    {
+      "description": "jenkins凭证",
+      "displayName": "jenkins凭证",
+      "name": "credentialId",
+      "value": "",
+      "select": "",
+      "type": "Api",
+      "interface":"jenkinsCredential/queryCredentialId",
+      "method": "GET",
+      "parm":["username","password"],
+      "mast":["username","password"],
+      "event":"confirm",
+      "required": "true",
+      "display":"false"
+    }
+    {
+      "description": "请选择前面构建镜像任务的输出项作为镜像名称",
+      "displayName": "镜像名称",
+      "name": "output",
+      "value": "",
+      "select": "",
+      "type": "T_select",
+      "required": "true"
+    }
+  ]
+}

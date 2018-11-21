@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "message": "查询成功!",
+  "data": {
+    "nodes": [
+      {
+        "name": "server11",
+        "id": 439,
+        "category": "Computer"
+      },
+      {
+        "name": "HDFS-1",
+        "id": 447,
+        "category": "Storage"
+      },
+      {
+        "name": "mysql-1",
+        "id": 450,
+        "category": "DB"
+      },
+      {
+        "name": "zookeeper",
+        "id": 451,
+        "category": "Middleware"
+      },
+      {
+        "name": "router-1",
+        "id": 444,
+        "category": "Router"
+      },
+      {
+        "name": "router-1",
+        "id": 444,
+        "category": "Router"
+      },
+      {
+        "name": "switch-1",
+        "id": 445,
+        "category": "Switch"
+      },
+      {
+        "name": "server-217",
+        "id": 417,
+        "category": "Computer"
+      }
+    ],
+    "links": [
+      {
+        "source": 439,
+        "target": 447,
+        "relation": "Usage"
+      },
+      {
+        "source": 439,
+        "target": 450,
+        "relation": "Running"
+      },
+      {
+        "source": 439,
+        "target": 451,
+        "relation": "Running"
+      },
+      {
+        "source": 444,
+        "target": 445,
+        "relation": "Connect"
+      },
+      {
+        "source": 444,
+        "target": 439,
+        "relation": "Connect"
+      },
+      {
+        "source": 444,
+        "target": 417,
+        "relation": "Connect"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

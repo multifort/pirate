@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size">备份镜像</p>
+</div>
+<div class="modal-body panel-body user-form">
+    <form class="form-horizontal form-validation" name="addvmForm">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"><span>*</span>镜像名称：</label>
+                <div class="control-input">
+                    <input type="text" name="taskName" class="form-control" ng-model="addData.name" validator="required,no_chinese" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||isLoadingActive" ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

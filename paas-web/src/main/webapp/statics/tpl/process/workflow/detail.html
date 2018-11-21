@@ -1,0 +1,63 @@
+<div class="content-byc image-content" ng-controller="layoutDetailModalCtrl">
+  <div class="animated update-content" >
+      <div class="wrapper-md">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default" style="padding:0;">
+                      <div class="panel-heading font-bold">
+                          <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                          <span class="p-l-6">详情</span>
+                          <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                              <i class="fa fa-reply icon-font"></i> 返回
+                          </button>
+                      </div>
+                      <div class="panel-detail">
+                          <div class="image-box">
+                            <div class="image-box-h text-center">
+                              <div class=" col-md-1">
+                                <p class="small-box-p"><i class="fa fa-cube"></i></p>
+                              </div>
+                              <div class="text-left-p col-md-10">
+                              <p class="text-left-p col-md-12 padding-td-10"><span class="caaa">编排模板</span></p>
+                                <p class="text-left-p col-md-3 name_len"><span class="caaa">名称：</span><span title="{{supplierDetail.name}}">{{supplierDetail.name}}</span></p>
+                                <p class="text-left-p col-md-9"><span class="caaa">描述：</span><span title="{{supplierDetail.description}}">{{supplierDetail.description}}</span></p>
+                              </div>
+                              <div class="both">   </div>
+                            </div>
+
+
+                        </div>
+                      </div>
+                      <tabset class="tab-container">
+
+                        <!-- <tab>
+                          <tab-heading>
+                            流程图
+                          </tab-heading>
+                          <div class="row panel pad-10" >
+                            <div class="row" ng-spider-common-ten="" node-data="nodeData" change-data="changeData"  ng-if="nodeData" style="width: 1000px;height: 400px;">		</div>
+                          </div>
+                        </tab>
+                        <tab >
+                          <tab-heading>
+                            JSON
+                          </tab-heading>
+                          <pre style="  border: 1px solid #aaa;              padding: 0.5em 1.5em;" id="json-renderer"></pre>
+                        </tab> -->
+                       <tab>
+                          <tab-heading>
+                          运行实例
+                          </tab-heading>
+                          <div  class="row panel pad-10" style="box-shadow: none;" data-ng-include="'/statics/tpl/process/workflow/tabs.html'">
+                          </div>
+                        </tab>
+
+
+                      </tabset>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

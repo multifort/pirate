@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "level":"REMIND",
+    "occurred":"2016-02-16",
+    "gmtConfirm":"2016-02-16",
+    "gmtSolve":"2016-02-16",
+    "measurement":"CPU",
+    "status":"SOLVED",
+    "host":"192.168.1.175",
+    "thresholds":[{
+      "warn":50,
+      "remain":10,
+      "danger":12,
+      "sign":"<",
+      "instance":"数据中心一"
+    },{
+      "warn":80,
+      "remain":10,
+      "danger":90,
+      "sign":"<",
+      "instance":"数据中心二"
+    }],
+    "confirmUser":"张海君",
+    "solveUser":"张海君",
+    "remark": null,
+    "name": "告警1",
+    "content":"服务器异常",
+    "id": 6
+  },
+  "status": null,
+  "solution": null
+}

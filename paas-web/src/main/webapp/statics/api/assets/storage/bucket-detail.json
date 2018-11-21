@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "id":9,
+    "name":"用户9",
+    "acl":"true",
+    "gmtCreate":"用户1",
+    "remark":"hello",
+    "space":"1",
+    "location":"2.0"
+  }
+}

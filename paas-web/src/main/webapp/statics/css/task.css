@@ -1,0 +1,720 @@
+/*---------作业dashboard----------*/
+.task-graph-content{
+  position: relative;
+}
+.small-box {
+  border-radius: 2px;
+  position: relative;
+  display: block;
+  margin: 20px 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  height: 155px;
+  color: #fff;
+}
+.small-box-h {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  padding-top: 20px;
+}
+.small-box-count{
+  width: 65%;
+  padding: 10px 5px 5px 20px;
+}
+.font-large{
+  font-size: 40px;
+}
+/*.s-bg-primary{*/
+  /*background-color: #7C79B6;*/
+/*}*/
+.bg-primary-h{
+  background-color: #7270A8;
+}
+.s-bg-green{
+  background-color: #58C386;
+}
+.bg-green-h{
+  background-color: #51B47B;
+}
+.s-bg-yellow{
+  background-color: #EFB04E;
+}
+.bg-yellow-h{
+  background-color: #DCA249;
+}
+.dashboard-task .chart{
+  height: 400px;
+  padding-top: 15px
+}
+/*----------end------------------*/
+.script-content .row{
+  margin: 0;
+}
+/*重做任务*/
+.redo-name-input{
+  display: inline-block;
+  width: 60%
+}
+.redo-title{
+  padding-left: 0;
+  height: 46px;
+  line-height: 46px;
+  background: #37bf5e;
+}
+.script-title {
+  padding: 0;
+  height: 46px;
+  line-height: 46px;
+  background: #2e9bd8;
+}
+.redo-title-img{
+  width: 46px;
+  height: 46px;
+  margin-top: -3px;
+}
+.redo-node{
+  border: 1px solid #ddd;
+}
+.redo-detail{
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+.redo-detail .control-label{
+  width: 80px;
+  float: left;
+}
+.file-list{
+  float: left;
+  width: 80%;
+  margin-top: 0;
+  border-top: 2px solid #4A9BFF;
+}
+/*任务详情*/
+.basic-info{
+  font-size: 13px !important;
+  border: 0;
+}
+.pad-0{
+  padding: 0 !important;
+}
+.title-text{
+  color: #fff;
+  font-weight: bold;
+}
+.step-cell{
+  position: relative;
+  padding: 0 0 30px 35px;
+  border-left: 4px solid #ddd;
+}
+.step .panel-body{
+  padding: 20px 40px;
+}
+.step .file-list{
+  width: 100%;
+  margin-top: 20px !important;
+}
+.step-cell .fa{
+  position: absolute;
+  z-index: 1;
+  left: -15px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+.bg-blue{
+ background: #4A9BFF;
+}
+.bg-green{
+  background: #46c37b;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+/*执行详情*/
+/*详情表格*/
+.detail-table{
+  width: 100%;
+}
+.detail-table td, .detail-table th{
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+}
+.detail-table td.title{
+  width: 85px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.title-line{
+  padding: 20px 10px;
+  margin-top: 25px;
+  border-top: 1px solid #ddd;
+}
+.log-detail{
+  padding: 15px;
+  border: 1px solid #eee;
+  background: #1C2026;
+  color: #fff;
+  height: 300px;
+  overflow: auto;
+}
+pre{
+  background: #1C2026;
+  color: #fff;
+}
+.select{
+  background: #eee !important;
+}
+.clear-padding{
+  padding: 0;
+}
+.table-body tr{
+  cursor: pointer;
+}
+.title-line .pagination{
+  margin: 0;
+}
+td>div.datagrid-cell{
+  max-width: none !important;
+}
+.r-line{
+  display: inline-block;
+  position: relative;
+  top: 12px;
+  height: 32px;
+  width: 2px;
+  background: #bbb;
+}
+
+
+
+.step{
+  padding: 0 8px;
+  margin-bottom: 25px;
+}
+.task-table > tbody > tr > td{
+  padding: 8px;
+}
+.table > tbody + tbody {
+  border-top-width:0;
+}
+.task-node{
+  margin: 0;
+  border: 1px solid #ddd;
+  padding: 0;
+}
+.task-node .control-label{
+  float: left;
+  width: 90px;
+  height: 34px;
+  line-height: 34px;
+  text-align: right;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 12px;
+}
+.form-group>span{
+  margin-left: 5px;
+}
+.operation>a{
+  color: #337ab7;
+  margin-right: 1px;
+}
+/*分页样式*/
+/*ul.pagination{*/
+  /*margin: 0;*/
+/*}*/
+.modal-body table{
+  margin: 0;
+}
+.script-title .control-label,
+.file-title .control-label,
+.file-backup-title .control-label {
+  color: #fff;
+}
+.task-node .control-input{
+  float: left;
+  text-align: left;
+  width: calc(100% - 300px) !important;
+  margin: 0;
+}
+.btn-add-step{
+  padding: 0 0 20px 6px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.server-list {
+  margin-left: 90px;
+  width: calc(100% - 300px);
+  border-top: 2px solid #4A9BFF;
+}
+.modal-body .server-list {
+  margin-left: 90px;
+  width: calc(100% - 90px);
+  border-top: 2px solid #4A9BFF;
+}
+.task-name-input{
+  display: inline-block;
+  width: 40%
+}
+.file-title{
+  padding: 0;
+  height: 46px;
+  line-height: 46px;
+  background: #37bf5e;
+}
+.file-backup-title{
+  padding: 0;
+  height: 46px;
+  line-height: 46px;
+  background: #fcb259;
+}
+.script-title{
+  padding: 0;
+  height: 46px;
+  line-height: 46px;
+  background: #2e9bd8;
+}
+.task-title-img{
+  width: 46px;
+  height: 46px;
+  margin-top: -3px;
+}
+.task-detail{
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+.task-detail .control-label{
+  width: 80px;
+  float: left;
+}
+.file-list{
+  float: left;
+  width: 80%;
+  margin-top: 0;
+  border-top: 2px solid #4A9BFF;
+}
+.file-btn{
+  overflow: hidden;
+  position: relative;
+}
+.file-btn input[type=file]{
+  width: 150%;
+  height: 100%;
+  font-size: 300px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+  left: -40px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.script-list{
+  padding: 15px;
+  background: #F3F3F4;
+  margin-left: 100px;
+  margin-bottom: 15px;
+  width: calc(100% - 330px);
+}
+.select-script-width {
+  width: calc(100% - 150px);
+}
+.code-type {
+  height: 35px;
+  padding-left: 15px;
+  background: #F6F8F8;
+  line-height: 35px;
+  border: 1px solid #ddd;
+}
+.add-task-node{
+  background: #F6F9FE !important;
+  height: 46px;
+  line-height: 46px;
+  color: #7266ba;;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+/*定时作业*/
+.width-86{
+  width:86px;
+}
+.tab-style{
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #eee;
+  padding: 15px 8px 5px 8px;
+}
+.detail-href{
+  color: #428bca;
+  text-decoration: none;
+}
+.detail-href:hover,.detail-href:focus{
+  color: #2a6496;
+  text-decoration: none;
+  cursor:pointer;
+}
+.time-box{
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  padding-bottom: 18px;
+}
+.time-box-item{
+  margin-left: 10px;
+  max-width: 100%;
+}
+.check-span{
+  width: 10px;
+  display: inline-block;
+  margin-right: 3px;
+}
+.width-83{
+  width: 83px;
+}
+.time-box .padding-10{
+  padding: 0 10px;
+}
+.time-box .padding-20{
+  padding: 0 20px;
+}
+.tab-container .backImg{
+  background: url('../img/rule.png') center center no-repeat;
+  background-size: 100%;
+  width: 383px;
+  height: 253px;
+  margin:0 auto;
+}
+
+/*拖拽样式*/
+.drag-container {
+  display: none;
+  position: fixed;
+  left: 200px;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 1000;
+}
+.drag-step-list{
+  margin: 200px auto 0 50px;
+  overflow: hidden;
+}
+.drag-step-cell{
+  float: left;
+  width: 237px;
+  height: 142px;
+  background: #fff;
+  margin: 15px;
+  text-align: center;
+  line-height: 142px;
+  color: #555;
+}
+.drag-type-j{
+  background: #fff url(/statics/img/fd.png) no-repeat center center;
+}
+.drag-type-f{
+  background: #fff url(/statics/img/wenjian.png) no-repeat center center;
+}
+.drag-item{
+  z-index: 100000;
+}
+.drag-item .fa{
+  background: #fff;
+  width:50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  background: #fafafa url(/statics/img/drag_item.png) no-repeat center center;
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+.drag-item .fa:before{
+  display: none;
+  content: '';
+}
+.drag-step-cell.block-hover{
+  background-color: #5F5656;
+  border: 2px dashed #FE9D2B
+}
+/*popover样式*/
+.popover-content{
+  color: #f05050;
+}
+
+
+/*任务改版样式*/
+.task-graph-content .search-content .form-group {
+  margin: 0 0 10px 0;
+  width: 100%;
+  display: inline-block;
+}
+
+.task-tab{
+  height: 530px;
+  /*line-height: 120px;*/
+  /*background: url("/statics/img/topology/bg.jpg");*/
+}
+.task_model p{
+  margin: 0;
+}
+.input-error-info>span>label{
+  margin-left: 90px;
+}
+.temply{
+  position: absolute;
+  top: 74px;
+  right: 15px;
+  width: 310px;
+
+}
+.setting_task{
+  background: url("/statics/img/bgtask.png") no-repeat;
+  background-size: 45%;
+  background-position: 47% 44%;
+}
+.setting_task .task_pop{
+
+  text-align: center;
+  color: #d5d5d5;
+  font-size: 16px;
+}
+.task-tab>div.item{
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  width: 50px;
+  height: 70px;
+  margin:10px 15px;
+}
+
+.node-img{
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.node-menu {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  border-bottom: 0;
+  background: #d9edf7;
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.node-menu li a {
+  display: block;
+  color: #31708f;
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.node-menu li a:hover {
+  background: #fcf8e3;
+}
+/*任务改版详情样式*/
+.task-node-detail{
+  margin: 0;
+  border-bottom: none;
+}
+
+.task-node-detail .form-control{
+  width: 100%;
+}
+
+/*任务改版执行详情样式*/
+.execute-info  .form-group {
+  width: 33% !important;
+}
+
+.search-content.execute-info .control-label {
+  width: 85px;
+}
+ .wrapper-sm>.panel{
+  margin: 0;
+  padding: 20px 8px;
+}
+.script-content .form-group{
+  min-height: 34px;
+  font-size: 13px;
+}
+.script-content .control-label{
+  float: left;
+  width: 150px;
+  height: 34px;
+  line-height: 34px;
+  text-align: right;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 12px;
+}
+.script-content .control-input{
+  float: left;
+  width: calc(100% - 340px);
+}
+.script-content .pagination{
+  margin: 0;
+}
+.script-content .source-script .i-checks{
+  height: 34px;
+  line-height: 34px;
+  margin-right: 15px;
+}
+.script-content .server-list{
+  margin-left: 150px;
+  width: calc(100% - 340px);
+  border-top: 2px solid #4A9BFF;
+}
+.script-content .file-target .server-list{
+  margin-left: 90px;
+  width: calc(100% - 100px);
+  border-top: 2px solid #4A9BFF;
+}
+.script-modal .source-list{
+  padding: 15px;
+  background: #F3F3F4 ;
+  margin-left: 100px;
+  margin-bottom: 15px;
+  width: calc(100% - 125px);
+}
+.script-content .source-list{
+  padding: 15px;
+  background: #F3F3F4 ;
+  margin-left: 165px;
+  margin-bottom: 15px;
+  width: calc(100% - 370px);
+}
+.script-content .select-script-width{
+  width: calc(100% - 150px);
+}
+.script-content .code-type{
+  height: 35px;
+  padding-left: 15px;
+  background: #F6F8F8;
+  line-height: 35px;
+  border: 1px solid #ddd;
+}
+.script-content .code-type label{
+  margin-right: 8px;
+}
+.script-content .file-list{
+  width: 100%;
+  margin-top: 0;
+  border-top: 2px solid #4A9BFF;
+}
+.script-content .file-btn{
+  overflow: hidden;
+  position: relative;
+}
+.script-content .file-btn input[type=file]{
+  width: 150%;
+  height: 100%;
+  font-size: 300px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+  left: -40px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.select-interval-width{
+  width: 49%;
+}
+.w-interval{
+  width: 72%;
+}
+
+.script-content .see-result{
+  position: fixed;
+  top: 200px;
+  right: 21px;
+  z-index: 100;
+  width: 30px;
+  height: 104px;
+  cursor: pointer;
+  background: url("/statics/img/show_result.png") no-repeat;
+}
+
+.script-content .operation-box{
+  width: calc(100% - 290px);
+  border: 1px solid #DDDDDD;
+  min-height: 80px;
+  margin-bottom: 20px;
+  margin-left: 85px;
+  padding: 0 15px 15px 15px;
+}
+.script-content .operation-title{
+  height: 55px;
+  line-height: 55px;
+  border-bottom: 1px solid #ddd;
+}
+.script-content .operation-box .control-label{
+  width: 90px;
+}
+.script-content .operation-box .control-input{
+  width: calc(100% - 100px);
+}
+.script-content .file-list{
+  margin-top: 10px;
+  border-top: 2px solid #4A9BFF;
+}
+.detail-table{
+  width: 100%;
+}
+.detail-table td, .detail-table th{
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+}
+.detail-table td.title{
+  width: 85px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.script-content .title-line{
+  padding: 20px 10px;
+  margin-top: 25px;
+  border-top: 1px solid #ddd;
+}
+.script-content .log-detail{
+  padding: 15px;
+  border: 1px solid #eee;
+  background: #1C2026;
+  color: #fff;
+  height: 300px;
+  overflow: auto;
+}
+.script-content .select{
+  background: #eee !important;
+}
+.script-content .clear-padding{
+  padding: 0;
+}
+.script-content .table-body tr{
+  cursor: pointer;
+}

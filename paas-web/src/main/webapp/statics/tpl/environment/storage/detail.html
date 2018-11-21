@@ -1,0 +1,46 @@
+<div class="content-byc image-content" ng-controller="storageDetailModalCtrl">
+    <div class="animated update-content" >
+        <div class="wrapper-md">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="padding:0;">
+                        <div class="panel-heading font-bold">
+                            <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                            <span class="p-l-6">详情</span>
+                            <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                                <i class="fa fa-reply icon-font"></i> 返回
+                            </button>
+                        </div>
+                        <div class="panel-detail">
+                            <div class="image-box">
+                                <div class="image-box-h text-center">
+                                    <div class=" col-md-1 padding-td-10">
+                                        <p class="small-box-p"><i class="fa fa-cube"></i></p>
+                                    </div>
+                                    <div class="text-left-p col-md-11">
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">存储名称：</span><span title="{{basicDetail.name}}">{{basicDetail.name}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">类型：</span><span title="{{basicDetail.type}}">{{basicDetail.type}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">状态：</span><span title="{{basicDetail.status}}">{{basicDetail.status}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">容量：</span><span title="{{basicDetail.capacity}}">{{basicDetail.capacity}}G</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">创建者名称：</span><span title="{{basicDetail.creater}}">{{basicDetail.creater}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">创建时间：</span><span title="{{basicDetail.gmtCreate}}">{{basicDetail.gmtCreate}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">访问模式：</span><span title="{{basicDetail.access}}">{{basicDetail.access}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">修改者名称：</span><span title="{{basicDetail.mendor}}">{{basicDetail.mendor}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">修改时间：</span><span title="{{basicDetail.gmtModify}}">{{basicDetail.gmtModify}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">回收策略：</span><span title="{{basicDetail.policy}}">{{basicDetail.policy}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">存储路径：</span><span title="{{basicDetail.path}}">{{basicDetail.path}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow" ng-if="basicDetail.ip"><span  class="caaa">NFS服务地址：</span><span title="{{basicDetail.ip}}">{{basicDetail.ip}}</span></p>
+                                        <p class="text-left-p col-md-4 textOverflow"><span  class="caaa">描述信息：</span><span title="{{basicDetail.remark}}">{{basicDetail.remark}}</span></p>
+                                    </div>
+                                    <div class="both"> </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

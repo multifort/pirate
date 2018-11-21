@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size">添加资源分组</p>
+</div>
+<div class="modal-body add-cabinet-body" style="max-height: 475px;overflow: auto;">
+    <!--<p style="padding-bottom:10px;">请选择用户：</p>-->
+    <table st-table="displayListData" st-safe-src="resGroupList" class="table table-hover">
+        <thead>
+        <tr>
+            <th width="10%" class="text-center">
+                <label class="i-checks m-b-none" ng-click="selectAll()"><input type="checkbox" ng-model="isSelectAll"><i></i></label>
+            </th>
+            <th width="45%" class="text-center">分组名称</th>
+            <th width="45%" class="text-center">描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in displayListData">
+            <td width="10%" class="text-center">
+                <label class="i-checks m-b-none"><input type="checkbox" ng-model="row.checked" ng-click="selectItem(row)"><i></i></label>
+            </td>
+            <td width="45%" class="text-center" style="max-width:315px;" ng-bind="row.name"></td>
+            <td width="45%" class="text-center" style="max-width:315px;" ng-bind="row.remark"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2" class="text-left">
+                <div>每页{{itemsByPage}}条，共{{total}}条</div>
+            </td>
+            <td colspan="1" class="text-right" style="padding: 0 6px;">
+                <div style="margin-top: -5px;" st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7" class="no-margin"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-click="ok()">确认</button>
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+</div>

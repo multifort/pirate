@@ -1,0 +1,47 @@
+
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+<p class="modal-title panel-title-size" ng-bind="modalName"></p>
+</div>
+<div class="modal-body panel-body">
+  <div class="">
+      <div class="pmbb-header">
+          <h5 class="console-title">详细信息</h5>
+      </div>
+      <div class="pmbb-body p-l-30">
+          <div class="form-group">
+              <div class="col-lg-12">
+                <dl class="dl-horizontal">
+                    <dt>输入项：</dt>
+                     <pre style="  border: 1px solid #aaa;      min-height:120px;        padding: 0.5em 1.5em;" id="json-input"></pre>
+                   
+                </dl>
+             </div>
+             </div>
+              <div class="form-group">
+              <div class="col-lg-12">
+                  <dl class="dl-horizontal">
+                      <dt>输出项：</dt>
+                       <pre style="  border: 1px solid #aaa;     min-height:120px;            padding: 0.5em 1.5em;" id="json-output"></pre>
+                      
+                  </dl>
+              </div>
+
+          </div>
+          <div class="form-group">
+
+              <div class="col-lg-6">
+                  <dl class="dl-horizontal">
+                      <dt>失败原因：</dt>
+                      <dd title="{{taskDetail.reasonForIncompletion}}" ng-bind="taskDetail.reasonForIncompletion"></dd>
+                  </dl>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+<button class="btn btn-cancel" ng-click="cancel()">关闭</button>
+</div>

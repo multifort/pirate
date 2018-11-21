@@ -1,0 +1,38 @@
+{
+  "success" : true,
+  "data" :{
+    "rows": [
+      {
+        "id":1,
+        "quota":"1",
+        "used":"haha",
+        "tenantName":"运行中运行中运行中",
+        "moduleName":"1"
+      },
+      {
+        "id":2,
+        "quota":"1",
+        "used":"haha",
+        "tenantName":"运行中运行中运行中",
+        "moduleName":"1"
+      },
+      {
+        "id":3,
+        "quota":"1",
+        "used":"haha",
+        "tenantName":"运行中运行中运行中",
+        "moduleName":"1"
+      },
+      {
+        "id":5,
+        "quota":"1",
+        "used":"haha",
+        "tenantName":"运行中运行中运行中",
+        "moduleName":"1"
+      }],
+    "total":20
+  },
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

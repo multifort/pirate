@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: List
+items:
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: ${NAME}
+    labels:
+      ${LABEL}
+    annotations:
+      ${ANNOTATION}
+  spec:
+    ports:
+      - name: ${NAME}
+        type: NodePort
+        protocol: TCP
+        targetPort: ${TARGET_PORT}
+        port: ${PORT}
+    selector:
+      ${DEPLOYMENT_LABEL}
+- kind: Deployment
+  apiVersion: v1
+  metadata:
+    name: ${NAME}
+    labels:
+      name: mysql
+  spec:
+    replicas: ${REPLICAS}
+    selector:
+      matchLabels:
+        ${LABEL}
+    template:
+      metadata:
+        labels:
+          ${LABEL}
+      spec:
+        containers:
+          - name: mysql
+            image: '${IMAGE}'
+            ports:
+              - containerPort: 3306
+                protocol: TCP
+            env:
+             ${ENVIRONMENT}
+            resources:
+              limits:
+                memory: 512Mi
+              requests:
+                memory: 512Mi
+            args:
+              - mysqld
+            command:
+              - docker-entrypoint.sh
+            imagePullPolicy: IfNotPresent
+
+parameters:
+  [
+    {
+      "description": "填写任务的名称",
+      "displayName": "名称",
+      "name": "name",
+      "value": "",
+      "select": "",
+      "type": "String"
+    }
+  ]
+

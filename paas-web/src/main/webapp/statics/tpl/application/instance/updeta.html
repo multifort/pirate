@@ -1,0 +1,66 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size" >滚动升级</p>
+</div>
+<div class="modal-body panel-body" style="height:300px">
+    <form class="form-horizontal form-validation" name="addvmForm">
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">镜像名称：</label>
+                <div class="control-input">
+                  <div class="control-input special-select m-r-xxs">
+                   <input class="form-control" name="serviceName" ng-model="serviceName" validator="required,name" disabled          />
+
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">仓库：</label>
+                <div class="control-input">
+                    <div class="control-input special-select m-r-xxs">
+                    <select class="form-control" name="city" ng-model="warehoseItem" ng-change="getnameSpace()" validator="required">
+                        <option value="">--请选择--</option>
+                        <option ng-repeat="item in warehoseData"  value="{{item}}" ng-bind="item"></option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">项目：</label>
+                <div class="control-input">
+                    <div class="control-input special-select m-r-xxs">
+                    <select class="form-control" name="namespace" ng-model="namespaceItem" ng-change="getVision()" >
+                        <option value="namespve">--请选择--</option>
+                        <option ng-repeat="item in namespaceData"  value="{{item}}" ng-bind="item"></option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">镜像版本：</label>
+             <div class="control-input">
+                    <div class="control-input special-select m-r-xxs">
+                        <ui-select ng-model="scriptItem.selected" style="margin-bottom:10px"  theme="bootstrap">
+                            <ui-select-match placeholder="选择或者从列表中搜索一个版本">{{$select.selected.tag}}</ui-select-match>
+                            <ui-select-choices repeat="item in dataType | filter: $select.search">
+                                <div ng-bind-html="item.tag | highlight: $select.search" ></div>
+                            </ui-select-choices>
+                        </ui-select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="addvmForm"  ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

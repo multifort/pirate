@@ -1,0 +1,73 @@
+{
+    "success": true,
+    "message": "查询组件价格成功",
+    "data": {
+        "total": 3,
+        "pages": 1,
+        "page": 1,
+        "rows": [
+            {
+                "period": 6,
+                "gmtModify": null,
+                "moreProp": null,
+                "remark": null,
+                "priceEnd": "2017-09-26 18:03:41",
+                "gmtCreate": null,
+                "ownerId": null,
+                "type": "1",
+                "menderId": null,
+                "unit": "个",
+                "isDeleted": false,
+                "price": 150,
+                "isLocked": null,
+                "name": "cpu",
+                "priceStart": "2016-05-20 18:03:41",
+                "createrId": null,
+                "id": 1,
+                "status": null
+            },
+            {
+                "period": 6,
+                "gmtModify": null,
+                "moreProp": null,
+                "remark": null,
+                "priceEnd": "2017-09-26 18:03:41",
+                "gmtCreate": null,
+                "ownerId": null,
+                "type": "2",
+                "menderId": null,
+                "unit": "G",
+                "isDeleted": false,
+                "price": 50,
+                "isLocked": null,
+                "name": "内存",
+                "priceStart": "2016-05-20 18:03:41",
+                "createrId": null,
+                "id": 2,
+                "status": null
+            },
+            {
+                "period": 6,
+                "gmtModify": null,
+                "moreProp": null,
+                "remark": null,
+                "priceEnd": "2017-09-26 18:03:41",
+                "gmtCreate": null,
+                "ownerId": null,
+                "type": "3",
+                "menderId": null,
+                "unit": "G",
+                "isDeleted": false,
+                "price": 2,
+                "isLocked": null,
+                "name": "存储",
+                "priceStart": "2016-05-20 18:03:41",
+                "createrId": null,
+                "id": 3,
+                "status": null
+            }
+        ]
+    },
+    "status": null,
+    "solution": null
+}

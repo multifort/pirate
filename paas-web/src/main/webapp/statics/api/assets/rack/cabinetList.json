@@ -1,0 +1,76 @@
+{
+  "success": true,
+  "data": {
+    "rows":[{
+      "id": 1,
+      "name": "机柜1",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 2,
+      "roomId": 2
+    },{
+      "id": 2,
+      "name": "机柜2",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 1,
+      "roomId": 1
+    },{
+      "id": 3,
+      "name": "机柜3",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 2,
+      "roomId": 2
+    },{
+      "id": 4,
+      "name": "机柜4",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 1,
+      "roomId": 1
+    },{
+      "id": 5,
+      "name": "机柜5",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 1,
+      "roomId": 1
+    },{
+      "id": 6,
+      "name": "机柜6",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 1,
+      "roomId": 1
+    }, {
+      "id": 7,
+      "name": "机柜7",
+      "remark": "good",
+      "dcId": 1,
+      "roomId": 1
+    },{
+      "id": 8,
+      "name": "机柜8",
+      "remark": "good",
+      "status":"正常",
+      "type":"标准机柜",
+      "productDate": "2015-03-12",
+      "dcId": 2,
+      "roomId": 2
+    }],
+    "total":20
+  }
+}

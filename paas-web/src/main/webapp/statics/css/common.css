@@ -1,0 +1,311 @@
+.hostdetail{
+     min-height: 148px;
+     margin-top: 15px;
+     border: 1px solid rgba(204, 204, 204, 1);
+}
+.dfont{
+     padding: 8px 16px 2px 0px;
+     display: inline-block;
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     color: #999999;
+}
+.app-dfont{
+     padding: 6px 16px 6px 0px;
+     display: inline-block;
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     color: #333333;;
+}
+.dfont-back{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+}
+.app-p{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     color: #333333;
+     padding: 0px;
+}
+.app-p p{
+     display: inline-block;
+}
+.app-d{
+     margin-top: 15px;
+     margin-bottom: 15px;
+}
+.app-font{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 18px;
+}
+.instrument-font{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+}
+
+.instrument-in{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 16px;
+     color: #3399CC;
+     display: inline-block;
+}
+.instrument-h{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 28px;
+     color: #009933;
+     margin-bottom: 0px;
+}
+
+.console-title{
+     text-indent: 8px;
+     border-left: 3px solid #88B7E0;
+}
+.console-bottom{
+     padding-bottom: 15px;
+     border-bottom: 1px solid rgba(204, 204, 204, 1);
+}
+.instrument-dp{
+     padding: 0px;
+}
+.instrument-dm{
+     margin-top: 10px;
+}
+.instrument-lp{
+     margin-bottom: 10px;
+     margin-top: 10px;
+}
+.instrument-bs{
+     border-top:1px dashed rgba(204, 204, 204, 1);;
+     min-height: 35px;
+     padding-top: 10px;
+}
+.instrument-tp{
+     padding-top: 18px;
+     padding-left: 30px;
+}
+.img-font{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     padding-top: 10px;
+     height: 175px;
+     overflow: auto;
+}
+.net-font{
+     padding-right: 8px;
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 14px;
+     display: inline-block;
+     line-height: 75px;
+}
+.net-rfont{
+     padding-right: 5px;
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     display: inline-block;
+     color: #3399CC;
+}
+.net-num{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 32px;
+     color: #3399CC;
+     display: inline-block;
+     line-height: 75px;
+}
+.net-br{
+     margin-bottom: 25px;
+     border-right: 1px solid rgba(204, 204, 204, 1);
+     margin-top: 25px;
+}
+.net-rd{
+     padding-top: 17px;
+     padding-bottom: 17px;
+}
+.tl-time{
+     width: 84%;
+     background-color:rgb(242, 242, 242);
+     padding-left: 16px;
+     position: relative;
+     padding-top: 10px;
+     padding-bottom: 10px;
+}
+.low-border{
+     border-bottom: 1px solid #dee5e7;
+}
+.app-env-border{
+     border: 1px solid #dee5e7;
+     padding: 15px;
+}
+.app-img{
+     cursor: pointer;
+     margin-top: 7px;
+     float: right;
+     width: 16px;
+     height: 10px;
+}
+.app-view{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     color: #999999;
+}
+.app-con-list{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     color: #333333;
+     text-align: center;
+}
+.app-con-log{
+     left: 0px;
+     top: 0px;
+     width: 16px;
+     height: 18px;
+}
+.app-con-img{
+     left: 0px;
+     top: 0px;
+     width: 16px;
+     height: 18px;
+}
+.app-con-zhong{
+     left: 0px;
+     top: 0px;
+     width: 16px;
+     height: 18px;
+}
+.app-con-service{
+     left: 0px;
+     top: 0px;
+     width: 52px;
+     height: 50px;
+}
+.app-service-auto{
+     padding: 0px;
+     text-align: center;
+     margin: 15% auto;
+}
+.app-service-middle{
+     padding: 0px;
+     margin: 5% auto;
+     text-align: center;
+}
+.app-operatetime{
+     float: right;
+     margin-right: 50px;
+}
+.app-env-h{
+     font-family: '微软雅黑 Bold', '微软雅黑';
+     font-weight: 700;
+     font-style: normal;
+     font-size: 12px;
+     color: #3399CC;
+}
+.app-env-i{
+     width: 30%;
+     display: inline-block;
+     border-bottom: 1px solid #dee5e7;
+     margin-right: 60px;
+}
+.app-env-list{
+     border: 1px solid #dee5e7;
+}
+.app-con-s{
+     width: 60%;
+     margin-bottom: 15px;
+     display: inline-block;
+     margin-right: 50px;
+}
+.app-con-i{
+     display: inline-block;
+     width: 60%;
+     margin-right: 50px;
+}
+.app-bu{
+     width: 144px;
+}
+.develop-re{
+     font-family: '微软雅黑';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 12px;
+     color: #333333;
+}
+.develop-font-div{
+     height: 40px;
+     line-height: 40px;
+}
+.develop-div-warm{
+     margin-top: 20px;
+     background-color: rgba(255, 248, 240, 1);
+     padding: 8px;
+     border: 1px solid rgba(255, 194, 134, 1);
+}
+.develop-font-warm{
+     font-family: 'Arial Normal', 'Arial';
+     font-weight: 400;
+     font-style: normal;
+     font-size: 13px;
+     color: #FF8D42;
+}
+.file-btn input[type=file] {
+     width: 125px;
+     height: 34px;
+     font-size: 300px;
+     opacity: 0;
+     filter: alpha(opacity=0);
+     cursor: pointer;
+     right: 0;
+     bottom: 0;
+     top: 0;
+     position: absolute;
+     padding: 0px;
+     margin: 0px;
+     overflow: hidden;
+}
+.file-btn {
+     overflow: hidden;
+     position: absolute;
+     top: 41px;
+     right: 0px;
+}
+.deploy-top-div {
+     height: 35px;
+     background-color: rgba(247, 247, 247, 1);
+     border: 1px solid rgba(204, 204, 204, 1);
+     line-height: 35px;
+}
+.gao-input {
+     width: 95%;
+     display: inline-block;
+}
+.check-top {
+     margin-top: 0px;
+     margin-bottom: 0px;
+}
+

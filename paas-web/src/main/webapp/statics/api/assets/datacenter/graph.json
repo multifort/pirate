@@ -1,0 +1,244 @@
+
+{
+"success": true,
+"message": "查询成功",
+"data":
+{
+"rooms": [
+{
+"rowNum": 4,
+"name": "牡丹园机房",
+"colNum": 5,
+"racks": [
+{
+"servers": [],
+"axisY": 4,
+"name": "JG1-1",
+"axisX": 2,
+"id": 10,
+"status": "ABNORMAL"
+},
+{
+"servers": [
+{
+"slotNum": null,
+"name": "集群服务器",
+"id": 36,
+"slotStart": null,
+"status": "NORMAL"
+}
+],
+"axisY": 4,
+"name": "JG1-2",
+"axisX": 3,
+"id": 11,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 4,
+"name": "JG1-3",
+"axisX": 4,
+"id": 12,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 4,
+"name": "JG1-4",
+"axisX": 1,
+"id": 13,
+"status": "ALARM"
+},
+{
+"servers": [],
+"axisY": 1,
+"name": "JG1-5",
+"axisX": 1,
+"id": 14,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 1,
+"name": "JG1-6",
+"axisX": 2,
+"id": 15,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 1,
+"name": "JG1-7",
+"axisX": 3,
+"id": 16,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 1,
+"name": "JG1-8",
+"axisX": 4,
+"id": 17,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 2,
+"name": "JG1-9",
+"axisX": 1,
+"id": 18,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 2,
+"name": "JG1-10",
+"axisX": 2,
+"id": 19,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 2,
+"name": "JG1-11",
+"axisX": 3,
+"id": 20,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 2,
+"name": "JG1-12",
+"axisX": 4,
+"id": 21,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 3,
+"name": "JG1-13",
+"axisX": 1,
+"id": 22,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 3,
+"name": "JG1-14",
+"axisX": 2,
+"id": 23,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 3,
+"name": "JG1-15",
+"axisX": 3,
+"id": 24,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 3,
+"name": "JG1-16",
+"axisX": 4,
+"id": 25,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 5,
+"name": "JG1-17",
+"axisX": 1,
+"id": 26,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 5,
+"name": "JG1-18",
+"axisX": 2,
+"id": 27,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 5,
+"name": "JG1-19",
+"axisX": 3,
+"id": 28,
+"status": "AVAILABLE"
+},
+{
+"servers": [],
+"axisY": 5,
+"name": "JG1-20",
+"axisX": 4,
+"id": 29,
+"status": "AVAILABLE"
+}
+],
+"id": 67,
+"status": "AVAILABLE"
+}
+,
+{
+"rowNum": 6,
+"name": "城建机房",
+"colNum": 6,
+"racks": [{
+  "servers": [],
+  "axisY": 4,
+  "name": "JG1-3",
+  "axisX": 4,
+  "id": 12,
+  "status": "AVAILABLE"
+},
+  {
+    "servers": [],
+    "axisY": 4,
+    "name": "JG1-4",
+    "axisX": 1,
+    "id": 13,
+    "status": "ALARM"
+  }],
+"id": 68,
+"status": "AVAILABLE"
+}
+,
+{
+"rowNum": 1,
+"name": "a",
+"colNum": 1,
+"racks": [],
+"id": 91,
+"status": "NORMAL"
+}
+,
+{
+"rowNum": 2,
+"name": "1",
+"colNum": 2,
+"racks": [],
+"id": 92,
+"status": "NORMAL"
+}
+,
+{
+"rowNum": 2,
+"name": "2",
+"colNum": 2,
+"racks": [],
+"id": 93,
+"status": "NORMAL"
+}
+],
+"name": "北京数据中心",
+"id": 240,
+"status": "AVAILABLE"
+}
+,
+"status": null,
+"solution": null
+}

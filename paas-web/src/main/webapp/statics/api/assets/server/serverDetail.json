@@ -1,0 +1,27 @@
+{
+    "success": true,
+    "message": "获取成功",
+    "data": {
+        "name": "we",
+        "namespace": "application_we",
+        "resourceRelations": [
+            {
+                "targetName": "me",
+                "targetCategory": "DB",
+                "sourceCategory": "",
+                "namespace": "application_me",
+                "sourceName": "we"
+            },
+            {
+                "targetName": "hh",
+                "targetCategory": "DB",
+                "sourceCategory": "",
+                "namespace": "application_hh",
+                "sourceName": "we"
+            }
+        ]
+    },
+    "status": null,
+    "solution": null,
+    "failed": false
+}

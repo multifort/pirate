@@ -1,0 +1,336 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: ${NAME}
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+  spec:
+    <% if(NODE_TYPE != null){ %>
+    type: NodePort
+    <% } %>
+    ports:
+    <% if(ports != null){ %> 
+    <% for(port in ports){ %>
+      - port: ${port.port}
+        nodePort: ${port.nodePort}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+    <% } %>
+    <% } %>
+    <% if(nodePorts != null){ %>   
+    <% for(port in nodePorts){ %>
+      - port: ${port.port}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+    <% } %>
+    <% } %>
+    <% for(var i = 0; i < containerPorts.~size; i++){ %>
+      - port: ${containerPorts[i].key}
+        targetPort: ${containerPorts[i].key}
+        protocol: ${containerPorts[i].value}
+        name: http-${i}
+     <% } %>
+    selector:
+      name: ${NAME}
+
+- apiVersion: apps/v1beta1
+  kind: StatefulSet
+  metadata:
+    name: ${NAME}
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+  spec:
+    serviceName: ${NAME}
+    replicas: 3
+    template:
+      metadata:
+        labels:
+          name: ${NAME}
+      spec:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: "name"
+                      operator: In
+                      values: 
+                      - ${NAME}
+                topologyKey: "kubernetes.io/hostname"
+          podAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+               - weight: 1
+                 podAffinityTerm:
+                   labelSelector:
+                      matchExpressions:
+                        - key: "name"
+                          operator: In
+                          values: 
+                          - ${ZK_NAME}
+                   topologyKey: "kubernetes.io/hostname"
+        terminationGracePeriodSeconds: 300
+        containers:
+        - name: k8skafka
+          image: 139.219.239.226/library/k8skafka-port:v1
+          resources:
+            limits:
+              <% if (LIMITS_CPU != null) { %>
+              cpu: ${LIMITS_CPU}
+              <% } %>
+              <% if (LIMITS_MEMORY != null) { %>
+              memory: ${LIMITS_MEMORY}
+              <% } %>
+            requests:
+              <% if (REQUESTS_CPU != null) { %>
+              cpu: ${REQUESTS_CPU}
+              <% } %>
+              <% if (REQUESTS_MEMORY != null) { %>
+              memory: ${REQUESTS_MEMORY}
+              <% } %>
+          ports:
+          - containerPort: 9093
+            name: server
+          command:
+          - sh
+          - -c
+          - "exec kafka-server-start.sh /opt/kafka/config/server.properties --override broker.id=${HOST_NAME} \
+            --override listeners=PLAINTEXT://:9093 \
+      --override zookeeper.connect=${ZK_SVC_NAME}.svc.cluster.local:2181 \
+            --override log.dir=/var/lib/kafka \
+            --override auto.create.topics.enable=true \
+            --override auto.leader.rebalance.enable=true \
+            --override background.threads=10 \
+            --override compression.type=producer \
+            --override delete.topic.enable=false \
+            --override leader.imbalance.check.interval.seconds=300 \
+            --override leader.imbalance.per.broker.percentage=10 \
+            --override log.flush.interval.messages=9223372036854775807 \
+            --override log.flush.offset.checkpoint.interval.ms=60000 \
+            --override log.flush.scheduler.interval.ms=9223372036854775807 \
+            --override log.retention.bytes=-1 \
+            --override log.retention.hours=168 \
+            --override log.roll.hours=168 \
+            --override log.roll.jitter.hours=0 \
+            --override log.segment.bytes=1073741824 \
+            --override log.segment.delete.delay.ms=60000 \
+            --override message.max.bytes=1000012 \
+            --override min.insync.replicas=1 \
+            --override num.io.threads=8 \
+            --override num.network.threads=3 \
+            --override num.recovery.threads.per.data.dir=1 \
+            --override num.replica.fetchers=1 \
+            --override offset.metadata.max.bytes=4096 \
+            --override offsets.commit.required.acks=-1 \
+            --override offsets.commit.timeout.ms=5000 \
+            --override offsets.load.buffer.size=5242880 \
+            --override offsets.retention.check.interval.ms=600000 \
+            --override offsets.retention.minutes=1440 \
+            --override offsets.topic.compression.codec=0 \
+            --override offsets.topic.num.partitions=50 \
+            --override offsets.topic.replication.factor=3 \
+            --override offsets.topic.segment.bytes=104857600 \
+            --override queued.max.requests=500 \
+            --override quota.consumer.default=9223372036854775807 \
+            --override quota.producer.default=9223372036854775807 \
+            --override replica.fetch.min.bytes=1 \
+            --override replica.fetch.wait.max.ms=500 \
+            --override replica.high.watermark.checkpoint.interval.ms=5000 \
+            --override replica.lag.time.max.ms=10000 \
+            --override replica.socket.receive.buffer.bytes=65536 \
+            --override replica.socket.timeout.ms=30000 \
+            --override request.timeout.ms=30000 \
+            --override socket.receive.buffer.bytes=102400 \
+            --override socket.request.max.bytes=104857600 \
+            --override socket.send.buffer.bytes=102400 \
+            --override unclean.leader.election.enable=true \
+            --override zookeeper.session.timeout.ms=6000 \
+            --override zookeeper.set.acl=false \
+            --override broker.id.generation.enable=true \
+            --override connections.max.idle.ms=600000 \
+            --override controlled.shutdown.enable=true \
+            --override controlled.shutdown.max.retries=3 \
+            --override controlled.shutdown.retry.backoff.ms=5000 \
+            --override controller.socket.timeout.ms=30000 \
+            --override default.replication.factor=1 \
+            --override fetch.purgatory.purge.interval.requests=1000 \
+            --override group.max.session.timeout.ms=300000 \
+            --override group.min.session.timeout.ms=6000 \
+            --override inter.broker.protocol.version=0.10.2-IV0 \
+            --override log.cleaner.backoff.ms=15000 \
+            --override log.cleaner.dedupe.buffer.size=134217728 \
+            --override log.cleaner.delete.retention.ms=86400000 \
+            --override log.cleaner.enable=true \
+            --override log.cleaner.io.buffer.load.factor=0.9 \
+            --override log.cleaner.io.buffer.size=524288 \
+            --override log.cleaner.io.max.bytes.per.second=1.7976931348623157E308 \
+            --override log.cleaner.min.cleanable.ratio=0.5 \
+            --override log.cleaner.min.compaction.lag.ms=0 \
+            --override log.cleaner.threads=1 \
+            --override log.cleanup.policy=delete \
+            --override log.index.interval.bytes=4096 \
+            --override log.index.size.max.bytes=10485760 \
+            --override log.message.timestamp.difference.max.ms=9223372036854775807 \
+            --override log.message.timestamp.type=CreateTime \
+            --override log.preallocate=false \
+            --override log.retention.check.interval.ms=300000 \
+            --override max.connections.per.ip=2147483647 \
+            --override num.partitions=1 \
+            --override producer.purgatory.purge.interval.requests=1000 \
+            --override replica.fetch.backoff.ms=1000 \
+            --override replica.fetch.max.bytes=1048576 \
+            --override replica.fetch.response.max.bytes=10485760 \
+            --override reserved.broker.max.id=1000 "
+          env:
+          - name: KAFKA_HEAP_OPTS
+            value : "-Xmx512M -Xms512M"
+          - name: KAFKA_OPTS
+            value: "-Dlogging.level=INFO"
+          volumeMounts:
+          - name: datadir
+            mountPath: /var/lib/kafka
+          readinessProbe:
+            exec:
+             command: 
+              - sh 
+              - -c 
+              - "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:9093"
+    volumeClaimTemplates:
+    - metadata:
+        name: datadir
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: ${storage}
+            
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: data-kafka-0
+    labels:
+      release: stable
+  spec:
+    capacity:
+      storage: ${storage}
+    accessModes:
+    - ReadWriteOnce
+    persistentVolumeReclaimPolicy: Recycle
+    hostPath:
+      path: /tmp/data/kafka
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: data-kafka-1
+    labels:
+      release: stable
+  spec:
+    capacity:
+      storage: ${storage}
+    accessModes:
+    - ReadWriteOnce
+    persistentVolumeReclaimPolicy: Recycle
+    hostPath:
+      path: /tmp/data/kafka
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: data-kafka-2
+    labels:
+      release: stable
+  spec:
+    capacity:
+      storage: ${storage}
+    accessModes:
+    - ReadWriteOnce
+    persistentVolumeReclaimPolicy: Recycle
+    hostPath:
+      path: /tmp/data/kafka
+    
+{"parameters":
+  [
+    {
+      "description": "组件名称",
+      "displayName": "名称",
+      "name": "NAME",
+      "value": "",
+      "select": "",
+      "type": "String",
+      "required": "true"
+    },
+    {
+      "description": "依赖的Zookeeper组件名称",
+      "displayName": "依赖zk",
+      "name": "ZK_SVC_NAME",
+      "value": "",
+      "select": "",
+      "type": "Api",
+      "interface": "application/store/service",
+      "params": {"type":"集群"},
+      "method": "GET",
+      "required": "true",
+      "event": "double_load"
+    },
+    {
+      "description": "依赖的Zookeeper组件服务名称",
+      "displayName": "依赖zk服务",
+      "name": "ZK_NAME",
+      "value": "",
+      "select": "",
+      "type": "",
+      "required": "true",
+      "event": "",
+      "display": "false"
+    },
+    {
+      "description": "自动连接运行实例数主机名称",
+      "displayName": "运行实例数主机名称",
+      "name": "HOST_NAME",
+      "value": "",
+      "select": "\u0024{HOSTNAME##*-}",
+      "type": "",
+      "required": "false",
+      "event": "",
+      "display": "true"
+    },
+    {
+      "description": "资源配置",
+      "displayName": "修改资源会重新启动所有该组件下的实例",
+      "name": "RESOURCE",
+      "value": "",
+      "select": "",
+      "type": "Resource",
+      "required": "false"
+    },
+    {
+      "description": "外部挂载存储卷大小",
+      "displayName": "挂载存储卷大小",
+      "name": "storage",
+      "value": "",
+      "select": "1",
+      "type": "Number",
+      "unit": ["M","G","Mi","Gi"],
+      "defaultUnit": "G",
+      "required": "true",
+      "display": "true"
+    },
+    {
+      "description": "端口信息",
+      "displayName": "端口信息",
+      "name": "PORT",
+      "value": "",
+      "select": "",
+      "type": "Ports",
+      "required": "false"
+    }
+  ]}

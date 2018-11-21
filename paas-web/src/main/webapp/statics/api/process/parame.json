@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "message": "获取成功",
+  "data": [
+    {
+      "value": "源码git克隆组件",
+      "type": "warn"
+    },
+    {
+      "description": "git克隆的地址",
+      "displayName": "git地址",
+      "name": "repositoryUrl",
+      "value": "",
+      "select": "https://github.com/zjm9109/hello-world.git",
+      "type": "String",
+      "required": "true",
+      "event":"onblur",
+      "api": "repositoryBranch"
+    },
+    {
+      "description": "访问源码地址用户名",
+      "displayName": "源码用户名",
+      "name": "username",
+      "value": "",
+      "select": "",
+      "type": "String",
+      "required": "false",
+      "event":"confirm",
+      "api": "repositoryBranch"
+    }
+
+  ],
+  "status": null,
+  "solution": null,
+  "failed": false
+}

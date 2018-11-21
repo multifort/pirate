@@ -1,0 +1,483 @@
+{"success": true,
+  "message": "获取服务列表成功",
+  "data": {
+    "ingress": {
+      "metadata": {
+        "resourceVersion": "16561194",
+        "selfLink": "/apis/extensions/v1beta1/namespaces/application-wewew/ingresses"
+      },
+      "apiVersion": "extensions/v1beta1",
+      "kind": "IngressList",
+      "items": [
+        {
+          "metadata": {
+            "generation": 1,
+            "finalizers": [],
+            "uid": "a4530bd5-78eb-11e7-a618-000c29e37283",
+            "resourceVersion": "16558096",
+            "creationTimestamp": "2017-08-04T08:05:12Z",
+            "name": "myweb",
+            "namespace": "application-wewew",
+            "annotations": {
+              "ingress.kubernetes.io/rewrite-target": "/"
+            },
+            "ownerReferences": [],
+            "selfLink": "/apis/extensions/v1beta1/namespaces/application-wewew/ingresses/myweb"
+          },
+          "apiVersion": "extensions/v1beta1",
+          "kind": "Ingress",
+          "spec": {
+            "rules": [
+              {
+                "http": {
+                  "paths": [
+                    {
+                      "path": "/myweb",
+                      "backend": {
+                        "servicePort": 8080,
+                        "serviceName": "myweb"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "tls": []
+          },
+          "status": {
+            "loadBalancer": {
+              "ingress": [
+                {
+                  "ip": "192.168.1.54"
+                },
+                {
+                  "ip": "192.168.1.55"
+                },
+                {
+                  "ip": "192.168.1.56"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "metadata": {
+            "generation": 1,
+            "finalizers": [],
+            "uid": "421fbcf8-78ec-11e7-a618-000c29e37283",
+            "resourceVersion": "16558658",
+            "creationTimestamp": "2017-08-04T08:09:37Z",
+            "name": "open",
+            "namespace": "application-wewew",
+            "annotations": {
+              "ingress.kubernetes.io/rewrite-target": "/"
+            },
+            "ownerReferences": [],
+            "selfLink": "/apis/extensions/v1beta1/namespaces/application-wewew/ingresses/open"
+          },
+          "apiVersion": "extensions/v1beta1",
+          "kind": "Ingress",
+          "spec": {
+            "rules": [
+              {
+                "http": {
+                  "paths": [
+                    {
+                      "path": "/open",
+                      "backend": {
+                        "servicePort": 8080,
+                        "serviceName": "open"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "tls": []
+          },
+          "status": {
+            "loadBalancer": {
+              "ingress": [
+                {
+                  "ip": "192.168.1.54"
+                },
+                {
+                  "ip": "192.168.1.55"
+                },
+                {
+                  "ip": "192.168.1.56"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "service": [
+        {
+          "metadata": {
+            "finalizers": [],
+            "uid": "4872c69c-78eb-11e7-a618-000c29e37283",
+            "resourceVersion": "16557759",
+            "creationTimestamp": "2017-08-04T08:02:38Z",
+            "name": "myweb",
+            "namespace": "application-wewew",
+            "ownerReferences": [],
+            "selfLink": "/api/v1/namespaces/application-wewew/services/myweb"
+          },
+          "alarmStatus":"1",
+          "apiVersion": "v1",
+          "kind": "Service",
+          "spec": {
+            "externalIPs": [],
+            "deprecatedPublicIPs": [],
+            "sessionAffinity": "None",
+            "loadBalancerSourceRanges": [],
+            "selector": {
+              "app": "myweb"
+            },
+            "ports": [
+              {
+                "protocol":"TCP",
+                "port":2888,
+                "name":"http-0",
+                "nodePort":32420,
+                "targetPort":2888
+              },
+              {
+                "protocol":"TCP",
+                "port":3888,
+                "name":"http-1",
+                "targetPort":3888
+              },
+              {
+                "protocol":"TCP",
+                "port":2181,
+                "name":"http-2",
+                "nodePort":31050,
+                "targetPort":2181
+              }
+            ],
+            "type": "NodePort",
+            "clusterIP": "10.254.2.229"
+          },
+          "status": {
+            "loadBalancer": {
+              "ingress": []
+            }
+          }
+        },
+        {
+          "metadata": {
+            "finalizers": [],
+            "uid": "420b4302-78ec-11e7-a618-000c29e37283",
+            "resourceVersion": "16558619",
+            "creationTimestamp": "2017-08-04T08:09:37Z",
+            "name": "open",
+            "namespace": "application-wewew",
+            "ownerReferences": [],
+            "selfLink": "/api/v1/namespaces/application-wewew/services/open"
+          },
+          "alarmStatus":"0",
+          "apiVersion": "v1",
+          "kind": "Service",
+          "spec": {
+            "externalIPs": [],
+            "deprecatedPublicIPs": [],
+            "sessionAffinity": "None",
+            "loadBalancerSourceRanges": [],
+            "selector": {
+              "app": "open"
+            },
+            "ports": [
+              {
+                "protocol": "TCP",
+                "port": 8080,
+                "name": "http",
+                "targetPort": 8080
+              }
+            ],
+            "type": "ClusterIP",
+            "clusterIP": "10.254.227.224"
+          },
+          "status": {
+            "loadBalancer": {
+              "ingress": []
+            }
+          }
+        }
+      ],
+    "deployment": [
+      {
+        "metadata": {
+          "resourceVersion": "16561199",
+          "selfLink": "/apis/extensions/v1beta1/namespaces/application-wewew/deployments"
+        },
+        "apiVersion": "extensions/v1beta1",
+        "kind": "DeploymentList",
+        "items": [
+          {
+            "metadata": {
+              "generation": 1,
+              "finalizers": [],
+              "uid": "421db76d-78ec-11e7-a618-000c29e37283",
+              "resourceVersion": "16560748",
+              "creationTimestamp": "2017-08-04T08:09:37Z",
+              "name": "open",
+              "namespace": "application-wewew",
+              "annotations": {
+                "deployment.kubernetes.io/revision": "1"
+              },
+              "labels": {
+                "app": "open"
+              },
+              "ownerReferences": [],
+              "selfLink": "/apis/extensions/v1beta1/namespaces/application-wewew/deployments/open"
+            },
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "spec": {
+              "template": {
+                "metadata": {
+                  "finalizers": [],
+                  "labels": {
+                    "app": "open"
+                  },
+                  "ownerReferences": []
+                },
+                "spec": {
+                  "dnsPolicy": "ClusterFirst",
+                  "terminationGracePeriodSeconds": 30,
+                  "imagePullSecrets": [],
+                  "volumes": [
+                    {
+                      "name": "open-volume",
+                      "persistentVolumeClaim": {
+                        "claimName": "open-claim"
+                      }
+                    }
+                  ],
+                  "containers": [
+                    {
+                      "args": [],
+                      "image": "139.219.239.226/library/tomcat:8.5.15",
+                      "imagePullPolicy": "IfNotPresent",
+                      "terminationMessagePolicy": "File",
+                      "terminationMessagePath": "/dev/termination-log",
+                      "name": "open",
+                      "resources": {
+                        "requests": {
+                          "memory": "64Mi",
+                          "cpu": "200m"
+                        },
+                        "limits": {
+                          "memory": "128Mi",
+                          "cpu": "1"
+                        }
+                      },
+                      "env": [
+                        {
+                          "name": "PATH",
+                          "value": "/usr/local/tomcat/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                        },
+                        {
+                          "name": "TOMCAT_TGZ_URL",
+                          "value": "https://www.apache.org/dyn/closer.cgi?action"
+                        },
+                        {
+                          "name": "JAVA_HOME",
+                          "value": "/docker-java-home/jre"
+                        },
+                        {
+                          "name": "CATALINA_HOME",
+                          "value": "/usr/local/tomcat"
+                        },
+                        {
+                          "name": "CA_CERTIFICATES_JAVA_VERSION",
+                          "value": "20161107~bpo8+1"
+                        },
+                        {
+                          "name": "LANG",
+                          "value": "C.UTF-8"
+                        },
+                        {
+                          "name": "TOMCAT_MAJOR",
+                          "value": "8"
+                        },
+                        {
+                          "name": "TOMCAT_VERSION",
+                          "value": "8.5.15"
+                        },
+                        {
+                          "name": "JAVA_DEBIAN_VERSION",
+                          "value": "8u131-b11-1~bpo8+1"
+                        },
+                        {
+                          "name": "LD_LIBRARY_PATH",
+                          "value": "/usr/local/tomcat/native-jni-lib"
+                        },
+                        {
+                          "name": "OPENSSL_VERSION",
+                          "value": "1.1.0f-3"
+                        },
+                        {
+                          "name": "TOMCAT_NATIVE_LIBDIR",
+                          "value": "/usr/local/tomcat/native-jni-lib"
+                        },
+                        {
+                          "name": "TOMCAT_ASC_URL",
+                          "value": "https://www.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz.asc"
+                        },
+                        {
+                          "name": "JAVA_VERSION",
+                          "value": "8u131"
+                        },
+                        {
+                          "name": "GPG_KEYS",
+                          "value": "05AB33110949707C93A279E3D3EFE6B686867BA6 07E48665A34DCAFAE522E5E6266191C37C037D42 47309207D818FFD8DCD3F83F1931D684307A10A5 541FBE7D8F78B25E055DDEE13C370389288584E7 61B832AC2F1C5A90F0F9B00A1C506407564C17A3 713DA88BE50911535FE716F5208B0AB1D63011C7 79F7026C690BAA50B92CD8B66A3AD3F4F22C4FED 9BA44C2621385CB966EBA586F72C284D731FABEE A27677289986DB50844682F8ACB77FC2E86E29AC A9C5DF4D22E99998D9875A5110C01C5A2F6059E7 DCFD35E0BF8CA7344752DE8B6FB21E8933C60243 F3A04C595DB5B6A5F1ECA43E3B7BBB100D811BBE F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23"
+                        }
+                      ],
+                      "ports": [
+                        {
+                          "protocol": "TCP",
+                          "containerPort": 8080
+                        }
+                      ],
+                      "command": [],
+                      "volumeMounts": [
+                        {
+                          "mountPath": "/data",
+                          "name": "open-volume"
+                        }
+                      ]
+                    }
+                  ],
+                  "securityContext": {
+                    "supplementalGroups": []
+                  },
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler"
+                }
+              },
+              "replicas": 2,
+              "selector": {
+                "matchExpressions": [],
+                "matchLabels": {
+                  "app": "open"
+                }
+              },
+              "strategy": {
+                "type": "RollingUpdate",
+                "rollingUpdate": {
+                  "maxSurge": 1,
+                  "maxUnavailable": 1
+                }
+              }
+            },
+            "status": {
+              "unavailableReplicas": 1,
+              "replicas": 1,
+              "conditions": [
+                {
+                  "reason": "MinimumReplicasAvailable",
+                  "lastTransitionTime": "2017-08-04T08:09:37Z",
+                  "message": "Deployment has minimum availability.",
+                  "type": "Available",
+                  "lastUpdateTime": "2017-08-04T08:09:37Z",
+                  "status": "True"
+                }
+              ],
+              "updatedReplicas": 1,
+              "observedGeneration": 1
+            }
+          }
+        ]
+      },
+      {
+        "metadata": {
+          "resourceVersion": "16561205",
+          "selfLink": "/api/v1/namespaces/application-wewew/replicationcontrollers"
+        },
+        "apiVersion": "v1",
+        "kind": "ReplicationControllerList",
+        "items": [
+          {
+            "metadata": {
+              "generation": 1,
+              "finalizers": [],
+              "uid": "a44f292e-78eb-11e7-a618-000c29e37283",
+              "resourceVersion": "16560822",
+              "creationTimestamp": "2017-08-04T08:05:12Z",
+              "name": "myweb",
+              "namespace": "application-wewew",
+              "labels": {
+                "app": "myweb"
+              },
+              "ownerReferences": [],
+              "selfLink": "/api/v1/namespaces/application-wewew/replicationcontrollers/myweb"
+            },
+            "apiVersion": "v1",
+            "kind": "ReplicationController",
+            "spec": {
+              "template": {
+                "metadata": {
+                  "finalizers": [],
+                  "labels": {
+                    "app": "myweb"
+                  },
+                  "ownerReferences": []
+                },
+                "spec": {
+                  "dnsPolicy": "ClusterFirst",
+                  "terminationGracePeriodSeconds": 30,
+                  "imagePullSecrets": [],
+                  "volumes": [],
+                  "containers": [
+                    {
+                      "args": [],
+                      "image": "139.219.239.226/library/tomcat:8.5.15",
+                      "imagePullPolicy": "IfNotPresent",
+                      "terminationMessagePolicy": "File",
+                      "terminationMessagePath": "/dev/termination-log",
+                      "name": "myweb",
+                      "resources": {},
+                      "env": [],
+                      "ports": [
+                        {
+                          "protocol": "TCP",
+                          "containerPort": 8080
+                        }
+                      ],
+                      "command": [],
+                      "volumeMounts": []
+                    }
+                  ],
+                  "securityContext": {
+                    "supplementalGroups": []
+                  },
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler"
+                }
+              },
+              "replicas": 1,
+              "selector": {
+                "app": "myweb"
+              }
+            },
+            "status": {
+              "fullyLabeledReplicas": 1,
+              "replicas": 1,
+              "readyReplicas": 1,
+              "conditions": [],
+              "availableReplicas": 1,
+              "observedGeneration": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

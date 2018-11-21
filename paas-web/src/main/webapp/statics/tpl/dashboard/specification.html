@@ -1,0 +1,58 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size" >操作提示</p>
+</div>
+<div class="modal-body panel-body">
+    <div class="col-sm-12">
+    <h5 style="border-left: 2px solid #6759be;    padding-left: 12px;">完整的应用服务使用流程包含以下4个步骤：</h5>
+    <div class="col-sm-3 nopadding tb-relative" >
+        <p class="tb-line"><span class="bg-click1">1</span></p>
+        <span class="bg-click"></span>
+        <h5>创建环境</h5>
+        <div class="col-sm-12 sp-div">创建环境，选择环境的类型和可用节点。</div>
+
+
+    </div>
+    <div class="col-sm-3 nopadding tb-relative">
+        <p class="tb-line"><span class="bg-click2">2</span></p>
+        <h5>创建应用</h5>
+        <div class="col-sm-12 sp-div">在应用服务下的应用实例里创建应用，选择应用的环境。</div>
+
+    </div>
+    <div class="col-sm-3 nopadding tb-relative">
+        <p class="tb-line"><span class="bg-click2">3</span></p>
+        <h5>添加服务</h5>
+        <div class="col-sm-12 sp-div">在创建好的应用实例下添加服务。</div>
+
+    </div>
+    <div class="col-sm-3 nopadding tb-relative">
+        <p class="tb-line"><span class="bg-click3">4</span></p>
+        <span class="bg-click" style="    width: calc(61% - 28px);right: 0;"></span>
+        <h5>应用生命周期管理</h5>
+        <div class="col-sm-12 sp-div">查看部署好实例的详情，点击运行实例数可看到更详细的内容。</div>
+    </div>
+</div>
+    <div class="col-sm-12">
+        <h5 style="border-left: 2px solid #6759be;    padding-left: 12px;">完整的工作流使用流程包含以下4个步骤：</h5>
+        <div class="col-sm-3 nopadding tb-relative" >
+            <p class="tb-line"><span class="bg-click1">1</span></p>
+            <span class="bg-click"></span>
+            <h5>创建工作流</h5>
+            <div class="col-sm-12 sp-div" >流程管理中的流程编排，创建流程，选择简单任务，任务之间连线关联，任务中选择插件，保存。</div>
+        </div>
+        <div class="col-sm-3 nopadding tb-relative" >
+            <p class="tb-line"><span class="bg-click3">2</span></p>
+            <span class="bg-click" style="    width: calc(61% - 28px);right: 0;"></span>
+            <h5>查看详情</h5>
+            <div class="col-sm-12 sp-div" >在流程管理中的流程编排中点击刚创建的工作流可以查看工作流的执行过程，以及插件的执行状态。</div>
+        </div>
+
+    </div>
+    <div class="col-sm-12">
+        <p style="padding-top: 10px">开始创建吧！</p>
+        <p ng-click="goOpen()" > <span class="btn btn-info btn-sm" style="color: #2975ea;cursor:pointer">创建环境</span> </p>
+    </div>
+</div>
+<div class="modal-footer">
+   <button class="btn btn-cancel" ng-click="cancel()">关闭</button>
+</div>

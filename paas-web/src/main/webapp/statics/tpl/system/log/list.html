@@ -1,0 +1,247 @@
+<div ng-controller="logCtrl" class="clearfix script-content content-byc">
+	<div class="wrapper-md">
+		<div class="panel panel-default">
+			<tabset class="tab-container">
+				<tab select="search()">
+					<tab-heading>
+						操作日志
+					</tab-heading>
+					<div class="row panel" style="box-shadow: none;">
+						<!--<div class="col-md-12 search-box m-b-md">
+							<div class="legend">查询条件</div>
+							<div class="search-content" style="border:none;">
+								<div class="form-group" style="width:25%">
+									<label class="control-label">时间范围：</label>
+									<input ng-model="condition.date" class="form-control w-md" ui-jq="daterangepicker"
+										   ui-options="{format: 'YYYY-MM-DD hh:mm:ss'}" placeholder="请选择时间" />
+								</div>
+								<div class="form-group" style="width:25%">
+									<label class="control-label">请求IP：</label>
+									<input type="text" class="form-control" ng-model="condition.requestIp" placeholder="请输入请求IP"/>
+								</div>
+								<div class="form-group" style="width:25%">
+									<label class="control-label">响应IP：</label>
+									<input type="text" class="form-control" ng-model="condition.responseIp" placeholder="请输入响应IP"/>
+								</div>
+								<div class="form-group" style="width:20%">
+									<button class="btn btn-primary w-xs m-r" ng-click="search()"><i class="fa fa-search"></i> 查询</button>
+								</div>
+							</div>
+						</div>-->
+						<div class="col-md-12 search-box search-box-r">
+							<div class=" col-sm-3" style="padding: 0px;"></div>
+							<div class="search-content search-content-r col-sm-9 text-right">
+								<div class=" form-group-27" style="width: 30%">
+									<label class="control-label"  style="width: 82px!important;">时间范围：</label>
+									<input ng-model="condition.date"
+										   ng-change="search()"  style="width: calc(100% - 87px)!important;"
+										   class="form-control hostSearch-form-control w-md" ui-jq="daterangepicker"
+										   ui-options="{format: 'YYYY-MM-DD hh:mm:ss'}" placeholder="请选择时间" />
+								</div>
+								<div class=" form-group-27">
+									<label class="control-label"  style="width: 70px!important;">请求IP：</label>
+									<input type="text" class="form-control hostSearch-form-control"
+										   style="width: calc(100% - 75px)!important;"
+										   ng-model="condition.requestIp" placeholder="请输入请求IP"/>
+								</div>
+								<div class=" form-group-27">
+									<label class="control-label"  style="width: 70px!important;">响应IP：</label>
+									<input type="text" class="form-control hostSearch-form-control"
+										   style="width: calc(100% - 75px)!important;"
+										   ng-model="condition.responseIp" placeholder="请输入响应IP"/>
+								</div>
+								<div class=" form-group-17" style="width: 12%;">
+									<button class="btn btn-primary w-xs" ng-click="search()"><i class="fa fa-search"></i> 查询</button>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table b-light m-b-xxs table-navy">
+									<thead class="table-header" >
+									<tr>
+										<th width="10%" class="font-15 text-center">模块</th>
+										<th width="10%" class="font-15 text-center">请求IP</th>
+										<th width="10%" class="font-15 text-center">响应IP</th>
+										<th width="10%" class="font-15 text-center">操作者</th>
+										<th width="10%" class="font-15 text-center">请求对象</th>
+										<th width="10%" class="font-15 text-center">请求路径</th>
+										<th width="20%" class="font-15 text-center">请求参数</th>
+										<th width="10%" class="font-15 text-center">处理结果</th>
+										<th width="10%" class="font-15 text-center">请求时间</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr ng-repeat="(key,row) in listData">
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.module}}"><div ng-bind="row.module"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.requestIp}}"><div  ng-bind="row.requestIp"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.responseIp}}"><div  ng-bind="row.responseIp"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.username}}"><div ng-bind="row.username"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.object}}"><div ng-bind="row.object"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.action}}"><div ng-bind="row.action"></div></td>
+										<td width="20%" class="font-15 text-center" style="max-width:200px;" title="{{row.detail}}"> <div ng-bind="row.detail"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.result}}"><div ng-bind="row.result"></div></td>
+										<td width="10%" class="font-15 text-center" style="max-width:97px;" title="{{row.gmtCreate}}"><div ng-bind="row.gmtCreate"></div></td>
+									</tr>
+									<tr ng-if="isImageData">
+										<td class="td-nodata" colspan="9"></td>
+									</tr>
+									</tbody>
+								</table>
+								<div class="clearfix">
+									<div class="col-sm-6">
+										<div class="paginationTables_info">共有<span ng-bind="totalPage"></span>条记录，每页显示<span ng-bind="param.rows"></span>条
+										</div>
+									</div>
+									<div class="col-sm-6 text-right">
+										<pagination boundary-links="true" total-items="totalPage" items-per-page="param.rows" max-size="10"
+													ng-model="param.page" ng-change="getList(param.page)" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+				<tab ng-controller="eslogCtrl" select="search()">
+					<tab-heading>
+						应用日志
+					</tab-heading>
+					<div class="row panel" style="box-shadow: none;">
+						<!--<div class="search-box m-b-md">
+							<div class="legend">查询条件</div>
+							<div class="search-content" style="border: none;">
+								<div class="form-group">
+									<label class="control-label">序号：</label>
+									<input type="name" ng-model="searchArr.index" class="form-control input-sm" placeholder=""
+									       aria-controls="DataTables_Table_3">
+								</div>
+								<div class="form-group">
+									<label class="control-label">类型：</label>
+									<input type="name" ng-model="searchArr.type" class="form-control input-sm" placeholder=""
+										   aria-controls="DataTables_Table_3">
+								</div>
+								<div class="form-group search-btn">
+									<button class="btn btn-primary w-xs m-r" ng-click="search(1,'ReplicationController')"><i
+											class="fa fa-search"></i> 查询
+									</button>
+								</div>
+							</div>
+						</div>-->
+						<div class="col-md-12 search-box search-box-r">
+							<div class=" col-sm-5" style="padding: 0px;"></div>
+							<div class="search-content search-content-r col-sm-7 text-right">
+								<div class=" form-group-38">
+									<label class="control-label" style="width: 80px;">序号：</label>
+									<input type="name" ng-model="searchArr.index" class="form-control hostSearch-form-control input-sm" placeholder=""
+										   aria-controls="DataTables_Table_3">
+								</div>
+								<div class="form-group-38">
+									<label class="control-label" style="width: 80px;">类型：</label>
+									<input type="name" ng-model="searchArr.type" class="form-control hostSearch-form-control input-sm" placeholder=""
+										   aria-controls="DataTables_Table_3">
+								</div>
+								<div class="form-group-17" style="width: 18%">
+									<button class="btn btn-primary w-xs m-r" ng-click="search(1,'ReplicationController')"><i
+											class="fa fa-search"></i> 查询
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12" style="    margin-bottom: 40px;">
+							<div class="col-md-12 assign-cell" ng-repeat="(key,item) in eslogList" style="padding-bottom: 0px;">
+								<i class="fa icon bg-blue" ng-bind="(key+1)"></i>
+								<div class="text-success" style="width: 95%"> <a href="" ng-click="removeGroup(key)"><i class="fa fa-times close pull-right"></i></a></div>
+								<div>
+									<div class="form-horizontal">
+										<div class="">
+											<div class="pmbb-header">
+												<h5 class="console-title">时间：{{item.timestamp}}</h5>
+											</div>
+											<div class="pmbb-header">
+												<dl class="dl-horizontal">
+													<dt style="padding-left: 10px;text-align: left;width: 55px;">信息：</dt>
+													<dd style="margin-left: 55px;" ng-bind="(k+':&nbsp;&nbsp;'+v)" ng-repeat="(k,v) in item" ng-if="(k!='timestamp')"></dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix" ng-if="!isImageData">
+								<div class="col-sm-6" style="padding:7px 15px;">
+									<div class="paginationTables_info">总共<span ng-bind="totalCount"></span>条, 每页<span ng-bind="param.rows"></span>条</div>
+								</div>
+								<div class="col-sm-6 text-right">
+									<pagination style="" boundary-links="true" total-items="totalCount" items-per-page="param.rows" max-size="10" ng-model="param.page" ng-change="getList(param.page)" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+				<tab ng-controller="sysLogCtrl" select="getList()">
+					<tab-heading>
+						系统日志
+					</tab-heading>
+					<div class="row panel" style="padding-top: 10px;box-shadow: none;">
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table b-light m-b-xxs table-navy" st-table="displayListData" st-safe-src="sysLogList">
+									<thead class="table-header" >
+									<tr>
+										<th width="30%" class="font-15 text-center">文件名</th>
+										<th width="10%" class="font-15 text-center">类型</th>
+										<th width="60%" class="font-15 text-center">文件路径</th>
+									</tr>
+									</thead>
+									<tbody ng-repeat="value in displayListData">
+									<tr>
+										<td width="30%" class="font-15 text-center detail-href" style="max-width:400px;" title="{{value.logName}}" ng-bind="value.logName"
+										ng-click="goDetail(value.logName,value.logPath,$event)"></td>
+										<td width="10%" class="font-15 text-center" title="{{value.type}}" ng-bind="value.type"></td>
+										<td width="60%" class="font-15 text-center" style="max-width:800px;" title="{{value.logPath}}" ng-bind="value.logPath"></td>
+									</tr>
+									</tbody>
+									<tfoot>
+									<tr>
+										<td colspan="2" class="text-left">
+											<div>每页{{itemsByPage}}条，共{{totalPage}}条</div>
+										</td>
+										<td colspan="8" class="text-right">
+											<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7" class="no-margin"></div>
+										</td>
+									</tr>
+									</tfoot>
+								</table>
+							</div>
+							<div  ng-if="detailShow" ng-hide-detail="" class="animated tab-detail" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+								<div class="col-md-12">
+									<div class="panel panel-default" style="padding:0;">
+										<div class="panel-heading font-bold">
+											<span class="p-l-6">系统日志详情</span>
+										</div>
+										<div class="panel-body pmb-block" style="border:none;">
+											<div class="form-horizontal">
+												<div class="pmbb-body ">
+													<div class="col-md-12 form-group" style="margin-top: 5px;" >
+														<span class="caaa">文件：</span>
+														<span>{{file}}</span>
+													</div>
+													<div ng-bind-html="logDetail" style="background-color: black;      color: #fff;    font-size: 15px;
+                                                                 overflow-y: scroll;      padding: 10px;  height: 600px;    width: 100%;"   >
+
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tab>
+			</tabset>
+		</div>
+	</div>
+</div>

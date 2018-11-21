@@ -1,0 +1,168 @@
+{
+  "success": true,
+  "data": [
+    {
+    "name":"地址一",
+      "targetCategory":"Computer",
+    "tagetJson":[
+      {
+      "targetName": "HDS_11",
+      "targetCategory": "Storage",
+      "sourceCategory": "Storage",
+      "id": 1,
+      "source": 439,
+      "sourceName": "HDS_11",
+      "target": [{
+        "targetName": "HDS_1",
+        "targetCategory": "DB",
+        "sourceCategory": "Storage",
+        "id": 1,
+        "source": 439,
+        "sourceName": "HDS_1",
+        "target": 1,
+        "relation": "Usage"
+      },{
+        "targetName": "HDS_2",
+        "targetCategory": "DB",
+        "sourceCategory": "Storage",
+        "id": 1,
+        "alarm": null,
+        "source": 439,
+        "sourceName": "HDS_2",
+        "target": 1,
+        "relation": "Usage"
+      },{
+        "targetName": "HDS_3",
+        "targetCategory": "DB",
+        "sourceCategory": "Storage",
+        "id": 1,
+        "source": 439,
+        "sourceName": "HDS_3",
+        "alarm": "二级警告",
+        "relation": "Usage"
+      }],
+      "relation": "Usage"
+    },
+      {
+        "targetName": "HDS_22",
+        "targetCategory": "Storage",
+        "sourceCategory": "Storage",
+        "id": 1,
+        "source": 439,
+        "sourceName": "HDS_22",
+        "target": [{
+          "targetName": "HDS_1",
+          "targetCategory": "Storage",
+          "sourceCategory": "Storage",
+          "id": 1,
+          "source": 439,
+          "sourceName": "HDS_1",
+          "target": 1,
+          "relation": "Usage"
+        },{
+          "targetName": "HDS_2",
+          "targetCategory": "Storage",
+          "sourceCategory": "Storage",
+          "id": 1,
+          "source": 439,
+          "sourceName": "HDS_2",
+          "target": 1,
+          "relation": "Usage"
+        },{
+          "targetName": "HDS_3",
+          "targetCategory": "Storage",
+          "sourceCategory": "Storage",
+          "id": 1,
+          "source": 439,
+          "sourceName": "HDS_3",
+          "target": 1,
+          "relation": "Usage"
+        }],
+        "relation": "Usage"
+      }
+    ]
+
+  },
+    {
+      "name":"地址er",
+      "targetCategory":"Computer",
+      "tagetJson":[
+        {
+          "targetName": "HDS_11",
+          "targetCategory": "Storage",
+          "sourceCategory": "Storage",
+          "id": 1,
+          "source": 439,
+          "sourceName": "HDS_11",
+          "target": [{
+            "targetName": "HDS_1",
+            "targetCategory": "Storage",
+            "sourceCategory": "Storage",
+            "id": 1,
+            "source": 439,
+            "sourceName": "HDS_1",
+            "target": 1,
+            "relation": "Usage"
+          },{
+            "targetName": "HDS_2",
+            "targetCategory": "Storage",
+            "sourceCategory": "Storage",
+            "id": 1,
+            "source": 439,
+            "sourceName": "HDS_2",
+            "target": 1,
+            "relation": "Usage"
+          },{
+            "targetName": "HDS_3",
+            "targetCategory": "Storage",
+            "sourceCategory": "Storage",
+            "id": 1,
+            "source": 439,
+            "sourceName": "HDS_3",
+            "target": 1,
+            "relation": "Usage"
+          }],
+          "relation": "Usage"
+        },
+        {
+          "targetName": "HDS_22",
+          "targetCategory": "Storage",
+          "sourceCategory": "Storage",
+          "id": 1,
+          "source": 439,
+          "sourceName": "HDS_22",
+          "target": [{
+            "targetName": "HDS_1",
+            "targetCategory": "Storage",
+            "sourceCategory": "Storage",
+            "id": 1,
+            "source": 439,
+            "sourceName": "HDS_1",
+            "target": 1,
+            "relation": "Usage"
+          },{
+            "targetName": "HDS_2",
+            "targetCategory": "Storage",
+            "sourceCategory": "Storage",
+            "id": 1,
+            "source": 439,
+            "sourceName": "HDS_2",
+            "target": 1,
+            "relation": "Usage"
+          },{
+            "targetName": "HDS_3",
+            "targetCategory": "Storage",
+            "sourceCategory": "Storage",
+            "id": 1,
+            "source": 439,
+            "sourceName": "HDS_3",
+            "target": 1,
+            "relation": "Usage"
+          }],
+          "relation": "Usage"
+        }
+      ]
+
+    }
+  ]
+}

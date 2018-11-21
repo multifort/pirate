@@ -1,0 +1,68 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "total": 1,
+    "pages": 1,
+    "page": 1,
+    "rows": [
+      {
+        "creator": "admin",
+        "gmtModify": "2016-08-23 18:32:19",
+        "stepSize": 2,
+        "moreProp": null,
+        "remark": null,
+        "gmtCreate": "2016-08-23 17:22:28",
+        "name": "分派策略1",
+        "mender": "admin",
+        "createrId": 1,
+        "id": 6,
+        "status": "NORMAL"
+      },
+      {
+        "remark": null,
+        "creator": "admin",
+        "gmtCreate": "2016-08-23 17:22:28",
+        "ownerId": null,
+        "type": "REAL",
+        "menderId": 1,
+        "recordId": null,
+        "name": "分派策略2",
+        "tenantId": 0,
+        "mender": "admin",
+        "createrId": 1,
+        "id": 7,
+        "status": "NORMAL"
+      },
+      {
+        "creator": "admin",
+        "gmtModify": "2016-08-23 18:32:19",
+        "remark": null,
+        "gmtCreate": "2016-08-23 17:22:28",
+        "menderId": 1,
+        "recordId": null,
+        "name": "分派策略三",
+        "mender": "admin",
+        "createrId": 1,
+        "id": 8,
+        "status": "NORMAL"
+      },
+      {
+        "creator": "admin",
+        "gmtModify": "2016-08-23 18:32:19",
+        "remark": null,
+        "gmtCreate": "2016-08-23 17:22:28",
+        "type": "REAL",
+        "menderId": 1,
+        "name": "分派策略四",
+        "tenantId": 0,
+        "mender": "admin",
+        "createrId": 1,
+        "id": 9,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

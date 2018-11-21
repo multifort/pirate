@@ -1,0 +1,66 @@
+
+<div class="content-byc image-content" ng-controller="addArrangeModalCtrl">
+  <div class="animated update-content" >
+      <div class="wrapper-md">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default" style="padding:0;">
+                      <div class="panel-heading font-bold">
+                          <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                          <span class="p-l-6" ng-bind="content"></span>
+                          <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                              <i class="fa fa-reply icon-font"></i> 返回
+                          </button>
+                      </div>
+                      <div class="row panel panel-default" style="border:none" ng-controller="NewTaskCopyCtrl">
+                        <div class="search-btn m-t-sm">
+                           <button class="btn btn-info w-sm m-r-md"  ng-click="execute(1)"><i class="fa fa-save"></i>&nbsp;保存</button>
+                         </div>
+                        <div class="search-box m-t-md" style="position: static">
+                          <div class="legend">节点信息</div>
+                          <div class="search-content" style="border-bottom: none">
+                            <div class="col-md-12 task-tab" ng-hide="isHideTab">
+                              <div  class="item" ng-repeat="item in nodeData" type="{{item.nodeType}}">
+                                <img class="node-img" ng-src="/statics/img/topology/{{item.Image}}" />
+                                <span>{{item.text}}</span>
+                              </div>
+                            </div>
+                            <div class="panel">
+                              <div id="content">
+                                <canvas id="canvas">sorry,your browser do not support canvas label</canvas>
+                              </div>
+                              <ul class="node-menu" id="contextmenu" style="display:none;">
+                                <li><a tip="1">编辑</a></li>
+                                <li><a tip="6" ng-hide="isHideTab">连线</a></li>
+                                <li><a tip="2">顺时针旋转</a></li>
+                                <li><a tip="3">逆时针旋转</a></li>
+                                <li><a tip="4" ng-hide="isHideTab">删除该节点</a></li>
+                                <li><a tip="5">取消</a></li>
+                              </ul>
+                              <ul class="node-menu" id="contextmenustart" style="display:none;">
+                                <li><a tip="6" ng-hide="isHideTab">连线</a></li>
+                                <li><a tip="2">顺时针旋转</a></li>
+                                <li><a tip="3">逆时针旋转</a></li>
+                                <li><a tip="5">取消</a></li>
+                              </ul>
+                              <ul class="node-menu" id="linkmenu" style="display:none;">
+                                <li><a tip="1" ng-hide="isHideTab">删除连线</a></li>
+                                <!-- <li><a tip="3" >修改名称</a></li> -->
+                                <li><a tip="2">取消</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="changelink" style="    position: absolute; display: none;    padding: 20px;    background-color: #40bdbd;">
+        <input type="text" name="" value="">
+
+      </div>
+  </div>
+</div>

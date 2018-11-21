@@ -1,0 +1,122 @@
+{
+  "success": true,
+  "message": "查询成功",
+  "data": {
+    "creator": "超级管理员",
+    "pluginId": 4,
+    "record": {
+      "records": null,
+      "type": "CONFIG",
+      "content": "{\"action\":\"ADD\",\"collector\":\"LOAD\",\"config\":\"LoadPlugin dns\\n<Plugin dns>\\n  Interface \\\"eth0\\\"\\n  SelectNumericQueryTypes true\\n</Plugin>\",\"plugin\":\"dns\"}",
+      "password": null,
+      "successes": 1,
+      "startTime": "2016-11-02 17:11:01",
+      "id": 46,
+      "createrId": 1,
+      "sourcePath": null,
+      "cost": 3.0,
+      "failures": 0,
+      "hostNumber": null,
+      "targetPath": null,
+      "params": null,
+      "gmtCreate": "2016-11-02 17:11:00",
+      "suspended": false,
+      "srId": 47,
+      "jobId": 43,
+      "scriptType": "CONFIG",
+      "name": "dns-20161102171046",
+      "files": [],
+      "endTime": "2016-11-02 17:11:04",
+      "identId": 27,
+      "username": "root",
+      "status": "SUCCESS"
+    },
+    "name": "dns-20161102171046",
+    "raw": {
+      "input": [
+        {
+          "key": "插件1",
+          "beans": [
+            {
+              "key": 11,
+              "value": 44,
+              "desp": 222,
+              "require":true
+            },
+            {
+              "key": 22,
+              "value": 55,
+              "desp": 66,
+              "require":false
+            }
+          ]
+        },
+        {
+          "key": "插件1",
+          "beans": [
+            {
+              "key": 11,
+              "value": 44,
+              "desp": 222,
+              "require":true
+            },
+            {
+              "key": 22,
+              "value": 55,
+              "desp": 66,
+              "require":false
+            }
+          ]
+        }
+      ],
+      "filter": {
+        "configs": [
+          {
+            "key": "插件1",
+            "beans": [
+              {
+                "key": 11,
+                "value": 44,
+                "desp": 222,
+                "require":true
+              },
+              {
+                "key": 22,
+                "value": 55,
+                "desp": 66,
+                "require":false
+              }
+            ]
+          },
+          {
+            "key": "插件1",
+            "beans": [
+              {
+                "key": 11,
+                "value": 44,
+                "desp": 222,
+                "require":true
+              },
+              {
+                "key": 22,
+                "value": 55,
+                "desp": 66,
+                "require":false
+              }
+            ]
+          }
+        ],
+        "value": "222"
+      }
+    },
+    "id": 33,
+    "createrId": 1,
+    "type": "MONITOR",
+    "gmtCreate": "2016-11-02 17:11:00",
+    "config": "{\"action\":\"ADD\",\"collector\":\"LOAD\",\"config\":\"LoadPlugin dns\\n<Plugin dns>\\n  Interface \\\"eth0\\\"\\n  SelectNumericQueryTypes true\\n</Plugin>\",\"plugin\":\"dns\"}",
+    "status": "RUNNING",
+    "trId": 44
+  },
+  "status": null,
+  "solution": null
+}

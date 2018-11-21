@@ -1,0 +1,60 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "taskId": 1,
+    "creator": "admin",
+    "version": "v1.1",
+    "gmtModify": "2",
+    "type": "OA",
+    "resourceRelations": [
+      {
+        "targetName": "HDS_11",
+        "targetCategory": "Storage",
+        "sourceCategory": "DB",
+        "id": 1,
+        "source": 439,
+        "sourceName": "server11",
+        "target": 433,
+        "relation": "Usage"
+      },
+      {
+        "targetName": "test",
+        "targetCategory": "DB",
+        "sourceCategory": "DB",
+        "id": 2,
+        "source": 439,
+        "sourceName": "server11",
+        "target": 437,
+        "relation": "Running"
+      }
+    ],
+    "stepSize": 2,
+    "deptId":2,
+    "deptName":"test",
+    "moreProp": null,
+    "remark": null,
+    "gmtCreate": "2",
+    "ownerId": null,
+    "toolName": "mysql",
+    "ciJob": "mysql",
+    "toolAddress": "192.168.1.123",
+    "jobUrl": "192.168.1.123",
+    "menderId": "/path",
+    "uuid": "3d638b229f",
+    "steps": null,
+    "recordId": null,
+    "isDeleted": false,
+    "isRunning": false,
+    "isLocked": false,
+    "name": "应用45445",
+    "domain": "www.baidu.com",
+    "mender": "admin",
+    "path": "/path",
+    "id": 6,
+    "toolId": 1,
+    "status": "NORMAL"
+  },
+  "status": null,
+  "solution": null
+}

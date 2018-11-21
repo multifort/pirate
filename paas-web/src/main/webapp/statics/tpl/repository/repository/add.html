@@ -1,0 +1,114 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size" ng-bind="modalName"></p>
+</div>
+<div class="modal-body panel-body">
+    <form class="form-horizontal form-validation" name="addvmForm">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">名称：</label>
+                <div class="control-input">
+                      <input type="text" name="taskName"    class="form-control" ng-model="addData.name" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <label class="control-label">仓库类型：</label>
+            <div class="control-input nav nav-boxes checked-active ">
+              <a href=""  ng-click="typeChange(0,$event)" ng-class="{0:'active'}[housetype]" class="nav-box-item driver orchestration-driver r-p5">
+                <i class=" glyphicon-ok" ng-if="housetype==0"></i>
+                <img src="/statics/img/image/registry.png" width=80>
+              </a>
+              <a href="" ng-click="typeChange(1,$event)" ng-class="{1:'active'}[housetype]" class="nav-box-item driver orchestration-driver r-p5">
+                <i class=" glyphicon-ok" ng-if="housetype==1"></i>
+                <img src="/statics/img/image/harbor_logo.png" width=80>
+              </a>
+
+            </div>
+          </div>
+        </div>
+        <div class="form-group" ng-if="!modefy">
+            <div class="col-lg-6">
+                <label class="control-label">仓库地址：</label>
+                <div class="control-input">
+                    <input type="text" name="address" ng-disabled="id"  placeholder="www.registry.com或者192.168.1.21" class="form-control" ng-model="addData.address" validator="required" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label class="control-label">协议类型：</label>
+                <div class="control-input">
+                    <select class="form-control" ng-model="addData.protocol" name="protocolType" validator="required" ng-disabled="id" ng-change="changePort()" >
+                        <option  value="">--请选择--</option>
+                        <option ng-repeat="item in protocolTypeData"   ng-selected = "item.value == addData.protocolType" value={{item.value}} ng-bind="item.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">认证授权：</label>
+                <div class="control-input">
+                    <select class="form-control" ng-model="addData.authMode" name="authMode"  ng-disabled="true" >
+                        <option  value="">--请选择--</option>
+                        <option ng-repeat="item in authMethodData"   ng-selected = "item.value == addData.authMode"  value={{item.value}}  ng-bind="item.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="addData.authMode==1">
+        <div class="col-lg-12">
+          <label class="control-label">用户名：</label>
+          <div class="control-input">
+            <input type="text" name="username" class="form-control" ng-disabled="id" ng-model="addData.username" maxlength="64"
+                   placeholder="请输入用户名" validator="required,name"/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-if="addData.authMode==1">
+        <div class="col-lg-12">
+          <label class="control-label">密码：</label>
+          <div class="control-input">
+            <input type="password" name="password"  class="form-control"
+                   ng-model="addData.password" placeholder="请输入管理密码" maxlength="64" ng-disabled="id"
+                   type="{{showPass_os?'text':'password'}}"/>
+          </div>
+        </div>
+      </div>
+         <div class="form-group" ng-if="true">
+            <div class="col-lg-12">
+                <label class="control-label">端口：</label>
+                <div class="control-input">
+                      <input type="text" name="port" placeholder="{{housesize}}" ng-disabled="id" class="form-control" ng-model="addData.port" validator="notRequiredOrPort" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+     <!--    <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">类型：</label>
+                <div class="control-input">
+                  <select class="form-control ng-pristine ng-valid ng-touched" ng-model="addData.type" >
+                  				ngRepeat: (key,item) in environmentData
+                          <option  value="0"  class="ng-binding ng-scope">软件仓库</option>
+
+                      <option value="1" class="ng-binding ng-scope">镜像仓库</option>
+                        <option value="2" class="ng-binding ng-scope">代码仓库</option>
+                          <option value="3" class="ng-binding ng-scope">其他仓库</option>
+                  </select>
+                </div>
+            </div>
+        </div>
+        --> <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">描述：</label>
+                <div class="control-input">
+<textarea class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" name="registryDesc" ng-model="addData.remark" maxlength="256" maxlength-error-message="最多输入256个字符"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||isLoadingCheck"  ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

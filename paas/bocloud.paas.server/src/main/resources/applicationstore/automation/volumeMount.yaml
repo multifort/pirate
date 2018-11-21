@@ -1,0 +1,12 @@
+volumeMounts:
+            <% if(volumeType == "tv"){ %>
+            <% for(volume in volumes){ %>
+            - mountPath: ${volume.path}
+              name: ${NAME}-volume
+             <% } %>
+            <% } else if(volumeType == "pv"){ %>
+            <% for(volume in volumes){ %>
+            - mountPath: ${volume.path}
+              name: ${NAME}-${volume.pv}-volume
+             <% } %>
+            <% } %>

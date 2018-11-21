@@ -1,0 +1,355 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "used":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    },
+    {
+      "id": 1,
+      "name":"server1",
+      "category":"Computer",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ,
+    {
+      "id": 2,
+      "name":"server2",
+      "category":"Storage",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"LOGICAL"
+    }
+  ,
+    {
+      "id": 3,
+      "name":"server3",
+      "category":"Network",
+      "ip":"192.168.1.217",
+      "status":"NORMAL",
+      "shared":true,
+      "catalog":"PHYSICAL"
+    }
+  ],
+  "msg": "hello"
+}

@@ -1,0 +1,131 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+	<p class="modal-title panel-title-size" ng-bind="modalName"></p>
+</div>
+<div class="modal-body panel-body">
+	<form class="form-horizontal form-validation" name="addForm">
+		<div ng-if="(modalName == '主机创建')">
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">主机名称：</label>
+					<div class="control-input">
+						<input type="text" name="name" class="form-control" ng-model="addData.name" placeholder="创建主机时初始主机名默认为该主机的IP地址，若要修改可在创建后编辑"  ng-disabled="true" maxlength="56"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-6">
+					<label class="control-label">起始IP：</label>
+					<div class="control-input">
+						<input type="text" name="ip" class="form-control"  ng-blur="endIPShow(!addForm.ip.$invalid)" ng-model="addData.ip" placeholder="请输入IP地址,如xx.xx.xx.xx"  validator="required,ip_opt" maxlength="64"/>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<label class="control-label">结束IP：</label>
+					<div class="control-input">
+						<label class="control-label" style="width: auto;">{{endIPStr}}</label>
+						<input style="width: 25%;" type="text" name="endIp" ng-disabled="endIPEdit" class="form-control"  ng-model="addData.ipRange"  validator="ipPart" maxlength="64"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<p style="padding-left: 67px;" class="caaa">
+					<span style="display: inline-block;padding:0 30px 0 0;">备注：若单个创建主机，只填写起始IP；</span><br/>
+					<span style="display: inline-block;padding:0 30px 0 37px;">若批量创建主机，请填写起始IP和结束IP，将为您创建该IP范围内的主机，且批量创建的主机用户名和密码是相同的；</span>
+				</p>
+			</div>
+		</div>
+		<div ng-if="(modalName == '主机编辑')">
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">主机名称：</label>
+					<div class="control-input">
+						<input type="text" name="name" class="form-control" ng-model="addData.name" placeholder="请输入名称"  validator="required" maxlength="56"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">IP：</label>
+					<div class="control-input">
+						<input type="text" name="ip" class="form-control"   ng-model="addData.ip" placeholder="请输入IP地址,如xx.xx.xx.xx"  validator="required,ip_opt" maxlength="64"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="isCheck">
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">用户名：</label>
+					<div class="control-input">
+						<input type="text" name="username"  class="form-control" ng-model="addData.username" maxlength="64"
+							   placeholder="请输入用户名" validator="required,name"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">密码：</label>
+					<div class="control-input">
+						<input type="password" name="password" class="form-control"
+							   ng-model="addData.password" placeholder="请输入管理密码" validator="required"  maxlength="64"
+							   type="{{showPass_os?'text':'password'}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="!isCheck">
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">用户名：</label>
+					<div class="control-input">
+						<input type="text" name="username"  class="form-control" ng-model="addData.username" maxlength="64"
+							   placeholder="请输入用户名" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<label class="control-label">密码：</label>
+					<div class="control-input">
+						<input type="password" name="password" class="form-control"
+							   ng-model="addData.password" placeholder="请输入管理密码"  maxlength="64"
+							   type="{{showPass_os?'text':'password'}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" >
+			<div class="col-lg-12" ng-repeat="(key,item) in addData.labels track by $index">
+			<label class="control-label">标签：</label>
+			<div class="control-input">
+				<div class="col-lg-5 nopadding">
+					<input class="form-control" name="keys{{key}}" placeholder="key" ng-model="item.keys"  maxlength="100" maxlength-error-message="最多输入100个字符" type="text" />
+				</div>
+				<div class="col-lg-5">
+					<input class="form-control " name="values{{key}}" placeholder="value" ng-model="item.values"  maxlength="100" maxlength-error-message="最多输入100个字符" type="text" />
+				</div>
+				<div class="col-lg-2 deployFa">
+					<a class="labellista" ng-click= "addLabels(key)"><i class="fa  fa-plus"></i></a>
+					<a class="labellistb" ng-click="removeLabel(key)"><i class="fa fa-minus"></i></a>
+				</div>
+
+			</div>
+
+		</div>
+
+			</div>
+		<div class="form-group">
+			<div class="col-lg-12">
+				<label class="control-label">描述信息：</label>
+				<div class="control-input">
+					<textarea class="form-control" name="remark" placeholder="请输入描述信息" ng-model="addData.remark" maxlength="255"></textarea>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="submit" class="btn btn-info" validation-submit="addForm" ng-disabled="addForm.$invalid" ng-click="ok()">确认</button>
+	<button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

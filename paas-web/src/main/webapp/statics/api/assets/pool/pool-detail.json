@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "资源池1",
+    "status": "良好",
+    "remark":"北京欢迎你",
+    "category":"swarm",
+    "env":"env",
+    "type":"hah",
+    "gmtCreate":"2015-03-12"
+  }
+}

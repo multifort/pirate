@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "data": {
+    "id":1,
+    "name":"角色名1",
+    "status":"NORMAL",
+    "username":"角色名角色名",
+    "password":"角色",
+    "address":"角色角色",
+    "moreProp":"other",
+    "remark":"hellohellohellohellohellohellohello",
+    "gmtCreate":"",
+    "gmtModify":"",
+    "createrId":"",
+    "menderId":"",
+    "ownerId":"",
+    "isDeleted":"",
+    "isLocked":""
+  }
+}

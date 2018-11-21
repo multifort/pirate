@@ -1,0 +1,315 @@
+{
+  "success": true,
+  "message": "查询任务记录详细成功",
+  "data": {
+    "ctId": null,
+    "cost": 5960.0,
+    "records": [
+      {
+        "cost": null,
+        "records": [
+          {
+            "cost": 2.0,
+            "records": null,
+            "hostNumber": 1,
+            "targetPath": null,
+            "suspended":true,
+            "type": "SCRIPT",
+            "params": "魏伟2",
+            "gmtCreate": "2016-08-24 14:24:11",
+            "content": "test",
+            "srId": 1,
+            "jobId": 12,
+            "name": "魏伟2",
+            "startTime": "2016-08-24 14:24:06",
+            "id": 1,
+            "endTime": "2016-08-24 14:24:08",
+            "createrId": 1,
+            "sourcePath": null,
+            "username": null,
+            "status": "SUCCESS"
+          },
+          {
+            "cost": 2.0,
+            "records": null,
+            "suspended":true,
+            "hostNumber": 1,
+            "targetPath": null,
+            "type": "SCRIPT",
+            "params": "魏伟3",
+            "gmtCreate": "2016-08-24 14:24:11",
+            "content": "test",
+            "srId": 1,
+            "jobId": 13,
+            "name": "魏伟3",
+            "startTime": "2016-08-24 14:24:06",
+            "id": 3,
+            "endTime": "2016-08-24 14:24:08",
+            "createrId": 1,
+            "sourcePath": null,
+            "username": "",
+            "status": "FAIL"
+          }
+        ],
+        "stepId": 12,
+        "type": "SCRIPT",
+        "priority": 1,
+        "gmtCreate": "2016-08-24 14:21:48",
+        "trId": 1,
+        "name": "魏伟2",
+        "startTime": "2016-08-24 14:21:42",
+        "id": 1,
+        "endTime": "2016-08-24 14:21:45",
+        "createrId": 1,
+        "status": "SUCCESS",
+        "progress":60
+      },
+      {
+        "cost": null,
+        "records": [
+          {
+            "cost": 2.0,
+            "records": null,
+            "hostNumber": 1,
+            "targetPath": null,
+            "type": "SCRIPT",
+            "params": "魏伟4",
+            "gmtCreate": "2016-08-24 14:24:11",
+            "content": "test",
+            "srId": 2,
+            "suspended":true,
+            "jobId": 12,
+            "name": "魏伟4",
+            "startTime": "2016-08-24 14:24:06",
+            "id": 2,
+            "endTime": "2016-08-24 14:24:08",
+            "createrId": 1,
+            "sourcePath": null,
+            "username": "",
+            "status": "SUCCESS"
+          }
+        ],
+        "stepId": 13,
+        "type": "FILE",
+        "priority": 2,
+        "gmtCreate": "2016-08-24 14:21:48",
+        "trId": 1,
+        "name": "魏伟3",
+        "startTime": "2016-08-24 14:21:42",
+        "id": 2,
+        "endTime": "2016-08-24 14:21:45",
+        "createrId": 1,
+        "status": "FAIL"
+      },
+      {
+        "cost": null,
+        "records": [
+          {
+            "cost": 2.0,
+            "records": null,
+            "hostNumber": 1,
+            "targetPath": null,
+            "type": "SCRIPT",
+            "params": "魏伟4",
+            "gmtCreate": "2016-08-24 14:24:11",
+            "content": "test",
+            "srId": 2,
+            "jobId": 12,
+            "suspended":true,
+            "name": "魏伟4",
+            "startTime": "2016-08-24 14:24:06",
+            "id": 2,
+            "endTime": "2016-08-24 14:24:08",
+            "createrId": 1,
+            "sourcePath": null,
+            "username": "",
+            "status": "SUCCESS"
+          }
+        ],
+        "stepId": 13,
+        "type": "BACKUP",
+        "priority": 2,
+        "gmtCreate": "2016-08-24 14:21:48",
+        "trId": 1,
+        "name": "魏伟3",
+        "startTime": "2016-08-24 14:21:42",
+        "id": 2,
+        "endTime": "2016-08-24 14:21:45",
+        "createrId": 1,
+        "status": "FAIL"
+      }
+    ],
+    "graph":{
+      "nodes": [
+        {
+          "nodeId": 1479970896727,
+          "location": {
+            "x": 80,
+            "y": 120
+          },
+          "start": true,
+          "end": false
+        },
+        {
+          "nodeId": 1479970896728,
+          "location": {
+            "x": 663,
+            "y": 162
+          },
+          "start": false,
+          "end": true
+        },
+        {
+          "nodeId": 1479970925869,
+          "location": {
+            "x": 310,
+            "y": 41
+          },
+          "record": {
+            "gmtCreate": "2016-08-24 14:21:48",
+            "trId": 1,
+            "name": "魏伟2",
+            "startTime": "2016-08-24 14:21:42",
+            "id": 1,
+            "endTime": "2016-08-24 14:21:45",
+            "createrId": 1,
+            "status": "SUCCESS",
+            "type": "SCRIPT",
+            "suspendable": false,
+            "scriptType": "SHELL",
+            "content": "#!/bin/bash\n\nanynowtime=\"date +'%Y-%m-%d %H:%M:%S'\"\nNOW=\"echo [\\`$anynowtime\\`][PID:$$]\"\n\n#####可在脚本开始运行时调用，打印当时的时间戳及PID。\nfunction job_start\n{\n    echo \"`eval $NOW` job_start\"\n}\n\n#####可在脚本执行成功的逻辑分支处调用，打印当时的时间戳及PID。\nfunction job_success\n{\n    MSG=\"$*\"\n    echo \"`eval $NOW` job_success:[$MSG]\"\n    exit 0\n}\n\n#####可在脚本执行失败的逻辑分支处调用，打印当时的时间戳及PID。\nfunction job_fail\n{\n    MSG=\"$*\"\n    echo \"`eval $NOW` job_fail:[$MSG]\"\n    exit 1\n}\n\njob_start\n\n######可在此处开始编写您的脚本逻辑代码\n######作业平台中执行脚本成功和失败的标准只取决于脚本最后一条执行语句的返回值\n######如果返回值为0，则认为此脚本执行成功，如果非0，则认为脚本执行失败\necho \"示例：对外开端口.....\"\necho \"iptables...\"",
+            "name": "脚本执行",
+            "identId": "2",
+            "params": "dfd",
+            "targets": [
+              {
+                "ip": "192.168.1.217",
+                "status": "NORMAL"
+              },
+              {
+                "ip": "192.168.1.218",
+                "status": "NORMAL"
+              },
+              {
+                "ip": "192.168.1.219",
+                "status": "NORMAL"
+              }
+            ]
+          },
+          "start": false,
+          "end": false
+        },
+        {
+          "nodeId": 1479970928242,
+          "location": {
+            "x": 299,
+            "y": 240
+          },
+          "record": {
+            "priority": 1,
+            "gmtCreate": "2016-08-24 14:21:48",
+            "name": "魏伟2",
+            "startTime": "2016-08-24 14:21:42",
+            "id": 1,
+            "endTime": "2016-08-24 14:21:45",
+            "createrId": 1,
+            "status": "PAUSED",
+            "type": "FILE",
+            "suspendable": false,
+            "name": "文件分发",
+            "identId": "1",
+            "targetPath": "ff",
+            "targets": [
+              {
+                "ip": "192.168.1.217",
+                "status": "NORMAL"
+              },
+              {
+                "ip": "192.168.1.218",
+                "status": "NORMAL"
+              },
+              {
+                "ip": "192.168.1.219",
+                "status": "NORMAL"
+              }
+            ],
+            "files": [
+              {
+                "name": "软件3",
+                "fileId": 3,
+                "path": "/image/sodzl"
+              }
+            ]
+          },
+          "start": false,
+          "end": false
+        },
+        {
+          "nodeId": 1479970930112,
+          "location": {
+            "x": 471,
+            "y": 154
+          },
+          "record": {
+            "type": "BACKUP",
+            "status": "FAIL",
+            "name": "创建备份",
+            "identId": "3",
+            "sourcePath": "是的",
+            "targets": [
+              {
+                "ip": "192.168.1.217",
+                "status": "NORMAL"
+              },
+              {
+                "ip": "192.168.1.218",
+                "status": "NORMAL"
+              },
+              {
+                "ip": "192.168.1.219",
+                "status": "NORMAL"
+              }
+            ]
+          },
+          "start": false,
+          "end": false
+        }
+      ],
+      "links": [
+        {
+          "nodeAid": 1479970896727,
+          "nodeZid": 1479970925869
+        },
+        {
+          "nodeAid": 1479970896727,
+          "nodeZid": 1479970928242
+        },
+        {
+          "nodeAid": 1479970925869,
+          "nodeZid": 1479970930112
+        },
+        {
+          "nodeAid": 1479970928242,
+          "nodeZid": 1479970930112
+        },
+        {
+          "nodeAid": 1479970930112,
+          "nodeZid": 1479970896728
+        }
+      ]
+    },
+    "gmtCreate": "2016-08-24 14:20:36",
+    "operator": "admin",
+    "mode": "WEB",
+    "name": "作业测试45445",
+    "tenantId": 0,
+    "startTime": "2016-08-24 14:20:29",
+    "id": 1,
+    "endTime": "2016-08-24 15:59:49",
+    "createrId": 1,
+    "taskId": 6,
+    "status": "RUNNING"
+  },
+  "status": null,
+  "solution": null
+}

@@ -1,0 +1,270 @@
+/*告警信息详情样式*/
+.step-cell{
+  position: relative;
+  padding: 10px 15px;
+  border-top: 4px solid #ddd;
+}
+.step-cell.select{
+  border-top-color: #00aeef;
+}
+.fa-power-off{
+  position: absolute;
+  z-index: 1;
+  right: 45px;
+  top: 25px;
+  width: 30px;
+  height: 30px;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+.step .panel-body{
+  padding: 20px 40px;
+}
+.step .file-list{
+  width: 100%;
+  margin-top: 20px !important;
+}
+.step-cell .fa{
+  position: absolute;
+  z-index: 1;
+  left: -15px;
+  top: -15px;
+  width: 30px;
+  height: 30px;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+.bg-blue{
+  background: #4A9BFF;
+}
+.bg-green{
+  background: #46c37b;
+}
+/*新增分派策略样式*/
+.assign-cell{
+  position: relative;
+  min-height: 30px;
+  padding: 0 0 20px 30px;
+  border-left: 4px solid #ddd;
+}
+.assign-cell .icon, .alarm-cell .icon{
+  position: absolute;
+  z-index: 1;
+  left: -16px;
+  top: -2px;
+  width: 30px;
+  height: 30px;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+.assign-user-list{
+  width: 60%;
+  padding: 10px;
+  background: #eee;
+  margin-top: 10px;
+}
+.assign-cell input{
+  width: 60px;
+  padding: 2px 6px;
+}
+/*多选样式*/
+
+.select_mu {
+  position: relative;
+  top: 10px;
+  display: inline-block;
+}
+
+.select_mu .input {
+  padding-right: 20px;
+}
+
+.select_mu .fa-down {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  background: #fff;
+  height: 30px;
+  width: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.select_body {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.select_mu .option {
+  max-height: 260px;
+  overflow: auto;
+  width: 200px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.select_mu li:hover {
+  color: #0082d4;
+}
+
+.select_mu li {
+  padding: 5px 15px;
+}
+
+.select_mu li label {
+  margin: 0;
+}
+
+
+.select_mu .input {
+  border-radius: 2px;
+  display: inline-block;
+  width: 202px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*节点多选插件样式*/
+.node-select {
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 300px;
+  padding: 6px;
+  overflow: auto;
+}
+
+.node-selected {
+  width: 100%;
+  max-height: 80px;
+  overflow: auto;
+}
+
+.node-select-filter {
+  margin-bottom: 4px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.node-select .node-free-cell, .node-selected .node-free-cell {
+  cursor: pointer;
+  display: block;
+  margin: 8px;
+  background: rgba(6, 152, 140, 0.41);
+  color: #fff;
+  padding: 5px;
+  line-height: 22px;
+  position: relative;
+  box-shadow: 1px 1px 3px #0F5650;
+}
+/*告警策略*/
+.alarm-delete{
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  cursor: pointer;
+}
+.alarm-cell{
+  position: relative;
+  min-height: 30px;
+  padding: 0;
+  padding-bottom: 15px;
+  margin-left: 10px;
+  border-left: 4px solid #ddd;
+}
+.alarm-cell-text{
+  width: 80%;
+  padding: 10px 0;
+  margin-left: 35px;
+}
+
+.alarm-threshold .control-label{
+  float: left;
+  height: 54px;
+  line-height: 65px;
+}
+.text-info {
+  color: #00aeef !important;
+}
+.text-warning {
+  color: #fad733 !important;
+}
+.text-danger {
+  color: #f05050 !important;
+}
+
+/*新增告警策略*/
+.search-content .control-label {
+  width: 94px;
+  text-align: right;
+}
+.detail .search-content .form-group {
+  margin:0;
+  margin-bottom: 10px;
+  width: 100%;
+  display: inline-block;
+}
+.detail .input-error-info>span>label{
+  margin-left: 100px;
+}
+.detail .row{
+  margin-left:0;
+  margin-right: 0;
+}
+.detail .search-content .form-group.remark {
+  width: 100%;
+  display: inline-block;
+}
+.detail .search-content {
+  border-bottom: none;
+}
+.m-t-n-7 {
+  margin-top: -7px;
+}
+.m-t-n-70{
+  margin-top: -70px;
+}
+.btn-list .btn{
+  width: 100%;
+}
+.border-info{
+  border: 1px solid #0db9f0;
+}
+.border-success{
+  border: 1px solid #27c24c;
+}
+.text-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

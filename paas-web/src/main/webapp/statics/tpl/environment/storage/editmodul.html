@@ -1,0 +1,136 @@
+
+<style>
+    .store .control-label{
+       width:108px;
+   }
+    .store .control-input{
+        width: calc(100% - 120px);
+        float: left;
+   }
+</style>
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+<p class="modal-title panel-title-size" ng-bind="modalName"></p>
+</div>
+<div class="modal-body panel-body" style="min-height:300px">
+  <form class="form-horizontal form-validation store" name="addvmForm"  >
+
+<div ng-repeat="item in modelData">
+    <div class="form-group" ng-if="item.type=='String'">
+        <div class="col-lg-12">
+            <label class="control-label">{{item.displayName}}：</label>
+            <!-- //简单输入框 -->
+            <div class="control-input" >
+                <input type="text" name="key{{item.name}}"  ng-disabled="(modalType =='edit')&&(item.name=='name')" placeholder="{{item.description}}" class="form-control"  ng-model="item.select" validator="required" maxlength="30" maxlength-error-message="最多输入30个字符">
+            </div>
+        </div>
+    </div>
+    <!-- Map -->
+    <div ng-if="(item.type=='Map')&&(item.name!='monitors')">
+        <div class="form-group"  ng-repeat="(key,mm) in item.value">
+            <div class="col-lg-12 ">
+                <label class="control-label">{{item.displayName}}：</label>
+                <!-- //map输入框 -->
+                <div class="control-input" >
+                    <div class="col-lg-5 nopadding">
+                        <input class="form-control " name="key{{key}}" placeholder="key" ng-model="mm.key"  maxlength="20" maxlength-error-message="最多输入20个字符" type="text" />
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" name="value{{key}}" placeholder="value" ng-model="mm.value"  maxlength="20" maxlength-error-message="最多输入20个字符" type="text" />
+                    </div>
+                    <div class="col-lg-2 deployFa">
+                        <a  ng-click= "addEnvs(item.value)"><i class="fa  fa-plus"></i></a>
+                        <a  ng-click="removeEnv(item.value)"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  ng-if="(item.type=='Map')&&(item.name=='monitors')">
+        <div class="form-group"  ng-repeat="(key,mm) in item.value">
+            <div class="col-lg-12 ">
+                <label class="control-label">{{item.displayName}}：</label>
+                <!-- //map输入框 -->
+                <div class="control-input" >
+                    <div class="col-lg-5 nopadding">
+                        <input class="form-control " name="key{{key}}" validator="required,ip_opt" placeholder="IP" ng-model="mm.key"  maxlength="20" maxlength-error-message="最多输入20个字符" type="text" />
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" name="value{{key}}" placeholder="port" validator="required,port_opt" ng-model="mm.value"  maxlength="20" maxlength-error-message="最多输入20个字符" type="text" />
+                    </div>
+                    <div class="col-lg-2 deployFa">
+                        <a  ng-click= "addEnvs(item.value)"><i class="fa  fa-plus"></i></a>
+                        <a  ng-click="removeEnv(item.value)"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- list -->
+    <div  ng-if="item.type=='List'">
+        <div class="form-group" ng-repeat="items in item.value" >
+            <div class="col-lg-12">
+                <label class="control-label">{{item.displayName}}：</label>
+                <!-- //list输入框 -->
+                <div class="control-input ">
+                    <div class="col-lg-11">
+                        <input class="form-control " name="key{{key}}" placeholder="{{item.description}}" ng-model="item.select"  maxlength="64" maxlength-error-message="最多输入64个字符" type="text" />
+                    </div>
+                    <div class="col-lg-1 deployFa">
+                        <a  ng-click= "addList(item.value)"><i class="fa  fa-plus"></i></a>
+                        <a  ng-click="removeList(item.value)"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- select -->
+    <div class="form-group"   ng-if="item.type=='select'">
+        <div class="col-lg-12">
+            <label class="control-label">{{item.displayName}}：</label>
+            <!-- //select输入框 -->
+            <div class="control-input" >
+                <select class="form-control" ng-model="item.select"  name="key{{item.name}}" validator="required">
+                    <option  value="">--请选择--</option>
+                    <option ng-repeat="items in item.value" ng-selected = "items == item.select" value={{items}} ng-bind="items"></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- http -->
+    <div  ng-if="item.type=='Http'">
+        <div class="form-group"  ng-repeat="(key,mm) in item.value">
+            <div class="col-lg-12">
+                <label class="control-label">{{item.displayName}}：</label>
+                <!-- //map输入框 -->
+                <div class="control-input" >
+                    <div class="col-lg-5 nopadding">
+                        <select class="form-control" ng-model="mm.key">
+                            <option  value="">--请选择--</option>
+                            <option ng-repeat="(i,items) in http_request" ng-selected = "i == mm.key" value={{i}} ng-bind="i"></option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 " ng-if="mm.key != 'method'&& mm.key!= 'contentType'">
+                        <input class="form-control" name="value{{key}}" placeholder="value" ng-model="mm.value"  maxlength="64" maxlength-error-message="最多输入64个字符" type="text" />
+                    </div>
+                    <div class="col-lg-6"  ng-if="mm.key == 'method'|| mm.key == 'contentType'">
+                        <select class="form-control" ng-model="mm.value">
+                            <option  value="">--请选择--</option>
+                            <option ng-repeat="items in http_request[mm.key]" ng-selected = "items == mm.value" value={{items}} ng-bind="items"></option>
+                        </select>
+                    </div>
+                    <div class="col-lg-1 deployFa">
+                        <a  ng-click= "addEnvs(item.value)"><i class="fa  fa-plus"></i></a>
+                        <a  ng-click="removeEnv(item.value)"><i class="fa fa-minus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  </form>
+</div>
+<div class="modal-footer">
+<button type="submit" class="btn btn-info" validation-submit="addvmForm"  ng-disabled="addvmForm.$invalid||isLoadingCheck"  ng-click="ok()">确认</button>
+<button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

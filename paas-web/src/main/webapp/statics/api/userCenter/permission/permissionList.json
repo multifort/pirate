@@ -1,0 +1,40 @@
+{
+    "success": true,
+    "message": "查询权限成功",
+    "data": [
+        {
+            "name": "基础设施",
+            "checked": false,
+            "id": 2,
+            "parentId": 1,
+            "actionUrl": "/url",
+            "category":"menu",
+            "level":"NORMAL",
+            "content":"11111",
+            "priority":"1"
+        },
+        {
+            "name": "配置管理",
+            "checked": false,
+            "id": 4,
+            "parentId": 0,
+            "actionUrl": "/url",
+            "category":"menu",
+            "level":"NORMAL",
+            "content":"11111",
+            "priority":"1"
+        },
+        {
+            "name": "权限维护",
+            "checked": false,
+            "id": 5,
+            "parentId": 0,
+            "actionUrl": "/url",
+            "category":"menu",
+            "level":"NORMAL",
+            "content":"11111",
+            "priority":"1"
+        }
+    ],
+    "solution": null
+}

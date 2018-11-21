@@ -1,0 +1,14 @@
+{
+  "success":true,
+  "data":{
+    "name":" 分发文件-2016614144313775",
+    "type":" 文件传输",
+    "account":"root",
+    "totalTime":"0.123",
+    "status":"执行成功",
+    "startTime":"2016-04-12 15:33:34",
+    "endTime":"2016-06-12 12:33:33",
+    "progress":"100"
+  },
+  "msg":"heheh"
+}

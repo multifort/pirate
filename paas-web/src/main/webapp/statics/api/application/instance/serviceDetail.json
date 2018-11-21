@@ -1,0 +1,248 @@
+{
+  "success": true,
+  "message": "获取服务详情成功",
+  "data": {
+    "ingress": {
+      "additionalProperties": {},
+      "apiVersion": "extensions/v1beta1",
+      "items": [
+        {
+          "additionalProperties": {},
+          "apiVersion": "extensions/v1beta1",
+          "kind": "Ingress",
+          "metadata": {
+            "additionalProperties": {},
+            "annotations": {
+              "ingress.kubernetes.io/rewrite-target": "/"
+            },
+            "creationTimestamp": "2017-07-19T07:48:36Z",
+            "finalizers": [],
+            "generation": 1,
+            "name": "myweb",
+            "namespace": "application-myweb",
+            "ownerReferences": [],
+            "resourceVersion": "13047244",
+            "selfLink": "/apis/extensions/v1beta1/namespaces/application-myweb/ingresses/myweb",
+            "uid": "ac1fa05c-6c56-11e7-8767-000c29e37283"
+          },
+          "spec": {
+            "additionalProperties": {},
+            "rules": [
+              {
+                "additionalProperties": {},
+                "http": {
+                  "additionalProperties": {},
+                  "paths": [
+                    {
+                      "additionalProperties": {},
+                      "backend": {
+                        "additionalProperties": {},
+                        "serviceName": "myweb",
+                        "servicePort": {
+                          "additionalProperties": {},
+                          "intVal": 9000
+                        }
+                      },
+                      "path": "/myweb"
+                    }
+                  ]
+                }
+              }
+            ],
+            "tls": []
+          },
+          "status": {
+            "additionalProperties": {},
+            "loadBalancer": {
+              "additionalProperties": {},
+              "ingress": [
+                {
+                  "additionalProperties": {},
+                  "ip": "192.168.1.54"
+                },
+                {
+                  "additionalProperties": {},
+                  "ip": "192.168.1.55"
+                },
+                {
+                  "additionalProperties": {},
+                  "ip": "192.168.1.56"
+                },
+                {
+                  "additionalProperties": {},
+                  "ip": "192.168.1.57"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "kind": "IngressList",
+      "metadata": {
+        "additionalProperties": {},
+        "resourceVersion": "13047296",
+        "selfLink": "/apis/extensions/v1beta1/namespaces/application-myweb/ingresses"
+      }
+    },
+    "service": {
+      "additionalProperties": {},
+      "apiVersion": "v1",
+      "items": [
+        {
+          "additionalProperties": {},
+          "apiVersion": "v1",
+          "kind": "Service",
+          "metadata": {
+            "additionalProperties": {},
+            "creationTimestamp": "2017-07-19T07:48:36Z",
+            "finalizers": [],
+            "name": "myweb",
+            "namespace": "application-myweb",
+            "ownerReferences": [],
+            "resourceVersion": "13047171",
+            "selfLink": "/api/v1/namespaces/application-myweb/services/myweb",
+            "uid": "ac042a7c-6c56-11e7-8767-000c29e37283"
+          },
+          "spec": {
+            "additionalProperties": {},
+            "clusterIP": "10.254.50.251",
+            "deprecatedPublicIPs": [],
+            "externalIPs": [],
+            "loadBalancerSourceRanges": [],
+            "ports": [
+              {
+                "additionalProperties": {},
+                "name": "http",
+                "port": 9000,
+                "protocol": "TCP",
+                "targetPort": {
+                  "additionalProperties": {},
+                  "intVal": 8080
+                }
+              }
+            ],
+            "selector": {
+              "app": "myweb"
+            },
+            "sessionAffinity": "None",
+            "type": "ClusterIP"
+          },
+          "status": {
+            "additionalProperties": {},
+            "loadBalancer": {
+              "additionalProperties": {},
+              "ingress": []
+            }
+          }
+        }
+      ],
+      "kind": "ServiceList",
+      "metadata": {
+        "additionalProperties": {},
+        "resourceVersion": "13047296",
+        "selfLink": "/api/v1/namespaces/application-myweb/services"
+      }
+    },
+    "deployment": {
+      "additionalProperties": {},
+      "apiVersion": "v1",
+      "items": [
+        {
+          "additionalProperties": {},
+          "apiVersion": "v1",
+          "kind": "ReplicationController",
+          "metadata": {
+            "additionalProperties": {},
+            "creationTimestamp": "2017-07-19T07:48:36Z",
+            "finalizers": [],
+            "generation": 1,
+            "labels": {
+              "app": "myweb"
+            },
+            "name": "myweb",
+            "namespace": "application-myweb",
+            "ownerReferences": [],
+            "resourceVersion": "13047205",
+            "selfLink": "/api/v1/namespaces/application-myweb/replicationcontrollers/myweb",
+            "uid": "ac112531-6c56-11e7-8767-000c29e37283"
+          },
+          "spec": {
+            "additionalProperties": {},
+            "replicas": 1,
+            "selector": {
+              "app": "myweb"
+            },
+            "template": {
+              "additionalProperties": {},
+              "metadata": {
+                "additionalProperties": {},
+                "finalizers": [],
+                "labels": {
+                  "app": "myweb"
+                },
+                "ownerReferences": []
+              },
+              "spec": {
+                "additionalProperties": {
+                  "schedulerName": "default-scheduler"
+                },
+                "containers": [
+                  {
+                    "additionalProperties": {
+                      "terminationMessagePolicy": "File"
+                    },
+                    "args": [],
+                    "command": [],
+                    "env": [],
+                    "image": "192.168.1.57:5000/default/tomcat:8.5",
+                    "imagePullPolicy": "IfNotPresent",
+                    "name": "myweb",
+                    "ports": [
+                      {
+                        "additionalProperties": {},
+                        "containerPort": 8080,
+                        "protocol": "TCP"
+                      }
+                    ],
+                    "resources": {
+                      "additionalProperties": {}
+                    },
+                    "terminationMessagePath": "/dev/termination-log",
+                    "volumeMounts": []
+                  }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "imagePullSecrets": [],
+                "restartPolicy": "Always",
+                "securityContext": {
+                  "additionalProperties": {},
+                  "supplementalGroups": []
+                },
+                "terminationGracePeriodSeconds": 30,
+                "volumes": []
+              }
+            }
+          },
+          "status": {
+            "additionalProperties": {},
+            "availableReplicas": 1,
+            "conditions": [],
+            "fullyLabeledReplicas": 1,
+            "observedGeneration": 1,
+            "readyReplicas": 1,
+            "replicas": 1
+          }
+        }
+      ],
+      "kind": "ReplicationControllerList",
+      "metadata": {
+        "additionalProperties": {},
+        "resourceVersion": "13047296",
+        "selfLink": "/api/v1/namespaces/application-myweb/replicationcontrollers"
+      }
+    }
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

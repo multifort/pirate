@@ -1,0 +1,62 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size">新增子网</p>
+</div>
+<div class="modal-body panel-body">
+    <form class="form-horizontal form-validation user-form" name="addvmForm">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"><span>*</span>可用区域：</label>
+                <div class="control-input">
+                    <div class="region region-box" style="width:124px;" ng-class="{true:'region-active'}[row.isRegionActive]" ng-click="chooseRegion(row)" ng-repeat="row in regionData">
+                        <span class="region-txt" title={{row.name}} ng-bind="row.name"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"><span>*</span>子网名称：</label>
+                <div class="control-input">
+                    <input type="text" name="name" class="form-control" ng-model="addData.name" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"><span>*</span>网关：</label>
+                <div class="control-input">
+                    <input type="text" name="gateway" class="form-control" ng-model="addData.gateway" validator="required,ip">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"><span>*</span>起始IP：</label>
+                <div class="control-input">
+                    <input type="text" name="start" class="form-control" ng-model="addData.start" validator="required,ip">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label"><span>*</span>结束IP：</label>
+                <div class="control-input">
+                    <input type="text" name="end" class="form-control" ng-model="addData.end" validator="required,ip">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">网络地址：</label>
+                <div class="control-input">
+                    <input type="text" name="cidr" class="form-control" ng-model="addData.cidr">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||isLoadingActive" ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

@@ -1,0 +1,97 @@
+{
+  "success": true,
+  "message": "",
+  "data": [
+    {
+      "children": "[]",
+      "name": "数据纵览1111",
+      "id": 11111,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "基础设施",
+      "checked": false,
+      "id": 2,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "配置管理",
+      "checked": false,
+      "id": 4,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "权限维护",
+      "checked": false,
+      "id": 5,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "配置管理",
+      "checked": false,
+      "id": 4,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "权限维护",
+      "checked": false,
+      "id": 5,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "配置管理",
+      "checked": false,
+      "id": 4,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "权限维护",
+      "checked": false,
+      "id": 5,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "配置管理",
+      "checked": false,
+      "id": 4,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    },
+    {
+      "name": "权限维护",
+      "checked": false,
+      "id": 5,
+      "parentId": 0,
+      "status": "NORMAL",
+      "value": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA"
+    }
+  ],
+  "solution": null
+}

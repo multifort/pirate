@@ -1,0 +1,79 @@
+.search-content{
+	overflow: hidden;
+	padding: 15px;
+}
+
+@media (max-width:1920px ) {
+	.user{
+		margin-left: 2%;
+	}
+	.starttime{
+		width: 35.3%;
+		margin-top: 15px;
+	}
+	.endtime{
+		width: 33.5%;
+		margin-top: 15px;
+	}
+}
+@media (max-width:1600px ){
+	.user{
+		margin-left: 2.5%;
+	}
+	.starttime{
+		width: 35.9%;
+	}
+}
+@media (max-width:1366px ) {
+	.user{
+		margin-left: 3%;
+	}
+	.starttime{
+		width: 36.5%;
+		margin-top: 15px;
+	}
+	.endtime{
+		width: 33.3%;
+		margin-top: 15px;
+	}
+}
+.floatLeft{
+	float:left;
+}
+.search-content .form-time{
+	width: 33%;
+    display: inline-block;
+    margin-bottom: 15px;
+    float: left;
+}
+.styleset .panel-info {
+  border:solid 1px #bce8f1;
+}
+.styleset .panel {
+  margin:10px 0 10px 0;
+  background-color: #fffeee;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.styleset .panel-detail{
+  padding: 10px;
+}
+.btn-show{
+	width: 200px;
+	float: right;
+}
+.legends{
+	 background: #fff;
+	 position: relative;
+	 text-align: center;
+	 width: 170px;
+	 top: -10px;
+	 left: -5px;
+}
+.ui-datepicker-calendar {
+    display: none;
+    }
+    .ui-datepicker-title select,.ui-datepicker-title option{
+    	background: #1c94c4;
+    }

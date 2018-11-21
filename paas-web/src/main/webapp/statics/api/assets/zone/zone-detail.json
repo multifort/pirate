@@ -1,0 +1,50 @@
+{
+    "success" : true,                    
+    "data" : {
+		"id":2,
+		"name":"分区1",
+		"dataCenterName":"数据中心1",
+		"roomName":"机房1",
+		"gmtCreate":0,
+		"gmtModify":0,
+		"createrId":0,
+		"menderId":0,
+	  "rooms": [
+		{
+		  "id": 18,
+		  "name": "test121",
+		  "rowNum": 3,
+		  "colNum": 2,
+		  "racks": [
+			{
+			  "id": 1,
+			  "name": "test",
+			  "axisX": 1,
+			  "axisY": 1,
+			  "servers": [
+				{
+				  "id": 22,
+				  "name": "SERVER_192.168.1.201"
+				}
+			  ]
+			}
+		  ]
+		}
+
+	  ],
+		"ownerId":0,
+		"status":"运行中",
+		"isLocked":0,
+		"moreProp":0,
+		"remark":"dfdgfg",
+		"sn":"134865",
+		"roomId":"1",
+		"dcId":1,
+		"isDeleted":"",
+		"zoneNum":20,
+	    "cabinetNum":20
+    },
+    "message" : "信息",
+    "code" : 1111,         
+    "solution" : " "        
+}

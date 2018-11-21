@@ -1,0 +1,61 @@
+{
+  "success": true,
+  "message": "查询任务记录成功",
+  "data": {
+    "total": 3,
+    "pages": 1,
+    "page": 1,
+    "rows": [
+      {
+        "ctId": null,
+        "cost": 5960.0,
+        "records": null,
+        "gmtCreate": "2016-08-24 14:20:36",
+        "operator": "admin",
+        "mode": "WEB",
+        "name": "作业测试45445",
+        "tenantId": 0,
+        "startTime": "2016-08-24 14:20:29",
+        "id": 1,
+        "endTime": "2016-08-24 15:59:49",
+        "createrId": 1,
+        "taskId": 6,
+        "status": "SUCCESS"
+      },
+      {
+        "ctId": null,
+        "cost": 5962.0,
+        "records": null,
+        "gmtCreate": "2016-08-24 14:20:36",
+        "operator": "admin",
+        "mode": "CRON",
+        "name": "作业测试45445",
+        "tenantId": 0,
+        "startTime": "2016-08-24 14:20:29",
+        "id": 2,
+        "endTime": "2016-08-24 15:59:51",
+        "createrId": 1,
+        "taskId": 6,
+        "status": "FAIL"
+      },
+      {
+        "ctId": null,
+        "cost": 0.0,
+        "records": null,
+        "gmtCreate": "2016-08-24 14:20:36",
+        "operator": "admin",
+        "mode": "API",
+        "name": "作业测试45445",
+        "tenantId": 0,
+        "startTime": "2016-08-24 14:20:29",
+        "id": 3,
+        "endTime": null,
+        "createrId": 1,
+        "taskId": 6,
+        "status": "RUNNING"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

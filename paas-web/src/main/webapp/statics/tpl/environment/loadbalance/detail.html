@@ -1,0 +1,69 @@
+<div class="content-byc image-content" ng-controller="loadBalanceDetailModalCtrl">
+  <div class="animated update-content" >
+      <div class="wrapper-md">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default" style="padding:0;">
+                      <div class="panel-heading font-bold">
+                          <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                          <span class="p-l-6">详情</span>
+                          <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                              <i class="fa fa-reply icon-font"></i> 返回
+                          </button>
+                      </div>
+                      <div class="panel-detail">
+                          <div class="image-box">
+                            <div class="image-box-h text-center">
+                              <div class=" col-md-1 padding-td-10">
+                                <p class="small-box-p"><i class="fa fa-cube"></i></p>
+                              </div>
+                              <div class="text-left-p col-md-10">
+                              <p class="text-left-p col-md-4"><span  class="caaa">负载名称：</span><span title="{{basicDetail.name}}">{{basicDetail.name}}</span></p>
+                                <p class="text-left-p col-md-4 "><span  class="caaa">状态：</span><span title="{{statusData[basicDetail.status]}}">{{statusData[basicDetail.status]}}</span></p>
+                                <p class="text-left-p col-md-4"><span  class="caaa">类型：</span><span title="{{typeData[basicDetail.type]}}">{{typeData[basicDetail.type]}}</span></p>
+                                <p class="text-left-p col-md-4"><span  class="caaa">管理IP：</span><span title="{{basicDetail.managerIp}}">{{basicDetail.managerIp}}</span></p>
+                                  <p class="text-left-p col-md-4"><span  class="caaa">创建者名称：</span><span title="{{basicDetail.creator}}">{{basicDetail.creator}}</span></p>
+                                  <p class="text-left-p col-md-4"><span  class="caaa">创建时间：</span><span title="{{basicDetail.gmtCreate}}">{{basicDetail.gmtCreate}}</span></p>
+                                  <p class="text-left-p col-md-4"><span  class="caaa">环境：</span><span title="{{basicDetail.envName}}">{{basicDetail.envName}}</span></p>
+                                  <p class="text-left-p col-md-4"><span  class="caaa">修改者名称：</span><span title="{{basicDetail.mender}}">{{basicDetail.mender}}</span></p>
+                                  <p class="text-left-p col-md-4"><span  class="caaa">修改时间：</span><span title="{{basicDetail.gmtModify}}">{{basicDetail.gmtModify}}</span></p>
+                                <p class="text-left-p col-md-4"><span  class="caaa">应用数：</span><span title="{{basicDetail.appCount}}">{{basicDetail.appCount}}</span></p>
+                                  <p class="text-left-p col-md-4"><span  class="caaa">描述信息：</span><span title="{{basicDetail.remark}}">{{basicDetail.remark}}</span></p>
+                              </div>
+                              <div class="both"></div>
+                            </div>
+
+
+                        </div>
+                      </div>
+                      <tabset class="tab-container">
+                       <!-- <tab >
+                          <tab-heading>
+                            基本信息
+                          </tab-heading>
+                          <div class="row panel pad-10"data-ng-include="'/statics/tpl/environment/loadbalance/basicmessage.html'">
+                          </div>
+                        </tab>-->
+                        <tab select="initDetail()">
+                          <tab-heading>
+                          负载拓扑
+                          </tab-heading>
+                          <div class="row panel pad-10" style="box-shadow: none;">
+                              <div class="row" ng-simple-assets-graph="" node-data="nodeData"  ng-if="nodeData" style="width: 1000px;height: 400px;">		</div>
+                          </div>
+                        </tab>
+                         <tab ng-controller="datastoreApplicationListModalCtrl"  select="getData(1)" >
+                          <tab-heading>
+                            应用列表
+                          </tab-heading>
+                          <div class="row panel pad-10" style="box-shadow: none;" data-ng-include="'/statics/tpl/environment/loadbalance/applicationList.html'">
+                          </div>
+                        </tab>
+                      </tabset>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

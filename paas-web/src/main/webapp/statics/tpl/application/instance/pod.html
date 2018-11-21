@@ -1,0 +1,77 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size" >弹性伸缩</p>
+</div>
+<div class="modal-body panel-body">
+    <form class="form-horizontal form-validation" name="addvmForm">
+        <p class="modal-title panel-title-size warning" ng-bind="podmessage"></p>
+        <!-- <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">cpu请求资源：</label>
+                <div class="control-input">
+                      <input type="text" name="taskName" class="form-control" ng-model="addData.requestValue" validator="required" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div> -->
+        <div class="form-group padding-l-10" >
+            <label class="control-label">弹性伸缩方式</label>
+            <div class="control-input">
+                <div class="col-sm-2 " style="    padding-top: 6px;">
+                         <input type="radio"  name="appluy" value="1" ng-model="apply">自动
+                </div>
+                    <div class="col-sm-2 " style="    padding-top: 6px;">
+                        <input type="radio" name="appluy" value="2" ng-model="apply">手动
+                    </div>
+            </div>
+        </div>
+        <div ng-if="apply==1">
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <label class="control-label">最小实例数：</label>
+                    <div class="control-input">
+                        <rzslider rz-slider-model="addData.minReplicas" ng-if="slider"
+                                  rz-slider-options="addData.options"></rzslider>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <label class="control-label">最大实例数：</label>
+                    <div class="control-input">
+                        <rzslider rz-slider-model="addData.maxReplicas" ng-if="slider"
+                                  rz-slider-options="addData.options"></rzslider>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <label class="control-label">cpu百分比：</label>
+                    <div class="control-input">
+
+                        <rzslider rz-slider-model="slider.value" ng-if="slider"
+                                  rz-slider-options="slider.options"></rzslider>
+                        <p style="     display: inline-table;   color: #bab6b6;   padding: 2px;">阀值，例如设置50%，当运行实例阀值超过设置的50%时，会触发自动动态扩容行为</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="apply==2">
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <label class="control-label">实例数：</label>
+                    <div class="control-input">
+                        <rzslider  rz-slider-model="sliderApply.value" ng-if="sliderApply"
+                                   rz-slider-options="sliderApply.options"></rzslider>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-if="apply==1" ng-disabled="podshow" ng-click="delete()">删除</button>
+    <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||chackIn||isLoadingActive" ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

@@ -1,0 +1,43 @@
+<div class="content-byc image-content" ng-controller="tempversionCtrl">
+    <div class="animated update-content">
+        <div class="wrapper-md">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="padding:0;">
+                        <div class="panel-heading font-bold">
+                            <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                            <span class="p-l-6">版本</span>
+                            <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBacks()" tabindex="0">
+                                <i class="fa fa-reply icon-font"></i> 返回
+                            </button>
+                        </div>
+                        <div class="clearfix script-content content-byc">
+                            <div class="wrapper-md">
+                                <div class="panel panel-default">
+                                    <div class="col-md-12 search-box search-box-r">
+                                        <div class=" col-sm-5" style="padding: 0px;">
+                                            <button class="btn btn-info w-xs m-r" ng-click="goAction(1)">
+                                                <i class="fa fa-plus"></i> 新增
+                                            </button>
+                                            <button class="btn btn-danger w-xs m-r" ng-click="deteleAll()" ng-disabled="operation.isBatch1"><i class="fa fa-trash-o fa-lg"></i> 批量删除</button>
+                                        </div>
+                                    </div>
+                                    <div ng-show="isListView">
+                                        <div class="dataTables_wrapper form-inline">
+                                            <div class="row">
+                                                <div class="col-sm-12" style="margin-top: -10px;">
+                                                    <div class="" style="padding: 0px;box-shadow: none;" data-ng-include="'/statics/tpl/application/template/versiontabs.html'">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "data": {
+      "id":1,
+      "name":"用户1",
+      "remark":"hello",
+      "gmtCreate":"",
+      "gmtModify":"",
+      "createrId":"",
+      "menderId":"",
+      "ownerId":"",
+      "status":"NORMAL",
+      "path":"/image/sodzl",
+      "moreProp":"other"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "data": {
+    "id":112,
+    "name":"用户1",
+    "assetNum":"1",
+    "serviceVendor":2048,
+    "contact":18230102548,
+    "startTime":"2012-1-1",
+    "endTime":"2012-1-1",
+    "contractNum":"数据中心1",
+
+    "resourceRelations": [
+      {
+        "targetName": "HDS_11",
+        "targetCategory": "Storage",
+        "sourceCategory": "DB",
+        "id": 1,
+        "source": 439,
+        "sourceName": "server11",
+        "target": 433,
+        "relation": "Usage"
+      },
+      {
+        "targetName": "test",
+        "targetCategory": "DB",
+        "sourceCategory": "DB",
+        "id": 2,
+        "source": 439,
+        "sourceName": "server11",
+        "target": 437,
+        "relation": "Running"
+      }
+    ],
+    "address":"4.1.1.1",
+    "applicationSystem":1,
+    "startCommand":"jejej",
+    "stopCommand":"jlsjflk",
+    "character":"sss",
+    "version":"1",
+    "category":"WEBLOGIC",
+    "ip":"192.168.1.91",
+    "port":8080,
+    "username":"ll",
+    "password":129304
+  }
+}

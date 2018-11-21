@@ -1,0 +1,145 @@
+<style>
+    .form-group>div {
+        margin: 5px 0;
+    }
+
+    .CodeMirror {
+        height: 500px;
+    }
+
+    .codeNarrow,
+    .codeExpand {
+        float: right;
+        margin-left: 8px;
+        margin-bottom: 8px;
+        height: 20px;
+        line-height: 20px;
+        width: 20px;
+        text-align: center;
+        border-radius: 3px;
+        color: #d0d0d0;
+        background-color: #002240;
+        -webkit-user-select: none;
+        cursor: pointer;
+    }
+    .codeNarrow:active,.codeExpand:active {
+        color: #002240;
+        background-color: #d0d0d0;
+    }
+</style>
+<div class="content-byc image-content" ng-controller="instancetempTempCtrl">
+    <div class="animated update-content">
+        <div class="wrapper-md">
+            <div class="row templateinstance">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="padding:0;">
+                        <div class="panel-heading font-bold">
+                            <span class="p-l-6">实例模板化</span>
+                            <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBacks()" tabindex="0">
+                                <i class="fa fa-reply icon-font"></i> 返回
+                            </button>
+                        </div>
+                        <div class=" panel-body" style="min-height:300px;overflow:hidden;">
+                            <!-- 左边 -->
+                            <div style="float:left;width:40%">
+                                <div style="overflow:hidden">
+                                    <div ng-click="codeNarrow()" class="codeNarrow">-</div>
+                                    <div ng-click="codeExpand()" class="codeExpand">+</div>
+                                </div>
+                                <div class="row panel pad-10">
+                                    <div ng-code-mirror="" code-mirror="codeMirror">
+                                        <textarea class="textarea both"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- 右边 -->
+                            <div style="float:right;width:59%;">
+                                <form class="form-horizontal form-validation store" name="addvmForm">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <label class="control-label">描述：</label>
+                                            <div class="control-input">
+                                                <input type="text" name="description" class="form-control" ng-model="description">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label class="control-label">显示名称：</label>
+                                            <div class="control-input">
+                                                <input type="text" name="displayName" class="form-control" ng-model="displayName">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label class="control-label">名称：</label>
+                                            <div class="control-input">
+                                                <input type="text" name="name" class="form-control" ng-model="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label class="control-label">默认值：</label>
+                                            <div class="control-input">
+                                                <input type="text" name="value" class="form-control" ng-model="value">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label class="control-label">选择：</label>
+                                            <div class="control-input">
+                                                <input type="text" name="select" class="form-control" ng-model="select">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label class="control-label">类型：</label>
+                                            <div class="control-input">
+                                                <input type="text" name="type" class="form-control" ng-model="type">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label class="control-label" style="visibility:hidden;">添加</label>
+                                            <div class="control-input">
+                                                <button ng-click="addRow()">添加</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <table class="table table-hover b-light m-b-xxs">
+                                    <thead class="table-header">
+                                        <tr>
+                                            <th width="20%" class="text-center font-15">描述</th>
+                                            <th width="16%" class="text-center font-15">显示名称</th>
+                                            <th width="16%" class="text-center font-15">名称</th>
+                                            <th width="16%" class="text-center font-15">默认值</th>
+                                            <th width="16%" class="text-center font-15">选择</th>
+                                            <th width="16%" class="text-center font-15">类型</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-content" ng-repeat="row in tableData track by $index">
+                                            <td width="20%" class="text-center font-15 text-overflow" title="{{row.description}}" ng-bind="row.description"></td>
+                                            <td width="16%" class="text-center font-15 text-overflow" title="{{row.displayName}}" ng-bind="row.displayName"></td>
+                                            <td width="16%" class="text-center font-15 text-overflow" title="{{row.name}}" ng-bind="row.name"></td>
+                                            <td width="16%" class="text-center font-15 text-overflow" title="{{row.value}}" ng-bind="row.value"></td>
+                                            <td width="16%" class="text-center font-15 text-overflow" title="{{row.select}}" ng-bind="row.select"></td>
+                                            <td width="16%" class="text-center font-15 text-overflow" title="{{row.type}}" ng-bind="row.type"></td>
+                                        </tr>
+                                        <tr ng-if="isImageData">
+                                            <td class="td-nodata" colspan="10"></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="7" class="text-right">
+                                                <div ng-if="!isImageData">
+                                                    <button ng-click="ok()">生成文件</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

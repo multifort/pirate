@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "data": {
+    "id":1,
+    "name":"角色名1",
+    "remark":"hellohellohellohellohellohellohello",
+    "gmtCreate":"",
+    "gmtModify":"",
+    "createrId":"",
+    "menderId":"",
+    "ownerId":"",
+    "status":"NORMAL",
+    "isDeleted":"",
+    "isLocked":"",
+    "props":"other",
+    "parentId":0,
+    "company":"角色名角色名",
+    "address":"角色",
+    "contacter":"角色角色",
+    "contactPhone":"010-8888888",
+    "contactEmail":"liliwangxp@gmail.com",
+    "tenantPhone":"13113221134",
+    "instance":1
+  }
+}

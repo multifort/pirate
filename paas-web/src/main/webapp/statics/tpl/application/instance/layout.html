@@ -1,0 +1,43 @@
+<table class="table table-hover b-light m-b-xxs">
+  <thead class="table-header">
+    <tr>
+
+      <th width="20%" class="text-center font-15">名称</th>
+      <th  width="20%"class="text-center font-15">类型</th>
+      <!-- <th width="20%" class="text-center font-15">属性</th> -->
+      <th width="20%" class="text-center font-15">修改人</th>
+      <th width="20%" class="text-center font-15">时间</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-content" ng-repeat="row in countData"
+      ng-if="!isImageData">
+
+      <td  width="20%"class="text-center detail-href font-15 text-overflow"     title="{{row.name}}" ng-click="detail(row.id)"      ng-bind="row.name"></td>
+      <td width="20%" class="text-center font-15 text-overflow"        title="{{row.type}}" ng-bind="row.type"></td>
+      <!-- <td width="20%" class="text-center font-15 text-overflow"          title="{{row.props}}" ng-bind="row.props|imageProp:'prop'"></td> -->
+      <td width="20%" class="text-center font-15 text-overflow"        title="{{row.menderName}}" ng-bind="row.menderName"></td>
+      <td width="20%" class="text-center font-15 text-overflow"        title="{{row.gmtCreate}}" ng-bind="row.gmtCreate"></td>
+
+    </tr>
+    <tr ng-if="isImageData">
+      <td class="td-nodata" colspan="2">暂无数据</td>
+    </tr>
+  </tbody>
+</table>
+<div class="clearfix">
+  <div class="col-sm-6" style="padding: 7px 15px;">
+    <div class="paginationTables_info">
+      总共<span ng-bind="totalCount"></span>条, 每页<span
+        ng-bind="param.rows"></span>条
+    </div>
+  </div>
+  <div class="col-sm-6 text-right">
+    <pagination style="" boundary-links="true"
+      total-items="totalCount" items-per-page="param.rows"
+      max-size="10" ng-model="param.page"
+      ng-change="getData(param.page)" previous-text="&lsaquo;"
+      next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+  </div>
+</div>

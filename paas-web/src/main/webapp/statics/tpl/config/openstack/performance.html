@@ -1,0 +1,33 @@
+<div class="clearfix script-content">
+    <div class="wrapper-md" ng-controller="openstackPerformanceCtrl">
+        <div class="col-md-12">
+            <div class="panel panel-default m-b">
+                <div class="panel-heading">
+                    性能报表
+                    <span class="text-info" ng-show="time=='REAL'">(每隔20s更新一次数据)</span>
+                    <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                        <i class="fa fa-reply icon-font"></i> 返回
+                    </button>
+                </div>
+                <div class="panel-detail">
+                    <div class="col-md-12 search-content m-t">
+                        <div class="form-group">
+                            <label class="control-label">类型：</label>
+                            <select class="form-control" ng-model="time" ng-change="selectTimeType()">
+                                <option ng-repeat="(key,item) in timeTypeData" value="{{item.value}}" ng-bind="item.name"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">资源：</label>
+                            <select class="form-control" ng-model="type" ng-change="getPerformance()">
+                                <option ng-repeat="(key,item) in typeData" value="{{item.value}}" ng-bind="item.name"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="height: 500px" ng-if="performance" ng-performance-line-chart2=""
+                         data="performance" options="options"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

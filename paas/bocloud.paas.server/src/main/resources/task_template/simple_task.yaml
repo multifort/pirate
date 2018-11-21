@@ -1,0 +1,21 @@
+{
+  "name": "${name}",
+  "taskReferenceName": "${taskReferenceName}",
+  "inputParameters": 
+     ${inputParameters},
+  "type": "SIMPLE",
+  "startDelay": 0
+}
+{"parameters":
+  [
+    {
+      "description": "选择插件",
+      "displayName": "选择插件",
+      "name": "name",
+      "value": "${tasks}",
+      "select": "",
+      "type": "Map_select",
+      "required": "true"
+    }
+  ]
+}

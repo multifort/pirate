@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "message": "应用查询成功",
+  "data": {
+    "total": 1,
+    "pages": 1,
+    "page": 1,
+    "rows": [
+      {
+        "address": null,
+        "gmtModify": "2017-07-07 16:47:09",
+        "replicas": 0,
+        "deptId": 1,
+        "creatorName": "超级管理员",
+        "remark": "desc",
+        "clusterId": 11,
+        "gmtCreate": "2017-07-07 16:44:09",
+        "ownerId": 1,
+        "menderId": 1,
+        "props": null,
+        "deleted": false,
+        "name": "myweb",
+        "namespace": null,
+        "tenantId": null,
+        "dependents": null,
+        "createrId": 1,
+        "id": 7,
+        "menderName": "超级管理员",
+        "envId": null,
+        "envName": "test",
+        "status": "DEPLOY"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

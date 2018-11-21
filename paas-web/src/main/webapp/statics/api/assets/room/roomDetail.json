@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "data":{
+    "id": 1,
+    "dcId" : "2",
+    "name": "机房1",
+    "gmtCreate":"2016-03-14",
+    "createrId":0,
+    "menderId":0,
+    "ownerId":0,
+    "status":"运行中",
+    "is_locked":0,
+    "rooms": [
+      {
+        "id": 18,
+        "name": "test121",
+        "rowNum": 3,
+        "colNum": 2,
+        "racks": [
+          {
+            "id": 1,
+            "name": "test",
+            "axisX": 1,
+            "axisY": 1,
+            "servers": [
+              {
+                "id": 22,
+                "name": "SERVER_192.168.1.201"
+              }
+            ]
+          }
+        ]
+      }
+
+    ],
+    "additional_properties":0,
+    "remark":"我最强",
+    "locationSn":"dfsgfg",
+    "contactPhone":"13234567890",
+    "contacter":"jack",
+    "commissionDate":"2016-03-09",
+    "totalArea":"100",
+    "rootCategory":"哈哈",
+    "rowNum":2,
+    "colNum":2,
+    "racks":12,
+    "datacenter": {
+      "name": "机房1",
+      "address": "北京",
+      "status": "良好"
+    }
+  }
+}

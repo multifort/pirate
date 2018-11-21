@@ -1,0 +1,59 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "total": "30",
+    "rows": [
+      {
+        "level":"REMIND",
+        "status":"UNCONFIRMED",
+        "ip":"192.168.1.175",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "remark": null,
+        "appName":"百度糯米",
+        "dsName":"分派一",
+        "gmtCreate":"2016-02-16 12:12:12",
+        "name": "告警策略1",
+        "occurred":"2016-02-16",
+        "measure":"CPU",
+        "content":"服务器异常",
+        "id": 6
+      },
+      {
+        "level":"WARN",
+        "status":"CONFIRMED",
+        "ip":"192.168.1.175",
+        "confirmUser":"张海君",
+        "appName":"百度糯米",
+        "dsName":"分派一",
+        "gmtCreate":"2016-02-16 12:12:12",
+        "solveUser":"张海君",
+        "remark": null,
+        "occurred":"2016-02-16",
+        "measure":"CPU",
+        "content":"服务器自启",
+        "name": "告警策略2",
+        "id": 7
+      },
+      {
+        "level":"DANGER",
+        "status":"SOLVED",
+        "ip":"192.168.1.175",
+        "appName":"百度糯米",
+        "dsName":"分派一",
+        "gmtCreate":"2016-02-16 12:12:12",
+        "occurred":"2016-02-16",
+        "measure":"CPU",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "content":"服务器被盗！！！",
+        "remark": null,
+        "name": "告警策略3",
+        "id": 8
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

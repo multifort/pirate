@@ -1,0 +1,13 @@
+volumes:
+        <% if(volumeType == "tv"){ %>
+        <% for(volume in volumes){ %>
+        - name: ${NAME}-volume
+          emptyDir: {}
+        <% } %>
+        <% } else if (volumeType == "pv"){ %>
+        <% for(volume in volumes){ %>
+        - name: ${NAME}-${volume.pv}-volume
+          persistentVolumeClaim:
+            claimName: ${NAME}-${volume.pv}-claim
+        <% } %>
+        <% } %>

@@ -1,0 +1,22 @@
+{
+  "success":true,
+  "data":{
+    "progress":60,
+    "name":" 执行脚本-2016614144313775",
+    "successes":2,
+    "failures":3,
+    "content": "#!/bin/bash\r\n\r\nanynowtime=\"date +'%Y-%m-%d %H:%M:%S'\"\r\nNOW=\"echo [\\`$anynowtime\\`][PID:$$]\"\r\n\r\n#####可在脚本开始运行时调用，打印当时的时间戳及PID。\r\nfunction job_start\r\n{\r\n    echo \"`eval $NOW` job_start\"\r\n}\r\n\r\n#####可在脚本执行成功的逻辑分支处调用，打印当时的时间戳及PID。\r\nfunction job_success\r\n{\r\n    MSG=\"$*\"\r\n    echo \"`eval $NOW` job_success:[$MSG]\"\r\n    exit 0\r\n}\r\n\r\n#####可在脚本执行失败的逻辑分支处调用，打印当时的时间戳及PID。\r\nfunction job_fail\r\n{\r\n    MSG=\"$*\"\r\n    echo \"`eval $NOW` job_fail:[$MSG]\"\r\n    exit 1\r\n}\r\n\r\njob_start\r\n\r\n######可在此处开始编写您的脚本逻辑代码\r\n######作业平台中执行脚本成功和失败的标准只取决于脚本最后一条执行语句的返回值\r\n######如果返回值为0，则认为此脚本执行成功，如果非0，则认为脚本执行失败\r\necho \"示例：停DB.....\"\r\necho \"./stop.sh\"",
+    "type":"SCRIPT",
+    "account":"root",
+    "totalTime":"0.123",
+    "status":"执行成功",
+    "startTime":"2016-04-12 15:33:34",
+    "endTime":"2016-06-12 12:33:33",
+    "params":"/tmp/demo/",
+    "files":[{
+      "fileName":"dfdf",
+      "account":"zhanghaijun"
+    }]
+  },
+  "msg":"heheh"
+}

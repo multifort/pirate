@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "容器中的战斗机",
+    "status": "NORMAL",
+    "ip":"192.168.1.1",
+    "CPU":"2.3",
+    "memory":"994",
+    "storage":"29",
+    "provider":"digitalocean",
+    "kernel":"3.1.3.0-79-generic",
+    "docker":"1.10.3",
+    "os":"Ubuntu:14.04.4 LTS",
+    "gmtCreate":"2015-03-12"
+  }
+}

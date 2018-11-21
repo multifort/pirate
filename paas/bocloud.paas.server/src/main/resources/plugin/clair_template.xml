@@ -1,0 +1,62 @@
+<project>
+	<actions />
+	<description />
+	<keepDependencies>false</keepDependencies>
+	<properties>
+		<hudson.model.ParametersDefinitionProperty>
+			<parameterDefinitions>
+				<hudson.model.StringParameterDefinition>
+					<name>output</name>
+					<description />
+					<defaultValue />
+				</hudson.model.StringParameterDefinition>
+			</parameterDefinitions>
+		</hudson.model.ParametersDefinitionProperty>
+	</properties>
+	<scm class="hudson.scm.NullSCM" />
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false
+	</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers />
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<org.jvnet.hudson.plugins.SSHBuilder
+			plugin="ssh@2.5">
+			<siteName>${sshUrl}</siteName>
+			<command>
+				sh /usr/bin/scanner $output &gt;&gt; /tmp/test.txt 2>&amp;1; cat /tmp/test.txt
+			</command>
+			<execEachLine>false</execEachLine>
+		</org.jvnet.hudson.plugins.SSHBuilder>
+	</builders>
+	<publishers />
+	<buildWrappers />
+</project>
+{"parameters":
+	[
+		{
+	      "value": "镜像扫描组件，需要依赖[构建镜像]的组件",
+	      "type": "warn"
+	    },
+	    {
+	      "description": "执行扫描镜像的服务器，格式为[user@ip:port]",
+	      "displayName": "扫描地址",
+	      "name": "sshUrl",
+	      "value": "",
+	      "select": "root@192.168.1.72:22",
+	      "type": "String",
+	      "required": "true"
+	    },
+		{
+	        "description": "请选择前面构建镜像任务的输出项作为镜像名称",
+    	    "displayName": "镜像名称",
+		    "name": "output",
+		    "value": "",
+		    "select": "",
+		    "type": "T_select",
+      		"required": "true"
+    	}
+	]
+}

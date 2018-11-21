@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "message": "查询成功",
+  "data": {
+    "total": 5,
+    "pages": 1,
+    "page": 1,
+    "rows": [
+      {
+        "id":1,
+        "name": "华北 1 可用区 B",
+        "resources": "[{\"dataDiskCategories\":[\"cloud\"],\"instanceGenerations\":[\"ecs-1\"],\"instanceTypeFamilies\":[\"ecs.c1\",\"ecs.s1\",\"ecs.t1\",\"ecs.m1\",\"ecs.m2\",\"ecs.s2\",\"ecs.s3\",\"ecs.c2\"],\"instanceTypes\":[\"ecs.m2.medium\",\"ecs.m1.medium\",\"ecs.s2.xlarge\",\"ecs.s2.large\",\"ecs.s3.medium\",\"ecs.s2.2xlarge\",\"ecs.m1.xlarge\",\"ecs.s1.small\",\"ecs.s1.large\",\"ecs.c2.xlarge\",\"ecs.c2.large\",\"ecs.s3.large\",\"ecs.c1.small\",\"ecs.m2.xlarge\",\"ecs.c2.medium\",\"ecs.t1.small\",\"ecs.c1.large\",\"ecs.s2.small\",\"ecs.s1.medium\"],\"ioOptimized\":false,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud\"]},{\"dataDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\",\"cloud\"],\"instanceGenerations\":[\"ecs-1\"],\"instanceTypeFamilies\":[\"ecs.c1\",\"ecs.s1\",\"ecs.t1\",\"ecs.m1\",\"ecs.m2\",\"ecs.s2\",\"ecs.s3\",\"ecs.c2\"],\"instanceTypes\":[\"ecs.c2.xlarge\",\"ecs.c2.large\",\"ecs.m2.medium\",\"ecs.m1.medium\",\"ecs.s2.xlarge\",\"ecs.s3.large\",\"ecs.s2.large\",\"ecs.s3.medium\",\"ecs.s2.2xlarge\",\"ecs.c1.small\",\"ecs.m2.xlarge\",\"ecs.m1.xlarge\",\"ecs.c2.medium\",\"ecs.c1.large\"],\"ioOptimized\":true,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\"]},{\"dataDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\",\"cloud\"],\"instanceGenerations\":[\"ecs-2\"],\"instanceTypeFamilies\":[\"ecs.e3\",\"ecs.n1\",\"ecs.n2\"],\"instanceTypes\":[\"ecs.n1.xlarge\",\"ecs.n1.7xlarge\",\"ecs.n2.3xlarge\",\"ecs.n2.medium\",\"ecs.n2.xlarge\",\"ecs.n1.small\",\"ecs.e3.large\",\"ecs.e3.xlarge\",\"ecs.n1.tiny\",\"ecs.n2.small\",\"ecs.e3.small\",\"ecs.n2.7xlarge\",\"ecs.n1.large\",\"ecs.e3.3xlarge\",\"ecs.n1.3xlarge\",\"ecs.n1.medium\",\"ecs.n2.large\",\"ecs.e3.medium\"],\"ioOptimized\":true,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\"]}]",
+        "value": "cn-qingdao-b"
+      },
+      {
+        "id":2,
+        "name": "华北 1 可用区 C",
+        "resources": "[{\"dataDiskCategories\":[\"cloud\"],\"instanceGenerations\":[\"ecs-1\"],\"instanceTypeFamilies\":[\"ecs.c1\",\"ecs.s1\",\"ecs.t1\",\"ecs.m1\",\"ecs.m2\",\"ecs.s2\",\"ecs.s3\",\"ecs.c2\"],\"instanceTypes\":[\"ecs.m2.medium\",\"ecs.m1.medium\",\"ecs.s2.xlarge\",\"ecs.s2.large\",\"ecs.s3.medium\",\"ecs.s2.2xlarge\",\"ecs.m1.xlarge\",\"ecs.s1.small\",\"ecs.s1.large\",\"ecs.c2.xlarge\",\"ecs.c2.large\",\"ecs.s3.large\",\"ecs.c1.small\",\"ecs.m2.xlarge\",\"ecs.c2.medium\",\"ecs.t1.small\",\"ecs.c1.large\",\"ecs.s2.small\",\"ecs.s1.medium\"],\"ioOptimized\":false,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud\"]},{\"dataDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\",\"cloud\"],\"instanceGenerations\":[\"ecs-1\"],\"instanceTypeFamilies\":[\"ecs.c1\",\"ecs.s1\",\"ecs.t1\",\"ecs.m1\",\"ecs.m2\",\"ecs.s2\",\"ecs.s3\",\"ecs.c2\"],\"instanceTypes\":[\"ecs.s2.xlarge\",\"ecs.m1.medium\",\"ecs.m2.medium\",\"ecs.s2.large\",\"ecs.s2.2xlarge\",\"ecs.s3.medium\",\"ecs.m1.xlarge\",\"ecs.c2.xlarge\",\"ecs.c2.large\",\"ecs.s3.large\",\"ecs.c1.small\",\"ecs.m2.xlarge\",\"ecs.c2.medium\",\"ecs.c1.large\"],\"ioOptimized\":true,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\"]},{\"dataDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\",\"cloud\"],\"instanceGenerations\":[\"ecs-2\"],\"instanceTypeFamilies\":[\"ecs.e3\",\"ecs.n1\",\"ecs.n2\"],\"instanceTypes\":[\"ecs.n1.xlarge\",\"ecs.n1.7xlarge\",\"ecs.n2.3xlarge\",\"ecs.n2.medium\",\"ecs.n2.xlarge\",\"ecs.n1.small\",\"ecs.e3.large\",\"ecs.e3.xlarge\",\"ecs.n1.tiny\",\"ecs.n2.small\",\"ecs.e3.small\",\"ecs.n2.7xlarge\",\"ecs.n1.large\",\"ecs.e3.3xlarge\",\"ecs.n1.3xlarge\",\"ecs.n1.medium\",\"ecs.n2.large\",\"ecs.e3.medium\"],\"ioOptimized\":true,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud_ssd\",\"cloud_efficiency\"]}]",
+        "value": "cn-qingdao-b"
+      },
+      {
+        "id":3,
+        "name": "华北 1 可用区 D",
+        "resources": "[{\"dataDiskCategories\":[\"cloud\"],\"instanceGenerations\":[\"ecs-1\"],\"instanceTypeFamilies\":[\"ecs.c1\",\"ecs.s1\",\"ecs.t1\",\"ecs.m1\",\"ecs.m2\",\"ecs.s2\",\"ecs.s3\",\"ecs.c2\"],\"instanceTypes\":[\"ecs.m2.medium\",\"ecs.m1.medium\",\"ecs.s2.xlarge\",\"ecs.s2.large\",\"ecs.s3.medium\",\"ecs.s2.2xlarge\",\"ecs.m1.xlarge\",\"ecs.s1.small\",\"ecs.s1.large\",\"ecs.c2.xlarge\",\"ecs.c2.large\",\"ecs.s3.large\",\"ecs.c1.small\",\"ecs.m2.xlarge\",\"ecs.c2.medium\",\"ecs.t1.small\",\"ecs.c1.large\",\"ecs.s2.small\",\"ecs.s1.medium\"],\"ioOptimized\":false,\"networkTypes\":[\"classic\"],\"systemDiskCategories\":[\"cloud\"]}]",
+        "value": "cn-qingdao-b"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

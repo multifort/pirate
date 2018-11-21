@@ -1,0 +1,128 @@
+<div class="clearfix script-content content-byc" ng-controller="allstackCtrl">
+	<div class="wrapper-md">
+		<div class="panel panel-default">
+			<!--<tabset class="tab-container">-->
+				<!--<tab active="fileActive" ng-click="changeFile()">-->
+				<!--	<tab-heading>
+						应用编排文件
+					</tab-heading>-->
+					<div ng-controller="modelstackCtrl">
+						<div class="col-md-12 search-box search-box-r">
+							<div class=" col-sm-5" style="padding: 0px;">
+								<button class="btn btn-info w-xs m-r" ng-click="goAction(1)">
+											<i class="fa fa-plus"></i> 新增
+										</button>
+								<button class="btn btn-danger w-xs m-r" ng-click="deteleAll()" ng-disabled="operation.isBatch1"><i class="fa fa-trash-o fa-lg"></i> 批量删除</button>
+								<!--<button class="btn btn-info w-xs m-r" ng-click="gohistory($event)">历史记录</button>-->
+							</div>
+							<div class="search-content search-content-r col-sm-7 text-right">
+								<div class=" form-group-38">
+									<label class="control-label" style="width: 60px!important;">名称：</label> <input type="name" ng-model="searchByName"
+									 class="form-control hostSearch-form-control input-sm" placeholder="" aria-controls="DataTables_Table_3">
+								</div>
+								<div class="form-group-17">
+									<button class="btn btn-primary w-xs" ng-click="search(1)"><i class="fa fa-search"></i> 查询</button>
+								</div>
+								<div class="form-group-17 history-div" title="历史记录" ng-click="gohistory($event)">
+									<span>
+										<i class="fa fa-clock-o"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div ng-show="isListView">
+							<div class="dataTables_wrapper form-inline">
+								<div class="row">
+									<div class="col-sm-12" style="margin-top: -10px;">
+										<div style="margin-bottom:10px" data-ng-include="'/statics/tpl/application/template/tabs.html'">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div ng-if="showHistory" ng-hide-detail="" class="animated tab-detail" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+								<div class="col-md-12">
+									<div class="panel panel-default" style="padding:0;">
+										<div class="panel-heading font-bold">
+											<span class="p-l-6">历史记录</span>
+										</div>
+										<div class="panel-body pmb-block" style="border:none;">
+											<div class="form-horizontal">
+												<div ng-controller="modelhistoryModalCtrl" class="row panel pad-10" data-ng-include="'/statics/tpl/application/template/historymessage.html'">
+												</div>
+											</div>
+											<div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<!--</tab>-->
+			<!--	<tab active="tempActive" ng-click="changeTemp()">
+					<tab-heading>
+						应用编排模板
+					</tab-heading>
+					<div ng-controller="templatemodelstackCtrl">
+						<div class="col-md-12 search-box search-box-r">
+							<div class=" col-sm-5" style="padding: 0px;">
+								<button class="btn btn-info w-xs m-r" ng-click="goAction(1)">
+												<i class="fa fa-plus"></i> 新增
+											</button>
+								<button class="btn btn-danger w-xs m-r" ng-click="deteleAll()" ng-disabled="operation.isBatch1"><i class="fa fa-trash-o fa-lg"></i> 批量删除</button>
+								&lt;!&ndash;<button class="btn btn-info w-xs m-r" ng-click="gohistory($event)">历史记录</button>&ndash;&gt;
+							</div>
+							<div class="search-content search-content-r col-sm-7 text-right">
+								<div class=" form-group-38">
+									<label class="control-label" style="width: 60px!important;">名称：</label> <input type="name" ng-model="searchByName"
+									 class="form-control hostSearch-form-control input-sm" placeholder="" aria-controls="DataTables_Table_3">
+								</div>
+								<div class="form-group-17">
+									<button class="btn btn-primary w-xs" ng-click="search(1)"><i class="fa fa-search"></i> 查询</button>
+								</div>
+								<div class="form-group-17 history-div" title="历史记录" ng-click="gohistory($event)">
+									<span>
+											<i class="fa fa-clock-o"></i>
+										</span>
+								</div>
+							</div>
+						</div>
+						<div ng-show="isListView">
+							<div class="dataTables_wrapper form-inline">
+								<div class="row">
+									<div class="col-sm-12" style="margin-top: -10px;">
+										<div style="margin-bottom:10px" data-ng-include="'/statics/tpl/application/template/templatetabs.html'">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div ng-if="showHistory" ng-hide-detail="" class="animated tab-detail" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+								<div class="col-md-12">
+									<div class="panel panel-default" style="padding:0;">
+										<div class="panel-heading font-bold">
+											<span class="p-l-6">历史记录</span>
+										</div>
+										<div class="panel-body pmb-block" style="border:none;">
+											<div class="form-horizontal">
+												<div ng-controller="modelhistoryModalCtrl" class="row panel pad-10" data-ng-include="'/statics/tpl/application/template/historymessage.html'">
+												</div>
+											</div>
+											<div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+				</tab>-->
+			<!--</tabset>-->
+		</div>
+	</div>
+</div>

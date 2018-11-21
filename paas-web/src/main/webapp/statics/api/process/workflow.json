@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "message": "读取模板成功",
+  "data": {
+    "parameters": [
+      {
+        "select": "",
+        "displayName": "名称",
+        "name": "name",
+        "description": "选插件",
+        "type": "Map_select",
+        "value": {
+          "推送镜像": "push_image",
+          "镜像扫描": "image_scan",
+          "代码扫描": "code_scan",
+          "代码打包": "package",
+          "镜像部署": "deploy",
+          "构建镜像": "build_image",
+          "从git上拉取代码": "git_clone"
+        }
+      },
+      {
+        "select": "",
+        "displayName": "引用名",
+        "name": "taskReferenceName",
+        "description": "填写任务的引用名, 由字母或下划线组成",
+        "type": "String",
+
+        "value": ""
+      }
+    ]
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

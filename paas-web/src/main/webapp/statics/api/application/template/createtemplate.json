@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "message": "添加编排模板成功！",
+    "data": {
+        "gmtModify": "2017-09-11 16:01:03",
+        "creatorName": null,
+        "remark": "test1",
+        "gmtCreate": "2017-09-11 16:01:03",
+        "ownerId": null,
+        "menderId": 1,
+        "props": "1",
+        "deleted": false,
+        "name": "编排模板1",
+        "createrId": 1,
+        "id": 3,
+        "menderName": null,
+        "status": "NORMAL"
+    },
+    "status": null,
+    "solution": null,
+    "failed": false
+}

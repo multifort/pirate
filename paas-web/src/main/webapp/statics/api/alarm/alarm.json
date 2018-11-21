@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "total": "30",
+    "rows": [
+      {
+        "name":"REMIND",
+        "type":"UNCONFIRMED",
+        "status":"CONFIRMED",
+        "gmtTrigger":"张海君",
+        "gmtConfirm": null,
+        "confirmer": "告警1",
+        "vendorName":"2016-02-16"
+      },
+      {
+        "name":"WARN",
+        "type":"UNCONFIRMED",
+        "status":"UNCONFIRM",
+        "gmtTrigger":"张海君",
+        "gmtConfirm": null,
+        "confirmer": "告警1",
+        "vendorName":"2016-02-16"
+      },
+      {
+        "name":"DANGER",
+        "type":"UNCONFIRMED",
+        "status":"UNCONFIRM",
+        "gmtTrigger":"张海君",
+        "gmtConfirm": null,
+        "confirmer": "告警1",
+        "vendorName":"2016-02-16"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

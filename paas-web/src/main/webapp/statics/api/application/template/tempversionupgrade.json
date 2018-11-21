@@ -1,0 +1,7 @@
+{
+    "success": true,
+    "data": "{\"parameters\":\n [\n {\n \"description\": \"persistentvolume的名称\",\n \"displayName\": \"名称\",\n \"name\": \"name\",\n \"value\": \"\",\n \"select\": \"\",\n \"type\": \"String\"\n },\n {\n \"description\": \"persistentvolume的注解\",\n \"displayName\": \"注解\",\n \"name\": \"annotations\",\n \"value\": [{\"key\":\"\",\"value\":\"\"}],\n \"select\": \"\",\n \"type\": \"Map\"\n },\n {\n \"description\": \"persistentvolume的标签\",\n \"displayName\": \"标签\",\n \"name\": \"labels\",\n \"value\": [{\"key\":\"\",\"value\":\"\"}],\n \"select\": \"\",\n \"type\": \"Map\"\n },\n {\n \"description\": \"persistentvolume的大小单位G\",\n \"displayName\": \"容量\",\n \"name\": \"capacity\",\n \"value\": \"\",\n \"select\": \"\",\n \"type\": \"String\"\n },\n {\n \"description\": \"persistentvolume的accessModes\",\n \"displayName\": \"访问模式\",\n \"name\": \"access\",\n \"value\": [\"ReadWriteOnce\",\"ReadOnlyMany\",\"ReadWriteMany\"],\n \"select\": \"\",\n \"type\": \"select\"\n },\n {\n \"description\": \"persistentvolume的回收策略\",\n \"displayName\": \"回收策略\",\n \"name\": \"policy\",\n \"value\": [\"Recycle\",\"Retain\",\"Delete\"],\n \"select\": \"\",\n \"type\": \"select\"\n },\n {\n \"description\": \"persistentvolume的存储路径\",\n \"displayName\": \"存储路径\",\n \"name\": \"path\",\n \"value\": \"\",\n \"select\": \"\",\n \"type\": \"String\"\n }\n ]}\n",
+    "status": null,
+    "solution": null,
+    "failed": false
+}

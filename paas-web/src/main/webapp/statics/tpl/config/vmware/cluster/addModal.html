@@ -1,0 +1,28 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancle()">&times;</button>
+	<p class="modal-title panel-title-size">添加集群</p>
+</div>
+<div class="modal-body panel-body">
+	<form class="form-horizontal form-validation" name="addForm">
+		<div class="form-group">
+			<div class="col-lg-6">
+				<label class="control-label"><span class="span-red">*</span>数据中心：</label>
+				<div class="control-input">
+					<select class="form-control" name="centerId" validator="required" required-error-message="请选择数据中心" ng-model="vdcData" ng-options="item.name for item in vmDatacenterList">
+						<option value="">--请选择--</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<label class="control-label"><span class="span-red">*</span>集群名称：</label>
+				<div class="control-input">
+					<input type="text" name="name" class="form-control" ng-model="name" placeholder="请输入集群名称" validator="required,name" maxlength="64"/>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="submit" class="btn btn-info" validation-submit="addForm" ng-disabled="addForm.$invalid||isLoadingActive" ng-click="ok()">确认</button>
+	<button class="btn btn-cancel" ng-click="cancle()">取消</button>
+</div>

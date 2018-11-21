@@ -1,0 +1,7 @@
+<% if(nodeSelectorType=="host"){ %>
+        nodeName: ${nodeName}
+      <% }else { %>
+        nodeSelector:
+        <% for(label in selectors){ %>
+          ${label}
+        <% } } %>

@@ -1,0 +1,191 @@
+<style>
+    .hide140{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 210px;
+        white-space: nowrap;
+    }
+</style>
+<div ng-controller="adhibitionAppCtrl" class="clearfix script-content content-bycs">
+
+    <div class="wrapper-md">
+      <div class="">
+        <div class="panel panel-default m-b" ng-if="false">
+          <div class="panel-heading">概述</div>
+          <div class="panel-detail">
+            <div class="col-md-4">
+              <div class="image-box">
+                <div class="image-box-h text-center">
+                  <div class="chart" ng-if="isDataLoad" style="height: 200px" ng-apply-pie-loop-chart=""  data="dashboardData.app" options="options.app"></div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="image-box">
+                <div class="image-box-h text-center">
+                  <div class="chart" ng-if="isDataLoad" style="height: 200px" ng-apply-pie-loop-chart=""  data="dashboardData.cpu" options="options.cpu"></div>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="image-box">
+                <div class="image-box-h text-center">
+                <div class="chart" ng-if="isDataLoad" style="height: 200px" ng-apply-pie-loop-chart=""  data="dashboardData.memory" options="options.memory"></div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+        <div class="panel panel-default">
+             <!-- <div class="col-md-12 search-box m-b-md" style="float:none;">
+                    <div class="legend">查询条件</div>
+                    <div class="search-content">
+                        <div class="form-group">
+                            <label class="control-label">名称：</label>
+                            <input type="name" ng-model="searchByName" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_3">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary w-xs m-r" ng-click="search(1)"><i class="fa fa-search"></i> 查询</button>     </div>
+                    </div>
+                    <div class="search-btn">
+                        <button class="btn btn-info w-xs m-r" ng-click="goAction(1)"><i class="fa fa-plus"></i> 新增</button>
+                        <button class="btn btn-danger w-xs m-r" ng-click="deteleAll()" ng-disabled="operation.isBatch1"><i class="fa fa-trash-o fa-lg"></i> 批量删除</button>
+                        <button class="btn btn-info w-xs m-r" ng-click="gohistory($event)">历史记录</button>
+                    </div>
+                </div>-->
+            <div class="col-md-12 search-box search-box-r" style="padding: 0 10px!important;">
+                <div class=" col-sm-5" style="padding: 0px;">
+                    <button class="btn btn-info w-xs m-r" ng-click="goAction(1)"><i class="fa fa-plus"></i> 新增</button>
+                    <button class="btn btn-danger w-xs m-r" ng-click="deteleAll()" ng-disabled="operation.isBatch1"><i class="fa fa-trash-o fa-lg"></i> 批量删除</button>
+                    <!--<button class="btn btn-info w-xs m-r" ng-click="gohistory($event)">历史记录</button>-->
+                </div>
+                <div class="search-content search-content-r col-sm-7 text-right">
+                    <div class=" form-group-38">
+                        <label class="control-label" style="width: 80px;">名称：</label>
+                        <input type="name" ng-model="searchByName" class="form-control hostSearch-form-control input-sm" placeholder="" aria-controls="DataTables_Table_3">
+                    </div>
+                    <div class="form-group-17">
+                        <button class="btn btn-primary w-xs" ng-click="search(1)"><i class="fa fa-search"></i> 查询</button>
+                    </div>
+                    <div class="form-group-17 history-div"  title="历史记录" ng-click="gohistory($event)">
+                        <span>
+                            <i class="fa fa-clock-o"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+                <div class="list-byc" style="padding: 0px;" >
+                    <ul class="list-ul" >
+                        <li class="list-li w-25" ng-repeat="(key,row) in countData" ng-if="!isImageData">
+                            <div class="list-li-divmodul  list-li-div1" ng-class="{true:'border-color',false:'normal-border-color'}[row.isChose]" ng-click="goVm(row.id)">
+
+                            <div class="name" ng-click="choose()">
+                              <label  class="i-checks m-b-none checkboxs"><input type="checkbox"  ng-model="row.select" ><i></i></label>
+                              <div ng-click="detail(row.id,row.clusterId,row.envId)"  class="appdetail-href">{{row.name}}</div>
+
+                            <div class="operation">
+                                <i class="fa fa-bars icon-font"></i>
+
+                                <div class="operation-box operation-box-hidden">
+                                    <div class="operation-box-icon"  ng-click="goAction(6,row.id,$event,row)" style="    font-size: 13px;"><a href="javascript:void(0)"><i
+                                            class="fa fa-pencil-square-o"></i>&nbsp;资源配额</a></div>
+
+                                </div>
+                            </div>
+                            </div>
+
+                                <div>
+                                <div class="text">
+                                  <div class=" s-bg-primary bg-primary-img">
+                                    <div class=" text-center ">
+                                      <div class="wrap">
+                                          <p class="small-box-p">
+                                             <span style="color: #38c7d9;    font-size: 30px;">{{row.serviceNum}}</span><br>
+                                            <span class="caaa">服务</span>
+
+                                         </p>
+                                        </div>
+                                    </div>
+
+                                  </div>
+                                  <div class="primary-right">
+                                    <p><span class="caaa">状态：</span><i class="status-dot-style" ng-class="{'DEPLOY':'dot-8','NOT_DEPLOY':'dot-9'}[row.status]"></i>{{row.status|imageProp:'prop'}}</p>
+                                    <p class="hide140"><span class="caaa">环境 ：</span><span title="{{row.environmentName}}" ng-bind="row.environmentName"></span></p>
+                                    <p style="    float: left;    width: 50%;">CPU<br><span class="caaa">请求 ：</span><span style="color: #38c7d9;">{{row.requestCpu}}</span><br>
+                                      <span class="caaa">使用 ：</span><span style="color: #27c24c;">{{row.currentCpu}}</span><br>
+                                      <span class="caaa">限制 ：</span><span style="color: #e62525;">{{row.limitCpu}}</span>
+                                    </p>
+                                    <p>内存<br><span class="caaa">请求 ：</span><span style="color: #38c7d9;">{{row.requestMemory}}</span><br>
+                                      <span class="caaa">使用 ：</span><span style="color: #27c24c;">{{row.currentMemory}}</span><br>
+                                      <span class="caaa">限制 ：</span><span style="color: #e62525;">{{row.limitMemory}}</span>
+                                    </p>
+                                  </div>
+                                <!--   <p style=""><span class="caaa">访问路径：</span> <span ng-attr-title="{{row.servicePath}}" ng-bind="row.servicePathF"> </span></p> -->
+                                  <p style=""><span class="caaa">访问路径：</span> <span> <a href={{row.servicePathF}} target="_blank"  ng-attr-title="{{row.servicePath}}" ng-bind="row.servicePathF" class="detail-href"></a></span></p>
+                                    <div class="both clear"></div>
+                                </div>
+                                  <div class="both clear"></div>
+                                  <div class="primary-bottom">
+                                    <div class=" edit_app">
+                                      <span title="编辑" ng-click="goAction(2,row.id,$event)"><i class="fa  fa-lg fa-pencil-square-o edit_app_a"></i></span>
+                                      <span title="删除" ng-click="goAction(3,row.id,$event)"><i class="fa fa-trash-o  fa-lg edit_app_b"></i></span>
+                                      <span title="服务暴露" ng-click="goAction(5,row.id,$event)"><i class="fa fa-lg fa-hdd-o edit_app_c"></i></span>
+                                    </div>
+
+                                    <button class="btn btn-success btn-sm" ng-click="goAction(4,row.id,$event)">
+                                        <i class="fa cube"></i>
+                                        <span class="">添加服务</span>
+                                    </button>
+
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-12" ng-if="isImageData">
+                          暂无数据
+                          <td class="td-nodata" colspan="10"></td>
+                        </li>
+                    </ul>
+                    <div class="col-md-12 clearfix">
+                        <div class="col-sm-6" style="padding:7px 15px;">
+                            <div class="paginationTables_info">总共<span ng-bind="totalCount"></span>条, 每页<span
+                                    ng-bind="param.rows"></span>条
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <pagination boundary-links="true" total-items="totalCount" items-per-page="param.rows" max-size="8"
+                                        ng-model="param.page" ng-change="getData(param.page)" previous-text="&lsaquo;"
+                                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <div >
+      <div ng-if="showHistory" ng-hide-detail="" class="animated tab-detail"
+           ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+           <div class="col-md-12" >
+             <div class="panel panel-default" style="padding:0;">
+               <div class="panel-heading font-bold">
+                 <span class="p-l-6">历史记录</span>
+               </div>
+               <div class="panel-body pmb-block" style="border:none;">
+                 <div class="form-horizontal">
+                   <div ng-controller="applyhistoryModalCtrl" class="row panel pad-10" data-ng-include="'/statics/tpl/application/instance/historymessage.html'">
+                   </div>
+                 </div>
+                 <div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+               </div>
+             </div>
+           </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "message": "添加编排模板版本成功！",
+    "data": {
+        "gmtModify": "2017-09-12 15:31:04",
+        "creatorName": null,
+        "remark": "test1",
+        "gmtCreate": "2017-09-12 15:31:04",
+        "ownerId": null,
+        "menderId": 1,
+        "version": "1.0",
+        "props": "1",
+        "layoutTemplateId": "1",
+        "deleted": false,
+        "templateFilePath": "C:Temp\\20170912153104693-1.0\\1.0.yaml",
+        "name": null,
+        "createrId": 1,
+        "id": 5,
+        "menderName": null,
+        "fileContent": "aaa",
+        "status": "NORMAL"
+    },
+    "status": null,
+    "solution": null,
+    "failed": false
+}

@@ -1,0 +1,825 @@
+<style>
+    .form-group .round {
+        width: 55px;
+        height: 55px;
+        border-radius: 30px;
+        background-color: #5ab4c3;;
+        line-height: 55px;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+        /*margin-bottom: 15px;*/
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg); /* Internet Explorer */
+        -moz-transform: rotate(45deg); /* Firefox */
+        -webkit-transform: rotate(45deg); /* Safari 和 Chrome */
+        -o-transform: rotate(45deg);
+    }
+    .form-group .round a{
+        display:inline-block;
+        transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg); /* Internet Explorer */
+        -moz-transform: rotate(-45deg); /* Firefox */
+        -webkit-transform: rotate(-45deg); /* Safari 和 Chrome */
+        -o-transform: rotate(-45deg);
+    }
+
+  /*  .form-group .line {
+        position: absolute;
+        width: 5px;
+        height: 394px;
+        top: 0;
+        left: 40px;
+        z-index: 1;
+        background-color: #65ad76;
+    }*/
+
+    input.radio1 {
+        position: relative;
+        top: 2px;
+    }
+
+    input.radio2 {
+        position: relative;
+        top: 2px;
+        margin-left: 45px;
+    }
+
+    .selectActive {
+        position: relative !important;
+        z-index: 3 !important;
+        background-color: #53cbe7 !important;
+    }
+
+    .unit {
+        line-height: 34px;
+        margin-left: -25px;
+    }
+    .w100{
+        width:100px!important; ;
+    }
+    .w_105{
+        width: calc(100% - 105px)!important;
+    }
+    .portHidden{
+        visibility: hidden;
+    }
+</style>
+<div class="panel-body pmb-block" style="border:none;" ng-controller="applydeployCtrl">
+    <div class="form-horizontal">
+        <div class="panel-body pmb-block" style="border:none;padding-top:0;">
+            <div class="form-horizontal">
+                <div class="modal-body" style="padding: 0;">
+                    <div>
+
+                        <div class="modal-footer" style="background-color: #fff">
+                            <form class="form-horizontal form-validation" name="addCabinetForm">
+                                <div class="">
+								  <div class="form-group">
+                                        <div class="col-sm-6 text-left">
+                                            <label class="control-label w100">服务名称：</label>
+                                            <div class="control-input w_105">
+                                                <input class="form-control" name="serviceName" ng-model="serviceName" validator="required,createAppName"
+                                                   ng-blur="checkName()"    maxlength="64" maxlength-error-message="最多输入64个字符"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6 text-left">
+                                            <label class="control-label w100">服务类型：</label>
+                                                <input class="radio1" type="radio" name="serviceType" value="Deployment"
+                                                       ng-model="deployStatus" />
+                                                <label style="line-height: 34px;">无状态应用</label>
+                                                <input class="radio2" type="radio" name="serviceType" value="StatefulSet"
+                                                       ng-model="deployStatus" />
+                                                <label style="line-height: 34px;">有状态应用</label>
+                                                <input class="radio2" type="radio" name="serviceType" value="Job"
+                                                       ng-model="deployStatus" />
+                                                <label style="line-height: 34px;">批处理任务</label>
+                                            </div>
+                                    </div>
+                                  
+                                    <div class="form-group" >
+                                        <div class="col-sm-12">
+                                            <label class="control-label w100">镜像选择：</label>
+                                            <div class="control-input w_105 text-left" style="line-height: 34px;">
+                                                <div class="col-sm-3 ">
+                                                    仓库
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    项目
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    镜像名称
+                                                </div>
+                                                <div class="col-sm-3" >
+                                                    版本
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div  style="padding-left: 60px;">
+                                                <div class="col-sm-3 ">
+                                                    <div class="special-select m-r-xxs">
+                                                        <ui-select ng-model="scriptItemRepository.selected" ng-change="getRepository(scriptItemRepository.selected)" style="margin-bottom:10px"
+                                                                   theme="bootstrap">
+                                                            <ui-select-match placeholder="搜索一个仓库">
+                                                                {{$select.selected.name}}
+                                                            </ui-select-match>
+                                                            <ui-select-choices
+                                                                    repeat="item in dataTypeRepository | filter: $select.search">
+                                                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="special-select m-r-xxs">
+                                                        <ui-select ng-model="scriptItemSpace.selected" ng-change="getSpaces(scriptItemSpace.selected)" style="margin-bottom:10px"
+                                                                   theme="bootstrap">
+                                                            <ui-select-match placeholder="搜索一个项目">
+                                                                {{$select.selected}}
+                                                            </ui-select-match>
+                                                            <ui-select-choices
+                                                                    repeat="item in dataTypeSpace | filter: $select.search">
+                                                                <div ng-bind-html="item | highlight: $select.search"></div>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="special-select m-r-xxs">
+                                                        <ui-select ng-model="scriptItemImage.selected" ng-change="getImages(scriptItemImage.selected)" style="margin-bottom:10px"
+                                                                   theme="bootstrap">
+                                                            <ui-select-match placeholder="搜索一个镜像">
+                                                                {{$select.selected}}
+                                                            </ui-select-match>
+                                                            <ui-select-choices
+                                                                    repeat="item in dataTypeImage | filter: $select.search">
+                                                                <div ng-bind-html="item | highlight: $select.search"></div>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3" >
+                                                    <div class="special-select m-r-xxs">
+                                                        <ui-select ng-model="scriptItemVision.selected" ng-change="getEnvDetail(scriptItemVision.selected)" style="margin-bottom:10px"
+                                                                   theme="bootstrap">
+                                                            <ui-select-match placeholder="搜索一个版本">
+                                                                {{$select.selected.tag}}
+                                                            </ui-select-match>
+                                                            <ui-select-choices
+                                                                    repeat="item in dataTypeVision | filter: $select.search">
+                                                                <div ng-bind-html="item.tag | highlight: $select.search"></div>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="both"></div>
+                                <div class="form-group" >
+                                    <div class="col-sm-12 text-left">
+                                        <label class="control-label w100">环境变量：</label>
+                                        <input class="radio1" type="radio" name="auto" value="auto"
+                                               ng-model="envType" ng-click="setEnvType('auto')"/>
+                                        <label style="line-height: 34px;">自动</label>
+                                        <input class="radio2" type="radio" name="operate" value="operate"
+                                               ng-model="envType" ng-click="setEnvType('operate')"/>
+                                        <label style="line-height: 34px;">手动</label>
+                                        <div class="form-group" ng-if="envType=='auto'" ng-repeat="(key,item) in envList track by $index">
+                                          <div class="control-input w_105" style=" margin-left: 90px;" >
+                                              <div class="col-sm-5 nopadding">
+                                                  <input class="form-control " name="keys{{key}}" placeholder="key"
+                                                         ng-model="item.key" validator="evn_opt"  type="text"/>
+                                              </div>
+                                              <div class="col-sm-5">
+                                                  <input class="form-control " name="values{{key}}" placeholder="value"
+                                                         ng-model="item.value" type="text"/>
+                                              </div>
+                                              <div class="col-sm-1 deployFa">
+                                                  <a ng-click="addEnvs(key)"><i class="fa  fa-plus"></i></a>
+                                                  <a ng-click="removeEnv(key)"><i class="fa fa-minus"></i></a>
+                                              </div>
+                                          </div>
+
+                                        </div>
+                                        <div class="form-group" ng-if="envType=='operate'" ng-repeat="(key,item) in getOpreateList track by $index">
+                                            <div class="control-input w_105" style=" margin-left: 90px;" >
+                                                <div class="col-sm-5"  >
+                                                    <select class="form-control" ng-model="item.value" ng-change="checkConfig(item.value,item.id,$index)" name="keys{{key}}"  validator="required">
+                                                        <option  value="">--请选择--</option>
+                                                        <option ng-repeat="items in configList"  value={{items.name}} ng-bind="items.name"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-1 deployFa">
+                                                    <a ng-click="addOpreates(key)"><i class="fa  fa-plus"></i></a>
+                                                    <a ng-click="removeOpreate(key)"><i class="fa fa-minus"></i></a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group"  ng-if="deployStatus!='Job'">
+                                    <div class="col-sm-10">
+                                        <label class="control-label w100">运行实例数：</label>
+                                        <div class="control-input w_105">
+                                            <rzslider rz-slider-model="slider.value" ng-if="slider"
+                                                      rz-slider-options="slider.options"></rzslider>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <label class="control-label w100">高级选项：</label>
+                                    <!--    <div class="col-sm-3" style="width: 180px;">
+                                            <input class="radio1" type="radio" name="superSet" ng-model="isSuper"
+                                                   ng-click="highSet(1)"/>
+                                            <label style="line-height: 34px;">是</label>
+                                            <input class="radio2" type="radio" name="superSet" ng-model="isSuper"
+                                                   ng-click="highSet(0)"/>
+                                            <label style="line-height: 34px;">否</label>
+                                        </div>-->
+                                        <div class="control-input w_105 text-left" style="padding-top: 5px;">
+                                            <switch id="isSetHigh" name="isSetHigh" ng-model="isSetHigh"
+                                                ng-change="initDatas(isSetHigh)"    class="green"></switch>
+                                            <br>&nbsp;&nbsp;{{enabledData[isSetHigh]}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="both"></div>
+                                <div class="form-group" style="padding-left: 25px;padding-top: 20px;border: 1px solid orange;" ng-if="isSetHigh">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-2" style="position: relative;">
+                                            <div class="round" ng-click="selsectHighSet(1)"
+                                                 ng-class="{1:'selectActive'}[setOption]"><a>调度方式</a>
+                                            </div>
+                                            <div class="round" ng-click="selsectHighSet(2)"
+                                                 ng-class="{2:'selectActive'}[setOption]"><a>资源配置</a>
+                                            </div>
+                                            <div class="round" ng-click="selsectHighSet(3)"
+                                                 ng-class="{3:'selectActive'}[setOption]"><a>端口信息</a>
+                                            </div>
+                                            <div class="round" ng-click="selsectHighSet(4)"
+                                                 ng-class="{4:'selectActive'}[setOption]"><a>存储卷</a>
+                                            </div>
+                                            <div class="round" ng-click="selsectHighSet(8)"
+                                                 ng-class="{8:'selectActive'}[setOption]"><a>配置管理</a>
+                                            </div>
+                                            <!--<div class="round" ng-click="selsectHighSet(5)"-->
+                                                 <!--ng-class="{5:'selectActive'}[setOption]"><a>负载</a>-->
+                                            <!--</div>-->
+                                            <div class="round" ng-click="selsectHighSet(6)"
+                                                 ng-class="{6:'selectActive'}[setOption]"><a>健康检查</a>
+                                            </div>
+                                            <div class="round" ng-click="selsectHighSet(7)"
+                                              ng-show="false"   ng-class="{7:'selectActive'}[setOption]"><a>服务依赖</a>
+                                            </div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="col-sm-10 text-left">
+                                            <div class="padding-td-10" ng-show="setOption==1">
+                                                <!--<p class="text-left">调度方式：</p>-->
+                                                <div class="form-group" style="padding-top: 30px;">
+                                                    <div class="col-sm-12 text-left">
+                                                        <label class="control-label">调度方式：</label>
+                                                        <input class="radio1" type="radio" name="schedule" value="labels"
+                                                               ng-model="scheduledType" ng-click="setSchedule('labels')"/>
+                                                        <label style="line-height: 34px;">标签</label>
+                                                        <input class="radio2" type="radio" name="schedule" value="host"
+                                                               ng-model="scheduledType" ng-click="setSchedule('host')"/>
+                                                        <label style="line-height: 34px;">主机</label>
+                                                    </div>
+                                                </div>
+                                                <div ng-if="(scheduledType =='labels')">
+                                                    <div class="form-group"
+                                                         ng-repeat="(key,item) in labelList track by $index">
+                                                        <div class="col-sm-12">
+                                                            <label class="control-label">标签：</label>
+                                                            <div class="control-input">
+                                                                <div class="col-sm-5 nopadding">
+                                                                    <input class="form-control" name="keys{{key}}"
+                                                                           placeholder="key" ng-model="item.keys"
+                                                                           type="text"/>
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    <input class="form-control" name="values{{key}}"
+                                                                           placeholder="value" ng-model="item.values"
+                                                                           type="text"/>
+                                                                </div>
+                                                                <div class="col-sm-2 deployFa">
+                                                                    <a class="labellista" ng-click="addLabels(key)"><i
+                                                                            class="fa  fa-plus"></i></a>
+                                                                    <a class="labellistb" ng-click="removeLabel(key)"><i
+                                                                            class="fa fa-minus"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-if="(scheduledType=='host')">
+                                                    <div class="col-sm-8">
+                                                        <label class="control-label">主机：</label>
+                                                        <div class="control-input special-select m-r-xxs" >
+                                                            <ui-select ng-model="vmListselect.selected"
+                                                                       style="margin-bottom:10px" theme="bootstrap">
+                                                                <ui-select-match placeholder="选择或者从列表中搜索一个主机">
+                                                                    {{$select.selected.name}}
+                                                                </ui-select-match>
+                                                                <ui-select-choices
+                                                                        repeat="item in vmList | filter: $select.search">
+                                                                    <div ng-bind-html="item.hostName | highlight: $select.search"></div>
+                                                                </ui-select-choices>
+                                                            </ui-select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="padding-td-10" ng-show="setOption==2">
+                                                <div class="form-group" style="padding-top: 30px;">
+                                                    <div class="col-sm-12 text-left">
+                                                        <label class="control-label" style="text-align: left;margin-left: -8px;">资源配置：</label>
+                                                        <input class="radio1" type="radio" name="configType" value="cpu"
+                                                               ng-model="configType" ng-click="setConfigType('cpu')"/>
+                                                        <label style="line-height: 34px;">CPU类型</label>
+                                                        <input class="radio2" type="radio" name="configType" value="gpu"
+                                                               ng-model="scheduledType" ng-click="setConfigType('gpu')"/>
+                                                        <label style="line-height: 34px;">GPU类型</label>
+                                                    </div>
+                                                </div>
+                                                <div ng-if="!configTypeGpu">
+                                                    <h6 class="text-left" style="padding-top: 15px;">资源请求</h6>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-6">
+                                                            <label class="control-label">CPU：</label>
+                                                            <div class="control-input">
+                                                                <div class="col-sm-9">
+                                                                    <input type="number" name="cpuRequest"
+                                                                           min=0 class="form-control"
+                                                                           ng-model="addData.cpuRequest" ng-blur="checkcpu()"
+                                                                           maxlength="64" maxlength-error-message="最多输入64个字符">
+                                                                </div>
+                                                                <div class="col-sm-3 text-left">
+                                                                    <span class="unit">millicores</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label class="control-label">Memory：</label>
+                                                            <div class="control-input">
+                                                                <div class="col-sm-9">
+                                                                    <input type="number" name="memoryRequest"
+                                                                           class="form-control" ng-model="addData.memoryRequest" min=0
+                                                                           maxlength="64" ng-blur="checkcpu()"
+                                                                           maxlength-error-message="最多输入64个字符">
+
+                                                                </div>
+                                                                <div class="col-sm-3 text-left">
+                                                                    <span class="unit">M</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h6 class="text-left" style="padding-top: 30px;">资源限制</h6>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-6">
+                                                            <label class="control-label">CPU：</label>
+                                                            <div class="control-input">
+                                                                <div class="col-sm-9">
+                                                                    <input type="number" name="cpuLimit"min=0
+                                                                           class="form-control" ng-blur="checkcpu()"
+                                                                           ng-model="addData.cpuLimit" maxlength="64"
+                                                                           maxlength-error-message="最多输入64个字符">
+                                                                </div>
+                                                                <div class="col-sm-3 text-left">
+                                                                    <span class="unit">millicores</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label class="control-label">Memory：</label>
+                                                            <div class="control-input">
+                                                                <div class="col-sm-9">
+                                                                    <input type="number" name="memoryLimit" min=4 ng-blur="checkcpu()"
+                                                                           class="form-control"
+                                                                           placeholder="参数必须大于4M,小数点不多于2位"
+                                                                           ng-model="addData.memoryLimit"
+                                                                           maxlength="64"
+                                                                           maxlength-error-message="最多输入64个字符">
+
+                                                                </div>
+                                                                <div class="col-sm-3 text-left">
+                                                                    <span class="unit">M</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div ng-if="configTypeGpu">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-6">
+                                                            <label class="control-label">请求gpu数：</label>
+                                                            <div class="control-input">
+                                                                <div class="col-sm-9">
+                                                                    <input type="number" name="gpuRequest"
+                                                                           min=0  class="form-control"
+                                                                           ng-model="addData.gpu"
+                                                                           maxlength="64" maxlength-error-message="最多输入64个字符">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="padding-td-10" ng-show="setOption==3">
+                                                <p class="text-left" style="padding-top: 30px;">端口信息：</p>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12" style="line-height: 34px;text-align: center;">
+                                                        <!--<label class="control-label">端口信息：</label>-->
+                                                        <!--<div class="control-input text-left" style="line-height: 34px;">-->
+                                                            <div class="col-sm-2 ">
+                                                                目标端口
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                协议类型
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                服务端口
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                是否映射
+                                                            </div>
+                                                            <div class="col-sm-2" >
+                                                                映射端口
+                                                            </div>
+                                                        <!--</div>-->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-repeat="(key,item) in portList track by $index">
+                                                    <div class="col-sm-12">
+                                                        <!--<div class="control-input" style="padding-left: 50px;">-->
+                                                            <div class="col-sm-2">
+                                                             <select class="form-control" ng-model="item.targetPort" ng-change="targetPortChange(item)" >
+                                                                 <option  value="">--请选择--</option>
+										                        <option ng-repeat="row in porttargetPort" ng-selected="item.targetPort==row" value="{{row}}" ng-bind="row"></option>
+										                    </select>
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input class="form-control " disabled="true"
+                                                                       ng-model="item.protocol" type="text"/>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input class="form-control " ng-model="item.port"
+                                                                       type="text"/>
+                                                            </div>
+                                                            <div class="col-sm-2 text-center">
+                                                                <label class="i-checks m-b-none"><input type="checkbox" ng-model="item.optionsM" ng-change="checkport(item)"><i style="top: 7px;"></i></label>
+                                                            </div>
+                                                            <div class="col-sm-2" ng-class="{'portHidden':!item.optionsM}">
+                                                                <input class="form-control " ng-blur="checknum()" ng-model="item.nodePort "
+                                                                       type="text"/>
+                                                            </div>
+                                                        <div class="col-sm-2 deployFa">
+                                                            <a class="portlista" ng-click="addports(key)"><i
+                                                                    class="fa  fa-plus"></i></a>
+                                                            <a class="portlistb" ng-click="removeports(key)"><i
+                                                                    class="fa fa-minus"></i></a>
+                                                        </div>
+
+                                                        <!--</div>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="padding-td-10" ng-show="setOption==4">
+                                                <!--<p class="text-left">存储卷：</p>-->
+                                                <div class="form-group" style="padding-top: 30px;">
+                                                    <div class="col-sm-12 text-left">
+                                                        <label class="control-label">存储卷：</label>
+                                                        <input class="radio1" type="radio" name="store"
+                                                         value="tv"  ng-model="store" ng-click="setStore('tv')"/>
+                                                        <label style="line-height: 34px;">临时</label>
+                                                        <input class="radio2" type="radio" name="store"
+                                                               value="pv"  ng-model="store" ng-click="setStore('pv')"/>
+                                                        <label style="line-height: 34px;">持久化</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-if="(store=='tv')">
+                                                    <div class="col-sm-6">
+                                                        <label class="control-label">内部路径：</label>
+                                                        <div class="control-input">
+                                                            <input class="form-control" name="remark" ng-model="addData.tv_innerpath"
+                                                                   maxlength="64"
+                                                                   maxlength-error-message="最多输入64个字符"/>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group" ng-if="(store=='pv')"   ng-repeat="(key,item) in storageList track by $index">
+                                                    <div class="col-sm-12">
+                                                        <div class="col-sm-5">
+                                                            <label class="control-label">持久化：</label>
+                                                            <div class="control-input ">
+                                                                <select class="form-control" ng-model="item.keys"  ng-change="chackStore(item.keys,$index)" >
+                                                                    <option  value="">--请选择--</option>
+                                                                    <option ng-repeat="items in storageData"   ng-selected = "items.name == item.keys" value={{items.name}} ng-bind="items.name"></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <label class="control-label">内部路径：</label>
+                                                            <div class="control-input">
+                                                                <input class="form-control" name="remark{{key}}" ng-model="item.values"
+                                                                       maxlength="64"
+                                                                       maxlength-error-message="最多输入64个字符"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2 deployFa">
+                                                            <a class="storagelista" ng-click="addstorages(key)"><i
+                                                                    class="fa  fa-plus"></i></a>
+                                                            <a class="storagelistb" ng-click="removestorages(key)"><i
+                                                                    class="fa fa-minus"></i></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="padding-td-10" ng-show="setOption==8">
+                                                <div class="form-group" style="padding-top: 30px;">
+                                                    <div class="col-sm-12">
+
+                                                        <div class="control-input text-left" style="line-height: 34px;">
+                                                            <div class="col-sm-6 ">
+                                                                配置管理
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                挂载路径
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"
+                                                     ng-repeat="(key,item) in getConfigManageList track by $index">
+                                                    <div class="col-sm-12">
+                                                        <label class="control-label"></label>
+                                                        <div class="control-input">
+                                                            <div class="col-sm-5 ">
+                                                                <select class="form-control" ng-model="item.name" ng-change="checkConfigManageList()">
+                                                                    <option  value="">--请选择--</option>
+                                                                    <option ng-repeat="items in configList"  value={{items.name}} ng-bind="items.name"></option>
+                                                                </select>
+                                                            </div>
+                                                                    <div class="col-sm-5 ">
+                                                                    <input class="form-control" name="path{{key}}" ng-model="item.path"
+                                                                           maxlength="64"
+                                                                           maxlength-error-message="最多输入64个字符"/>
+                                                                     </div>
+                                                            <div class="col-sm-2 deployFa">
+                                                                <a class="configlista" ng-click="addConfigManages(key)"><i
+                                                                        class="fa  fa-plus"></i></a>
+                                                                <a class="configlistb" ng-click="removeConfigManage(key)"><i
+                                                                        class="fa fa-minus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--<div class="padding-td-10" ng-show="setOption==5">-->
+                                                <!--&lt;!&ndash;<p class="text-left">负载：</p>&ndash;&gt;-->
+                                                <!--<div class="form-group" style="padding-top: 30px;">-->
+                                                    <!--<div class="col-sm-12 text-left">-->
+                                                        <!--<label class="control-label">负载：</label>-->
+                                                        <!--<input class="radio1" type="radio" name="loabBalance"-->
+                                                           <!--value="inner" ng-click="setLoad('inner')" ng-model="loabBalance"/>-->
+                                                        <!--<label style="line-height: 34px;">内置负载</label>-->
+                                                        <!--<input class="radio2" type="radio" name="loabBalance"-->
+                                                           <!--value="outer"  ng-click="setLoad('outer')"  ng-model="loabBalance"/>-->
+                                                        <!--<label style="line-height: 34px;">外部负载</label>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="form-group" ng-if="(loabBalance=='outer')">-->
+                                                    <!--<div class="col-sm-8">-->
+                                                        <!--<label class="control-label">外部负载：</label>-->
+                                                        <!--<div class="control-input special-select m-r-xxs" >-->
+                                                            <!--<ui-select ng-model="loadBalanceListselect.selected"-->
+                                                                       <!--style="margin-bottom:10px" theme="bootstrap">-->
+                                                                <!--<ui-select-match placeholder="选择或者从列表中搜索一个外部负载">-->
+                                                                    <!--{{$select.selected.name}}-->
+                                                                <!--</ui-select-match>-->
+                                                                <!--<ui-select-choices-->
+                                                                        <!--repeat="item in loadBalanceList | filter: $select.search">-->
+                                                                    <!--<div ng-bind-html="item.name | highlight: $select.search"></div>-->
+                                                                <!--</ui-select-choices>-->
+                                                            <!--</ui-select>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+
+                                            <!--</div>-->
+                                           <div class="padding-td-10" ng-show="setOption==6">
+												<!--<p class="text-left">健康检查：</p>-->
+												<div class="form-group" style="padding-top: 30px;">
+													<div class="col-sm-12 text-left">
+														<div class="form-group">
+															<label  class="i-checks m-b-none "><input type="checkbox" ng-model="livenessProbe.select" class="ng-valid ng-dirty ng-valid-parse ng-touched"><i></i> livenessProbe</label>
+
+															<div class="col-sm-12" ng-if="livenessProbe.select">
+																<div class="col-sm-10">
+																	<label class="control-labels">类型：</label>
+																	<div class="control-inputs ">
+																		<select class="form-control"  ng-model="livenessProbe.type"  >
+																			<option ng-repeat="row in ['TCP','HTTP','EXEC']" ng-selected="livenessProbe.type==row" value="{{row}}" ng-bind="row"></option>
+
+																		</select>
+																	</div>
+																</div>
+																<div class="col-sm-10" ng-if="livenessProbe.type=='HTTP'">
+																	<label class="control-labels">请求路径：</label>
+																	<div class="control-inputs ">
+																		<input class="form-control" name="livenessProbepath" ng-model="livenessProbe.path" validator="required"
+																			   type="text"/>
+																	</div>
+																</div>
+																<div class="col-sm-10"  ng-if="livenessProbe.type!='EXEC'">
+																	<label class="control-labels">端口：</label>
+																	<div class="control-inputs ">
+																		<select class="form-control" name="livenessProbeport" ng-model="livenessProbe.port" validator="required" >
+																			<option  value="">--请选择--</option>
+																			<option ng-repeat="row in porttargetPort" ng-selected="livenessProbe.port==row" value="{{row}}" ng-bind="row"></option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-sm-10" ng-if="livenessProbe.type=='EXEC'"  ng-repeat="(key,item) in livenessProbe.command track by $index">
+
+																	<div class="col-sm-10" style="padding-left: 0">
+																		<label class="control-labels">命令：</label>
+																		<div class="control-inputs">
+																			<input class="form-control" name="livenessProbecommand{{key}}" ng-model="livenessProbe.command[key]"
+																				   maxlength="64" validator="required"
+																				   maxlength-error-message="最多输入64个字符"/>
+																		</div>
+																	</div>
+																	<div class="col-sm-2 deployFa">
+																		<a class="storagelista" ng-click="addcommand(key)"><i
+																				class="fa  fa-plus"></i></a>
+																		<a class="storagelistb" ng-click="removecommand(key)"><i
+																				class="fa fa-minus"></i></a>
+																	</div>
+																</div>
+																<div class="col-sm-10">
+																	<label class="control-labels">初始检查等待时间：</label>
+																	<div class="control-inputs ">
+																		<input class="form-control" name="livenessProbetime1" ng-model="livenessProbe.initialDelaySeconds"
+																		 validator="required"      type="number"/>
+																		<label>秒</label>
+																	</div>
+																</div>
+																<div class="col-sm-10">
+																	<label class="control-labels">检查超时时间：</label>
+																	<div class="control-inputs ">
+																		<input class="form-control" name="livenessProbetime2" ng-model="livenessProbe.timeoutSeconds"
+																		  validator="required"     type="number"/>
+																		<label>秒</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label  class="i-checks m-b-none "><input type="checkbox" ng-model="readinessProbe.select" class="ng-valid ng-dirty ng-valid-parse ng-touched"><i></i> readinessProbe</label>
+
+															<div class="col-sm-12" ng-if="readinessProbe.select">
+																<div class="col-sm-10">
+																	<label class="control-labels">类型：</label>
+																	<div class="control-inputs ">
+																		<select class="form-control"  ng-model="readinessProbe.type"  >
+																			<option ng-repeat="row in ['TCP','HTTP','EXEC']" ng-selected="readinessProbe.type==row" value="{{row}}" ng-bind="row"></option>
+
+																		</select>
+																	</div>
+																</div>
+																<div class="col-sm-10" ng-if="readinessProbe.type=='HTTP'">
+																	<label class="control-labels">请求路径：</label>
+																	<div class="control-inputs ">
+																		<input class="form-control" name="path" ng-model="readinessProbe.path" validator="required"
+																			   type="text"/>
+																	</div>
+																</div>
+																<div class="col-sm-10"  ng-if="readinessProbe.type!='EXEC'">
+																	<label class="control-labels">端口：</label>
+																	<div class="control-inputs ">
+																		<select class="form-control" name="readinessProbeport" ng-model="readinessProbe.port"  validator="required">
+																			<option  value="">--请选择--</option>
+																			<option ng-repeat="row in porttargetPort" ng-selected="readinessProbe.port==row" value="{{row}}" ng-bind="row"></option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-sm-10" ng-if="readinessProbe.type=='EXEC'"  ng-repeat="(key,item) in readinessProbe.command track by $index">
+
+																	<div class="col-sm-10" style="padding-left: 0">
+																		<label class="control-labels">命令：</label>
+																		<div class="control-inputs">
+																			<input class="form-control" name="command{{key}}" ng-model="readinessProbe.command[key]"
+																				   type="text"   maxlength="64" validator="required"
+																				   maxlength-error-message="最多输入64个字符"/>
+																		</div>
+																	</div>
+																	<div class="col-sm-2 deployFa">
+																		<a class="storagelista" ng-click="addcommand2(key)"><i
+																				class="fa  fa-plus"></i></a>
+																		<a class="storagelistb" ng-click="removecommand2(key)"><i
+																				class="fa fa-minus"></i></a>
+																	</div>
+																</div>
+																<div class="col-sm-10">
+																	<label class="control-labels">初始检查等待时间：</label>
+																	<div class="control-inputs ">
+																		<input class="form-control" name="time1" ng-model="readinessProbe.initialDelaySeconds"
+																		validator="required"       type="number"/>
+																		<label>秒</label>
+																	</div>
+																</div> <div class="col-sm-10">
+																<label class="control-labels">检查超时时间：</label>
+																<div class="control-inputs ">
+																	<input class="form-control" name="time2" ng-model="readinessProbe.timeoutSeconds"
+																		validator="required"   type="number"/>
+																	<label>秒</label>
+																</div>
+															</div>
+
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+                                            <div class="padding-td-10" ng-show="setOption==7">
+                                                <!--<p class="text-left">健康检查：</p>-->
+                                                <div class="form-group" style="padding-top: 30px;">
+                                                    <div class="col-sm-12">
+
+                                                        <div class="control-input text-left" style="line-height: 34px;">
+                                                            <div class="col-sm-6 ">
+                                                                应用
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                服务
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"
+                                                     ng-repeat="(key,item) in dependList track by $index">
+                                                    <div class="col-sm-12">
+                                                        <label class="control-label"></label>
+                                                        <div class="control-input">
+                                                          <div class="col-lg-5 nopadding">
+                                                            <select class="form-control" ng-model="item.id" ng-change="getservice(item)">
+                                                                <option  value="">--请选择--</option>
+                                                              <option ng-repeat="apply in applicationList" ng-selected = "apply.id == item.id" value={{apply.id}} ng-bind="apply.name"></option>
+                                                            </select>
+                                                          </div>
+                                                          <div class="col-lg-5"  >
+                                                            <select class="form-control" ng-model="item.value" ng-change="checkvalue(item.value,item.id,$index)">
+                                                              <option  value="">--请选择--</option>
+                                                              <option ng-repeat="items in item.server" ng-selected = "items.metadata == item.value" value={{items.metadata}} ng-bind="items.metadata.name"></option>
+                                                            </select>
+                                                          </div>
+                                                            <div class="col-lg-2 deployFa">
+                                                                <a class="applylista" ng-click="addApply(key)"><i
+                                                                        class="fa  fa-plus"></i></a>
+                                                                <a class="applylistb" ng-click="removeApply(key)"><i
+                                                                        class="fa fa-minus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                          </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-info" validation-submit="addCabinetForm" ng-disabled="imageProp"
+                               ng-click="ok()">确认
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

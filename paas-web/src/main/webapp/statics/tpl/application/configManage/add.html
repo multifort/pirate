@@ -1,0 +1,144 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size" ng-bind="modalName"></p>
+</div>
+<div class="modal-body panel-body">
+    <form class="form-horizontal form-validation" name="addvmForm">
+        <div class="form-group" >
+            <div class="col-lg-12">
+                <label class="control-label">名称：</label>
+                <div class="control-input">
+                      <input type="text" name="taskName"  ng-disabled="modalName == '编辑'"   class="form-control" ng-model="addData.name" validator="required,createAppName" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="modalName != '编辑'">
+            <div class="col-lg-12">
+                <label class="control-label">选择环境：</label>
+                <div class="control-input">
+                    <select class="form-control" ng-model="envId" name="env"  validator="required" ng-click="getApp(envId)">
+                        <option value="">--请选择--</option>
+                        <option ng-repeat="row in masterList" ng-selected="envId==row.id" value="{{row.id}}" ng-bind="row.name"></option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="modalName != '编辑'">
+            <div class="col-lg-12">
+                <label class="control-label">选择应用：</label>
+                <div class="control-input">
+                    <select class="form-control" ng-model="addData.appId" name="app"  validator="required" >
+                        <option value="">--请选择--</option>
+                        <option ng-repeat="row in dataAppType" ng-selected="addData.appId==row.id" value="{{row.id}}" ng-bind="row.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="modalName == '创建'">
+            <div class="col-lg-12">
+                <label class="control-label">创建方式：</label>
+                <div class="control-input">
+                    <input class="radio1" type="radio" name="store"
+                           value="0"  ng-model="addData.type" />
+                    <label style="line-height: 34px;">手动</label>
+                    <input class="radio2" type="radio" name="store"
+                    value="1"  ng-model="addData.type" />
+                    <label style="line-height: 34px;">文件</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="modalName == '编辑'">
+            <div class="col-lg-12">
+                <label class="control-label">创建方式：</label>
+                <div class="control-input">
+                    <input class="radio1" type="radio" name="store" ng-if="addData.type == 0"
+                           value="0"  ng-model="addData.type" />
+                    <label ng-if="addData.type == 0" style="line-height: 34px;">手动</label>
+                    <input class="radio2" type="radio" name="store" ng-if="addData.type == 1"
+                           value="1"  ng-model="addData.type" />
+                    <label ng-if="addData.type == 1" style="line-height: 34px;">文件</label>
+                </div>
+            </div>
+        </div>
+        <div   class="form-group"           ng-if="addData.type == 0">
+            <div class="col-lg-12">
+                <label class="control-label">变量值：</label>
+                <div  ng-repeat="(key,item) in labelList track by $index">
+
+                    <div class="control-input" style=" margin-left: 90px;">
+                        <div class="col-sm-5 nopadding">
+                            <input class="form-control" name="keys{{key}}" validator="required"
+                                   placeholder="key" ng-model="item.keys"
+                                   type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="form-control" name="values{{key}}" validator="required"
+                                   placeholder="value" ng-model="item.values"
+                                   type="text"/>
+                        </div>
+                        <div class="col-sm-2 deployFa">
+                            <a class="labellista" ng-click="addLabels(key)"><i
+                                    class="fa  fa-plus"></i></a>
+                            <a class="labellistb" ng-click="removeLabel(key)"><i
+                                    class="fa fa-minus"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div   ng-if="addData.type == 1" ng-files-upload="">
+            <div class="form-group" >
+                <div class="col-lg-12" >
+                    <label class="control-label">文件列表：</label>
+                        <div class="file-btn btn btn-info" style="top:0;  right: 524px;">
+                            <i class="fa fa-upload"></i> 添加本地文件
+                            <span id="btnFileUpload"><input type="file" ng-model="gridinName" class="form-control file" multiple></span>
+                        </div>
+                </div>
+            </div>
+            <div class="form-group" ng-if="fileShow">
+                <div class="col-lg-12">
+                    <table class="table b-light m-b-xxs">
+                        <thead class="table-header" >
+                        <tr>
+                            <th width="10%" class="font-15 text-center">名称</th>
+                            <th width="10%" class="font-15 text-center">结果</th>
+                            <th width="10%" class="font-15 text-center">操作</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="table-content" ng-repeat="item in uplistData" >
+                            <td width="10%" class="font-15 text-center text-overflow"  title="{{item.file.name}}" ng-bind="item.file.name"></td>
+                            <td width="10%" class="font-15 text-center text-overflow" >
+                                <div class="progress progress-sm m-b-none m-t-xs control-input" style=" width: 100%;   margin-top: 11px;">
+                                    <div class="progress-bar bg-success" role="progressbar" ng-style="{ 'width': item.progress + '%' }" animate="true"></div>
+                                </div>
+                            </td>
+                            <td width="10%" class="font-15 text-center text-overflow" > <button type="submit" class="btn btn-info" ng-disabled="item.updataBtn" ng-click="upload(item)">上传</button>
+                                <button class="btn btn-cancel" ng-click="cancelFile(item,$index)">删除</button></td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">描述：</label>
+                <div class="control-input">
+<textarea class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" name="registryDesc" ng-model="addData.remark" maxlength="256" maxlength-error-message="最多输入256个字符"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid||isLoadingCheck"  ng-click="ok()">确认</button>
+    <button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

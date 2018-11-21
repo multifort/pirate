@@ -1,0 +1,47 @@
+{
+  "success" : true,
+  "data" :{
+    "rows": [
+      {
+        "snapshotId":"c923lfaldf0001111",
+        "name":"数据中心1111111",
+        "status":"CREATING",
+        "flavorId":"2",
+        "memory":2048,
+        "cpu":4,
+        "disk":1,
+        "volumeId":"c923lfaldf000000000000"
+      },
+      {
+        "snapshotId":2,
+        "name":"数据中心2",
+        "flavorId":"1",
+        "memory":8.0,
+        "cpu":4,
+        "disk":1,
+        "uuid":"dlfa;l;d"
+      },
+      {
+        "snapshotId":3,
+        "name":"数据中心2",
+        "flavorId":"1",
+        "memory":8.0,
+        "cpu":4,
+        "disk":1,
+        "uuid":"dlfa;l;d"
+      },
+      {
+        "snapshotId":5,
+        "name":"数据中心4",
+        "flavorId":"1",
+        "memory":8.0,
+        "cpu":4,
+        "disk":1,
+        "uuid":"dlfa;l;d"
+      }],
+    "total":20
+  },
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

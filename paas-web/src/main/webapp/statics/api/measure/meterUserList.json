@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "data": {
+  		"total": 300,
+			"pages": 6,
+			"page": 7,
+      "rows":[
+	      {
+	      	"id":1,
+	      	"name":"张三"
+	      },{
+	      	"id":2,
+	      	"name":"李四"
+	      }
+      	]
+  },
+  "message" : "查询租户成功",
+  "code" : 1111,
+  "solution" : " "
+}

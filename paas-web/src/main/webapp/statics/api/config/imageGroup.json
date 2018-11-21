@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "message": "",
+  "data": [
+    {
+      "children": "[]",
+      "name": "数据纵览",
+      "id": 1,
+      "parentId": 0,
+      "status": "NORMAL",
+      "remark": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA",
+      "code":"/aa"
+    },
+    {
+      "name": "基础设施",
+      "checked": false,
+      "id": 2,
+      "parentId": 0,
+      "status": "NORMAL",
+      "remark": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA",
+      "code":"/aa"
+    },
+    {
+      "name": "配置管理",
+      "checked": false,
+      "id": 4,
+      "parentId": 0,
+      "status": "NORMAL",
+      "remark": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA",
+      "code":"/aa"
+    },
+    {
+      "name": "权限维护",
+      "checked": false,
+      "id": 5,
+      "parentId": 0,
+      "status": "NORMAL",
+      "remark": "SDDDDSAAAAAAAAAAAAAAAAA",
+      "moreProp": "AAAAAAAAA",
+      "path":"/aa"
+    }
+  ],
+  "solution": null
+}

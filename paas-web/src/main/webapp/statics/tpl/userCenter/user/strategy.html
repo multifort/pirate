@@ -1,0 +1,80 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+	<p class="modal-title panel-title-size">通知策略</p>
+</div>
+<div class="modal-body panel-body">
+	<form class="form-horizontal form-validation" name="addUserForm">
+		<div class="form-group">
+			<div class="col-lg-12">
+				<label class="control-label control-label2">通知方式：</label>
+				<div class="control-input width-74">
+					<div class="region region-box" style="width:80px;" ng-class="{true:'region-active'}[row.isRegionActive]" ng-click="chooseRegion($index)" ng-repeat="row in modeData">
+						<span class="region-txt" ng-bind="row.name"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button type="submit" class="btn btn-primary" validation-submit="addUserForm" ng-disabled="addUserForm.$invalid||isLoadingActive" ng-click="ok()">确认</button>
+	<button class="btn btn-default" ng-click="cancel()">取消</button>
+</div>
+
+
+
+
+<!--
+<div class="modal-header">
+	<h3 class="modal-title">新增用户</h3>
+</div>
+<div class="modal-body">
+	<form class="bs-example form-horizontal form-validation" name="addUserForm">
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">用户名称</label>
+			<div class="col-lg-10">
+				<input type="text" name="username" class="form-control" ng-model="addData.username" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">真实姓名</label>
+			<div class="col-lg-10">
+				<input type="text" name="name" class="form-control" ng-model="addData.name" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">电子邮箱</label>
+			<div class="col-lg-10">
+				<input type="text" name="email" class="form-control" ng-model="addData.email" validator="required,email">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">用户电话</label>
+			<div class="col-lg-10">
+				<input type="text" name="phone" class="form-control" ng-model="addData.phone" validator="required,telphone">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">移动电话</label>
+			<div class="col-lg-10">
+				<input type="text" name="mobile" class="form-control" ng-model="addData.mobile" validator="required,cellphone">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">公司名称</label>
+			<div class="col-lg-10">
+				<input type="text" name="company" class="form-control" ng-model="addData.company">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-2 control-label padding-7">用户描述</label>
+			<div class="col-lg-10">
+				<textarea class="form-control" name="remark" ng-model="addData.remark" maxlength="256" maxlength-error-message="最多输入256个字符"></textarea>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">取消</button>
+	<button class="btn btn-success" validation-submit="addUserForm" ng-disabled="addUserForm.$invalid" ng-click="ok()">确认</button>
+</div>-->

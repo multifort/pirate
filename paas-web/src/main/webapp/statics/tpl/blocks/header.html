@@ -1,0 +1,76 @@
+<!-- navbar header -->
+<div class="navbar-header {{app.settings.navbarHeaderColor}}" >
+  <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+    <i class="glyphicon glyphicon-cog"></i>
+  </button>
+  <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll-to="app">
+    <i class="glyphicon glyphicon-align-justify"></i>
+  </button>
+  <!-- brand -->
+        <a href class="navbar-brand text-lt xinhuasheBgColor" >
+          <!--<i class="fa fa-btc"></i>-->
+          <!--<img src="/statics/img/logo.png" alt="" class="hidden-folded" style="height: 45px">-->
+          <!--<img src="/statics/img/logo2.png" alt="" width="40%" class="hidden-folded inline">-->
+          <img src="/statics/img/pirates-logo-2.png" alt="" width="55%" class="hidden-folded inline">
+          <img src="/statics/img/pirates_white2.png" alt="" width="45%" class="inline" ng-show="app.settings.asideFolded">
+          <!--<span class="hidden-folded m-l-xs">{{app.name}}</span>-->
+        </a>
+  <!-- / brand -->
+</div>
+<!-- / navbar header -->
+<!-- navbar collapse -->
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+  <!-- buttons -->
+  <div class="nav navbar-nav hidden-xs">
+    <div href class="btn no-shadow " ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+    <p style="float:left;margin-right: 10px; margin-left: -25px;position: relative;top: 12px;">  <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i></p>
+      <p style="font-size: 12px;    line-height: 24px;position: relative;top: 10px;"><i class="fa fa-home"></i>     当前页：<span ng-bind-html="moduleTitle"></span></p>
+    </div>
+  </div>
+
+  <!-- / buttons -->
+  <!-- module title -->
+
+  <!-- / module title -->
+
+  <!-- nabar right -->
+  <ul class="nav navbar-nav navbar-right">
+
+    <li class="dropdown" dropdown>
+      <a href class="dropdown-toggle clear" dropdown-toggle>
+        <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+          <img src="/statics/img/a0.jpg" alt="...">
+          <!-- <i class="on md b-white bottom"></i> -->
+        </span>
+        <span class="hidden-sm hidden-md" ng-bind="userData.name"></span> <b class="caret"></b>
+      </a>
+      <!-- dropdown -->
+      <ul class="dropdown-menu animated fadeInRight w" ng-controller="updatePasswordCtrl">
+        <li>
+          <a ng-click="updatePassword($event)"><span class="m-l-5">修改密码</span></a>
+        </li>
+          <li class="divider"></li>
+        <li>
+       <a ng-click="usermessage($event)"><span class="m-l-5">个人中心</span></a>
+      </li>
+        <li class="divider"></li>
+        <li>
+          <a ng-click="about($event)"><span class="m-l-5">关于</span></a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a ng-click="loginout($event)"><i class="glyphicon glyphicon-log-out"></i><span class="m-l-5">退出</span></a>
+        </li>
+      </ul>
+      <!-- / dropdown -->
+    </li>
+  </ul>
+  <!-- / navbar right -->
+  <div class="nav navbar-nav navbar-right" ng-controller="updatePasswordCtrl">
+    <div  style="padding: 19px;border-right: 1px solid #ddd;cursor:pointer" title="操作提示" ng-click="getSpecification($event)"><i style="    margin-right: 10px;" class="fa  h4 fa-file-text-o"></i>提示操作</div>
+  </div>
+  <!--<div class="nav navbar-nav navbar-right" ng-controller="updatePasswordCtrl">
+    <div ng-click="about($event)" style="padding: 19px;border-right: 1px solid #ddd;cursor:pointer" title="版本号" ><i style="    margin-right: 10px;" class="fa  h4 "></i>V 1.0</div>
+  </div>-->
+</div>
+<!-- / navbar collapse -->

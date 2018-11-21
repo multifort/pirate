@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "data": {
+      "id":112,
+      "name":"角色名1",
+      "remark":"hello",
+      "gmtCreate":"",
+      "gmtModify":"",
+      "createrId":"",
+      "menderId":"",
+      "ownerId":"",
+      "status":"良好", 
+      "isDeleted":"",
+      "isLocked":"",
+      "props":"other",
+      "parentId":""
+  }
+}

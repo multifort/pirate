@@ -1,0 +1,28 @@
+{"success":true,
+  "message":"查询成功",
+  "data":{
+    "creator":"宋松",
+    "gmtModify":"2017-06-23 11:11:55",
+    "remark":"sdfdsdsfgd",
+    "gmtCreate":"2017-06-23 11:11:54",
+    "ownerId":2,
+    "menderId":2,
+    "props":null,
+    "deleted":false,
+    "name":"ssfdfgf",
+    "tenantId":null,
+    "mender":"宋松",
+    "createrId":2,
+    "id":2,
+    "status":"1",
+    "managerIp":"1.1.1.1",
+    "port":80,
+    "envId":32,
+    "envName":"www",
+    "type":2,
+    "appCount":45
+  },
+  "status":null,
+  "solution":null,
+  "failed":false
+}

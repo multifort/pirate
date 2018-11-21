@@ -1,0 +1,61 @@
+<style>
+	.deleteNode td{
+		max-width: 108px;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+	<p class="modal-title panel-title-size" >删除节点</p>
+</div>
+<div class="modal-body panel-body">
+	<div class="dataTables_wrapper form-inline deleteNode">
+		<div class="row">
+			<div class="col-sm-12" style="padding:0 20px 0 20px; ">
+				<table class="table table-hover b-light m-b-xxs" st-table="displayListData" st-safe-src="addNode">
+					<thead class="table-header">
+					<tr>
+						<th width="10%"></th>
+						<th width="10%" class="text-center font-15">名称</th>
+						<th width="20%" class="text-center font-15">状态</th>
+						<th width="25%" class="text-center font-15">IP</th>
+						<th width="25%" class="text-center font-15">创建时间</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr class="table-content" ng-repeat="row in displayListData">
+						<th width="10%" class="text-center font-15">
+							<label class="i-checks m-b-none"><input type="checkbox" ng-model="row.select" ng-click="choose(row)"><i></i></label>
+						</th>
+						<td width="10%" class="text-center font-15 text-overflow"
+							title="{{row.name}}"  ng-bind="row.name"></td>
+						<td width="20%" class="text-center font-15 text-overflow">
+							<div class="text-center" >
+								<i class="status-dot-style" ng-class="{'1':'dot-8','2':'dot-1','3':'dot-4','4':'dot-9','5':'dot-7','6':'dot-13'}[row.status]"></i>
+								<span class="status-span-style" title="{{statusTypeData[row.status]}}" ng-bind="statusTypeData[row.status]"></span>
+							</div>
+						</td>
+						<td width="25%" class="text-center font-15 text-overflow"
+							title="{{row.ip}}" ng-bind="row.ip"></td>
+						<td width="25%" class="text-center font-15 text-overflow"
+							title="{{row.gmtCreate}}" ng-bind="row.gmtCreate"></td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="2" class="text-left">
+							<div>每页{{itemsByPage}}条，共{{totalCount}}条</div>
+						</td>
+						<td colspan="3" class="text-right">
+							<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7" class="no-margin"></div>
+						</td>
+					</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="submit" class="btn btn-info"  ng-click="ok()">确认</button>
+	<button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bocloud</groupId>
+		<artifactId>bocloud.paas</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bocloud.paas.entity</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>com.bocloud</groupId>
+			<artifactId>bocloud.bre.entity</artifactId>
+		</dependency>
+		<!-- conductor  -->
+		<dependency>
+		    <groupId>com.netflix.conductor</groupId>
+		    <artifactId>conductor-common</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.netflix.conductor</groupId>
+		    <artifactId>conductor-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.bocloud</groupId>
+			<artifactId>bocloud.paas.common</artifactId>
+		</dependency>
+	</dependencies>
+</project>

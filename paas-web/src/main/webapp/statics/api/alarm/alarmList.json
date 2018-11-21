@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "total": "30",
+    "rows": [
+      {
+        "level":"REMIND",
+        "status":"UNCONFIRMED",
+        "host":"192.168.1.175",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "remark": null,
+        "name": "告警1",
+        "occurred":"2016-02-16",
+        "measurement":"CPU",
+        "content":"服务器异常",
+        "id": 6
+      },
+      {
+        "level":"WARN",
+        "status":"CONFIRMED",
+        "host":"192.168.1.175",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "remark": null,
+        "occurred":"2016-02-16",
+        "measurement":"CPU",
+        "content":"服务器自启",
+        "name": "告警2",
+        "id": 7
+      },
+      {
+        "level":"DANGER",
+        "status":"SOLVED",
+        "host":"192.168.1.175",
+        "occurred":"2016-02-16",
+        "measurement":"CPU",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "content":"服务器被盗！！！",
+        "remark": null,
+        "name": "告警3",
+        "id": 8
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

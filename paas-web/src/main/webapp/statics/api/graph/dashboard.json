@@ -1,0 +1,257 @@
+{
+  "success": true,
+  "message": "查询任务详细成功",
+  "data": {
+    "abstracts":{
+      "vmware":{
+        "total":10,
+        "hosts":2,
+        "vms":8
+      },
+      "openstack":{
+        "total":10,
+        "hosts":2,
+        "vms":8
+      },
+      "application":{
+
+      },
+      "alarm":{}
+    },
+    "vmwares":{
+      "hosts":{
+        "keys":["vcenter1","vcenter2","vcenter3","vcenter4","vcenter5"],
+        "values":[
+          {
+            "name":"ONLINE",
+            "data":[10, 12, 15, 14, 10]
+          },{
+            "name":"OFFLINE",
+            "data":[20, 22, 24, 21, 30]
+          },
+          {
+            "name":"ERROR",
+            "data":[20, 12, 5, 34, 20]
+          },
+          {
+            "name":"UNKNOWN",
+            "data":[20, 12, 5, 34, 20]
+          }
+        ]
+      },
+      "vms":{
+        "keys":["vcenter1","vcenter2","vcenter3","vcenter4","vcenter5"],
+        "values":[
+          {
+            "name":"ONLINE",
+            "data":[10, 12, 15, 14, 10]
+          },{
+            "name":"OFFLINE",
+            "data":[20, 22, 24, 21, 30]
+          },
+          {
+            "name":"ERROR",
+            "data":[20, 12, 5, 34, 20]
+          },
+          {
+            "name":"SUSPEND",
+            "data":[20, 12, 5, 34, 20]
+          },
+          {
+            "name":"UNKNOWN",
+            "data":[20, 12, 5, 34, 20]
+          }
+        ]
+      },
+      "cpu":60,
+      "mem":60,
+      "disk":60
+    },
+    "openstacks":{
+      "hosts":[
+        {"value":335, "name":"ONLINE"},
+        {"value":310, "name":"OFFLINE"},
+        {"value":234, "name":"ERROR"}
+      ],
+      "server":[
+        {"value":335, "name":"ONLINE"},
+        {"value":310, "name":"OFFLINE"},
+        {"value":234, "name":"ERROR"}
+      ],
+      "vms":[
+        {"value":335, "name":"ONLINE"},
+        {"value":310, "name":"OFFLINE"},
+        {"value":234, "name":"ERROR"},
+        {"value":234, "name":"SUSPENDED"}
+      ],
+      "cpu":60,
+      "mem":60,
+      "disk":60
+    },
+    "platform":{
+      "status":"NORMAL",
+      "onlines":10,
+      "offlines":12,
+      "errors":52,
+      "instances":120,
+      "tenants":12,
+      "reminds":14,
+      "warns":85,
+      "dangers":2,
+      "alarms":12
+    },
+    "resource":{
+     "centers":10,
+      "rooms":10,
+      "racks":2,
+      "servers":12,
+      "cloudServers":8,
+      "databases":12
+    },
+    "taskTrend":{
+      "keys":["vcenter1","vcenter2","vcenter3","vcenter4","vcenter5"],
+      "values":[
+        {
+          "name":"ONLINE",
+          "data":[10, 12, 15, 14, 10]
+        },{
+          "name":"OFFLINE",
+          "data":[20, 22, 24, 21, 30]
+        },
+        {
+          "name":"ERROR",
+          "data":[20, 12, 5, 34, 20]
+        }
+      ]
+    },
+    "performance":{
+      "keys":["11-01","11-02","11-03","11-04","11-05","11-06","11-07","11-08","11-09","11-10","11-11","11-12","11-13","11-14","11-15","11-16","11-17","11-18","11-19","11-20","11-21","11-22","11-23","11-24","11-25","11-26","11-27","11-28","11-29","11-30","11-31"],
+      "values":[
+        {
+          "name":"CPU",
+          "data":[10, 12, 15, 14, 10, 5, 6,10, 12, 1, 4, 10, 18, 10, 12, 16, 4, 10, 16, 10, 12, 1, 24, 20, 8, 20, 12, 21, 14, 20, 30]
+        },{
+          "name":"ALARM",
+          "data":[20, 22, 24, 21, 30, 30, 10,20, 12, 34, 31, 33, 30, 10,30, 32, 34, 31, 20, 30, 10,20, 12, 24, 11, 30, 25, 10,3,25,10]
+        },
+        {
+          "name":"DISK",
+          "data":[20, 12, 1, 34, 20, 30, 20,20, 32, 61, 34, 20, 90, 20,20, 32, 1, 34, 20, 90, 20,20, 32, 61, 34, 20, 90, 20,15,63,45]
+        },{
+          "name":"MEMORY",
+          "data":[20, 12, 1, 34, 30, 90, 20,80, 32, 61, 34, 20, 90, 30,20, 92, 1, 34, 20, 90, 20,20, 32, 61, 34, 20, 90, 20,15,63,45]
+        }
+      ]
+    },
+    "alarmTrend":{
+      "keys":["11-01","11-02","11-03","11-04","11-05","11-06","11-07","11-08","11-09","11-10","11-11","11-12","11-13","11-14","11-15","11-16","11-17","11-18","11-19","11-20","11-21","11-22","11-23","11-24","11-25","11-26","11-27","11-28","11-29","11-30","11-31"],
+      "values":[
+        {
+          "name":"告警数量",
+          "data":[10, 12, 15, 14, 10, 5, 6,10, 12, 1, 4, 10, 18, 10, 12, 16, 4, 10, 16, 10, 12, 1, 24, 20, 8, 20, 12, 21, 14, 20, 30]
+        }
+      ]
+    },
+    "digit":{
+      "generals":140,
+      "monthTasks":120,
+      "cronTasks":"20",
+      "success":10,
+      "inactives":20,
+      "fails":20,
+      "runs":10,
+      "cancels":10,
+      "actives":10,
+      "pauses":10
+    },
+    "tenantAlarm":{
+      "keys":["租户1","租户2","租户3","租户4","租户5","租户6"],
+      "values":[10, 12, 15, 14, 10, 5]
+    },
+    "distributeResource":[
+      {"value":335, "name":"hostNum"},
+      {"value":310, "name":"hostPowerOnNum"},
+      {"value":234, "name":"hostPowerOffNum"}
+    ],
+    "alarms":[
+      {"value":335, "name":"ONLINE"},
+      {"value":310, "name":"OFFLINE"},
+      {"value":234, "name":"ERROR"}
+    ],
+    "alarm":[
+      {"value":335, "name":"DANGER"},
+      {"value":310, "name":"WARN"}
+    ],
+    "tenantTask":[
+      {"value":335, "name":"租户一"},
+      {"value":310, "name":"租户二"},
+      {"value":234, "name":"租户三"},
+      {"value":135, "name":"租户四"}
+    ],
+    "tenantResource":[
+      {"value":335, "name":"租户一"},
+      {"value":310, "name":"租户二"},
+      {"value":234, "name":"租户三"},
+      {"value":135, "name":"租户四"}
+    ],
+    "result":[
+      {"value":335, "name":"CANCEL"},
+      {"value":310, "name":"RUNNING"},
+      {"value":234, "name":"FAIL"},
+      {"value":135, "name":"SUCCESS"}
+    ],
+    "app":{
+      "creates":15,
+      "runnings":15,
+      "stops":15,
+      "errors":15,
+      "instances":15
+    },
+    "middleware":{
+      "runnings":15,
+      "stops":15,
+      "errors":15,
+      "instances":15
+    },
+    "database":{
+      "runnings":15,
+      "stops":15,
+      "errors":15,
+      "instances":15
+    },
+    "servers":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "storages ":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "routers":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "switchs":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "lbs":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "host":[
+      {"value":11, "name":"onlines"},
+      {"value":0, "name":"offlines"},
+      {"value":0, "name":"errors"},
+      {"value":11, "name":"instances"}
+    ],
+    "server":[
+      {"value":17, "name":"onlines"},
+      {"value":2, "name":"offlines"},
+      {"value":0, "name":"errors"},
+      {"value":0, "name":"instances"}
+    ]
+  },
+  "status": null,
+  "solution": null
+}

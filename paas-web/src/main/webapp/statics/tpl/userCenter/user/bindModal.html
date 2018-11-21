@@ -1,0 +1,96 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+	<p class="modal-title panel-title-size">绑定资源</p>
+</div>
+<div class="modal-body panel-body">
+	<div class="col-md-12 search-box m-b-md">
+		<div class="legend">查询条件</div>
+		<div class="search-content">
+			<div class="form-group" style="width:100%;">
+				<div class="col-lg-12 padding-0">
+					<div class="control-input padding-0" style="padding-left: 25px;width:100%;">
+						<div class="region region-box" style="width:102px;" ng-class="{true:'region-active'}[row.isRegionActive]" ng-click="chooseRegion(row,0)" ng-repeat="row in regionData">
+							<span class="region-txt" ng-bind="row.name"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group" style="width:100%;">
+				<div class="col-lg-12 padding-0" style="padding-left: 25px;width:100%;">
+					<div class="control-input padding-0">
+						<div class="region region-box" style="width:102px;" ng-class="{true:'region-active'}[row.isRegionActive]" ng-click="chooseRegion(row,1)" ng-repeat="row in regionData2">
+							<span class="region-txt" ng-bind="row.name"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group" style="width:100%;">
+				<div class="col-lg-4 padding-0">
+					<label class="col-lg-2 control-label padding-0">IP地址：</label>
+					<div class="col-lg-10 control-input padding-0">
+						<input type="text" class="form-control input-sm" style="width:100%;" name="ip" placeholder="名称" ng-model="ip" placeholder="请输入IP地址" />
+					</div>
+				</div>
+				<div class="col-lg-4 padding-0">
+					<label class="col-lg-2 control-label padding-0">名称：</label>
+					<div class="col-lg-10 control-input padding-0">
+						<input type="text"  class="form-control input-sm" style="width:100%;" name="name" placeholder="名称" ng-model="name" placeholder="请输入名称" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="search-btn">
+			<button class="btn btn-default w-xs m-r" ng-click="getList()"><i class="fa fa-search"></i> 查询</button>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="table-responsive" style="overflow-x: inherit;">
+			<table class="table table-hover b-light m-b-xxs">
+				<thead >
+				<tr>
+					<th width="10%" class="font-15 text-center">
+						<label class="i-checks m-b-none" ng-click="selectAll()"><input type="checkbox" ng-model="isSelectAll"><i></i></label>
+					</th>
+					<th width="20%"  class="font-15 text-center">名称</th>
+					<th width="10%"  class="font-15 text-center">状态</th>
+					<th width="20%"  class="font-15 text-center">IP地址</th>
+					<th width="20%"  class="font-15 text-center">类型</th>
+					<th width="20%"  class="font-15 text-center">型号</th>
+					<!--<th width="10%" >是否共享</th>-->
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="(key,row) in listData">
+					<td width="10%" class="font-15 text-center">
+						<label class="i-checks m-b-none"><input type="checkbox" ng-model="row.isSelected" ng-click="selectItem($event,row)"><i></i></label>
+					</td>
+					<td width="20%" class="font-15 text-center" ng-bind="row.name"></td>
+					<td width="10%" class="font-15 text-center" ng-bind="row.status1"></td>
+					<td width="20%" class="font-15 text-center" ng-bind="row.ip"></td>
+					<td width="20%" class="font-15 text-center" ng-bind="row.category|cn:'category'"></td>
+					<td width="20%" class="font-15 text-center" ng-bind="row.catalog|cn:'catalog'"></td>
+					<!--<td width="10%">-->
+						<!--<label class="i-switch bg-success">-->
+							<!--<input type="checkbox" ng-model="row.shared">-->
+							<!--<i></i>-->
+						<!--</label>-->
+					<!--</td>-->
+				</tr>
+				</tbody>
+			</table>
+			<div class="clearfix">
+				<div class="col-sm-5">
+					<div class="paginationTables_info">共有<span ng-bind="totalPage"></span>条记录，每页显示<span ng-bind="param.rows"></span>条
+					</div>
+				</div>
+				<div class="col-sm-7 text-right m-t">
+					<pagination boundary-links="true" total-items="totalPage" items-per-page="param.rows" max-size="6" ng-model="param.page" ng-change="getList(param.page)" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="submit" class="btn btn-info" ng-click="ok()">确认</button>
+	<button class="btn btn-cancel" ng-click="cancel()">取消</button>
+</div>

@@ -1,0 +1,52 @@
+<table st-table="displayListData" st-safe-src="supplierDetail.tasks" class="table" style="margin-bottom:60px">
+  <thead class="table-header">
+    <tr>
+      <th  width="10%" class="text-center font-15">任务类型</th>
+      <th width="10%" class="text-center font-15">任务引用名</th>
+        <th  width="10%"class="text-center font-15">状态</th>
+       <th  width="10%"class="text-center font-15">调度时间</th>
+      <th width="10%" class="text-center font-15">开始时间</th>
+      <th  width="10%"class="text-center font-15">结束时间</th>
+      <th  width="10%"class="text-center font-15">修改时间</th>
+      <th  width="10%"class="text-center font-15">轮训次数</th>
+      <th  width="10%"class="text-center font-15">回调时间</th>
+      <th  width="10%"class="text-center font-15">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="row in displayListData"      width="5%">
+      <td width="10%" class="text-center font-15 "        title="{{row.taskType}}" ng-bind="row.taskType"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.taskDefName}}" ng-bind="row.taskDefName"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.status}}" ng-bind="row.status"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.scheduledDate}}" ng-bind="row.scheduledDate"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.startDate}}" ng-bind="row.startDate"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.endDate}}" ng-bind="row.endDate"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.updateDate}}" ng-bind="row.updateDate"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.pollCount}}" ng-bind="row.pollCount"></td>
+      <td width="10%" class="text-center font-15 "        title="{{row.callbackAfterSeconds}}" ng-bind="row.callbackAfterSeconds"></td>
+      <td width="10%" class="text-center font-15 "      >
+      
+           <div>
+               <span title="详情" ng-click="Taskdetail(row)"><i class="fa fa-lg fa-info-circle edit_app_c"></i></span>
+                 <span title=" job构建记录" ng-click="Tasklist(row)"><i class="fa  fa-lg fa-clock-o edit_app_a"></i></span>                                                    
+               </div>
+      </td>
+
+      </td>
+    </tr>
+    <tr ng-if="isImageData">
+      <td class="td-nodata" colspan="4"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="3" class="text-left">
+        <div>共{{total}}条，每页{{itemsByPage}}条</div>
+      </td>
+      <td colspan="7" class="text-right">
+        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"
+             class="no-margin"></div>
+      </td>
+    </tr>
+    </tfoot>
+</table>

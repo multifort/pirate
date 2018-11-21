@@ -1,0 +1,89 @@
+<div class="content-byc image-content" ng-controller="networkDetailModalCtrl">
+  <div class="animated update-content" >
+      <div class="wrapper-md">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default" style="padding:0;">
+                      <div class="panel-heading font-bold">
+                          <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                          <span class="p-l-6">详情</span>
+                          <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                              <i class="fa fa-reply icon-font"></i> 返回
+                          </button>
+                      </div>
+                      <div class="panel-detail">
+                          <div class="image-box">
+                            <div class="image-box-h text-center">
+                              <div class=" col-md-1">
+                                <p class="small-box-p"><i class="fa fa-cube"></i></p>
+                              </div>
+                              <div class="text-left-p col-md-10">
+                              <p class="text-left-p col-md-12 padding-td-10">集群</p>
+                                <p class="text-left-p col-md-3 name_len">集群名称：<span title="{{supplierDetail.name}}">{{supplierDetail.name}}</span></p>
+                                <p class="text-left-p col-md-5">集群属性：<span title="{{supplierDetail.name}}">{{supplierDetail.remark}}</span></p>
+                                <p class="text-left-p col-md-4">集群状态：<span title="{{supplierDetail.name}}">{{supplierDetail.remark}}</span></p>
+
+                              </div>
+                              <div class="both">   </div>
+                            </div>
+
+
+                        </div>
+                      </div>
+                      <tabset class="tab-container">
+                        <tab >
+                          <tab-heading>
+                            基本信息
+                          </tab-heading>
+                          <div class="row panel pad-10"data-ng-include="'/statics/tpl/environment/network/basicmessage.html'">
+                          </div>
+                        </tab>
+                        <tab select="test()">
+                          <tab-heading>
+                            资源统计
+                          </tab-heading>
+
+                            <div class="row panel pad-10">
+                              <div class="col-md-12">
+                              <div class="col-md-6" style="height: 300px;">
+                                  <div  style="height: 300px;width:528px" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance" options="options.apply"></div>
+                              </div>
+                              <div class="col-md-6" style="height: 300px;">
+                                  <div  style="height: 300px;width:528px" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance" options="options.apply"></div>
+                              </div>
+                              <div class="col-md-6" style="height: 300px;">
+                                  <div  style="height: 300px;width:528px" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance" options="options.apply"></div>
+                              </div>
+                              <div class="col-md-6" style="height: 300px;">
+                                  <div  style="height: 300px;width:528px" ng-if="performance" ng-apply-pie-line-charts2=""
+                                        data="performance" options="options.apply"></div>
+                              </div>
+                          </div>
+                          </div>
+                        </tab>
+                         <tab ng-controller="networkopenstackModalCtrl"  select="initDetail()" >
+                          <tab-heading>
+                            拓扑
+                          </tab-heading>
+                          <div class="row panel pad-10" data-ng-include="'/statics/tpl/environment/network/openstackmessage.html'">
+                          </div>
+                        </tab>
+                        <tab  ng-controller="networkhistoryModalCtrl" >
+                          <tab-heading>
+                            操作历史
+                          </tab-heading>
+                          <div class="row panel pad-10" data-ng-include="'/statics/tpl/environment/network/historymessage.html'">
+                          </div>
+                        </tab>
+
+                      </tabset>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

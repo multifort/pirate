@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size">添加资源</p>
+</div>
+<div class="modal-body panel-body">
+    <!--<div class="col-md-12 search-box m-b-md">-->
+        <!--<div class="legend">查询条件</div>-->
+        <!--<div class="search-content">-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label">名称：</label>-->
+                <!--<input type="text" class="form-control" ng-model="name" placeholder="请输入名称"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="search-btn">-->
+            <!--<button class="btn btn-primary w-xs m-r" ng-click="getList()"><i class="fa fa-search"></i> 查询</button>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-hover b-light m-b-xxs">
+                <thead >
+                <tr>
+                    <th width="10%" class="text-center">
+                        <label class="i-checks m-b-none" ng-click="selectAll()"><input type="checkbox" ng-model="isSelectAll"><i></i></label>
+                    </th>
+                    <th width="20%" class="text-center">名称</th>
+                    <th width="10%" class="text-center">状态</th>
+                    <th width="20%" class="text-center">IP地址</th>
+                    <th width="20%" class="text-center">类型</th>
+                    <th width="20%" class="text-center">型号</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key,row) in listData">
+                    <td width="10%" class="text-center">
+                        <label class="i-checks m-b-none"><input type="checkbox" ng-model="row.isSelected" ng-click="selectItem($event,row)"><i></i></label>
+                    </td>
+                    <td width="20%" class="text-center" style="max-width:153px;" ng-bind="row.name"></td>
+                    <td width="10%" class="text-center" style="max-width:81px;" ng-bind="row.status"></td>
+                    <td width="20%" class="text-center" style="max-width:153px;" ng-bind="row.ip"></td>
+                    <td width="20%" class="text-center" style="max-width:153px;" ng-bind="row.category|cn:'category'"></td>
+                    <td width="20%" class="text-center" style="max-width:153px;" ng-bind="row.catalog|cn:'catalog'"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="clearfix">
+                <div class="col-sm-5">
+                    <div class="paginationTables_info">共有<span ng-bind="totalPage"></span>条记录，每页显示<span ng-bind="param.rows"></span>条
+                    </div>
+                </div>
+                <div class="col-sm-7 text-right m-t">
+                    <pagination boundary-links="true" total-items="totalPage" items-per-page="param.rows" max-size="6" ng-model="param.page" ng-change="getList(param.page)" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-click="ok()">确认</button>
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+</div>

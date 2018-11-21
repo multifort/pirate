@@ -1,0 +1,100 @@
+<project>
+	<actions />
+	<description />
+	<keepDependencies>false</keepDependencies>
+	<properties>
+		<hudson.model.ParametersDefinitionProperty>
+			<parameterDefinitions>
+				<hudson.model.StringParameterDefinition>
+					<name>output</name>
+					<description />
+					<defaultValue />
+				</hudson.model.StringParameterDefinition>
+			</parameterDefinitions>
+		</hudson.model.ParametersDefinitionProperty>
+	</properties>
+	<scm class="hudson.scm.NullSCM" />
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false
+	</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers />
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<com.cloudbees.dockerpublish.DockerBuilder
+			plugin="docker-build-publish@1.3.2">
+			<server plugin="docker-commons@1.7">
+				<uri>${dockerHostUrl}</uri>
+			</server>
+			<repoName>${imageName}</repoName>
+			<noCache>false</noCache>
+			<forcePull>false</forcePull>
+			<buildContext>$JENKINS_HOME/workspace/$output${dockerfilePath}</buildContext>
+			<skipBuild>false</skipBuild>
+			<skipDecorate>false</skipDecorate>
+			<repoTag>${imageTag}</repoTag>
+			<skipPush>true</skipPush>
+			<createFingerprint>true</createFingerprint>
+			<skipTagLatest>true</skipTagLatest>
+			<buildAdditionalArgs />
+			<forceTag>false</forceTag>
+		</com.cloudbees.dockerpublish.DockerBuilder>
+	</builders>
+	<publishers />
+	<buildWrappers />
+</project>
+{"parameters":
+  [
+    {
+      "value": "构建镜像模版，需要依赖[克隆源码]的组件",
+      "type": "warn",
+      
+    },
+    {
+      "description": "docker主机地址，格式为：unix:///var/run/docker.sock或者http://xxx.xxx.xxx.xxx:2375",
+      "displayName": "docker主机地址",
+      "name": "dockerHostUrl",
+      "value": "",
+      "select": "tcp://192.168.1.72:2375",
+      "type": "String",
+      "required": "true"
+    },
+    {
+      "description": "镜像名称，需要加镜像的命名空间，格式为：library/tomcat",
+      "displayName": "镜像名称",
+      "name": "imageName",
+      "value": "",
+      "select": "zjm/tomcat",
+      "type": "String",
+      "required": "true"
+    },
+    {
+      "description": "镜像的版本",
+      "displayName": "镜像标签",
+      "name": "imageTag",
+      "value": "",
+      "select": "latest",
+      "type": "String",
+      "required": "true"
+    },
+    {
+      "description": "dockerfile相对项目根目录的所在目录，如果是根目录则不需要填，否则格式为[/your_path]",
+      "displayName": "dockerfile地址",
+      "name": "dockerfilePath",
+      "value": "",
+      "select": "",
+      "type": "String",
+      "required": "false"
+    },
+    {
+      "description": "请选择前面克隆任务的输出参数为源码地址",
+      "displayName": "源码地址",
+      "name": "output",
+      "value": "",
+      "select": "",
+      "type": "T_select",
+      "required": "true"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "集群1",
+    "status": "良好",
+    "remark":"北京欢迎你",
+    "category":"swarm",
+    "env":"env",
+    "type":"hah",
+    "gmtCreate":"2015-03-12"
+  }
+}

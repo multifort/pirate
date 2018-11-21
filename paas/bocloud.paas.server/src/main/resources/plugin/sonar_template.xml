@@ -1,0 +1,62 @@
+<project>
+	<actions />
+	<description />
+	<keepDependencies>false</keepDependencies>
+	<properties>
+		<hudson.model.ParametersDefinitionProperty>
+			<parameterDefinitions>
+				<hudson.model.StringParameterDefinition>
+					<name>output</name>
+					<description />
+					<defaultValue />
+				</hudson.model.StringParameterDefinition>
+			</parameterDefinitions>
+		</hudson.model.ParametersDefinitionProperty>
+	</properties>
+	<scm class="hudson.scm.NullSCM" />
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false
+	</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers />
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<hudson.tasks.Shell>
+			<command>cd $JENKINS_HOME/workspace/$output/</command>
+		</hudson.tasks.Shell>
+		<hudson.plugins.sonar.SonarRunnerBuilder
+			plugin="sonar@2.4.4">
+			<project />
+			<properties>sonar.projectKey=$JOB_NAME
+sonar.projectName=$JOB_NAME
+sonar.projectVersion=1.0
+sonar.sources=.
+sonar.language=java
+sonar.scm.disabled=true</properties>
+			<javaOpts />
+			<additionalArguments />
+			<jdk>JDK8</jdk>
+			<task>scan</task>
+		</hudson.plugins.sonar.SonarRunnerBuilder>
+	</builders>
+	<publishers />
+	<buildWrappers />
+</project>
+{"parameters":
+  [
+    {
+	  "value": "代码扫描组件，需要依赖[源码克隆]的组件",
+	  "type": "warn"
+	},
+    {
+      "description": "请选择前面克隆任务的输出参数为源码地址",
+      "displayName": "源码地址",
+      "name": "output",
+      "value": "",
+      "select": "",
+      "type": "T_select",
+      "required": "true"
+    }
+  ]
+}

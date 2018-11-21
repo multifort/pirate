@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "level":"REMIND",
+    "status":"UNCONFIRMED",
+    "ip":"192.168.1.175",
+    "confirmUser":"张海君",
+    "solveUser":"张海君",
+    "remark": "hehhe",
+    "appName":"百度糯米",
+    "record":{
+      "id":1,
+      "successes":2
+    },
+    "config":[
+      {
+        "measurement":"监控项1",
+        "period":120,
+        "fn":"MAX",
+        "thresholds":[{
+          "instance":"监控项1",
+          "sign":">",
+          "remind":"10",
+          "warn":"80",
+          "danger":"90"
+        },{
+          "instance":"监控项2",
+          "sign":"<",
+          "remind":"10",
+          "warn":"80",
+          "danger":"90"
+        }]
+      },
+      {
+        "measurement":"监控项2",
+        "period":120,
+        "fn":"MAX",
+        "thresholds":[{
+          "instance":"监控项1",
+          "sign":"<",
+          "remind":"10",
+          "warn":"80",
+          "danger":"90"
+        },{
+          "instance":"监控项2",
+          "sign":"<",
+          "remind":"10",
+          "warn":"80",
+          "danger":"90"
+        }]
+      }
+    ],
+    "appId":6,
+    "dsId":7,
+    "dsName":"分派一",
+    "gmtCreate":"2016-02-16 12:12:12",
+    "name": "告警策略1",
+    "occurred":"2016-02-16",
+    "measureId":"1",
+    "fn":"AVG",
+    "content":"服务器异常",
+    "id": 6
+  },
+  "status": null,
+  "solution": null
+}

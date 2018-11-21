@@ -1,0 +1,25 @@
+{
+    "success" : true,                    
+    "data" : {
+		"id":2,
+		"name":"分区1",
+		"dataCenterName":"数据中心1",
+		"roomName":"机房1",
+		"gmtCreate":0,
+		"gmtModify":0,
+		"createrId":0,
+		"menderId":0,
+		"ownerId":0,
+		"status":"运行中",
+		"isLocked":0,
+		"moreProp":0,
+		"remark":"dfdgfg",
+		"sn":"12443",
+		"roomId":"1",
+		"dcId":1,
+		"isDeleted":""
+    },
+    "message" : "信息",
+    "code" : 1111,         
+    "solution" : " "        
+}

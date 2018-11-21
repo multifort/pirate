@@ -1,0 +1,24 @@
+{
+  "code":1,
+  "data":{
+    "taskName":"分发文件-2016620105554951",
+    "nodeName":"分发文件-2016620105554951",
+    "account":"root",
+    "serverCount":4,
+    "targetPath":"/tmp/demo/",
+    "fileList":[
+      {
+        "name":"wqw.js",
+        "serverAdd":"本地文件[1KB]",
+        "account":"无"
+      }
+    ],
+    "serverList":[
+      {
+        "IP":"10.104.139.177",
+        "status":"agent正常"
+      }
+    ]
+  },
+  "msg":"heheh"
+}

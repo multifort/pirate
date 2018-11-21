@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <p class="modal-title panel-title-size" ng-bind="modalName"></p>
+</div>
+<div class="modal-body panel-body">
+    <form class="form-horizontal form-validation" name="addvmForm">
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">节点名称：</label>
+                <div class="control-input">
+                    <input type="text" name="name" class="form-control" ng-model="addData.nodeName" validator="required,name" maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">节点标签：</label>
+                <div class="control-input">
+                      <input type="text" name="nodeLabel" class="form-control" ng-model="addData.nodeLabel"  maxlength="64" maxlength-error-message="最多输入64个字符">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                <label class="control-label">节点类型：</label>
+                <div class="control-input">
+                  <select class="form-control ng-pristine ng-valid ng-touched" ng-model="addData.nodeType" >
+                      <option  value=""  class="ng-binding ng-scope">--请选择--</option>
+                      <option value="master" class="ng-binding ng-scope">Master</option>
+                        <option value="node" class="ng-binding ng-scope">Node</option>
+                        </select>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary" validation-submit="addvmForm" ng-disabled="addvmForm.$invalid" ng-click="ok()">确认</button>
+    <button class="btn btn-default" ng-click="cancel()">取消</button>
+</div>

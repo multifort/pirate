@@ -1,0 +1,13 @@
+{
+    "success":true,
+    "message":"查询成功",
+    "data":{
+        "rowNum":6,
+        "name":"z",
+        "colNum":8,
+        "services":[{"id":1,"name":"test"}],
+        "id":49
+    },
+    "status":null,
+    "solution":null
+}

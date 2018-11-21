@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "message": "获取信息成功",
+  "data": {
+    "memory": [
+      {
+        "name": "notRequestMemory",
+        "value": 40
+      },
+      {
+        "name": "requestMemory",
+        "value": 60
+      }
+    ],
+    "app": [
+      {
+        "name": "deploy",
+        "value": 0
+      },
+      {
+        "name": "notDeploy",
+        "value": 0
+      }
+    ],
+    "cpu": [
+      {
+        "name": "notRequestCpu",
+        "value": 11900
+      },
+      {
+        "name": "requestCpu",
+        "value": 100
+      }
+    ]
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

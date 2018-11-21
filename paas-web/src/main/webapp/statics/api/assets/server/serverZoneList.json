@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "data":{
+    "rows": [{
+      "id": 1,
+      "name": "南区",
+      "remark": "good"
+    },{
+      "id": 2,
+      "name": "北区",
+      "remark": "good"
+    },{
+      "id": 3,
+      "name": "西区",
+      "remark": "good"
+    },
+      {
+        "id": 4,
+        "name": "东区",
+        "remark": "good"
+      } ],
+    "total":10
+  }
+}

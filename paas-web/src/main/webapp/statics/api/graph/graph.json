@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "message": "查询任务详细成功",
+  "data": [
+    {
+      "target": 2,
+      "targetName":"host-1",
+      "targetCategory":"Computer",
+      "relation":"Contain"
+    },
+    {
+      "target": 3,
+      "targetName":"host-2",
+      "targetCategory":"Storage",
+      "relation":"Running"
+    },
+    {
+      "target": 4,
+      "targetName":"host-6",
+      "targetCategory":"DB",
+      "relation":"Running"
+    },
+    {
+      "target": 3,
+      "targetName":"host-9",
+      "targetCategory":"Middleware",
+      "relation":"Running"
+    },
+    {
+      "target": 3,
+      "targetName":"host-6",
+      "targetCategory":"LB",
+      "relation":"Running"
+    },
+    {
+      "target": 3,
+      "targetName":"host-12",
+      "targetCategory":"Switch",
+      "relation":"Running"
+    },
+    {
+      "target": 3,
+      "targetName":"host-6",
+      "targetCategory":"LB",
+      "relation":"Running"
+    },
+    {
+      "target": 3,
+      "targetName":"host-6",
+      "targetCategory":"Router",
+      "relation":"Firewall"
+    }
+  ],
+  "status": null,
+  "solution": null
+}

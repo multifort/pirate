@@ -1,0 +1,125 @@
+{
+  "success" : true,
+  "data" :{
+    "rows": [
+      {
+        "id":1,
+        "name": "aa",
+        "ip":"192.168.1.1",
+        "clusterId":"23",
+        "status": "RUNNING",
+        "nodeId":"34",
+        "isManager":true,
+        "isLeader":false,
+        "type":"PM",
+        "port":"1314",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":2,
+        "name": "aa",
+        "status": "RUNNING",
+        "clusterId":"23",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":3,
+        "name": "aa",
+        "status": "RUNNING",
+        "clusterId":"23",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "type":"PM",
+        "port":"1314",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":4,
+        "name": "aa",
+        "clusterId":"23",
+        "status": "STOP",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "type":"PM",
+        "port":"1314",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },  {
+        "id":5,
+        "name": "aa",
+        "clusterId":"23",
+        "status": "RUNNING",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":6,
+        "name": "aa",
+        "clusterId":"23",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "status": "STOP",
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":7,
+        "name": "aa",
+        "clusterId":"23",
+        "status": "RUNNING",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":8,
+        "name": "aa",
+        "clusterId":"23",
+        "nodeId":"34",
+        "isManager":1,
+        "status": "STOP",
+        "isLeader":1,
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":9,
+        "name": "aa",
+        "clusterId":"23",
+        "nodeId":"34",
+        "isManager":true,
+        "status": "RUNNING",
+        "isLeader":true,
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      },{
+        "id":10,
+        "name": "aa",
+        "clusterId":"23",
+        "status": "RUNNING",
+        "nodeId":"34",
+        "isManager":1,
+        "isLeader":1,
+        "type":"swarm",
+        "gmtCreate":"2013-12-23",
+        "createrId":"33"
+      }],
+    "total":30
+  },
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

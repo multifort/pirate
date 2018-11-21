@@ -1,0 +1,48 @@
+{
+  "success" : true,
+  "data" : [
+      {
+        "id":1,
+        "name":"角色名2",
+        "checked":true
+      },{
+      "id":2,
+      "name":"角色名2",
+      "checked":true
+    },{
+      "id":3,
+      "name":"角色名3",
+      "checked":true
+    },{
+      "id":4,
+      "name":"角色名4",
+      "checked":true
+    },{
+      "id":5,
+      "name":"角色名5",
+      "checked":true
+    },{
+      "id":6,
+      "name":"角色名6",
+      "checked":true
+    },{
+      "id":7,
+      "name":"角色名7",
+      "checked":true
+    },{
+      "id":8,
+      "name":"角色名8",
+      "checked":true
+    },{
+      "id":9,
+      "name":"角色名9",
+      "checked":false
+    },{
+      "id":10,
+      "name":"角色名10",
+      "checked":true
+    }],
+  "message" : "信息",
+  "code" : 1111,
+  "solution" : " "
+}

@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "level":"DANGER",
+    "remark": null,
+    "name": "告警3",
+    "id": 8,
+    "gmtCreate":"2016-02-12",
+    "delay":"10",
+    "mode":"EMAIL",
+    "users":[1,2,3,4],
+    "timeperiod":"ANYTIME"
+  },
+  "status": null,
+  "solution": null
+}

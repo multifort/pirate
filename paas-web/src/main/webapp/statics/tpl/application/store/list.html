@@ -1,0 +1,108 @@
+<style>
+    .green{
+        color: #15e606;
+    }
+    .orange{
+        color: #ea7a1d;
+    }
+
+</style>
+<div ng-controller="modulestackCtrl"	class="clearfix script-content content-bycs">
+
+  <div class="wrapper-md" style="padding-top: 0px;">
+
+	<div class="panel panel-default">
+
+        <div class="col-sm-12 search-box search-box-r">
+            <div class=" col-sm-5" style="padding: 0px;">
+                <button class="btn btn-info w-xs m-r" ng-click="add($event)"><i class="fa fa-plus"></i> 上传</button>
+                <!--<button class="btn btn-success w-xs m-r" ng-click="goAction(2)">-->
+                    <!--<i class="fa cube"></i>-->
+                    <!--<span class="">部署</span>-->
+                <!--</button>-->
+            </div>
+            <div class="search-content search-content-r col-sm-7 text-right">
+                <div class=" form-group-38">
+                    <label class="control-label">名称：</label> <input type="name"
+                                                                    ng-model="searchByName" class="form-control hostSearch-form-control input-sm"
+                                                                    placeholder="" aria-controls="DataTables_Table_3">
+                </div>
+                <div class="form-group-17">
+                    <button class="btn btn-primary w-xs" ng-click="search(1)">
+                        <i class="fa fa-search"></i> 查询
+                    </button>
+                </div>
+            </div>
+        </div>
+		<div  ng-show="isListView">
+			<div class="dataTables_wrapper form-inline">
+				<div class="row">
+					<div class="col-sm-12" style="margin-top: -20px;">
+              <div class="list-byc" ng-repeat="(name,item) in countData">
+                <h5 class="console-title">{{name}}</h5>
+                  <ul class="list-ul" >
+                      <li class="list-li w-25"  ng-repeat="(key,row) in item" ng-if="!isImageData">
+                          <div class="list-li-divmodul list-li-div1" ng-class="{true:'border-color',false:'normal-border-color'}[row.isChose]" ng-click="goVm(row.id)">
+                          <div class="name" >
+                        <div >{{row.name}}</div>
+                              <div class="operation" style="right: 26px">
+                             <span ng-click="goAction(1,row)" title="升级"><i class="icon-arrow-up green"></i></span>
+                           <span ng-click="goAction(3,row)" title="下架"><i class="icon-arrow-down orange"></i></span>
+                             </div>
+                          </div>
+                              <div>
+                              <div class="text">
+                                <div class="small-box s-bg-primary bg-primary-img">
+                                  <div class="small-box-h text-center ">
+                                    <p class="small-box-p"> <img style="width:110px" ng-src="{{row.picturPath}}" alt=""></p>
+
+                                  </div>
+                                </div>
+                                <div class="primary-right">
+
+                                  <p>{{row.remark}}</p>
+
+                                </div>
+                              </div>
+                                <div class="both clear"></div>
+                                  <div class="primary-bottom">
+                                      <span style="    float: left;">部署次数：{{row.deployNumber}}</span>
+                                      <button class="btn btn-success btn-sm" ng-click="goAction(2,row)">
+                                          <i class="fa cube"></i>
+                                          <span class="">部署</span>
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+
+                  </ul>
+
+              </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div >
+  <div ng-if="showHistory" ng-hide-detail="" class="animated tab-detail"
+       ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]">
+       <div class="col-md-12" >
+         <div class="panel panel-default" style="padding:0;">
+           <div class="panel-heading font-bold">
+             <span class="p-l-6">历史记录</span>
+           </div>
+           <div class="panel-body pmb-block" style="border:none;">
+             <div class="form-horizontal">
+               <div ng-controller="modelhistoryModalCtrl" class="row panel pad-10"data-ng-include="'/statics/tpl/application/template/historymessage.html'">
+               </div>
+             </div>
+             <div class="detail-go-back" ng-click="goBack()"><i class="fa fa-angle-right"></i></div>
+           </div>
+         </div>
+       </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,68 @@
+
+{
+  "success": true,
+  "message":"查询任务成功",
+  "data":{
+    "status":"RUNNING",
+    "parameters":      [
+      {
+        "description": "persistentvolume的名称",
+        "displayName": "名称",
+        "name": "name",
+        "value": "",
+        "select": "",
+        "type": "String"
+      },
+      {
+        "description":"persistentvolume的注解",
+        "displayName":"注解",
+        "name":"annotations",
+        "select":"",
+        "value": [{"key":"","value":""}],
+        "type":"Map"
+      },
+      {
+        "description":"persistentvolume的标签",
+        "displayName":"标签",
+        "name":"labels",
+        "select":"",
+        "value": [{"key":"","value":""}],
+        "type":"Map"
+      },
+      {
+        "description":"persistentvolume的大小,请输入数字，默认单位为G",
+        "displayName":"容量",
+        "name":"capacity",
+        "value":"",
+        "select":"",
+        "type":"String"
+      },
+      {
+        "description":"persistentvolume的accessModes",
+        "displayName":"访问模式",
+        "name":"access",
+        "select":"",
+        "value": ["ReadWriteOnce","ReadOnlyMany","ReadWriteMany"],
+        "type":"select"
+      },
+      {
+        "description": "persistentvolume的回收策略",
+        "displayName": "回收策略",
+        "name": "policy",
+        "value":["Recycle","Retain"],
+        "select": "",
+        "type": "select"
+      },
+      {
+        "description": "persistentvolume的存储路径",
+        "displayName": "存储路径",
+        "name": "path",
+        "value": "",
+        "select": "",
+        "type": "String"
+      }
+    ]
+
+  },
+  "solution": null
+}

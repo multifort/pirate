@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${name}
+  namespace: ${namespace}
+  labels:
+      cm: ${name} 
+      app: ${appName}
+data:
+  <% for(data in files){ %>
+  ${data.key}: |
+      ${data.value}
+  <% } %>
+  
+  <% for(data in dataMaps){ %>
+  ${data.key}: ${data.value}
+  <% } %>
+  

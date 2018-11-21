@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "total": "30",
+    "rows": [
+      {
+        "level":"ALL",
+        "remark": null,
+        "name": "通知策略1",
+        "id": 6,
+        "timeperiod":"ANYTIME",
+        "delay":"10",
+        "mode":"EMAIL",
+        "gmtCreate":"2016-02-12"
+      },
+      {
+        "level":"DANGER",
+        "remark": null,
+        "name": "告警3",
+        "id": 8,
+        "gmtCreate":"2016-02-12",
+        "delay":"10",
+        "mode":"EMAIL",
+        "timeperiod":"ANYTIME"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

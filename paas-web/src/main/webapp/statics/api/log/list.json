@@ -1,0 +1,135 @@
+{
+  "success": true,
+  "message": "查询成功",
+  "data": {
+    "total": 1425,
+    "pages": 143,
+    "page": 1,
+    "rows": [
+      {
+        "result": "请求处理正常！",
+        "module": "BOC.API",
+        "action": "/res/dc/list",
+        "requestIp": "192.168.1.183",
+        "responseIp": "192.168.1.183",
+        "id": "00158ae2b74d419ba02befb06711df13",
+        "detail": "{\"endpoint\":\"aaa\",\"apiKey\":\"1214546782\",\"sign\":\"5cc9e93520884d1c8a24b696cfe7ae51bcbb311\",\"simple\":\"false\",\"page\":\"1\",\"rows\":\"10\",\"timestamp\":\"1464058637193\"}",
+        "username": "aaa",
+        "gmtCreate": "2016-05-24 10:57:17",
+        "userId": "1214546782",
+        "object": "res"
+      },
+      {
+        "result": "请求处理正常！",
+        "module": "BOC.API",
+        "action": "/conf/dict/children",
+        "requestIp": "192.168.1.129",
+        "responseIp": "192.168.1.183",
+        "id": "00444ad4077b4e61a4f4d501d0fdb324",
+        "detail": "{\"endpoint\":\"aaa\",\"apiKey\":\"1214546782\",\"sign\":\"-10a2c8a0d277d290d6c83c5cc46da3271be6274a\",\"value\":\"TARGET_CATEGORY\",\"timestamp\":\"1463989359385\"}",
+        "username": "aaa",
+        "gmtCreate": "2016-05-23 15:42:39",
+        "userId": "1214546782",
+        "object": "conf"
+      },
+      {
+        "result": "请求处理正常！",
+        "module": "BOC.API",
+        "action": "/mirror/image/1/basic",
+        "requestIp": "192.168.1.129",
+        "id": "00547b156f964d11a98b75de912cf04a",
+        "detail": "{\"endpoint\":\"aaa\",\"apiKey\":\"1214546782\",\"sign\":\"34e735dcde568b7f00c922d9c0b5c88a6ec8933d\",\"timestamp\":\"1463987226130\"}",
+        "username": "aaa",
+        "gmtCreate": "2016-05-23 15:07:06",
+        "userId": "1214546782",
+        "object": "mirror"
+      },
+      {
+        "result": "false",
+        "module": "BOC.WEB",
+        "action": "/mirror/image/detail",
+        "requestIp": "aaa",
+        "id": "006a4da4f14b45a2b4730eaa70b2a6b4",
+        "detail": "params:{\"id\":\"2\",\"timestamp\":1464009841966}|",
+        "username": "admin",
+        "gmtCreate": "2016-05-23 21:24:01",
+        "userId": "1",
+        "object": "mirror"
+      },
+      {
+        "result": "false",
+        "module": "BOC.WEB",
+        "action": "/conf/dict/children",
+        "requestIp": "aaa",
+        "id": "0077fda728604c5a8a3ce8b5db09f61c",
+        "detail": "params:{\"value\":\"TYPE_CATEGORY\",\"timestamp\":1463993605499}|",
+        "username": "admin",
+        "gmtCreate": "2016-05-23 16:53:25",
+        "userId": "1",
+        "object": "conf"
+      },
+      {
+        "result": "请求处理正常！",
+        "module": "BOC.API",
+        "action": "/mirror/image/1/basic",
+        "requestIp": "192.168.1.129",
+        "id": "008071b537e349e4b8ed80a56857368f",
+        "detail": "{\"endpoint\":\"aaa\",\"apiKey\":\"1214546782\",\"sign\":\"-305ac98822b81bf4e70eef0fb323ba22ee4bc8a1\",\"timestamp\":\"1463987336684\"}",
+        "username": "aaa",
+        "gmtCreate": "2016-05-23 15:08:56",
+        "userId": "1214546782",
+        "object": "mirror"
+      },
+      {
+        "result": "非法请求!请求数据被篡改！",
+        "module": "BOC.API",
+        "action": "/log/audit/create",
+        "requestIp": "192.168.1.129",
+        "id": "00873e49c7b64a7bbcb03ddde4c1c70c",
+        "detail": "{\"endpoint\":\"aaa\",\"apiKey\":\"1214546782\",\"sign\":\"76b5397434e6e2d705621766300cf9e6ecac2431\",\"params\":\"{\\\"result\\\":\\\"false\\\",\\\"module\\\":\\\"BOC.WEB\\\",\\\"action\\\":\\\"/res/dc/detail\\\",\\\"requestIp\\\":\\\"aaa\\\",\\\"detail\\\":\\\"params:{\\\\\\\"id\\\\\\\":239,\\\\\\\"timestamp\\\\\\\":1463989353551}|\\\",\\\"id\\\":\\\"33d3d239cbca40dab2da092e14f5aaff\\\",\\\"gmtCreate\\\":1463989353596,\\\"username\\\":\\\"admin\\\",\\\"userId\\\":\\\"1\\\",\\\"object\\\":\\\"res\\\"}\",\"timestamp\":\"1463989355281\"}",
+        "username": "aaa",
+        "gmtCreate": "2016-05-23 15:42:35",
+        "userId": "1214546782",
+        "object": "log"
+      },
+      {
+        "result": "false",
+        "module": "BOC.WEB",
+        "action": "/res/dc/alarms",
+        "requestIp": "aaa",
+        "id": "0097941c2ae844d7965c59fe2907459b",
+        "detail": "params:{\"id\":239,\"timestamp\":1464058342825}|",
+        "username": "admin",
+        "gmtCreate": "2016-05-24 10:52:22",
+        "userId": "1",
+        "object": "res"
+      },
+      {
+        "result": "请求处理正常！",
+        "module": "BOC.API",
+        "action": "/res/dc/239/detail",
+        "requestIp": "192.168.1.183",
+        "id": "00b9bc9966a64c9bb2ceb8a6dbb2f793",
+        "detail": "{\"endpoint\":\"192.168.1.120\",\"apiKey\":\"1214546782\",\"sign\":\"-3fb52f1e0c7fec05225d47d9a473da113d29c28c\",\"timestamp\":\"1464060753266\"}",
+        "username": "192.168.1.120",
+        "gmtCreate": "2016-05-24 11:32:33",
+        "userId": "1214546782",
+        "object": "res"
+      },
+      {
+        "result": "请求处理正常！",
+        "module": "BOC.API",
+        "action": "/mirror/image/2/freeWhs",
+        "requestIp": "192.168.1.129",
+        "id": "00c532c4125b469bb0f39e9bb402918f",
+        "detail": "{\"endpoint\":\"aaa\",\"apiKey\":\"1214546782\",\"sign\":\"6111c9308ea69e9220cf82a615387620d8b2fa4a\",\"simple\":\"true\",\"page\":\"1\",\"rows\":\"16\",\"timestamp\":\"1464004916928\"}",
+        "username": "aaa",
+        "gmtCreate": "2016-05-23 20:01:56",
+        "userId": "1214546782",
+        "object": "mirror"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null
+}

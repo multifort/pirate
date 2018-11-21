@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": {
+    "total": "30",
+    "rows": [
+      {
+        "level":"REMIND",
+        "type":"我也不知道",
+        "host":"192.168.1.175",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "lpName":"test",
+        "remark": null,
+        "name": "数据源1",
+        "gmtCreate":"2016-02-16",
+        "measurement":"CPU",
+        "content":"服务器异常",
+        "id": 6
+      },
+      {
+        "level":"WARN",
+        "type":"CONFIRMED",
+        "host":"192.168.1.175",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "remark": null,
+        "lpName":"test",
+        "gmtCreate":"2016-02-16",
+        "measurement":"CPU",
+        "content":"服务器自启",
+        "name": "数据源2",
+        "id": 7
+      },
+      {
+        "level":"DANGER",
+        "type":"SOLVED",
+        "host":"192.168.1.175",
+        "gmtCreate":"2016-02-16",
+        "measurement":"CPU",
+        "confirmUser":"张海君",
+        "solveUser":"张海君",
+        "lpName":"test",
+        "content":"服务器被盗！！！",
+        "remark": null,
+        "name": "数据源3",
+        "id": 8
+      }
+    ]
+  },
+  "type": null,
+  "solution": null
+}

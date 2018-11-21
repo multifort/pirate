@@ -1,0 +1,62 @@
+<div class="content-byc image-content" ng-controller="openstackDetailModalCtrl">
+    <div class="animated update-content" >
+        <div class="wrapper-md">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default" style="padding:0;">
+                        <div class="panel-heading font-bold">
+                            <!--<i class="fa fa-reply icon-font" aria-hidden="true"></i>-->
+                            <span class="p-l-6">详情</span>
+                            <button class="btn btn-default pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                                <i class="fa fa-reply icon-font"></i> 返回
+                            </button>
+                        </div>
+                      <div class="panel-detail">
+                          <div class="image-box">
+                            <div class="image-box-h text-center">
+                              <div class=" col-md-1">
+                                <p class="small-box-p"><i class="fa fa-cube"></i></p>
+                              </div>
+                              <div class="text-left-p col-md-10">
+                                <p class="text-left-p col-md-4 name_len"><span class="caaa">仓库名称：</span><span title="{{supplierDetail.name}}">{{supplierDetail.name}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">镜像数量：</span><span title="{{supplierDetail.imageSum}}">{{supplierDetail.imageSum}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">仓库类型：</span><span title="{{supplierDetail.type}}">{{supplierDetail.type|image:'count'}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">仓库端口：</span><span title="{{supplierDetail.port}}">{{supplierDetail.port}}</span></p>
+                                  <p class="text-left-p col-md-4"><span class="caaa">创建者名称：</span><span title="{{supplierDetail.creatorName}}">{{supplierDetail.creatorName}}</span></p>
+                                  <p class="text-left-p col-md-4"><span class="caaa">创建时间：</span><span title="{{supplierDetail.gmtCreate}}">{{supplierDetail.gmtCreate}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">仓库地址：</span><span title="{{supplierDetail.address}}">{{supplierDetail.address}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">修改者名称：</span><span title="{{supplierDetail.menderName}}">{{supplierDetail.menderName}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">修改时间：</span><span title="{{supplierDetail.gmtModify}}">{{supplierDetail.gmtModify}}</span></p>
+                                  <p class="text-left-p col-md-4"><span class="caaa">仓库状态：</span><span title="{{supplierDetail.status}}">{{supplierDetail.status|imageStuta:'stuta'}}</span></p>
+                                <p class="text-left-p col-md-4"><span class="caaa">仓库描述：</span><span title="{{supplierDetail.remark}}">{{supplierDetail.remark}}</span></p>
+                              </div>
+                              <div class="both">   </div>
+                            </div>
+
+                          </div>
+                      </div>
+
+                        <tabset class="tab-container">
+                          <!--<tab >
+                            <tab-heading>
+                              基本信息
+                            </tab-heading>
+                            <div class="row panel pad-10"data-ng-include="'/statics/tpl/repository/repository/basicmessage.html'">
+                            </div>
+                          </tab>-->
+                          <tab ng-controller="openstackModalCtrl"  select="getData(1)">
+                            <tab-heading>
+                              镜像列表
+                            </tab-heading>
+                            <div class="row panel pad-10" style="box-shadow: none;" data-ng-include="'/statics/tpl/repository/repository/openstackmessage.html'">
+                            </div>
+                          </tab>
+
+                        </tabset>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

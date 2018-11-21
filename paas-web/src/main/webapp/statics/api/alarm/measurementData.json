@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "message": "查询任务成功",
+  "data": [{
+    "id":1,
+    "value":"CPU",
+    "name":"CPU"
+  },{
+    "id":2,
+    "value":"MEMORY",
+    "name":"内存"
+  },{
+    "id":3,
+    "value":"NETWORK",
+    "name":"网络"
+  }],
+  "status": null,
+  "solution": null
+}

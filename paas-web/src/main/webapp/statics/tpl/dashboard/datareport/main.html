@@ -1,0 +1,34 @@
+<div class="clearfix script-content">
+	<div class="wrapper-md" ng-controller="DataReportGraphCtrl">
+		<tabset class="tab-container">
+			<tab select="selectTab()">
+				<tab-heading class="tab-heading-style">
+					总体报表
+				</tab-heading>
+				<div class="row panel" data-ng-include="'/statics/tpl/graph/datareport/all.html'">
+				</div>
+			</tab>
+			<tab select="selectTab('OPENSTACK')" >
+				<tab-heading class="tab-heading-style">
+					OpenStack报表
+				</tab-heading>
+				<div class="row panel" data-ng-include="'/statics/tpl/graph/datareport/openstack.html'">
+				</div>
+			</tab>
+			<tab select="selectTab('VMWARE')" >
+				<tab-heading class="tab-heading-style">
+					VCenter报表
+				</tab-heading>
+				<div class="row panel" data-ng-include="'/statics/tpl/graph/datareport/vmware.html'">
+				</div>
+			</tab>
+			<!--<tab select="selectTab('APP')"  >-->
+				<!--<tab-heading class="tab-heading-style">-->
+				<!--应用报表-->
+				<!--</tab-heading>-->
+				<!--<div class="row panel" data-ng-include="'/statics/tpl/graph/datareport/app.html'">-->
+				<!--</div>-->
+			<!--</tab>-->
+		</tabset>
+	</div>
+</div>

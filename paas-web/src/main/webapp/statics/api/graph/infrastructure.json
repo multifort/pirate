@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "message": "查询任务详细成功",
+  "data": {
+    "servers":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "storages":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "routers":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "switchs":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ],
+    "lbs":[
+      {"value":335, "name":"ASSIGNED"},
+      {"value":310, "name":"UNASSIGNED"}
+    ]
+  },
+  "status": null,
+  "solution": null
+}

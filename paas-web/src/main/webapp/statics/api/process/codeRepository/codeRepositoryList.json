@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "message": "查询成功",
+  "data": {
+    "page": 1,
+    "pages": 1,
+    "total": 1,
+    "rows": [
+      {
+        "gmtCreate": "2017-10-27 13:56:58",
+        "gmtModify": "2017-10-27 13:56:58",
+        "createrId": 2,
+        "ownerId": 2,
+        "menderId": 2,
+        "name": "test",
+        "status": 1,
+        "deleted": false,
+        "props": null,
+        "remark": "描述",
+        "id": 1,
+        "codeSource":  "eeeeeee",
+        "userName": "zaney",
+        "password": "123456",
+        "type": "私有",
+        "creatorName": "zaney",
+        "menderName": "zaney"
+      },
+      {
+        "gmtCreate": "2017-10-27 13:56:58",
+        "gmtModify": "2017-10-27 13:56:58",
+        "createrId": 2,
+        "ownerId": 2,
+        "menderId": 2,
+        "name": "test",
+        "status": 0,
+        "deleted": false,
+        "props": null,
+        "remark": "描述",
+        "id": 2,
+        "codeSource": "wwwwwwwwww",
+        "userName": "zaney",
+        "password": "123456",
+        "type": "私有",
+        "creatorName": "zaney",
+        "menderName": "zaney"
+      }
+    ]
+  },
+  "status": null,
+  "solution": null,
+  "failed": false
+}

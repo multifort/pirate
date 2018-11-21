@@ -1,0 +1,289 @@
+<div ng-controller="vmAddMainPersonalCtrl">
+    <div class="content-byc image-content" ng-if="type=='VMWARE'" ng-controller="vmAddVmPersonalCtrl">
+        <div class="animated update-content" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]"
+             ng-if="showDetail==1">
+            <div class="wrapper-md">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default" style="padding:0;">
+                            <div class="panel-heading">
+                                <span class="p-l-6">新增虚机</span>
+                                <button class="btn btn-info pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                                    <i class="fa fa-reply icon-font"></i> 返回
+                                </button>
+                            </div>
+
+                            <div class="panel-body pmb-block" style="border:none;">
+                                <div class="form-horizontal">
+                                    <div class="col-md-12 margin-top-12" ng-if="showVmware==1">
+                                        <form class="form-horizontal form-validation" name="addvmVmwareForm">
+                                            <div class="form-group">
+                                                <div class="col-lg-6">
+                                                    <label class="col-md-3 control-label control-label2"><span class="span-red">*</span>虚机名称：</label>
+                                                    <div class="col-md-9 control-input width-74">
+                                                        <input type="text" name="name" class="form-control" placeholder="虚机名称" ng-model="addData.name" validator="required,name" maxlength="64">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6" ng-if="isShowTemplate">
+                                                    <label class="col-md-3 control-label control-label2"><span class="span-red">*</span>虚机模板：</label>
+                                                    <div class="col-md-9 control-input width-74">
+                                                        <select class="form-control" ng-model="addData.templateId">
+                                                            <option value="">--请选择--</option>
+                                                            <option ng-repeat="row in templateList" ng-selected="row.id==addData.templateId" value="{{row.id}}" ng-bind="row.name"></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <label class="col-md-3 control-label control-label2">计算资源：</label>
+                                                    <div class="col-md-9 control-input width-74" style="width:calc(100% - 110px);border: 1px solid #ddd;margin: 0 15px;">
+                                                        <div class="search-content1">
+                                                            <div class="col-lg-12 margin-10" style="padding-left:10px;margin-top:12px;">
+                                                                <label class="col-lg-3 control-label control-label2"><span class="span-red">*</span>数据中心：</label>
+                                                                <div class="col-lg-9 control-input" style="width:calc(100% - 80px);padding:0;">
+                                                                    <div class="region region-box" style="width:110px;" ng-class="{true:'region-active'}[row.isVdcActive]" ng-click="chooseVdc(row)" ng-repeat="row in vdcData">
+                                                                        <span class="region-txt" ng-bind="row.name"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 margin-10" style="padding-left: 10px;">
+                                                                <label class="col-lg-3 control-label control-label2">主机集群：</label>
+                                                                <div class="col-lg-9 control-input" style="width:calc(100% - 80px);padding:0;">
+                                                                    <div class="region region-box" style="width:110px;" ng-class="{true:'region-active'}[row.isClusterActive]" ng-click="chooseCluster(row)" ng-repeat="row in clusterData">
+                                                                        <span class="region-txt" ng-bind="row.name"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 margin-10" style="padding-left: 10px;">
+                                                                <label class="col-lg-3 control-label control-label2"><span class="span-red">*</span>目标主机：</label>
+                                                                <div class="col-lg-9 control-input" style="width:calc(100% - 80px);padding:0;">
+                                                                    <div class="region region-box" style="width:110px;" ng-class="{true:'region-active'}[row.isVhostActive]" ng-click="chooseVhost(row)" ng-repeat="row in vhostData">
+                                                                        <span class="region-txt" ng-bind="row.name"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <label class="col-md-3 control-label control-label2">存储资源：</label>
+                                                    <div class="col-md-9 control-input width-74" style="width:calc(100% - 110px);border: 1px solid #ddd;margin: 0 15px;">
+                                                        <div class="search-content1">
+                                                            <div class="col-lg-12 margin-10" style="padding-left:10px;margin-top:12px;">
+                                                                <label class="col-lg-3 control-label control-label2"><span class="span-red">*</span>数据存储：</label>
+                                                                <div class="col-lg-9 control-input" style="width:calc(100% - 80px);padding:0;">
+                                                                    <div class="region region-box" style="width:110px;" ng-class="{true:'region-active'}[row.isDatastoreActive]" ng-click="chooseDatastore(row)" ng-repeat="row in datastoreData">
+                                                                        <span class="region-txt" ng-bind="row.name"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-lg-6" style="margin-top:10px;">
+                                                                    <label class="col-lg-3 control-label control-label2" style="margin-left: 0px;"><span class="span-red">*</span>cpu大小：</label>
+                                                                    <div class="col-lg-8 control-input" style="padding: 0;">
+                                                                        <input type="text" name="cpu" class="form-control" ng-model="addData.cpu" validator="required,positiveNumber" ng-change="check(0,addData.cpu,0,32)">
+                                                                    </div>
+                                                                    <div class="col-lg-1" style="margin-left: -10px;"><span class="sup" style="">核</span></div>
+                                                                </div>
+                                                                <div class="col-lg-6" style="margin-top:10px;">
+                                                                    <label class="col-lg-3 control-label control-label2" style="margin-left: 0px;"><span class="span-red">*</span>内存大小：</label>
+                                                                    <div class="col-lg-8 control-input" style="padding: 0;">
+                                                                        <input type="text" name="memory" class="form-control" ng-model="addData.memory" validator="required,positiveNumber" ng-change="check(1,addData.memory,0,32768)">
+                                                                    </div>
+                                                                    <div class="col-lg-1" style="margin-left: -10px;"><span class="sup" style="">MB</span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-lg-6" style="margin-top:10px;">
+                                                                    <label class="col-lg-3 control-label control-label2" style="margin-left: 0px;"><span class="span-red">*</span>磁盘大小：</label>
+                                                                    <div class="col-lg-8 control-input" style="padding: 0;">
+                                                                        <input type="text" name="disk" class="form-control" ng-model="addData.disk" validator="required,positiveNumber" ng-change="check(2,addData.disk,0,1024)">
+                                                                    </div>
+                                                                    <div class="col-lg-1" style="margin-left: -10px;"><span class="sup" style="">G</span></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!--<div class="form-group" style="padding-left: 10px;">-->
+                                                            <!--<div class="col-lg-6" style="margin-top:10px;">-->
+                                                            <!--<label class="col-md-3 control-label control-label2"><span class="span-red">*</span>磁盘格式：</label>-->
+                                                            <!--<div class="col-md-9 control-input width-74" style="padding: 0;">-->
+                                                            <!--<select class="form-control" ng-model="addData.diskId">-->
+                                                            <!--<option value="">&#45;&#45;请选择&#45;&#45;</option>-->
+                                                            <!--<option ng-repeat="row in diskForList" ng-selected="row.id==addData.diskId" value="{{row.id}}" ng-bind="row.name"></option>-->
+                                                            <!--</select>-->
+                                                            <!--</div>-->
+                                                            <!--</div>-->
+                                                            <!--<div class="col-lg-6" style="margin-top:10px;">-->
+                                                            <!--<label class="col-md-3 control-label control-label2"><span class="span-red">*</span>存储策略：</label>-->
+                                                            <!--<div class="col-md-9 control-input width-74" style="padding: 0;">-->
+                                                            <!--<select class="form-control" ng-model="addData.storageId">-->
+                                                            <!--<option value="">&#45;&#45;请选择&#45;&#45;</option>-->
+                                                            <!--<option ng-repeat="row in storageList" ng-selected="row.id==addData.storageId" value="{{row.id}}" ng-bind="row.name"></option>-->
+                                                            <!--</select>-->
+                                                            <!--</div>-->
+                                                            <!--</div>-->
+                                                            <!--</div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="col-md-12" style="margin:10px 0;">
+                                            <div class="col-md-6"><button type="submit" class="btn btn-primary" style="width:95%;height:35px;margin-bottom:15px;" validation-submit="addvmVmwareForm" ng-disabled="addvmVmwareForm.$invalid||isLoadingActive" ng-click="ok()">创建</button></div>
+                                            <div class="col-md-6"><button class="btn btn-default" style="width:95%;height:35px;margin-bottom:15px;" ng-click="cancel()">取消</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-byc image-content" ng-if="type=='OPENSTACK'"ng-controller="vmAddOpPersonalCtrl">
+        <div class="animated update-content" ng-class="{true:'bounceInRight',false:'bounceOutRight'}[isActive]"
+             ng-if="showDetail==1">
+            <div class="wrapper-md">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default" style="padding:0;">
+                            <div class="panel-heading">
+                                <span class="p-l-6">新增虚机</span>
+                                <button class="btn btn-info pull-right" style="margin-top: -7px;" ng-click="goBack()" tabindex="0">
+                                    <i class="fa fa-reply icon-font"></i> 返回
+                                </button>
+                            </div>
+                            <div class="panel-body pmb-block" style="border:none;">
+                                <div class="form-horizontal">
+                                    <div class="col-md-12 margin-top-12" ng-if="showOpenstack==1">
+                                        <form class="form-horizontal form-validation" name="addvmOpenstackForm">
+                                            <div class="form-group">
+                                                <div class="col-lg-12 margin-10" style="padding-left: 10px;">
+                                                    <label class="col-lg-3 control-label control-label2"><span class="span-red">*</span>可用区域：</label>
+                                                    <div class="col-lg-9 control-input" style="width:calc(100% - 80px);padding:0;">
+                                                        <div class="region region-box" style="width:118px;" ng-class="{true:'region-active'}[row.isRegionActive]" ng-click="chooseRegion1(row)" ng-repeat="row in regionData">
+                                                            <span class="region-txt" ng-bind="row.name"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 search-box m-b-md" style="float:none;">
+                                                <div class="legend">平台选择</div>
+                                                <div class="search-content1">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-6">
+                                                            <label class="control-label control-label2"><span class="span-red">*</span>主机名称：</label>
+                                                            <div class="control-input width-74">
+                                                                <input type="text" name="name" class="form-control" placeholder="主机名称" ng-model="addData.name" validator="required,name" maxlength="64">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 search-box m-b-md" style="float:none;">
+                                                <div class="legend">基本信息</div>
+                                                <div class="search-content1">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-6">
+                                                            <label class="control-label">管理账号：</label>
+                                                            <div class="control-input width-74">
+                                                                <input type="text" name="account" class="form-control" placeholder="账号" ng-model="account" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <label class="control-label control-label2"><span class="span-red">*</span>管理密码：</label>
+                                                            <div class="control-input width-74">
+                                                                <input class="form-control" name="password" placeholder="密码" validator="required" maxlength="18" ng-model="addData.password" type="{{showPass_os?'text':'password'}}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 search-box m-b-md" style="float:none;">
+                                                <div class="legend">配置信息</div>
+                                                <div class="search-content1">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-6 input-style">
+                                                            <label class="control-label control-label2"><span class="span-red">*</span>镜像：</label>
+                                                            <div class="control-input width-74">
+                                                                <select class="form-control" ng-model="addData.imageId" ng-change="selectImage()">
+                                                                    <option value="">--请选择--</option>
+                                                                    <option ng-repeat="row in imageList" ng-selected="row.value==addData.imageId" value="{{row.value}}" ng-bind="row.name"></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12 margin-10" style="padding-right:15px;padding-left:10px;">
+                                                            <label class="col-lg-3 control-label control-label2" style="padding:0;"><span class="span-red">*</span>网络：</label>
+                                                            <div class="col-lg-9 control-input" style="width:calc(100% - 85px);padding: 0 10px;">
+                                                                <div class="region region-box" style="width:110px;" ng-class="{true:'region-active'}[row.isNetworkActive]" ng-click="chooseNetwork(row,$index)" ng-repeat="row in networkList">
+                                                                    <span class="region-txt" ng-bind="row.name"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 search-box m-b-md" style="float:none;">
+                                                <div class="legend">安全配置</div>
+                                                <div class="search-content1">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12 input-style">
+                                                            <label class="control-label control-label2"><span class="span-red">*</span>配置实例：</label>
+                                                            <div class="control-input width-74">
+                                                                <select class="form-control" ng-model="sizeId" ng-change="selectSize(sizeId)">
+                                                                    <option value="">--请选择--</option>
+                                                                    <option ng-repeat="row in sizeList" ng-selected="row==sizeId" value="{{row}}" ng-bind="row.name"></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 input-style" >
+                                                            <label class="col-lg-3 control-label line-height-54">CPU核数：</label>
+                                                            <div class="col-lg-9 control-input">
+                                                                <rzslider rz-slider-model="slider.value"
+                                                                          rz-slider-options="slider.options"></rzslider>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 input-style">
+                                                            <label class="col-lg-3 control-label line-height-54">内存大小：</label>
+                                                            <div class="col-lg-9 control-input">
+                                                                <rzslider rz-slider-model="slider1.value"
+                                                                          rz-slider-options="slider1.options"></rzslider>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 input-style">
+                                                            <label class="control-label">磁盘大小：</label>
+                                                            <div class="control-input width-74">
+                                                                <input type="text" name="disk" class="form-control disk-input" placeholder="磁盘大小" ng-model="disk" readonly/>
+                                                                <span class="sup" style="">G</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 input-style">
+                                                            <label class="control-label">主机描述：</label>
+                                                            <div class="control-input width-74">
+                                                                <textarea class="form-control" name="remark" placeholder="主机描述" ng-model="addData.remark" maxlength="256" maxlength-error-message="最多输入256个字符"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="col-md-12" style="margin:10px 0;">
+                                            <div class="col-md-6"><button type="submit" class="btn btn-primary" style="width:95%;height:35px;margin-bottom:15px;" validation-submit="addvmOpenstackForm" ng-disabled="addvmOpenstackForm.$invalid||isLoadingActive" ng-click="ok()">确认</button></div>
+                                            <div class="col-md-6"><button class="btn btn-default" style="width:95%;height:35px;margin-bottom:15px;" ng-click="cancel()">取消</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

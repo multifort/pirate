@@ -1,0 +1,253 @@
+apiVersion: v1
+kind: List
+items: 
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: rabbitmq
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+
+- kind: Role
+  apiVersion: rbac.authorization.k8s.io/v1beta1
+  metadata:
+    name: rabbitmq
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+  rules:
+    - apiGroups:
+        - ""
+      resources:
+        - endpoints
+      verbs:
+        - get
+
+- kind: RoleBinding
+  apiVersion: rbac.authorization.k8s.io/v1beta1
+  metadata:
+    name: rabbitmq
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    <% if(APPLICATION_NAME != null) { %>
+    name: application-${APPLICATION_NAME}
+    <% } else { %>
+    name: application-store
+    <% } %>
+  subjects:
+  - kind: ServiceAccount
+    name: rabbitmq
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: ${NAME}-management
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+    labels:
+      app: ${NAME}
+  spec:
+    <% if(NODE_TYPE != null){ %>
+    type: NodePort
+    <% } %>
+    ports:
+      <% if(ports != null){ %> 
+      <% for(port in ports){ %>
+      - port: ${port.port}
+        nodePort: ${port.nodePort}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+      <% } %>
+      <% } %>
+      <% if(nodePorts != null){ %>   
+      <% for(port in nodePorts){ %>
+      - port: ${port.port}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+      <% } %>
+      <% } %>
+      <% for(var i = 0; i < containerPorts.~size; i++){ %>
+      - port: ${containerPorts[i].key}
+        targetPort: ${containerPorts[i].key}
+        protocol: ${containerPorts[i].value}
+        name: http-${i}
+      <% } %>
+    selector:
+      app: ${NAME}
+    type: NodePort
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: ${NAME}
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+    labels:
+      app: ${NAME}
+  spec:
+    clusterIP: None
+    ports:
+    - port: 5672
+      name: amqp
+    selector:
+      app: ${NAME}
+
+- apiVersion: apps/v1beta1
+  kind: StatefulSet
+  metadata:
+    name: ${NAME}
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    <% } %>
+  spec:
+    serviceName: ${NAME}
+    replicas: 3
+    template:
+      metadata:
+        labels:
+          app: ${NAME}
+      spec:
+        serviceAccountName: rabbitmq
+        containers:
+        - name: ${NAME}
+          image: 139.219.239.226/library/rabbitmq:3.6.11
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              <% if (LIMITS_CPU != null) { %>
+              cpu: ${LIMITS_CPU}
+              <% } %>
+              <% if (LIMITS_MEMORY != null) { %>
+              memory: ${LIMITS_MEMORY}
+              <% } %>
+            requests:
+              <% if (REQUESTS_CPU != null) { %>
+              cpu: ${REQUESTS_CPU}
+              <% } %>
+              <% if (REQUESTS_MEMORY != null) { %>
+              memory: ${REQUESTS_MEMORY}
+              <% } %>
+          ports:
+          - containerPort: 5672
+            name: amqp
+          env:
+            - name: RABBITMQ_VM_MEMORY_HIGH_WATERMARK
+              value: "0.9"
+            - name: RABBITMQ_DEFAULT_USER
+              value: rabbituser
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: devsecret
+                  key: rabbitDefaultPass
+            - name: RABBITMQ_ERLANG_COOKIE
+              valueFrom:
+                secretKeyRef:
+                  name: devsecret
+                  key: rabbitmqErlangCookie
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: K8S_SERVICE_NAME
+              value: "rabbitmq"
+            - name: RABBITMQ_USE_LONGNAME
+              value: "true"
+            - name: RABBITMQ_NODENAME
+              value: "rabbit@$(MY_POD_NAME).$(K8S_SERVICE_NAME)"
+            - name: RABBITMQ_NODE_TYPE
+              value: disc
+            - name: AUTOCLUSTER_TYPE
+              value: "k8s"
+            - name: AUTOCLUSTER_DELAY
+              value: "10"
+            - name: AUTOCLUSTER_CLEANUP
+              value: "true"
+            - name: CLEANUP_WARN_ONLY
+              value: "false"
+            - name: K8S_ADDRESS_TYPE
+              value: "hostname"
+            - name: K8S_HOSTNAME_SUFFIX
+              value: ".$(K8S_SERVICE_NAME)"
+          volumeMounts:
+          - name: rabbitmq-volume
+            mountPath: /var/lib/rabbitmq
+    volumeClaimTemplates:
+    - metadata:
+        name: rabbitmq-volume
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: ${storage}
+
+{"parameters":
+  [
+    {
+      "description": "组件名称",
+      "displayName": "名称",
+      "name": "NAME",
+      "value": "",
+      "select": "",
+      "type": "String",
+      "required": "true",
+      "event": "onblur"
+    },
+    {
+      "description": "资源配置",
+      "displayName": "修改资源会重新启动所有该组件下的实例",
+      "name": "RESOURCE",
+      "value": "",
+      "select": "",
+      "type": "Resource",
+      "required": "false"
+    },
+    {
+      "description": "外部挂载存储卷大小",
+      "displayName": "挂载存储卷大小",
+      "name": "storage",
+      "value": "",
+      "select": "1",
+      "type": "Number",
+      "unit": ["M","G","Mi","Gi"],
+      "defaultUnit": "G",
+      "required": "true",
+      "display": "true"
+    },
+    {
+      "description": "端口信息",
+      "displayName": "端口信息",
+      "name": "PORT",
+      "value": "",
+      "select": "",
+      "type": "Ports",
+      "required": "false"
+    }
+  ]}

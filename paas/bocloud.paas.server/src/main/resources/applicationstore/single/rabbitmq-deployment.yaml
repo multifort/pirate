@@ -1,0 +1,130 @@
+apiVersion: v1
+kind: List
+items:
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: ${NAME}
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    labels: 
+      svc: ${NAME} 
+      app: ${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    labels: 
+      svc: ${NAME}
+      app: store
+    <% } %>
+  spec:
+    <% if(NODE_TYPE != null){ %>
+    type: NodePort
+    <% } %>
+    ports:
+    <% if(ports != null){ %> 
+      <% for(port in ports){ %>
+      - port: ${port.port}
+        nodePort: ${port.nodePort}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+      <% } %>
+      <% } %>
+      <% if(nodePorts != null){ %>   
+      <% for(port in nodePorts){ %>
+      - port: ${port.port}
+        targetPort: ${port.targetPort}
+        protocol: ${port.protocol}
+        name: http-${port.targetPort}
+      <% } %>
+      <% } %>
+    <% for(var i = 0; i < containerPorts.~size; i++){ %>
+      - port: ${containerPorts[i].key}
+        targetPort: ${containerPorts[i].key}
+        protocol: ${containerPorts[i].value}
+        name: http-${i}
+     <% } %>
+    selector:
+      svc: ${NAME}
+      <% if(APPLICATION_NAME !=  null) { %>
+      app: ${APPLICATION_NAME}
+      <% } %>
+
+- kind: Deployment
+  apiVersion: extensions/v1beta1
+  metadata:
+    name: ${NAME}
+    <% if(APPLICATION_NAME != null) { %>
+    namespace: application-${APPLICATION_NAME}
+    labels: 
+      svc: ${NAME}
+      app: ${APPLICATION_NAME}
+    <% } else { %>
+    namespace: application-store
+    labels: 
+      svc: ${NAME}
+      app: store
+    <% } %>
+  spec:
+    replicas: 1
+    template:
+      metadata:
+        labels:
+          svc: ${NAME}
+          <% if(APPLICATION_NAME !=  null) { %>
+          app: ${APPLICATION_NAME}
+          <% } %>
+      spec:
+        containers:
+          - name: ${NAME}
+            image: 139.219.239.226/library/rabbitmq:3-management
+            ports:
+              - containerPort: 5672
+                protocol: TCP
+            resources:
+              limits:
+                <% if (LIMITS_CPU != null) { %>
+                cpu: ${LIMITS_CPU}
+                <% } %>
+                <% if (LIMITS_MEMORY != null) { %>
+                memory: ${LIMITS_MEMORY}
+                <% } %>
+              requests:
+                <% if (REQUESTS_CPU != null) { %>
+                cpu: ${REQUESTS_CPU}
+                <% } %>
+                <% if (REQUESTS_MEMORY != null) { %>
+                memory: ${REQUESTS_MEMORY}
+                <% } %>
+            imagePullPolicy: IfNotPresent
+
+{"parameters":
+  [
+    {
+      "description": "组件名称",
+      "displayName": "名称",
+      "name": "NAME",
+      "value": "",
+      "select": "",
+      "type": "String",
+      "required": "true"
+    },
+    {
+      "description": "资源配置",
+      "displayName": "修改资源会重新启动所有该组件下的实例",
+      "name": "RESOURCE",
+      "value": "",
+      "select": "",
+      "type": "Resource",
+      "required": "false"
+    },
+    {
+      "description": "端口信息",
+      "displayName": "端口信息",
+      "name": "PORT",
+      "value": "",
+      "select": "",
+      "type": "Ports",
+      "required": "false"
+    }
+  ]}
