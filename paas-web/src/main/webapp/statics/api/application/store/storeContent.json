@@ -1,6 +1,0 @@
-{
-  "success": true,
-  "failed": false,
-  "message": "读取文件成功。",
-  "data": "apiVersion: v1 kind: List items: - kind: Service apiVersion: v1 metadata: name: gitlab namespace: application-store labels: name: gitlab annotations: tenxcloud.com/schemaPortname: 'gitlab-1/TCP,gitlab-2/HTTP,gitlab-3/HTTP' spec: ports: - name: gitlab-1 protocol: TCP port: 22 targetPort: 22 - name: gitlab-2 protocol: TCP port: 443 targetPort: 443 - name: gitlab-3 protocol: TCP port: 80 targetPort: 80 selector: name: gitlab - kind: Deployment apiVersion: extensions/v1beta1 metadata: name: gitlab namespace: application-store labels: name: gitlab spec: replicas: 1 selector: matchLabels: name: gitlab template: metadata: labels: name: gitlab spec: containers: - name: gitlab image: '139.219.239.226/gitlab/gitlab-ce:9.3.2-ce.0' ports: - containerPort: 22 protocol: TCP - containerPort: 443 protocol: TCP - containerPort: 80 protocol: TCP env: - name: PATH value: >- /opt/gitlab/embedded/bin:/opt/gitlab/bin:/assets:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin - name: TERM value: xterm resources: limits: memory: 2048Mi requests: cpu: 250m memory: 2048Mi imagePullPolicy: IfNotPresent "
-}

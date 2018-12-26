@@ -1,7 +1,0 @@
-<% for(var i = 0; i < contents.~size; i++){ %>
-<% if(i == 0){ %>
-${contents[i]}
-<% } else {%>
-      ${contents[i]}
-<% } %>
-<% } %>

@@ -1,0 +1,9 @@
+server:
+  port: 8089
+spring:
+  cloud:
+    consul:
+      host: "10.20.1.180"
+      port: "32769"
+  application:
+    name: pirate-register

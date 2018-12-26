@@ -1,5 +1,0 @@
-<% if(APPLICATION_NAME !=  null) { %>
-      app: ${APPLICATION_NAME}
-      <% } else {%>
-      app: store
-      <% } %>
