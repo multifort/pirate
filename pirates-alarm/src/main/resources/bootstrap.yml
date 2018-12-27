@@ -1,0 +1,9 @@
+server:
+  port: 9099
+spring:
+  application:
+    name: pirates-alarm
+  cloud:
+    consul:
+      host: 10.20.1.180
+      port: 32769

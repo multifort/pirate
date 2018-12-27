@@ -1,0 +1,9 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: pirates-resource
+  cloud:
+    consul:
+      host: 10.20.1.180
+      port: 32769

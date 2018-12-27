@@ -1,9 +1,0 @@
-server:
-  port: 8082
-spring:
-  application:
-    name: pirates-consumer
-  cloud:
-    consul:
-      host: 10.20.1.180
-      port: 32769

@@ -1,0 +1,9 @@
+server:
+  port: 9101
+spring:
+  application:
+    name: pirates-user
+  cloud:
+    consul:
+      host: 10.20.1.180
+      port: 32769
