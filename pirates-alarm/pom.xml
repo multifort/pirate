@@ -2,21 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!--parent dependencies config-->
     <parent>
         <groupId>pirates</groupId>
         <artifactId>pirates-dependencies</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+    <!--pirates alarm basic message config-->
     <artifactId>pirates-alarm</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>pirates-alarm</name>
     <description>Pirates alarm module</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
+    <!--pirates alarm dependencies config-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,10 +41,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-all</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>pirates</groupId>-->
-            <!--<artifactId>pirates-common</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>pirates</groupId>
+            <artifactId>pirates-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

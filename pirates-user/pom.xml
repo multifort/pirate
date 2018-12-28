@@ -43,6 +43,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-all</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>pirates</groupId>
+			<artifactId>pirates-common</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
