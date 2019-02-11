@@ -9,7 +9,7 @@ spring:
       port: 32769
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    url: jdbc:mysql://localhost:3306/pirates?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
     username: root
     password: multifort
   jpa:
