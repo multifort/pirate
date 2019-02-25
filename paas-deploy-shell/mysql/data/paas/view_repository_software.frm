@@ -1,0 +1,15 @@
+TYPE=VIEW
+query=select `paas`.`image`.`dept_id` AS `tenant_id` from `paas`.`image`
+md5=66f49f6bc33bc814b5e0d76303f47fa4
+updatable=1
+algorithm=0
+definer_user=root
+definer_host=%
+suid=1
+with_check_option=0
+timestamp=2017-11-30 08:21:22
+create-version=1
+source=select `image`.`dept_id` AS `tenant_id` from `image`
+client_cs_name=utf8
+connection_cl_name=utf8_general_ci
+view_body_utf8=select `paas`.`image`.`dept_id` AS `tenant_id` from `paas`.`image`

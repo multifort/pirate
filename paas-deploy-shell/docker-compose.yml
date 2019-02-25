@@ -1,0 +1,96 @@
+version: '2'
+services:
+
+    elasticsearch:
+        image: elasticsearch:2.4
+        container_name: paas-elasticsearch-01
+        env_file:
+            - ./.env
+        ports:
+            - 9300:9300
+            - 9200:9200
+        networks:
+            bocloud-net:
+                aliases:
+                    - es
+
+    rabbitmq:
+        image: rabbitmq:3.6-management-alpine
+        container_name: paas-rabbitmq-01
+        env_file:
+            - ./.env
+        ports:
+            - 15672:15672
+            - ${RABBITMY_PORT}:5672
+        networks:
+            bocloud-net:
+                aliases:
+                    - rabbitmq
+
+    mysql:
+        image: mysql:5.6
+        container_name: paas-mysql-01
+        env_file:
+            - ./.env
+        volumes:
+            - ./mysql/mysql-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+            - ./mysql/paas.cnf:/etc/mysql/mysql.conf.d/paas.cnf
+            - ./mysql/data/:/var/lib/mysql/
+        ports:
+            - ${MYSQL_PORT}:3306
+        networks:
+            bocloud-net:
+                aliases:
+                    - mysql
+
+    zookeeper:
+        image: zookeeper:latest
+        container_name: paas-zookeeper-01
+        env_file:
+            - ./.env
+        ports:
+            - ${ZOOKEEPER_PORT}:2181
+        networks:
+            bocloud-net:
+                aliases:
+                    - zookeeper
+
+    paas-server:
+        image: paas-server:3.16
+        container_name: paas-server-01
+        env_file:
+            - ./.env
+        volumes:
+            - /tmp/data:/tmp/data
+            - /data/application:/tmp/application_store
+        ports:
+            - ${SERVER_PORT}:8080
+        networks:
+            bocloud-net:
+                aliases:
+                    - paas-server
+
+    paas-web:
+        image: paas-web:3.16
+        container_name: paas-web-01
+        env_file:
+            - ./.env
+        volumes:
+            - /tmp/data:/tmp/data
+            - /data/application:/tmp/application_store
+        ports:
+            - ${WEB_PORT}:8080
+        networks:
+            bocloud-net:
+                aliases:
+                    - paas-web
+
+networks:
+    bocloud-net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 10.10.1.0/24
+
+
